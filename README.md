@@ -7,4 +7,6 @@ Source for the course webpage
 
 To update the website use
 
+`jupyter-book build ../phys645`
+
 `ghp-import -n -p -f _build/html`
