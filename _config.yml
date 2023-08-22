@@ -3,6 +3,7 @@
 
 title: PHYS 512 Computational Physics with Applications
 author: Andrew Cumming
+copyright: "2023"
 #logo: logo.png
 
 # Force re-execution of notebooks on each build.
