@@ -60,7 +60,7 @@ There is no required textbook for the course, but an excellent Python-based book
 Other books you could look at are:
 
 - [Computational Physics](http://www-personal.umich.edu/~mejn/cp/) by Mark Newman. Also an excellent Python-based book. It is only available in paper format from the library, but I've linked to the book website which has some sample chapters that you can look at.
-- [An Introduction to Computational Physics](https://mcgill.on.worldcat.org/search/detail/63814390?queryString=tao%20pang%20computational&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Tao Pang (the link is to the McGill library ebook). Excellent coverage of the topics in this course, with code samples in Fortran.
+- [An Introduction to Computational Physics](https://mcgill.on.worldcat.org/search/detail/63814390?queryString=tao%20pang%20computational&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Tao Pang (the link is to the McGill library ebook). Excellent coverage of the topics in this course, with code samples in Fortran/Java.
 - [Computational Physics](https://www.physics.purdue.edu/~hisao/book/) by Giordano and Nakanishi. An interesting book that is organized by physics topic rather than numerical method.
 - [Numerical Recipes: The Art of Scientific Computing](http://numerical.recipes/book.html) by Press, Teukolsky, Vetterling and Flannery. The classic book on numerical methods with really good explanations. The downside is that the C/Fortran code comes with a very restrictive license. Available to read online (although with annoying popups unless you purchase a license).
 
@@ -85,7 +85,7 @@ Here are some other useful links:
 Your grade will be based on 
 
 - Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. 
-- Project (30%). The project component will involve developing a code to investigate a physics problem of interest to the student. The project will be due at the end of term. More information will be provided in the first week of classes.
+- Project (30%). In teams of 2-3 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by mid-October, and the project will be due at the end of term. More information and suggestions for topics will be provided in the first week of classes.
 - Take-home final exam (40%). The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
 
 Lecture notes and assignments will be made available through this website. Homework and project submissions will be through each students private Github repository. Grades will be distributed in myCourses.
