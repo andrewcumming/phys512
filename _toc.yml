@@ -3,5 +3,8 @@
 
 format: jb-book
 root: intro
-#chapters:
-#- file: outline
+parts:
+    - caption: About the course
+      chapters:
+        - file: outline
+          title: Course outline

@@ -1,10 +1,11 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: PHYS 512 Computational Physics with Applications
+title: 'PHYS 512 Computational Physics with Applications'
 author: Andrew Cumming
-copyright: "2023"
-#logo: logo.png
+copyright: '2023, CC BY SA 4.0'
+logo: plasma.png
+only_build_toc_files: yes
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -23,7 +24,7 @@ execute:
 # Information about where the book exists on the web
 repository:
   url: https://github.com/andrewcumming/phys512  # Online location of your book
-  #path_to_book: docs  # Optional path to your book, relative to the repository root
+  path_to_book: /  # Optional path to your book, relative to the repository root
   branch: master  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
@@ -31,3 +32,4 @@ repository:
 html:
   use_issues_button: true
   use_repository_button: true
+  home_page_in_navbar: no
