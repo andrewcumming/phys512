@@ -2,7 +2,7 @@
 # Learn more at https://jupyterbook.org/customize/config.html
 
 title: 'PHYS 512 Computational Physics with Applications'
-author: Andrew Cumming
+author: <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
 copyright: '2023, CC BY SA 4.0'
 logo: plasma.png
 only_build_toc_files: yes
