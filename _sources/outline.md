@@ -10,7 +10,7 @@ A course in computational methods in physics. Computing is important in all aspe
 
 - gain experience in solving a range of different physics problems numerically.
 
-There are no prerequisites, but some previous experience in Python writing basic programs and plotting data etc. is recommended (for example, as seen in earlier lab courses).
+There are no prerequisites, but some previous experience in Python writing basic programs and plotting data etc. is recommended (for example, as seen in Physics lab courses at McGill).
 
 ## Instructor and TAs
 
@@ -48,6 +48,8 @@ A preliminary list of topics is given below [The ordering of topics may change, 
 
 - *A brief introduction to machine learning.* Example application to high energy physics data.
 
+- *Performance considerations*. What factors influence performance. Options for compiled Python and linking to C and Fortran.
+
 These topics will be illustrated with a range of different physics applications, such as simulating the propagation of electromagnetic waves in plasmas, numerical solutions of the Schrodinger equation, thermal instabilities and non-linear oscillators, fitting gravitational wave data, and other examples.
 
 
@@ -72,23 +74,19 @@ There are also other courses on computational physics that have materials online
 
 - [Course materials for PHY407 at UofT](https://github.com/PHY407-UofT)
 
-Here are some other useful links:
 
-- [SciPy documentation](https://docs.scipy.org/doc/scipy/tutorial/index.html#user-guide)
 
-- [NumPy documentation](https://numpy.org/doc/stable/)
+## Assessment and Course Format
 
-- [Matplotlib documentation](https://matplotlib.org/stable/#)
-
-## Assessment
+This will be an interactive class, with a mixture of lecture and problem solving during class time. *There will be coding exercises in class -- you should bring your laptop to class with you.*
 
 Your grade will be based on 
 
 - Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. 
 - Project (30%). In teams of 2-3 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by mid-October, and the project will be due at the end of term. More information and suggestions for topics will be provided in the first week of classes.
-- Take-home final exam (40%). The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
+- Take-home final exam (40%). A mixture of analytic and computational problems. The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
 
-Lecture notes and assignments will be made available through this website. Homework and project submissions will be through each students private Github repository. Grades will be distributed in myCourses.
+Lecture notes and assignments will be made available through this website. Homework and project submissions will be through each students private Github repository. Grades will be distributed in myCourses. There will be a Slack workspace for the class for students to collaborate on projects.
 
 ## McGill policy statements
 
