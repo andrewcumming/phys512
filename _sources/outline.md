@@ -21,7 +21,7 @@ The TAs are Valentin Boettcher, Simon Guichandut, and Matthew Lundy.
 
 ## Time and place
 
-Class will be held on Tuesdays and Thursdays from 1-2.30pm in WONG 0190.
+Class will be held on Tuesdays and Thursdays from 1-2.30pm in Rutherford 115.
 
 The first class is Thursday August 31st and the final class is on Tuesday Dec 5th. There is no class on Tuesday October 10 (Reading break) or Thursday November 30 (makeup day with a Monday schedule). 
 
