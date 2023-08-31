@@ -80,13 +80,22 @@ There are also other courses on computational physics that have materials online
 
 This will be an interactive class, with a mixture of lecture and problem solving during class time. *There will be coding exercises in class -- you should bring your laptop to class with you.*
 
+There will also be a weekly "*Debug den*", which will be an informal hackspace where you can work together and get help from the TAs. If there are topics you would like covered in a tutorial in these sessions, you can let the TAs know. 
+
 Your grade will be based on 
 
-- Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. 
+- Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. More details on the grading scheme for homework will be given next week. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
+
 - Project (30%). In teams of 2-3 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by mid-October, and the project will be due at the end of term. More information and suggestions for topics will be provided in the first week of classes.
+
 - Take-home final exam (40%). A mixture of analytic and computational problems. The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
 
-Lecture notes and assignments will be made available through this website. Homework and project submissions will be through each students private Github repository. Grades will be distributed in myCourses. There will be a Slack workspace for the class for students to collaborate on projects.
+We will use the following distribution and communication tools:
+- Lecture notes and assignments will be made available through this website
+- Homework and project submissions will be through each students private Github repository
+- Grades will be distributed in myCourses
+- A Slack workspace is available for the class for students to collaborate on projects and to ask questions or discuss the homework. Note that discussions and questions about homework **must** be posted to the `#homework` channel (we will make a tool available to post questions anonymously if you prefer to do that). *Note that the TAs will not answer questions about homework via direct message in Slack, you must use the homework channel.*
+
 
 ## McGill policy statements
 
