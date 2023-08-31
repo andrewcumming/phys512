@@ -8,3 +8,8 @@ parts:
       chapters:
         - file: outline
           title: Course outline
+    - caption: Getting started
+      chapters:
+        - file: basics
+        - file: programming
+        - file: floats
