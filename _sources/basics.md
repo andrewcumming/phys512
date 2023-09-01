@@ -44,7 +44,7 @@ Creating arrays
 - `np.ones(10)`
 - `np.zeros(10)`
 - `np.ones_like(a)`
-- `np.arange(2.0,10.0,100)`
+- `np.arange(2.0,10.0,0.1)`
 - `np.linspace(2.0,10.0,num=100)`
 
 Slicing arrays
