@@ -95,9 +95,12 @@ Here are some things to try to investigate NumPy data types:
 - `np.single(2.2) + np.single(1.1) - np.single(3.3)`
 - `np.int_(2) ** 10;   2**10`
 - `np.int_(2) ** 100;   2**100`
+- `np.spacing(3.0)`
 ```
 
-Note that numpy integers do not behave like python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.
+The last example is one of several functions that NumPy has for dealing with floats --- see https://numpy.org/doc/stable/reference/routines.math.html
+
+Note that numpy integers do not behave like Python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.
 
 
 
