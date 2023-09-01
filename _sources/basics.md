@@ -100,4 +100,4 @@ A place to get started is
 
 which is a concise description of creating a repository on github and then cloning it to a local directory.
 
-You can also look at the section on Github in [Mike Zingale's class AST 390: Computational Astrophysics at Stonybrook](https://zingale.github.io/computational_astrophysics/intro.html) and the tutorials on Github, [Github quickstart](https://docs.github.com/en/get-started/quickstart/).
+You can also look at the section on Github in [Mike Zingale's class AST 390: Computational Astrophysics at Stonybrook](https://zingale.github.io/computational_astrophysics/git/version-control.html) and the tutorials on Github, [Github quickstart](https://docs.github.com/en/get-started/quickstart/).
