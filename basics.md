@@ -94,9 +94,10 @@ You should become familiar with the basic git operations
 
 - the `.gitignore` file
 
+A place to get started is
 
-A place to get started is the *Hello World* tutorial at Github: 
+- [Step-by-step: How to Start with Git and Create a Repository in GitHub](https://herewecode.io/blog/create-repository-github/)
 
-https://docs.github.com/en/get-started/quickstart/hello-world
+which is a concise description of creating a repository on github and then cloning it to a local directory.
 
-Also, again you will find an section on Github in [Mike Zingale's class AST 390: Computational Astrophysics at Stonybrook](https://zingale.github.io/computational_astrophysics/intro.html).
+You can also look at the section on Github in [Mike Zingale's class AST 390: Computational Astrophysics at Stonybrook](https://zingale.github.io/computational_astrophysics/git/version-control.html) and the tutorials on Github, [Github quickstart](https://docs.github.com/en/get-started/quickstart/).
