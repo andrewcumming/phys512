@@ -45,6 +45,8 @@ Here are some floating point expressions to evaluate to illustrate roundoff:
 - `1.1 + 2.2 - 3.3`
 - `0.1 == 0.10000001`
 - `0.1 == 0.10000000000000001`
+- `3 + 1e-15`
+- `3 + 1e-16`
 - `(0.7 + 0.1) + 0.3`
 - `0.7 + (0.1 + 0.3)`
 ```
