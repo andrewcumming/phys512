@@ -15,7 +15,7 @@ $$(-1)^s \times (1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}) \times 2^{e-1023}$$
 where $s$ is the value of the sign bit (0 or 1), $e$ is the value of the exponent, and $b_i$ corresponds to bit $i$ in the fraction, as labelled in the diagram.
 
 The values of the exponents range from 
-- $e=00000000001 (\mathrm{binary})=1 (\mathrm{base 10})$, corresponding to $2^{e-1023}=2^{1-1023}=2^{-1022}$
+- $e=00000000001$ (binary) $=1$ (base 10), corresponding to $2^{e-1023}=2^{1-1023}=2^{-1022}$
 
 to
 
