@@ -123,10 +123,9 @@ for different values of $x$. Compare your answer with the analytic expression an
 
 **Further reading**
 
-The example above is based on the Wikipedia page for [*automatic differentiation*](https://en.wikipedia.org/wiki/Automatic_differentiation). 
+- The example above is based on the Wikipedia page for [*automatic differentiation*](https://en.wikipedia.org/wiki/Automatic_differentiation). 
 
-Automatic differentiation is particularly useful in applications where there are many independent variables, such as in machine learning. For implementations in Python that can automatically differentiate NumPy code, take a look at
+- Automatic differentiation is also discussed in Section 3.4 of Gezerlis.
 
-- [Autograd](https://github.com/HIPS/autograd)
-- [JAX](https://github.com/google/jax)
+- Automatic differentiation is particularly useful in applications where there are many independent variables, such as in machine learning. For implementations in Python that can automatically differentiate NumPy code, take a look at [Autograd](https://github.com/HIPS/autograd) and [JAX](https://github.com/google/jax).
 
