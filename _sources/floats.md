@@ -65,7 +65,7 @@ Consider the two forms of the function
 
 $$f(x) = {1\over\sqrt{1+x^2}-x} = \sqrt{1+x^2}+x$$
 
-One of these involves a subtraction, and one doesn't. Try evaluating and plotting these two expressions as a function of $x$. Do you see the effects of roundoff error at large values of $x$?
+One of these involves a subtraction, and one doesn't. Try evaluating and plotting these two expressions as a function of $x$. Which is more accurate? Do you see the effects of roundoff error at large values of $x$?
 
 ```
 

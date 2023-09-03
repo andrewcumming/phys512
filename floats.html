@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'floats';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Derivatives" href="derivatives.html" />
     <link rel="prev" title="Programming best practices" href="programming.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -158,6 +159,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivatives, Integration, Interpolation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
 </ul>
 
     </div>
@@ -423,7 +428,7 @@ document.write(`
 <p>Consider the two forms of the function</p>
 <div class="math notranslate nohighlight">
 \[f(x) = {1\over\sqrt{1+x^2}-x} = \sqrt{1+x^2}+x\]</div>
-<p>One of these involves a subtraction, and one doesn’t. Try evaluating and plotting these two expressions as a function of <span class="math notranslate nohighlight">\(x\)</span>. Do you see the effects of roundoff error at large values of <span class="math notranslate nohighlight">\(x\)</span>?</p>
+<p>One of these involves a subtraction, and one doesn’t. Try evaluating and plotting these two expressions as a function of <span class="math notranslate nohighlight">\(x\)</span>. Which is more accurate? Do you see the effects of roundoff error at large values of <span class="math notranslate nohighlight">\(x\)</span>?</p>
 </div>
 <p><strong>Further reading</strong></p>
 <ul class="simple">
@@ -496,6 +501,15 @@ document.write(`
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Programming best practices</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="derivatives.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Derivatives</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
