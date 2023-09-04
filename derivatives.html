@@ -66,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'derivatives';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Interpolation" href="interpolation.html" />
     <link rel="prev" title="Floating point arithmetic" href="floats.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -162,6 +163,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Derivatives, Integration, Interpolation</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 </ul>
 
     </div>
@@ -473,11 +475,10 @@ The idea is that when a function is evaluated, we keep track of every basic oper
 <p>for different values of <span class="math notranslate nohighlight">\(x\)</span>. Compare your answer with the analytic expression and with the finite difference gradient.</p>
 </div>
 <p><strong>Further reading</strong></p>
-<p>The example above is based on the Wikipedia page for <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation"><em>automatic differentiation</em></a>.</p>
-<p>Automatic differentiation is particularly useful in applications where there are many independent variables, such as in machine learning. For implementations in Python that can automatically differentiate NumPy code, take a look at</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/HIPS/autograd">Autograd</a></p></li>
-<li><p><a class="reference external" href="https://github.com/google/jax">JAX</a></p></li>
+<li><p>The example above is based on the Wikipedia page for <a class="reference external" href="https://en.wikipedia.org/wiki/Automatic_differentiation"><em>automatic differentiation</em></a>.</p></li>
+<li><p>Automatic differentiation is also discussed in Section 3.4 of Gezerlis.</p></li>
+<li><p>Automatic differentiation is particularly useful in applications where there are many independent variables, such as in machine learning. For implementations in Python that can automatically differentiate NumPy code, take a look at <a class="reference external" href="https://github.com/HIPS/autograd">Autograd</a> and <a class="reference external" href="https://github.com/google/jax">JAX</a>.</p></li>
 </ul>
 </section>
 </section>
@@ -521,6 +522,15 @@ The idea is that when a function is evaluated, we keep track of every basic oper
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Floating point arithmetic</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="interpolation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Interpolation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
