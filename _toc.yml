@@ -16,3 +16,4 @@ parts:
     - caption: Derivatives, Integration, Interpolation
       chapters:
         - file: derivatives
+        - file: interpolation
