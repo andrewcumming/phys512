@@ -51,11 +51,13 @@ Use the [`deriv()`](https://numpy.org/doc/stable/reference/generated/numpy.polyn
 
 ```
 
-You should find in the previous exercise that the cubic polynomial gives a much more accurate interpolation compare to linear. *Cubic splines* (usually referred to just as "*splines*") extend this by 
+You should find in the previous exercise that the cubic polynomial gives a much more accurate interpolation compare to linear. **Cubic splines** (usually referred to just as "**splines**", although splines can be constructed for higher orders than cubic) extend this by 
 
 - ensuring that the first and second derivatives are continuous at the boundaries between the different fitting intervals
 - solving simultaneously for the coefficients of the cubic polynomials of all intervals at once (rather than separately for each interval as we did in the code above)
 - deal with the boundaries by making an extra assumption about the second derivative at the boundaries. Often this is that the second derivatives vanish at the boundaries (known as *natural splines*).
+
+When constructing a spline, we need to derive three coefficients for each interval (the coefficients of the $x$, $x^2$ and $x^3$ terms). By specifying three constraints at each grid point --- the value of the function, continuity of the first derivative, and continuity of the second derivative --- there is enough information to solve for the spline coefficients. 
 
 In SciPy, the way splines work is that you first create the spline using [`scipy.interpolate.CubicSpline`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.CubicSpline.html), e.g.
 

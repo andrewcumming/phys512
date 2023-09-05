@@ -29,7 +29,6 @@ to
 - What is the binary representation of the number 3.0?
 ```
 
-
 We focused here on double precision numbers, which are standard in 64 bit machines. Single precision floats are 32 bits, with 8 bits for exponent and 23 for mantissa.
 
 **Further reading:** [What every computer scientist should know about floating-point arithmetic](https://dl.acm.org/doi/10.1145/103162.103163) by David Goldberg.
@@ -51,11 +50,11 @@ Here are some floating point expressions to evaluate to illustrate roundoff:
 - `0.7 + (0.1 + 0.3)`
 ```
 
-The size of the roundoff error is set by the number of bits that we have available for the fraction. For double precision, this is of order $2^{-52}\approx 2.2\times 10^{-16}$. This is a small number, which is good! But you do have to be careful under certain situations:
+The size of the roundoff error is set by the number of bits that we have available for the fraction. For double precision, it is of order $2^{-52}\approx 2.2\times 10^{-16}$. Note that because we are talking about the fraction here, this number is the relative error rather than an absolute error. You might be thinking that this seems like a very small effect, since $2^{-52}$ is a small number! This is true, but you do have to be careful under certain situations:
 
 - **Comparing floats.** Rather than comparing floats, it's better to instead test whether they are close to each other. E.g., with `x = 1.1 + 2.2`, `x==3.3` returns `False`, whereas `abs(x-3.3) < 1e-8`  returns `True`.
 
-- **Subtracting numbers that are almost equal.** This comes up in many problems where you are evaluating a physical quantity which is given by subtracting two terms that almost cancel. If the difference between the two numbers falls becomes comparable to the floating point precision, roundoff error can dominate the answer. In these cases, you can often rewrite the expressions to be evaluated to avoid the subtraction, an example is given below.
+- **Subtracting numbers that are almost equal.** This comes up in many problems where you are evaluating a physical quantity which is given by subtracting two terms that almost cancel. If the difference between the two numbers becomes comparable to the floating point precision, roundoff error can dominate the answer. In these cases, you can often rewrite the expressions to be evaluated to avoid the subtraction, an example is given below.
 
 - **When doing many operations and errors accumulate.** Small errors accumulate over many operations. An example is long term integrations of planetary orbits, for example when trying to compute the future evolution of the Solar System. Finite precision in chaotic systems can have a big impact on the solution.
 
