@@ -397,7 +397,8 @@ document.write(`
 <h2>Optimal step size<a class="headerlink" href="#optimal-step-size" title="Permalink to this heading">#</a></h2>
 <p>What is the optimal step size <span class="math notranslate nohighlight">\(\Delta x\)</span> to choose when evaluating the numerical derivative? Clearly, a smaller <span class="math notranslate nohighlight">\(\Delta x\)</span> will improve the accuracy of our approximate expressions. However, we must also consider round off error. Each function evaluation has an associated roundoff error of typical size <span class="math notranslate nohighlight">\(\epsilon\)</span> (positive or negative). In general, we can expect the difference <span class="math notranslate nohighlight">\(f(x+\Delta x) - f(x)\)</span> to have a roundoff error <span class="math notranslate nohighlight">\(\sim \epsilon\)</span>. The total error from the first order derivative is therefore</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{total\ error}\approx {\epsilon f(x)\over \Delta x} + {\Delta x f^{\prime\prime}\over 2}\]</div>
+\[\mathrm{total\ error}\approx {\epsilon f(x)\over \Delta x} + {\Delta x f^{\prime\prime}\over 2},\]</div>
+<p>where the first term is the roundoff error and the second term is from the term we neglected in the Taylor expansion when we wrote down the first order forward-difference.</p>
 <p>Minimizing this expression with respect to <span class="math notranslate nohighlight">\(\Delta x\)</span> gives</p>
 <div class="math notranslate nohighlight">
 \[\Delta x\approx (2\epsilon)^{1/2} (f/f^{\prime\prime})^{1/2}.\]</div>
