@@ -25,6 +25,8 @@ Class will be held on Tuesdays and Thursdays from 1-2.30pm in Rutherford 115.
 
 The first class is Thursday August 31st and the final class is on Tuesday Dec 5th. There is no class on Tuesday October 10 (Reading break) or Thursday November 30 (makeup day with a Monday schedule). 
 
+The **debug den** will be held on Mondays between 10am and noon in the Piano room (Rutherford 211). This will be an informal session where you can ask the TAs questions and work together on class exercises and homeworks.
+
 
 ## List of topics
 
