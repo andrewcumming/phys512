@@ -62,9 +62,9 @@ The size of the roundoff error is set by the number of bits that we have availab
 
 Consider the two forms of the function
 
-$$f(x) = {1\over\sqrt{1+x^2}-x} = \sqrt{1+x^2}+x$$
+$$f(x) = \sqrt{1+x^2}-x = {1\over \sqrt{1+x^2}+x}$$
 
-One of these involves a subtraction, and one doesn't. Try evaluating and plotting these two expressions as a function of $x$. Which is more accurate? Do you see the effects of roundoff error at large values of $x$?
+One of these involves a subtraction, and one doesn't. Try evaluating and plotting these two expressions as a function of $x$. Which is more accurate? Do you see the effects of roundoff error at large values of $x$? How do you explain the size of $x$ where roundoff error appears?
 
 ```
 
