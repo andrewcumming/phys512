@@ -5,6 +5,8 @@ Source for the course webpage
 
 <https://andrewcumming.github.io/phys512/>
 
+Built with [Jupyter Book](https://jupyterbook.org/intro.html)
+
 To update the website use
 
 `jupyter-book build ../phys645`
