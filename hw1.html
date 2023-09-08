@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Getting set up &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Homework 1 &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -61,11 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'basics';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hw1';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Programming best practices" href="programming.html" />
-    <link rel="prev" title="PHYS 512 Computational Physics with Applications: Winter 2023 Course outline" href="outline.html" />
+    <link rel="prev" title="Interpolation" href="interpolation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -153,8 +154,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Getting set up</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
 </ul>
@@ -164,8 +165,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 1</a></li>
 </ul>
 
     </div>
@@ -237,7 +238,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fbasics.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhw1.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -267,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/basics.md" target="_blank"
+      <li><a href="_sources/hw1.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -336,9 +337,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -349,21 +348,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Getting set up</h1>
+    <h1>Homework 1</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To do</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-and-github">Version control and Github</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -373,89 +362,47 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="getting-set-up">
-<h1>Getting set up<a class="headerlink" href="#getting-set-up" title="Permalink to this heading">#</a></h1>
-<section id="to-do">
-<h2>To do<a class="headerlink" href="#to-do" title="Permalink to this heading">#</a></h2>
-<p>Here is a summary of what you need to do to get set up for the course:</p>
-<ul class="simple">
-<li><p>Join the <strong>Slack</strong> workspace for the class. You should have received email from Simon via myCourses (check your spam folder!).</p></li>
-<li><p>Fill out the <strong>when2meet poll</strong> that Simon sent in the same email so we can find a time for the <strong>Debug den</strong>.</p></li>
-<li><p>Mkae a <strong>Github account</strong> if you don’t already have one, and make a private repository where you will submit your homework (as a Jupyter notebook for each homework).  If you are making a new account, choose your username carefully, your Github account is a great place to build your computing portfolio, e.g. for future job searches!</p></li>
-<li><p>Make sure you have <strong>Python 3</strong> installed and the <strong>NumPy</strong>, <strong>SciPy</strong>, and <strong>Matplotlib</strong> libraries.</p></li>
-<li><p>We will be doing interactive exercises in class, so you should <strong>bring your laptop to every class</strong>. The classroom likely has limited power outlets available, so please charge your battery before class if needed!</p></li>
-</ul>
-<p><strong>If you need help with installation, setting up a Github repository, or if you have questions about NumPy and Matplotlib basics, let the TAs know, they can help you in the Debug den sessions.</strong></p>
-</section>
-<section id="python">
-<h2>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h2>
-<p>In this course, we will use <a class="reference external" href="https://docs.python.org/3/">Python 3</a>. This will build on the exposure to Python you have already had in earlier courses. Python has the advantages of a high level language, for example, concise code, rapid prototyping, no compilation step, interactive use, while also having access to efficient numerical libraries that are implemented in C or Fortran under the hood. You may be interested in exploring the use of other languages for numerical computations, but for this course all submitted material must use Python 3.</p>
-<p>We will assume that you have access to</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/">NumPy</a></p></li>
-<li><p><a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/index.html#user-guide">SciPy</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/stable/#">Matplotlib</a></p></li>
-<li><p><a class="reference external" href="https://jupyter.org">Jupyter notebook</a></p></li>
-</ul>
-<p>If you are not already set up to run Python, a good way to install it is through <a class="reference external" href="https://www.anaconda.com/download">Anaconda</a> which will also install all the libraries you need. You may have Python installed but be missing SciPy for example, in which case you can try <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">scipy</span></code>.</p>
-<p>How you interact with Python is up to you. A really great way to code is in a Jupyter notebook. Homeworks should be submitted as Jupyter notebooks in your Github repository.</p>
-<p>It might be helpful to have a look at some NumPy tutorials to remind you how to create and manipulate arrays etc., and to remind yourself how to make a basic plot in Matplotlib if needed. The above are to the documentation for each library, which have basic introductory tutorials.  Otherwise, there are many tutorials you can find online. One place to look is at <a class="reference external" href="https://zingale.github.io/computational_astrophysics/intro.html">Mike Zingale’s class AST 390: Computational Astrophysics at Stonybrook</a>
-which has a section covering NumPy and Matplotlib.</p>
-<div class="admonition-exploring-numpy admonition">
-<p class="admonition-title">Exploring NumPy</p>
-<p>Just to get you started with NumPy, here are some expressions you can use to begin with:</p>
-<p>Creating arrays</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.array([1.0,2.0])</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.ones(10)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.zeros(10)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.ones_like(a)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.arange(2.0,10.0,0.1)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.linspace(2.0,10.0,num=100)</span></code></p></li>
-</ul>
-<p>Slicing arrays</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">a[1:10]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a[:-1]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a[::2]</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a[::-1]</span></code></p></li>
-</ul>
-<p>To see what operations are available for an object</p>
-<p><code class="docutils literal notranslate"><span class="pre">dir(a)</span></code></p>
-<p>It is helpful to be aware of when a variable is a reference (pointer) to an array and when an array is copied or not:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">B=A</span></code>   points to same object (<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">is</span> <span class="pre">B</span></code> will return True)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">B=A[:]</span></code>   shallow copy/view (same memory)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">B=A.copy()</span></code>    deep copy   (<code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">is</span> <span class="pre">B</span></code> will return False)</p></li>
-</ul>
-</div>
-</section>
-<section id="version-control-and-github">
-<h2>Version control and Github<a class="headerlink" href="#version-control-and-github" title="Permalink to this heading">#</a></h2>
-<p>In this course, we will make use of <code class="docutils literal notranslate"><span class="pre">git</span></code> which is a <em>version control</em> system (in particular, you will use this to submit your homework and will work in a collaborative group for your project).  Version control systems let you</p>
-<ul class="simple">
-<li><p>keep track of changes that you make and revert back to previous versions</p></li>
-<li><p>merge contributions from others (and deal with conflicts) and make contributions yourself to other projects</p></li>
-<li><p>see who contributed what code and when it was added</p></li>
-<li><p>work on updates to the code in separate “branches”</p></li>
-<li><p>if your central repository is based on Github, it provides a backup</p></li>
-</ul>
-<p>You should become familiar with the basic git operations</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">init</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> and <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">log</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span></code> or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-am</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code></p></li>
-<li><p>the <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code> file</p></li>
-</ul>
-<p>A place to get started is</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://herewecode.io/blog/create-repository-github/">Step-by-step: How to Start with Git and Create a Repository in GitHub</a></p></li>
-</ul>
-<p>which is a concise description of creating a repository on github and then cloning it to a local directory.</p>
-<p>You can also look at the section on Github in <a class="reference external" href="https://zingale.github.io/computational_astrophysics/git/version-control.html">Mike Zingale’s class AST 390: Computational Astrophysics at Stonybrook</a> and the tutorials on Github, <a class="reference external" href="https://docs.github.com/en/get-started/quickstart/">Github quickstart</a>.</p>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-1">
+<h1>Homework 1<a class="headerlink" href="#homework-1" title="Permalink to this heading">#</a></h1>
+<p>Due on Tuesday September 19 6pm.</p>
+<ol class="arabic simple">
+<li><p><strong>Roundoff error in long term integrations of planetary orbits</strong></p></li>
+</ol>
+<p>Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. Modelling the growth of the error over <span class="math notranslate nohighlight">\(N\)</span> operations as a random walk gives <em>Brouwer’s law</em> which states that the total error after <span class="math notranslate nohighlight">\(N\)</span> steps will be <span class="math notranslate nohighlight">\(\approx \sqrt{N} \epsilon\)</span> (where <span class="math notranslate nohighlight">\(\epsilon \sim 10^{-16}\)</span> for double precision floats).</p>
+<p>A classic example of this is when integrating planetary orbits. One method for doing this is the <em>semi-implicit Euler method</em>, which involves updating the velocity and position of the planet from timestep <span class="math notranslate nohighlight">\(n\)</span> to timestep <span class="math notranslate nohighlight">\(n+1\)</span> according to</p>
+<div class="math notranslate nohighlight">
+\[\vec{v}_{n+1} = \vec{v}_n + \vec{a}_{n}\Delta t\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{x}_{n+1} = \vec{x}_n + \vec{v}_{n+1}\Delta t\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the timestep, and <span class="math notranslate nohighlight">\(\vec{x}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{a}\)</span> are the position, velocity, and acceleration respectively. Note that in this scheme the velocity is updated first, using the acceleration, and then the new value of velocity is used to update the particle position.</p>
+<p>(a) Write a code which uses the semi-implicit Euler method to follow the Earth’s orbit around the Sun. Integrate the orbit for one year and plot the orbit in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane to check that the Earth moves as expected.</p>
+<p>[You can assume for simplicity that the Sun is fixed at the origin and the Earth moves in a circular orbit under the (Newtonian) gravity of the Sun. Useful values are: <span class="math notranslate nohighlight">\((GM)_\mathrm{Sun} = 1.3271\times 10^{20}\)</span> in SI units and the Earth-Sun distance (astronomical unit) <span class="math notranslate nohighlight">\(1.496\times 10^{11}\ {\rm m}\)</span>.]</p>
+<p>(b) Try using different time-steps <span class="math notranslate nohighlight">\(\Delta t\)</span> for your one-year integration, and check how well the code conserves energy by evaluating the total energy (kinetic plus gravitational) associated with the Earth’s motion and comparing with the starting value.
+Start with a timestep of <span class="math notranslate nohighlight">\(0.1\)</span> years and go down to as small a value as you can integrate in a reasonable time (I was able to get to <span class="math notranslate nohighlight">\(10^{-9}\ {\rm years}\)</span> which took about a minute to run).</p>
+<p>Plot the fractional change in energy over the orbit <span class="math notranslate nohighlight">\(\Delta E/E=(E_\mathrm{final}-E_\mathrm{initial})/E_\mathrm{initial}\)</span> against timestep <span class="math notranslate nohighlight">\(\Delta t\)</span> and against the number of steps <span class="math notranslate nohighlight">\(N\)</span>.  (It’s helpful to make these log-log plots). Discuss the scaling of <span class="math notranslate nohighlight">\(\Delta E/E\)</span> with <span class="math notranslate nohighlight">\(\Delta t\)</span> (or <span class="math notranslate nohighlight">\(N\)</span>) that you find. How does it behave for large and small <span class="math notranslate nohighlight">\(\Delta t\)</span> (or <span class="math notranslate nohighlight">\(N\)</span>)? Do you see any evidence for Brouwer’s law?</p>
+<p>(c) <em>Optional</em>: Using <span class="math notranslate nohighlight">\(v_n\)</span> instead of <span class="math notranslate nohighlight">\(v_{n+1}\)</span> in the formula for the position update gives the less accurate <em>explicit Euler method</em>. Try it in your code – if you plot the orbit you will see that this method does much worse. How does <span class="math notranslate nohighlight">\(\Delta E/E\)</span> and its scaling with <span class="math notranslate nohighlight">\(\Delta t\)</span> compare with the semi-implicit Euler method?
+[If you want to see an example of a <em>more</em> accurate (higher order) method, look at <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.446.1424R/abstract">Rein and Spiegel 2015</a>, which implements a 15th order integrator! Compare your results here with their Figure 1 for example).]</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Interpolation and thermodynamics</strong></p></li>
+</ol>
+<p>Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We’ll illustrate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth’s atmosphere. The pressure and entropy per particle of an ideal gas are given by</p>
+<div class="math notranslate nohighlight">
+\[P = nk_BT, \hspace{1cm} S = k_B \left({5\over 2}-\ln \left({n\over n_Q} \right) \right)\]</div>
+<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(n\)</span> is the number density of molecules and <span class="math notranslate nohighlight">\(n_Q=(m k_BT/2\pi\hbar^2)^{3/2}\)</span> with <span class="math notranslate nohighlight">\(m\)</span> the particle mass. For Earth atmosphere modelling, we can take density and temperature ranges of <span class="math notranslate nohighlight">\(10^{-6}\)</span>–<span class="math notranslate nohighlight">\(1\ {\rm kg\ m^{-3}}\)</span> and <span class="math notranslate nohighlight">\(100\)</span>–<span class="math notranslate nohighlight">\(1000\ {\rm K}\)</span>. For this question, you can assume that the atmosphere has a mean molecular weight of <span class="math notranslate nohighlight">\(28\)</span>, ie. <span class="math notranslate nohighlight">\(m=28m_u\)</span> where <span class="math notranslate nohighlight">\(m_u\)</span> is the atomic mass unit, and <span class="math notranslate nohighlight">\(\rho = 28 m_u n\)</span>.</p>
+<p>Whereas in the example in class we used <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.RegularGridInterpolator</span></code></a> for 2D interpolation, in this question you may wish to use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RectBivariateSpline.html#scipy.interpolate.RectBivariateSpline"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.RectBivariateSpline</span></code></a> instead because you can use it to generate derivatives for you (see the <code class="docutils literal notranslate"><span class="pre">partial_derivative()</span></code> method).</p>
+<p>(a) Use the formulae given above to calculate the pressure and entropy for a uniformly-spaced grid of values of <span class="math notranslate nohighlight">\(\log_{10}T\)</span> and <span class="math notranslate nohighlight">\(\log_{10}\rho\)</span> that span the range of interest for Earth’s atmosphere. Since we are interested in interpolation here, use a small number of points in each direction (e.g. <span class="math notranslate nohighlight">\(10\)</span> points).
+Interpolate within your table and plot a color map of the fractional error across the <span class="math notranslate nohighlight">\(\log_{10}T\)</span>–<span class="math notranslate nohighlight">\(\log_{10}\rho\)</span> plane.  Since pressure spans orders of magnitude, it’s useful deal with <span class="math notranslate nohighlight">\(\log_{10} P\)</span> and similarly <span class="math notranslate nohighlight">\(S/k_B\)</span> is a useful way to look at the entropy.</p>
+<p>(b) Now check to what extent your interpolation is <em>thermodynamically consistent</em>: In terms of the Helmholtz free energy per particle <span class="math notranslate nohighlight">\(F=E-TS\)</span>, where <span class="math notranslate nohighlight">\(E=(3/2)k_BT\)</span> is the internal energy per particle, the pressure and entropy are given by</p>
+<div class="math notranslate nohighlight">
+\[S = -\left.{\partial F\over \partial T}\right|_n; \hspace{1cm} P = n^2 \left.{\partial F\over \partial n}\right|_T.\]</div>
+<p>This implies that the entropy and pressure must satisfy the Maxwell relation</p>
+<div class="math notranslate nohighlight">
+\[-\left.{\partial S\over \partial n}\right|_T = {1\over n^2}\left.{\partial P\over \partial T}\right|_n.\]</div>
+<p>Numerically evaluate these derivatives to see how well the Maxwell relation is satisfied in your interpolation scheme. (Plot the fractional difference between the left and right hand sides).</p>
+<p>(c) One way to implement a thermodynamically consistent interpolation is to make a grid of values of</p>
+<div class="math notranslate nohighlight">
+\[F = k_BT \left(\ln \left({n\over n_Q}\right) -1 \right),\]</div>
+<p>interpolate <span class="math notranslate nohighlight">\(F\)</span> as a function of density and temperature, and then calculate <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> as derivaties of <span class="math notranslate nohighlight">\(F\)</span> using derivatives of the interpolating functions. Implement this and evaluate the errors in <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> and check that your values are thermodynamically consistent. Compare your results with what you found in (a) and (b) where you interpolated <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> directly.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -490,22 +437,13 @@ which has a section covering NumPy and Matplotlib.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="outline.html"
+       href="interpolation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">PHYS 512 Computational Physics with Applications: Winter 2023 Course outline</p>
+        <p class="prev-next-title">Interpolation</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="programming.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Programming best practices</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -516,22 +454,6 @@ which has a section covering NumPy and Matplotlib.</p>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#to-do">To do</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#version-control-and-github">Version control and Github</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
