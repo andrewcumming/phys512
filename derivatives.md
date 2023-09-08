@@ -12,7 +12,7 @@ $${df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} + \mathcal{O}(\Delta
 
 This is a *first order* derivative since the error in this approximation scales $\propto \Delta x$.  Because we use the value of the function at $x+\Delta x$ it is known as a *forward difference*. We could also write a similar expression but using the value of the function at $x-\Delta x$; this would be a *backward difference*.
 
-```{admonition} Exercises
+```{admonition} Exercise: second order finite differences
 By also considering the Taylor expansion of $f(x-\Delta x)$ show that (hint: add and subtract the two expressions)
 
 $${df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} + \mathcal{O}(\Delta x)^2$$
@@ -38,14 +38,13 @@ $$\Delta x\approx (2\epsilon)^{1/2} (f/f^{\prime\prime})^{1/2}.$$
 
 We see that the minimum error that can be achieved is of order $\sqrt{\epsilon}$. This is $\sim 10^{-8}$ for double precision floats.
 
-```{admonition} Exercises
+```{admonition} Exercise: error and optimal step size in finite differences
 
 Choose a function $f(x)$ that has a derivative that you can calculate analytically (to check your answer). Then compute the first order (forward difference) numerical derivative for different values of $\Delta x$. Plot a log-log plot showing the absolute value of the error against the step size. Do you see the expected scaling of the error with step size $\Delta x$? 
 
-Do your results depend on where you calculate the derivative (which value of $x$)? Do you see the dependence on $f^{\prime\prime}$ predicted by our estimate above?
-
 Next try using a second order derivative (centered difference). Add this to your plot and compare with your previous results. How does the error scale with $\Delta x$ now? Can you explain what you see?
 
+Do your results depend on where you calculate the derivative (which value of $x$)? For the first order derivative, do you see the dependence on $f^{\prime\prime}$ predicted by our estimate above?
 ```
 
 SciPy has a routine to calculate derivatives based on centered differences to a specified order -- see [`scipy.misc.derivative`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html) (Note that this routine is deprecated and will be removed at some point, the documentation for this function has some suggested replacements). You could try using this routine with different orders in your code from the exercise above and see how it compares. 
@@ -115,7 +114,7 @@ print("∂f/∂x =", y.value + math.cos(x.value))
 print("∂f/∂y =", x.value)
 ```
 
-```{admonition} Exercise
+```{admonition} Exercise: automatic derivatives
 Try running this code. You should find that the results agree with the analytic derivatives. Now implement an exponential function and use it to calculate the derivative of 
 
 $$f(x) = \exp\left(\sin(x)\right)$$
