@@ -17,3 +17,7 @@ parts:
       chapters:
         - file: derivatives
         - file: interpolation
+    - caption: Homework
+      chapters:
+        - file: hw1
+        
