@@ -48,7 +48,6 @@ f_cubic = f2[ind]
 Add this to your code from the previous exercise and compare with the results for linear interpolation. Do you see a different scaling with the number of points?
 
 Use the [`deriv()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.deriv.html#numpy.polynomial.polynomial.Polynomial.deriv) method associated with the polynomial to plot the first and second derivatives of the interpolating function (as a function of $x$). Does the behavior of the derivatives make sense? What happens at the boundary between each interval $x_i<x<x_{i+1}$?
-
 ```
 
 You should find in the previous exercise that the cubic polynomial gives a much more accurate interpolation compare to linear. **Cubic splines** (usually referred to just as "**splines**", although splines can be constructed for higher orders than cubic) extend this by 
@@ -67,11 +66,8 @@ where `xp` and `fp` are the sample points and function values at those points. T
 
 
 ```{admonition} Exercise: splines
-
 Add a spline fit to your code and compare with the linear and cubic polynomial fits. In particular, how does the spline fit differ from the cubic polynomial fit in terms of accuracy and the first and second derivatives?
-
 ```
-
 
 ```{admonition} Exercise: higher order fits, oscillations, and noise
 Once you have the linear, cubic, and spline fits working, try the following:
@@ -106,6 +102,40 @@ and
 $$c = {  f(x_{i+1}, y_{j+1})-f(x_{i+1}, y_j) -f(x_i, y_{j+1}) + f(x_i, y_j) \over  (x_{i+1}-x_i)(y_{j+1}-y_j)}.$$
 
 You will use this in the homework problem about a tabulated equation of state.
+
+Here is an example of interpolation in 2D using [`scipy.interpolate.RegularGridInterpolator`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html):
+
+```
+import numpy as np
+import scipy.interpolate
+import matplotlib.pyplot as plt
+
+def func(X,Y):
+    return np.exp(X*Y)
+
+# sample the function on a coarse grid and set up the interpolation
+xp = np.linspace(2,3,10)
+yp = np.linspace(2,3,10)
+X, Y = np.meshgrid(xp, yp, indexing='ij')
+fp = func(X,Y)
+interp = scipy.interpolate.RegularGridInterpolator((xp,yp),fp, bounds_error=False, fill_value=None)
+
+# now compute the function on a finer grid
+xx = np.linspace(2,3,100)
+yy = np.linspace(2,3,100)
+X, Y = np.meshgrid(xx, yy, indexing='ij')
+f = func(X,Y)
+
+# plot the fractional error
+plt.imshow((interp((X,Y), method='linear')-f)/f, origin='lower', extent=(2,3,2,3))
+plt.colorbar()
+plt.show()
+```
+
+Note that you can specify the interpolation method when you call the interpolating function. For example, changing `method` from `linear` to `cubic` will use a bivariate cubic spline instead of bilinear interpolation (try it!).
+
+
+
 
 
 
