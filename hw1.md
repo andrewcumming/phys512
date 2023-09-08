@@ -31,7 +31,7 @@ Plot the fractional change in energy over the orbit $\Delta E/E=(E_\mathrm{final
 
 2. **Interpolation and thermodynamics**
 
-Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We'll illustrate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth's atmosphere. The pressure and entropy per particle of an ideal gas are given by 
+Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We'll investigate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth's atmosphere. The pressure and entropy per particle of an ideal gas are given by 
 
 $$P = nk_BT, \hspace{1cm} S = k_B \left({5\over 2}-\ln \left({n\over n_Q} \right) \right)$$
 
@@ -50,7 +50,7 @@ This implies that the entropy and pressure must satisfy the Maxwell relation
 
 $$-\left.{\partial S\over \partial n}\right|_T = {1\over n^2}\left.{\partial P\over \partial T}\right|_n.$$
 
-Numerically evaluate these derivatives to see how well the Maxwell relation is satisfied in your interpolation scheme.
+Numerically evaluate these derivatives to see how well the Maxwell relation is satisfied in your interpolation scheme. (Plot the fractional difference between the left and right hand sides).
 
 (c) One way to implement a thermodynamically consistent interpolation is to make a grid of values of 
 
