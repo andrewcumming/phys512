@@ -382,8 +382,8 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[{df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} + \mathcal{O}(\Delta x).\]</div>
 <p>This is a <em>first order</em> derivative since the error in this approximation scales <span class="math notranslate nohighlight">\(\propto \Delta x\)</span>.  Because we use the value of the function at <span class="math notranslate nohighlight">\(x+\Delta x\)</span> it is known as a <em>forward difference</em>. We could also write a similar expression but using the value of the function at <span class="math notranslate nohighlight">\(x-\Delta x\)</span>; this would be a <em>backward difference</em>.</p>
-<div class="admonition-exercises admonition">
-<p class="admonition-title">Exercises</p>
+<div class="admonition-exercise-second-order-finite-differences admonition">
+<p class="admonition-title">Exercise: second order finite differences</p>
 <p>By also considering the Taylor expansion of <span class="math notranslate nohighlight">\(f(x-\Delta x)\)</span> show that (hint: add and subtract the two expressions)</p>
 <div class="math notranslate nohighlight">
 \[{df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} + \mathcal{O}(\Delta x)^2\]</div>
@@ -403,11 +403,11 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\Delta x\approx (2\epsilon)^{1/2} (f/f^{\prime\prime})^{1/2}.\]</div>
 <p>We see that the minimum error that can be achieved is of order <span class="math notranslate nohighlight">\(\sqrt{\epsilon}\)</span>. This is <span class="math notranslate nohighlight">\(\sim 10^{-8}\)</span> for double precision floats.</p>
-<div class="admonition-exercises admonition">
-<p class="admonition-title">Exercises</p>
+<div class="admonition-exercise-error-and-optimal-step-size-in-finite-differences admonition">
+<p class="admonition-title">Exercise: error and optimal step size in finite differences</p>
 <p>Choose a function <span class="math notranslate nohighlight">\(f(x)\)</span> that has a derivative that you can calculate analytically (to check your answer). Then compute the first order (forward difference) numerical derivative for different values of <span class="math notranslate nohighlight">\(\Delta x\)</span>. Plot a log-log plot showing the absolute value of the error against the step size. Do you see the expected scaling of the error with step size <span class="math notranslate nohighlight">\(\Delta x\)</span>?</p>
-<p>Do your results depend on where you calculate the derivative (which value of <span class="math notranslate nohighlight">\(x\)</span>)? Do you see the dependence on <span class="math notranslate nohighlight">\(f^{\prime\prime}\)</span> predicted by our estimate above?</p>
 <p>Next try using a second order derivative (centered difference). Add this to your plot and compare with your previous results. How does the error scale with <span class="math notranslate nohighlight">\(\Delta x\)</span> now? Can you explain what you see?</p>
+<p>Do your results depend on where you calculate the derivative (which value of <span class="math notranslate nohighlight">\(x\)</span>)? For the first order derivative, do you see the dependence on <span class="math notranslate nohighlight">\(f^{\prime\prime}\)</span> predicted by our estimate above?</p>
 </div>
 <p>SciPy has a routine to calculate derivatives based on centered differences to a specified order – see <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html"><code class="docutils literal notranslate"><span class="pre">scipy.misc.derivative</span></code></a> (Note that this routine is deprecated and will be removed at some point, the documentation for this function has some suggested replacements). You could try using this routine with different orders in your code from the exercise above and see how it compares.</p>
 </section>
@@ -468,8 +468,8 @@ The idea is that when a function is evaluated, we keep track of every basic oper
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;∂f/∂y =&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
+<div class="admonition-exercise-automatic-derivatives admonition">
+<p class="admonition-title">Exercise: automatic derivatives</p>
 <p>Try running this code. You should find that the results agree with the analytic derivatives. Now implement an exponential function and use it to calculate the derivative of</p>
 <div class="math notranslate nohighlight">
 \[f(x) = \exp\left(\sin(x)\right)\]</div>
