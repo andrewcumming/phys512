@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 1 &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Derivatives &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,10 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'hw1';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'derivatives_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Solutions to Exercises on Derivatives" href="derivatives_solutions.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="Interpolation" href="interpolation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -165,12 +166,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions to Exercises</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="derivatives_solutions.html">Solutions to Exercises on Derivatives</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Derivatives</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
-<ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 1</a></li>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 </ul>
 
     </div>
@@ -242,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhw1.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fderivatives_solutions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -272,7 +273,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/hw1.md" target="_blank"
+      <li><a href="_sources/derivatives_solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -282,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -341,7 +342,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -352,11 +355,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 1</h1>
+    <h1>Derivatives</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -366,48 +378,69 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-1">
-<h1>Homework 1<a class="headerlink" href="#homework-1" title="Permalink to this heading">#</a></h1>
-<p>Due on Tuesday September 19 6pm.</p>
-<ol class="arabic simple">
-<li><p><strong>Roundoff error in long term integrations of planetary orbits</strong></p></li>
-</ol>
-<p>Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. Modelling the growth of the error over <span class="math notranslate nohighlight">\(N\)</span> operations as a random walk gives <em>Brouwer’s law</em> which states that the total error after <span class="math notranslate nohighlight">\(N\)</span> steps will be <span class="math notranslate nohighlight">\(\approx \sqrt{N} \epsilon\)</span> (where <span class="math notranslate nohighlight">\(\epsilon \sim 10^{-16}\)</span> for double precision floats).</p>
-<p>A classic example of this is when integrating planetary orbits. One method for doing this is the <em>semi-implicit Euler method</em>, which involves updating the velocity and position of the planet from timestep <span class="math notranslate nohighlight">\(n\)</span> to timestep <span class="math notranslate nohighlight">\(n+1\)</span> according to</p>
+  <section id="derivatives">
+<h1>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this heading">#</a></h1>
+<section id="second-order-finite-differences">
+<h2>Second order finite differences<a class="headerlink" href="#second-order-finite-differences" title="Permalink to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
-\[\vec{v}_{n+1} = \vec{v}_n + \vec{a}_{n}\Delta t\]</div>
+\[f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}\]</div>
 <div class="math notranslate nohighlight">
-\[\vec{x}_{n+1} = \vec{x}_n + \vec{v}_{n+1}\Delta t\]</div>
-<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the timestep, and <span class="math notranslate nohighlight">\(\vec{x}\)</span>, <span class="math notranslate nohighlight">\(\vec{v}\)</span> and <span class="math notranslate nohighlight">\(\vec{a}\)</span> are the position, velocity, and acceleration respectively. Note that in this scheme the velocity is updated first, using the acceleration, and then the new value of velocity is used to update the particle position.</p>
-<p>(a) Write a code which uses the semi-implicit Euler method to follow the Earth’s orbit around the Sun. Integrate the orbit for one year and plot the orbit in the <span class="math notranslate nohighlight">\(x\)</span>-<span class="math notranslate nohighlight">\(y\)</span> plane to check that the Earth moves as expected.</p>
-<p>[You can assume for simplicity that the Sun is fixed at the origin and the Earth moves in a circular orbit under the (Newtonian) gravity of the Sun. Useful values are: <span class="math notranslate nohighlight">\((GM)_\mathrm{Sun} = 1.3271\times 10^{20}\)</span> in SI units and the Earth-Sun distance (astronomical unit) <span class="math notranslate nohighlight">\(1.496\times 10^{11}\ {\rm m}\)</span>.]</p>
-<p>(b) Try using different time-steps <span class="math notranslate nohighlight">\(\Delta t\)</span> for your one-year integration, and check how well the code conserves energy by evaluating the total energy (kinetic plus gravitational) associated with the Earth’s motion and comparing with the starting value.
-Start with a timestep of <span class="math notranslate nohighlight">\(0.1\)</span> years and go down to as small a value as you can integrate in a reasonable time (I was able to get to <span class="math notranslate nohighlight">\(10^{-9}\ {\rm years}\)</span> which took about a minute to run).</p>
-<p>Plot the fractional change in energy over the orbit <span class="math notranslate nohighlight">\(\Delta E/E=(E_\mathrm{final}-E_\mathrm{initial})/E_\mathrm{initial}\)</span> against timestep <span class="math notranslate nohighlight">\(\Delta t\)</span> and against the number of steps <span class="math notranslate nohighlight">\(N\)</span>.  (It’s helpful to make these log-log plots). Discuss the scaling of <span class="math notranslate nohighlight">\(\Delta E/E\)</span> with <span class="math notranslate nohighlight">\(\Delta t\)</span> (or <span class="math notranslate nohighlight">\(N\)</span>) that you find. How does it behave for large and small <span class="math notranslate nohighlight">\(\Delta t\)</span> (or <span class="math notranslate nohighlight">\(N\)</span>)? Do you see any evidence for Brouwer’s law?</p>
-<p>(c) <em>Optional</em>: Using <span class="math notranslate nohighlight">\(v_n\)</span> instead of <span class="math notranslate nohighlight">\(v_{n+1}\)</span> in the formula for the position update gives the less accurate <em>explicit Euler method</em>. Try it in your code – if you plot the orbit you will see that this method does much worse. How does <span class="math notranslate nohighlight">\(\Delta E/E\)</span> and its scaling with <span class="math notranslate nohighlight">\(\Delta t\)</span> compare with the semi-implicit Euler method?
-[If you want to see an example of a <em>more</em> accurate (higher order) method, look at <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.446.1424R/abstract">Rein and Spiegel 2015</a>, which implements a 15th order integrator! Compare your results here with their Figure 1 for example.]</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>Interpolation and thermodynamics</strong></p></li>
-</ol>
-<p>Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We’ll investigate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth’s atmosphere. The pressure and entropy per particle of an ideal gas are given by</p>
-<div class="math notranslate nohighlight">
-\[P = nk_BT, \hspace{1cm} S = k_B \left({5\over 2}-\ln \left({n\over n_Q} \right) \right)\]</div>
-<p>where <span class="math notranslate nohighlight">\(T\)</span> is the temperature, <span class="math notranslate nohighlight">\(n\)</span> is the number density of molecules and <span class="math notranslate nohighlight">\(n_Q=(m k_BT/2\pi\hbar^2)^{3/2}\)</span> with <span class="math notranslate nohighlight">\(m\)</span> the particle mass. For Earth atmosphere modelling, we can take density and temperature ranges of <span class="math notranslate nohighlight">\(10^{-6}\)</span>–<span class="math notranslate nohighlight">\(1\ {\rm kg\ m^{-3}}\)</span> and <span class="math notranslate nohighlight">\(100\)</span>–<span class="math notranslate nohighlight">\(1000\ {\rm K}\)</span>. For this question, you can assume that the atmosphere has a mean molecular weight of <span class="math notranslate nohighlight">\(28\)</span>, ie. <span class="math notranslate nohighlight">\(m=28m_u\)</span> where <span class="math notranslate nohighlight">\(m_u\)</span> is the atomic mass unit, and <span class="math notranslate nohighlight">\(\rho = 28 m_u n\)</span>.</p>
-<p>Whereas in the example in class we used <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RegularGridInterpolator.html"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.RegularGridInterpolator</span></code></a> for 2D interpolation, in this question you may wish to use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RectBivariateSpline.html#scipy.interpolate.RectBivariateSpline"><code class="docutils literal notranslate"><span class="pre">scipy.interpolate.RectBivariateSpline</span></code></a> instead because you can use it to generate derivatives for you (see the <code class="docutils literal notranslate"><span class="pre">partial_derivative()</span></code> method).</p>
-<p>(a) Use the formulae given above to calculate the pressure (<span class="math notranslate nohighlight">\(\log_{10} P\)</span>) and entropy (<span class="math notranslate nohighlight">\(S/k_B\)</span>) for a uniformly-spaced grid of values of <span class="math notranslate nohighlight">\(\log_{10}T\)</span> and <span class="math notranslate nohighlight">\(\log_{10}\rho\)</span> that span the range of interest for Earth’s atmosphere. Since we are interested in interpolation here, use a small number of points in each direction (e.g. <span class="math notranslate nohighlight">\(10\)</span> points).
-Interpolate within your table and plot a color map of the fractional error across the <span class="math notranslate nohighlight">\(\log_{10}T\)</span>–<span class="math notranslate nohighlight">\(\log_{10}\rho\)</span> plane. [Since pressure spans orders of magnitude, it’s useful to deal with <span class="math notranslate nohighlight">\(\log_{10} P\)</span> and similarly <span class="math notranslate nohighlight">\(S/k_B\)</span> is a useful way to look at the entropy.]</p>
-<p>(b) Now check to what extent your interpolation is <em>thermodynamically consistent</em>: In terms of the Helmholtz free energy per particle <span class="math notranslate nohighlight">\(F=E-TS\)</span>, where <span class="math notranslate nohighlight">\(E=(3/2)k_BT\)</span> is the internal energy per particle, the pressure and entropy are given by</p>
-<div class="math notranslate nohighlight">
-\[S = -\left.{\partial F\over \partial T}\right|_n; \hspace{1cm} P = n^2 \left.{\partial F\over \partial n}\right|_T.\]</div>
-<p>This implies that the entropy and pressure must satisfy the Maxwell relation</p>
-<div class="math notranslate nohighlight">
-\[-\left.{\partial S\over \partial n}\right|_T = {1\over n^2}\left.{\partial P\over \partial T}\right|_n.\]</div>
-<p>Numerically evaluate these derivatives to see how well the Maxwell relation is satisfied in your interpolation scheme. (Plot the fractional difference between the left and right hand sides).
-Explain what you are finding – is it a surprise given the equation of state and interpolation scheme you are using? Would you expect this result to hold for more complicated equations of state?</p>
-<p>(c) <em>Optional</em>: One way to interpolate that is automatically thermodynamically consistent is to make a grid of values of</p>
-<div class="math notranslate nohighlight">
-\[F = k_BT \left(\ln \left({n\over n_Q}\right) -1 \right),\]</div>
-<p>interpolate <span class="math notranslate nohighlight">\(F\)</span> as a function of density and temperature, and then calculate <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> as derivatives of <span class="math notranslate nohighlight">\(F\)</span> using derivatives of the interpolating functions. Try implementing this and evaluate the errors in <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> and check that your values are thermodynamically consistent. Compare your results with what you found in (a) and (b) where you interpolated <span class="math notranslate nohighlight">\(P\)</span> and <span class="math notranslate nohighlight">\(S\)</span> directly.</p>
+\[f(x-\Delta x) \approx f(x) - \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}\]</div>
+<p>Adding and subtracting these equations gives the two expressions in the exercise.</p>
+</section>
+<section id="optimal-step-size">
+<h2>Optimal step size<a class="headerlink" href="#optimal-step-size" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">dx_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Evaluate the derivatives </span>
+
+<span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>   <span class="c1"># to store the fractional error from the 1st order difference</span>
+<span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>  <span class="c1"># same for the second order</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">):</span>
+    <span class="n">dfdx1</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">dx</span>
+    <span class="n">err</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">dfdx1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+    <span class="n">dfdx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">dx</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">err2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">dfdx2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;First order&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">err2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Second order&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mf">1e-2</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="n">err2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">))</span>
+
+<span class="c1"># and the analytic expressions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="mf">1e-16</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx_vals</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\epsilon f(x)/\Delta x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$(\Delta x)^2$&#39;</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional error in derivative&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a48d075223a57eea6a2f460a256acaf03aae5dcf669af8018a3527fd642dc4b6.png" src="_images/a48d075223a57eea6a2f460a256acaf03aae5dcf669af8018a3527fd642dc4b6.png" />
+</div>
+</div>
+<p>The optimal step size for the 1st order expression is <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\sim 10^{-8}\)</span> and the associated error is also <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\)</span>.</p>
+<p>For the second order expression, the finite difference error is <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> rather than <span class="math notranslate nohighlight">\(\Delta x\)</span>. Following the same argument as for the first order derivative leads to an optimal step size of order <span class="math notranslate nohighlight">\(\epsilon^{1/3}\sim 10^{-16/3}\sim 10^{-5.3}\)</span>, and an error <span class="math notranslate nohighlight">\(\epsilon^{2/3}\sim 10^{-10.6}\)</span>.</p>
+<p>Notice that a higher order derivative allows us to get a better error with a larger step size.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -442,13 +475,22 @@ Explain what you are finding – is it a surprise given the equation of state an
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="derivatives_solutions.html"
+       href="interpolation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Solutions to Exercises on Derivatives</p>
+        <p class="prev-next-title">Interpolation</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="hw1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
@@ -459,6 +501,21 @@ Explain what you are finding – is it a surprise given the equation of state an
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
