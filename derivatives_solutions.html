@@ -382,11 +382,24 @@ document.write(`
 <h1>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this heading">#</a></h1>
 <section id="second-order-finite-differences">
 <h2>Second order finite differences<a class="headerlink" href="#second-order-finite-differences" title="Permalink to this heading">#</a></h2>
+<p>To keep track of the error terms, write out the Taylor expansions up to the 4th order terms:</p>
 <div class="math notranslate nohighlight">
-\[f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}\]</div>
+\[f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2} + {(\Delta x)^3\over 6}{d^3f\over dx^3} + {(\Delta x)^4\over 24}{d^4f\over dx^4}\]</div>
 <div class="math notranslate nohighlight">
-\[f(x-\Delta x) \approx f(x) - \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}\]</div>
-<p>Adding and subtracting these equations gives the two expressions in the exercise.</p>
+\[f(x-\Delta x) \approx f(x) - \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}-{(\Delta x)^3\over 6}{d^3f\over dx^3} + {(\Delta x)^4\over 24}{d^4f\over dx^4}\]</div>
+<p>Then add and subtract:</p>
+<div class="math notranslate nohighlight">
+\[f(x+\Delta x) + f(x-\Delta x) \approx 2f(x) + (\Delta x)^2{d^2f\over dx^2}  + {(\Delta x)^4\over 12}{d^4f\over dx^4}\]</div>
+<div class="math notranslate nohighlight">
+\[f(x+\Delta x) - f(x-\Delta x) \approx 2\Delta x {df\over dx} + {(\Delta x)^3\over 3}{d^3f\over dx^3}\]</div>
+<p>Therefore</p>
+<div class="math notranslate nohighlight">
+\[{d^2f\over dx^2}\approx {f(x+\Delta x) + f(x-\Delta x) -2f(x)\over (\Delta x)^2} - {(\Delta x)^2\over 12}{d^4f\over dx^4}\]</div>
+<div class="math notranslate nohighlight">
+\[{df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} - {(\Delta x)^2\over 6}{d^3f\over dx^3}\]</div>
+<p>For comparison, the first order derivative with the error term kept in is</p>
+<div class="math notranslate nohighlight">
+\[{df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} - {\Delta x\over 2}{d^2f\over dx^2}\]</div>
 </section>
 <section id="optimal-step-size">
 <h2>Optimal step size<a class="headerlink" href="#optimal-step-size" title="Permalink to this heading">#</a></h2>
@@ -423,7 +436,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$(\Delta x)^2$&#39;</span><span class="p">)</span>
 
-
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(x) = \sin x, \ \ \ x=</span><span class="si">%lg</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
@@ -434,7 +447,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a48d075223a57eea6a2f460a256acaf03aae5dcf669af8018a3527fd642dc4b6.png" src="_images/a48d075223a57eea6a2f460a256acaf03aae5dcf669af8018a3527fd642dc4b6.png" />
+<img alt="_images/1fb170206aaf7cc8096642bd96d3da75fb2a5dc42a381f48316c3a591d038411.png" src="_images/1fb170206aaf7cc8096642bd96d3da75fb2a5dc42a381f48316c3a591d038411.png" />
 </div>
 </div>
 <p>The optimal step size for the 1st order expression is <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\sim 10^{-8}\)</span> and the associated error is also <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\)</span>.</p>
