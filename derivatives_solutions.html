@@ -367,6 +367,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-derivatives">Automatic derivatives</a></li>
 </ul>
             </nav>
         </div>
@@ -413,7 +414,7 @@ document.write(`
 
 <span class="n">dx_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Evaluate the derivatives </span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Evaluate the derivatives at this value of x</span>
 
 <span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>   <span class="c1"># to store the fractional error from the 1st order difference</span>
 <span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>  <span class="c1"># same for the second order</span>
@@ -453,6 +454,22 @@ document.write(`
 <p>The optimal step size for the 1st order expression is <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\sim 10^{-8}\)</span> and the associated error is also <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\)</span>.</p>
 <p>For the second order expression, the finite difference error is <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> rather than <span class="math notranslate nohighlight">\(\Delta x\)</span>. Following the same argument as for the first order derivative leads to an optimal step size of order <span class="math notranslate nohighlight">\(\epsilon^{1/3}\sim 10^{-16/3}\sim 10^{-5.3}\)</span>, and an error <span class="math notranslate nohighlight">\(\epsilon^{2/3}\sim 10^{-10.6}\)</span>.</p>
 <p>Notice that a higher order derivative allows us to get a better error with a larger step size.</p>
+</section>
+<section id="automatic-derivatives">
+<h2>Automatic derivatives<a class="headerlink" href="#automatic-derivatives" title="Permalink to this heading">#</a></h2>
+<p>Inspecting the code, we can see that the operators that are implemented inside the class return a new instance of Var that is initialized with (1) the value obtained from the operation, and (2) a set of children that give the partial derivatives with respect to the variables involved in the operation.</p>
+<p>The multiplication operator is instructive to look at. For the operation <code class="docutils literal notranslate"><span class="pre">x*y</span></code>, there are two variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, so we need to return (1) the operation value <code class="docutils literal notranslate"><span class="pre">x*y</span></code>, (2) the partial derivative with respect to <code class="docutils literal notranslate"><span class="pre">x</span></code>, which is <span class="math notranslate nohighlight">\(\partial(xy)/\partial x = y\)</span>, and (3) the partial derivative with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>, which is <span class="math notranslate nohighlight">\(\partial(xy)/\partial y = x\)</span>. The corresponding function definition is</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">[(</span><span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">other</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>For <span class="math notranslate nohighlight">\(exp(x)\)</span>, there is only one argument to the function so we just have to return one partial derivative <span class="math notranslate nohighlight">\((\partial/\partial x)\exp(x) = \exp(x)\)</span>. So we can add</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="p">[(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="bp">self</span><span class="p">)])</span>
+</pre></div>
+</div>
+<p>which we use for example as</p>
+<p><code class="docutils literal notranslate"><span class="pre">f=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">x.exp()</span></code></p>
 </section>
 </section>
 
@@ -525,6 +542,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-derivatives">Automatic derivatives</a></li>
 </ul>
   </nav></div>
 
