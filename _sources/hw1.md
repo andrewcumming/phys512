@@ -19,7 +19,7 @@ where $\Delta t$ is the timestep, and $\vec{x}$, $\vec{v}$ and $\vec{a}$ are the
 [You can assume for simplicity that the Sun is fixed at the origin and the Earth moves in a circular orbit under the (Newtonian) gravity of the Sun. Useful values are: $(GM)_\mathrm{Sun} = 1.3271\times 10^{20}$ in SI units and the Earth-Sun distance (astronomical unit) $1.496\times 10^{11}\ {\rm m}$.]
 
 (b) Try using different time-steps $\Delta t$ for your one-year integration, and check how well the code conserves energy by evaluating the total energy (kinetic plus gravitational) associated with the Earth's motion and comparing with the starting value. 
-Start with a timestep of $0.1$ years and go down to as small a value as you can integrate in a reasonable time (I was able to get to $10^{-9}\ {\rm years}$ which took about a minute to run). 
+Start with a timestep of $0.1$ years and go down to as small a value as you can integrate in a reasonable time (I was able to get to $10^{-9}\ {\rm years}$ which took about 10 minutes to run). 
 
 Plot the fractional change in energy over the orbit $\Delta E/E=(E_\mathrm{final}-E_\mathrm{initial})/E_\mathrm{initial}$ against timestep $\Delta t$ and against the number of steps $N$.  (It's helpful to make these log-log plots). Discuss the scaling of $\Delta E/E$ with $\Delta t$ (or $N$) that you find. How does it behave for large and small $\Delta t$ (or $N$)? Do you see any evidence for Brouwer's law?
 
