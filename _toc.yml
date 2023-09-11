@@ -17,6 +17,9 @@ parts:
       chapters:
         - file: derivatives
         - file: interpolation
+    - caption: Solutions to Exercises
+      chapters:
+        - file: derivatives_solutions
     - caption: Homework
       chapters:
         - file: hw1
