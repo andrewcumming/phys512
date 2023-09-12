@@ -13,7 +13,7 @@ $$f(x) \approx {x_{i+1}-x\over x_{i+1}-x_i} f(x_i) + {x - x_i \over x_{i+1}-x_i}
 This is equivalent to drawing a straight line between the two points. 
 
 ```{admonition} Exercise: linear interpolation
-Choose a function (e.g. $\sin(x)$ between $0$ and $2\pi$) and investigate how the error made in linear-interpolation depends on the number of points. You can use [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html) to carry out the linear interpolation. Plot your function, the sampled points, and the interpolated function on the same plot. How quickly does the error decrease with the number of sampled points? How do you explain the scaling that you see?
+Choose a function (e.g. $\sin(x)$ between $0$ and $2\pi$ or a Gaussian) and investigate how the error made in linear-interpolation depends on the number of points. You can use [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html) to carry out the linear interpolation. Plot your function, the sampled points, and the interpolated function on the same plot. How quickly does the error decrease with the number of sampled points? How do you explain the scaling that you see?
 ```
 
 
