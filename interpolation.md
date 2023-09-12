@@ -23,7 +23,7 @@ Choose a function (e.g. $\sin(x)$ between $0$ and $2\pi$ or a Gaussian) and inve
 Linear interpolation is an example of a polynomial fit -- given two data points, we can fit a straight line between them. We could go to higher order by including more data points when modelling each interval. For example, for the interval $x_i<x<x_{i+1}$, we could use the four points $x_{i-1}, x_i, x_{i+1}$, and $x_{i+2}$ to fit a cubic polynomial to use in this range. 
 
 Here is some code that uses 
-[numpy.polynomial.polynomial.Polynomial.fit](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.fit.html#numpy.polynomial.polynomial.Polynomial.fit) to fit a cubic polynomial to each interval. (Note that the interpolated curve is calculated only between $x_2$ and $x_{N-1}$ because we don't have enough information to fit a cubic for $x_1<x<x_2$ or $x_{N-1}<x<x_N$).
+[numpy.polynomial.polynomial.Polynomial](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.html) to fit a cubic polynomial to each interval. (Note that the interpolated curve is calculated only between $x_2$ and $x_{N-1}$ because we don't have enough information to fit a cubic for $x_1<x<x_2$ or $x_{N-1}<x<x_N$).
 
 ```
 # Sample the function
