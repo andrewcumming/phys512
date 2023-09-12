@@ -2,7 +2,7 @@
 
 The project component of the course will make up 30% of your grade. The due date will be the last day of class (Dec 5). 
 
-Working in a group of 2 or 3, you should solve a physics problem of interest to you using computational methods. You can write your own code, use existing code and libraries, or a combination of the two.
+Working in a group of 2 or 3, you should solve a physics problem of interest to you using computational methods. You can write your own code, use existing code and libraries, or a combination of the two. The project can involve a theory calculation or modelling data or both. 
 
 **Grading**
 
