@@ -67,6 +67,8 @@ where `xp` and `fp` are the sample points and function values at those points. T
 
 ```{admonition} Exercise: splines
 Add a spline fit to your code and compare with the linear and cubic polynomial fits. In particular, how does the spline fit differ from the cubic polynomial fit in terms of accuracy and the first and second derivatives?
+
+Look at the documentation and try changing what happens at the boundaries by setting different `bc_type` values. Natural splines are not the default behavior for `scipy.interpolate.CubicSpline` -- what is it?
 ```
 
 ```{admonition} Exercise: higher order fits, oscillations, and noise
