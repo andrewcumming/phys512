@@ -369,6 +369,8 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-methods">Newton-Cotes methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">Gaussian quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-challenge">Integration challenge</a></li>
 </ul>
             </nav>
         </div>
@@ -423,7 +425,61 @@ document.write(`
 <p>where we need the total number of points <span class="math notranslate nohighlight">\(N\)</span> to be an odd number (so we can divide the domain into a set of double intervals).</p>
 <div class="admonition-exercise-newton-cotes admonition">
 <p class="admonition-title">Exercise: Newton-Cotes</p>
-<p>Implement these three methods to integrate a function <span class="math notranslate nohighlight">\(f(x)\)</span> of your choice. How does the error in each method scale with the number of points <span class="math notranslate nohighlight">\(N\)</span>? What kind of functions are integrated exactly (to machine precision) for each method?</p>
+<p>Implement these three methods to check the result that the average value of <span class="math notranslate nohighlight">\(\sin^2(x)\)</span> is <span class="math notranslate nohighlight">\(1/2\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[{1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.\]</div>
+<p>How does the error in each method scale with the number of points <span class="math notranslate nohighlight">\(N\)</span>? Does the result surprise you? Why or why not?</p>
+</div>
+<div class="admonition-follow-up-exercise admonition">
+<p class="admonition-title">Follow up exercise:</p>
+<p>What kind of functions are integrated exactly (to machine precision) for each method? (Hint: polynomials of a certain order, which order?)</p>
+</div>
+</section>
+<section id="gaussian-quadrature">
+<h2>Gaussian quadrature<a class="headerlink" href="#gaussian-quadrature" title="Permalink to this heading">#</a></h2>
+<p>In the previous examples, we were given the function <span class="math notranslate nohighlight">\(f(x)\)</span> evaluated at a pre-determined set of points <span class="math notranslate nohighlight">\(\{ x_i\}\)</span>. But if instead we are able to choose the values of <span class="math notranslate nohighlight">\(x\)</span> where we can evaluate the function, we can do better using the method of <em>Gaussian quadratures</em>.</p>
+<p>The simplest example is the integral</p>
+<div class="math notranslate nohighlight">
+\[\int^{1}_{-1} f(x) dx\]</div>
+<p>(which is quite general because for different integration limits you can make a change of variables to bring the limits to <span class="math notranslate nohighlight">\(-1\)</span> and <span class="math notranslate nohighlight">\(+1\)</span>). We write the integral as</p>
+<div class="math notranslate nohighlight">
+\[\int^{1}_{-1} f(x) dx = \sum_{i=1}^N w_i f(x_i).\]</div>
+<p>For a suitable choice of the weights <span class="math notranslate nohighlight">\(w_i\)</span> and the locations <span class="math notranslate nohighlight">\(x_i\)</span> it can be shown that this expression is exact when <span class="math notranslate nohighlight">\(f(x)\)</span> is a polynomial of order <span class="math notranslate nohighlight">\(2N-1\)</span> or less.</p>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>This means that with 2 evaluations of <span class="math notranslate nohighlight">\(f(x)\)</span> we can exactly evaluate the integral of a cubic polynomial! How does this compare with Simpson’s method?</p>
+</div>
+<p>The proof that this works and the calculation of the values of <span class="math notranslate nohighlight">\(w_i\)</span> and <span class="math notranslate nohighlight">\(x_i\)</span> is quite involved. [One thing to mention is that for this particular form of the integral, the values of <span class="math notranslate nohighlight">\(x_i\)</span> are the roots of the Legendre Polynomial <span class="math notranslate nohighlight">\(P_N(x)\)</span>.] However, we can look up <span class="math notranslate nohighlight">\(w_i\)</span> and <span class="math notranslate nohighlight">\(x_i\)</span> using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.leggauss</span></code></a></p>
+<p>For example,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">legendre</span><span class="o">.</span><span class="n">leggauss</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="go">(array([-0.57735027,  0.57735027]), array([1., 1.]))</span>
+</pre></div>
+</div>
+<p>gives the <span class="math notranslate nohighlight">\(N=2\)</span> values. In this case, the weights are both 1, and the <span class="math notranslate nohighlight">\(x\)</span> values are <span class="math notranslate nohighlight">\(\pm 1/\sqrt{3}\)</span>.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>Using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.leggauss</span></code></a>
+to get the locations and weights for different choices of <span class="math notranslate nohighlight">\(N\)</span>, implement Gaussian quadratures. Check that the answer is indeed exact for polynomials of degree <span class="math notranslate nohighlight">\(2N-1\)</span> or less. What happens for higher order polynomials? What is the error in the approximation?</p>
+</div>
+<p>Gaussian quadratures can be applied more generally to integrals of the form</p>
+<div class="math notranslate nohighlight">
+\[\int W(x) f(x) dx\]</div>
+<p>for some weight function <span class="math notranslate nohighlight">\(W(x)\)</span> (in the previous example we had <span class="math notranslate nohighlight">\(W(x)=1\)</span>). We write the integral as a sum</p>
+<div class="math notranslate nohighlight">
+\[\int W(x) f(x) dx= \sum_{i=1}^N w_i f(x_i)\]</div>
+<p>and find the choices of <span class="math notranslate nohighlight">\(w_i\)</span> and <span class="math notranslate nohighlight">\(x_i\)</span> that make the sum exact for a polynomial of degree <span class="math notranslate nohighlight">\(2N-1\)</span> or less.</p>
+<p>One example is <span class="math notranslate nohighlight">\(W(x)=e^{-x^2}\)</span>, ie. integrals</p>
+<div class="math notranslate nohighlight">
+\[\int_0^\infty e^{-x^2} f(x) dx.\]</div>
+<p>In this case, the weights and locations are given by <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html">numpy.polynomial.hermite.hermgauss</a>. [The locations <span class="math notranslate nohighlight">\(x_i\)</span> are the roots of the <span class="math notranslate nohighlight">\(N\)</span>th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function <span class="math notranslate nohighlight">\(W(x)\)</span>.]</p>
+</section>
+<section id="integration-challenge">
+<h2>Integration challenge<a class="headerlink" href="#integration-challenge" title="Permalink to this heading">#</a></h2>
+<div class="admonition-exercise-average-velocity-of-the-maxwell-boltzmann-distribution admonition">
+<p class="admonition-title">Exercise: Average velocity of the Maxwell-Boltzmann distribution.</p>
+<p>Use Simpson’s rule, Gaussian quadrature, and the general purpose integrator <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code></a> to evaluate the average velocity <span class="math notranslate nohighlight">\(\langle\left|v\right|\rangle\)</span> for the <a class="reference external" href="https://en.wikipedia.org/wiki/Maxwell%E2%80%93Boltzmann_distribution">Maxwell-Boltzmann distribution</a>.
+For each method, check the numerical error comparing to the analytic result. How many points do you need to get to <span class="math notranslate nohighlight">\(0.1\)</span>% accuracy?</p>
+<p>For Simpson’s rule you can use your own implementation from above or you could try <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.simpson</span></code></a>).</p>
 </div>
 </section>
 </section>
@@ -496,6 +552,8 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-methods">Newton-Cotes methods</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">Gaussian quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integration-challenge">Integration challenge</a></li>
 </ul>
   </nav></div>
 
