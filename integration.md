@@ -60,5 +60,83 @@ where we need the total number of points $N$ to be an odd number (so we can divi
 
 
 ```{admonition} Exercise: Newton-Cotes
-Implement these three methods to integrate a function $f(x)$ of your choice. How does the error in each method scale with the number of points $N$? What kind of functions are integrated exactly (to machine precision) for each method?
+Implement these three methods to check the result that the average value of $\sin^2(x)$ is $1/2$, i.e.
+
+$${1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.$$
+
+How does the error in each method scale with the number of points $N$? Does the result surprise you? Why or why not?
 ```
+
+```{admonition} Follow up exercise:
+What kind of functions are integrated exactly (to machine precision) for each method? (Hint: polynomials of a certain order, which order?)
+```
+
+## Gaussian quadrature
+
+In the previous examples, we were given the function $f(x)$ evaluated at a pre-determined set of points $\{ x_i\}$. But if instead we are able to choose the values of $x$ where we can evaluate the function, we can do better using the method of *Gaussian quadratures*. 
+
+The simplest example is the integral
+
+$$\int^{1}_{-1} f(x) dx$$ 
+
+(which is quite general because for different integration limits you can make a change of variables to bring the limits to $-1$ and $+1$). We write the integral as
+
+$$\int^{1}_{-1} f(x) dx = \sum_{i=1}^N w_i f(x_i).$$
+
+For a suitable choice of the weights $w_i$ and the locations $x_i$ it can be shown that this expression is exact when $f(x)$ is a polynomial of order $2N-1$ or less. 
+
+```{admonition} Question
+This means that with 2 evaluations of $f(x)$ we can exactly evaluate the integral of a cubic polynomial! How does this compare with Simpson's method?
+```
+
+The proof that this works and the calculation of the values of $w_i$ and $x_i$ is quite involved. [One thing to mention is that for this particular form of the integral, the values of $x_i$ are the roots of the Legendre Polynomial $P_N(x)$.] However, we can look up $w_i$ and $x_i$ using [`numpy.polynomial.legendre.leggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html)
+
+For example, 
+
+```
+>>> np.polynomial.legendre.leggauss(2)
+(array([-0.57735027,  0.57735027]), array([1., 1.]))
+```
+
+gives the $N=2$ values. In this case, the weights are both 1, and the $x$ values are $\pm 1/\sqrt{3}$. 
+
+
+```{admonition} Exercise
+Using [`numpy.polynomial.legendre.leggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html)
+to get the locations and weights for different choices of $N$, implement Gaussian quadratures. Check that the answer is indeed exact for polynomials of degree $2N-1$ or less. What happens for higher order polynomials? What is the error in the approximation?
+```
+
+Gaussian quadratures can be applied more generally to integrals of the form
+
+$$\int W(x) f(x) dx$$
+
+for some weight function $W(x)$ (in the previous example we had $W(x)=1$). We write the integral as a sum  
+
+$$\int W(x) f(x) dx= \sum_{i=1}^N w_i f(x_i)$$
+
+and find the choices of $w_i$ and $x_i$ that make the sum exact for a polynomial of degree $2N-1$ or less.
+
+One example is $W(x)=e^{-x^2}$, ie. integrals
+
+$$\int_0^\infty e^{-x^2} f(x) dx.$$
+
+In this case, the weights and locations are given by [numpy.polynomial.hermite.hermgauss](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html). [The locations $x_i$ are the roots of the $N$th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function $W(x)$.]
+
+
+## Integration challenge
+
+```{admonition} Exercise: Average velocity of the Maxwell-Boltzmann distribution.
+
+Use Simpson's rule, Gaussian quadrature, and the general purpose integrator [`scipy.integrate.quad`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html) to evaluate the average velocity $\langle\left|v\right|\rangle$ for the [Maxwell-Boltzmann distribution](https://en.wikipedia.org/wiki/Maxwell–Boltzmann_distribution).
+For each method, check the numerical error comparing to the analytic result. How many points do you need to get to $0.1$% accuracy?
+
+For Simpson's rule you can use your own implementation from above or you could try [`scipy.integrate.simpson`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html)).
+```
+
+
+
+
+
+
+
+
