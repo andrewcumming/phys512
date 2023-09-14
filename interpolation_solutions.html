@@ -490,7 +490,7 @@ Maximum error for poly is 5.653960e-01
 <p>Things to note:</p>
 <ul class="simple">
 <li><p>For <span class="math notranslate nohighlight">\(N\)</span> sample points, the error in linear interpolation decreases as <span class="math notranslate nohighlight">\(N^2\)</span>, cubic and spline decrease as <span class="math notranslate nohighlight">\(N^4\)</span>.  This is because the largest correction term (next term in the Taylor expansion) is <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> for linear and <span class="math notranslate nohighlight">\(\propto (\Delta x)^4\)</span> for cubic.</p></li>
-<li><p>The full <span class="math notranslate nohighlight">\(N-1\)</span>-order polynomial fit (Lagrange polynomial) does not behave well, often showing high frequency components, particularly near the boundaries of the domain.</p></li>
+<li><p>The full <span class="math notranslate nohighlight">\(N-1\)</span>-order polynomial fit (Lagrange polynomial) does not behave well, often showing high frequency components, particularly near the boundaries of the domain (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge's_phenomenon">Runge’s phenomenon</a>).</p></li>
 <li><p>The cubic fits show discontinities in the derivatives at the sampled points; the spline (by definition) has continuous first and second derivatives.</p></li>
 <li><p>The cubic and spline fits develop oscillations near discontinous changes in the function of derivatives.</p></li>
 <li><p>The cubic and spline interpolations are able to fit polynomials up to 3rd order exactly. The Lagrange fit will fit up to order <span class="math notranslate nohighlight">\(N-1\)</span> exactly.</p></li>

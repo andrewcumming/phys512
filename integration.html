@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'integration';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -343,7 +345,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -359,6 +363,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-methods">Newton-Cotes methods</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -370,6 +382,50 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="integration">
 <h1>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h1>
+<section id="newton-cotes-methods">
+<h2>Newton-Cotes methods<a class="headerlink" href="#newton-cotes-methods" title="Permalink to this heading">#</a></h2>
+<p>A related problem to interpolation is when we need to calculate the integral of a function</p>
+<div class="math notranslate nohighlight">
+\[I = \int_{x_1}^{x_N} f(x) dx\]</div>
+<p>given values of the function at a discrete set of points <span class="math notranslate nohighlight">\(x_1\dots x_N\)</span>, which we’ll write as <span class="math notranslate nohighlight">\(f_i\equiv f(x_i)\)</span>. For simplicity here we’ll assume that the spacing between points on the grid is constant <span class="math notranslate nohighlight">\(x_{i+1}-x_i = \Delta x\)</span>, but it’s straighforward to generalize to non-uniform sampling if you need to.</p>
+<p>To estimate the value of the integral, we need to model how the function behaves in each interval <span class="math notranslate nohighlight">\(x_i&lt;x&lt;x_{i+1}\)</span>. As with interpolation, we can take <span class="math notranslate nohighlight">\(f(x)\)</span> in each interval to be a polynomial, including additional terms in the polynomial to increase the accuracy of our approximation.</p>
+<p><strong>Rectangle rule</strong></p>
+<p>The first approximation is to assume that <span class="math notranslate nohighlight">\(f(x)\)</span> is a constant <span class="math notranslate nohighlight">\(f(x)=f_i\)</span> in the interval <span class="math notranslate nohighlight">\(x_i\leq x\leq x_{i+1}\)</span>. The total integral is then</p>
+<div class="math notranslate nohighlight">
+\[I\approx \sum_{i=1}^{N-1} f_i \Delta x.\]</div>
+<p><strong>Trapezoidal rule</strong></p>
+<p>If we make a linear approximation, we can write</p>
+<div class="math notranslate nohighlight">
+\[f(x) \approx f_i + {f_{i+1}-f_i\over \Delta x} \left(x-x_i\right)\hspace{1cm} x_i\leq x\leq x_{i+1}.\]</div>
+<p>Then</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_i}^{x_{i+1}} f(x) dx =  \int_0^{\Delta x} f(x_i+y) dy \approx f_i \Delta x + (f_{i+1}-f_i){\Delta x\over 2}  = {f_i+f_{i+1}\over 2}\Delta x.\]</div>
+<p>This is known as the <em>trapezoidal rule</em> because it corresponds to the area of the trapezoid formed by connecting the points <span class="math notranslate nohighlight">\((x_i,f_i)\)</span> and <span class="math notranslate nohighlight">\((x_{i+1}, f_{i+1})\)</span> by a straight line.</p>
+<p>When we sum over all intervals, each point gets counted twice except for the left and right boundaries, so</p>
+<div class="math notranslate nohighlight">
+\[I \approx \Delta x \left[{f_1\over 2} + f_2 + f_3 \dots + f_{N-1} + {f_N\over 2}\right].\]</div>
+<p><strong>Simpson’s rule</strong></p>
+<p>For the next order, we consider the double interval <span class="math notranslate nohighlight">\(x_{i-1}&lt;x&lt;x_{i+1}\)</span>, and write</p>
+<div class="math notranslate nohighlight">
+\[f(x) \approx f_i + (x-x_i) \left.{df\over dx}\right|_{x_i}+ {(x-x_i)^2\over 2}\left.{d^2f\over dx^2}\right|_{x_i}.\]</div>
+<p>The reason for considering the double interval from <span class="math notranslate nohighlight">\(x_{i-1}\)</span> to <span class="math notranslate nohighlight">\(x_{i+1}\)</span> is that the linear term is odd in this interval (antisymmetric about <span class="math notranslate nohighlight">\(x_i\)</span>) and so does not contribute to the integral, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} f(x) dx \approx 2 f_i \Delta x + {1\over 2} \left.{d^2f\over dx^2}\right|_{x_i} {2(\Delta x)^3\over 3}.\]</div>
+<p>Taking</p>
+<div class="math notranslate nohighlight">
+\[\left.{d^2f\over dx^2}\right|_{x_i} \approx {f_{i+1}-2f_i + f_{i-1}\over (\Delta x)^2}\]</div>
+<p>and simplifying then gives</p>
+<div class="math notranslate nohighlight">
+\[\int_{x_{i-1}}^{x_{i+1}} f(x) dx \approx {\Delta x\over 3} \left[f_{i-1} + 4f_i + f_{i+1} \right].\]</div>
+<p>Adding up the contributions from each double interval, the total integral is</p>
+<div class="math notranslate nohighlight">
+\[I \approx {\Delta x\over 3}\left[ f_1 + 4f_2 + 2f_3 + 4f_4 + 2f_5 \dots 4f_{N-1} + f_N \right],\]</div>
+<p>where we need the total number of points <span class="math notranslate nohighlight">\(N\)</span> to be an odd number (so we can divide the domain into a set of double intervals).</p>
+<div class="admonition-exercise-newton-cotes admonition">
+<p class="admonition-title">Exercise: Newton-Cotes</p>
+<p>Implement these three methods to integrate a function <span class="math notranslate nohighlight">\(f(x)\)</span> of your choice. How does the error in each method scale with the number of points <span class="math notranslate nohighlight">\(N\)</span>? What kind of functions are integrated exactly (to machine precision) for each method?</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -430,6 +486,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes-methods">Newton-Cotes methods</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
