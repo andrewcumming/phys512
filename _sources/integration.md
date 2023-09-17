@@ -145,14 +145,20 @@ Modify your code to use the Gauss-Hermite coefficients and check that you can ge
 Hint: If you want to use `scipy.integrate.quad` again to get the value of the integral as a comparison, note that you can give it limits of $-\infty$ to $+\infty$ using `-np.inf` and `np.inf`.
 ```
 
+Another example is $W(x)=e^{-x}$ with integration limits $0$ to $\infty$. In this case, we need Gauss-Laguerre integration -- see [`numpy.polynomial.laguerre.laggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.laggauss.html).
+
+
 ## Integration challenge
 
 ```{admonition} Exercise: Average velocity of the Maxwell-Boltzmann distribution.
 
 Use Simpson's rule, Gaussian quadrature, and the general purpose integrator [`scipy.integrate.quad`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html) to evaluate the average velocity $\langle\left|v\right|\rangle$ for the [Maxwell-Boltzmann distribution](https://en.wikipedia.org/wiki/Maxwell–Boltzmann_distribution).
+
 For each method, check the numerical error comparing to the analytic result. How many points do you need to get to $0.1$% accuracy?
 
 For Simpson's rule you can use your own implementation from above or you could try [`scipy.integrate.simpson`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html)).
+
+For Gaussian quadrature, try both Gauss-Hermite and Gauss-Laguerre. Which one is best?
 ```
 
 
