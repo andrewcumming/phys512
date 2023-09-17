@@ -402,39 +402,50 @@ document.write(`
     <span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
     <span class="k">return</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
+<span class="k">def</span> <span class="nf">cubic_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">fp</span><span class="p">):</span>
+    <span class="c1"># storage for the interpolated function and derivatives</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">f2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">f2dd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+    <span class="c1"># do a cubic polynomial fit to each interval (except the first and last)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">):</span>
+        <span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">],</span> <span class="n">fp</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>    
+        <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
+        <span class="n">f2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">f2d</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+        <span class="n">f2dd</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
+    
+    <span class="c1"># exclude the first and last intervals</span>
+    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">xp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xp</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
+    <span class="n">f2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">f2d</span> <span class="o">=</span> <span class="n">f2d</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+    <span class="n">f2dd</span> <span class="o">=</span> <span class="n">f2dd</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>  
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">x2</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f2d</span><span class="p">,</span> <span class="n">f2dd</span>
+
 <span class="c1"># choose one of the above functions to fit</span>
 <span class="n">func</span> <span class="o">=</span> <span class="n">func_exp</span>
 <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="mi">5</span>
 <span class="n">n_points</span> <span class="o">=</span> <span class="mi">11</span>    <span class="c1"># number of sample points</span>
+<span class="n">add_noise</span> <span class="o">=</span> <span class="kc">False</span>    <span class="c1"># whether to add noise</span>
+<span class="n">noise_amp</span> <span class="o">=</span> <span class="mf">0.001</span>  <span class="c1"># noise amplitude</span>
 
 <span class="c1"># Sample the function</span>
 <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="n">n_points</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
 <span class="c1"># add noise</span>
-<span class="k">if</span> <span class="kc">False</span><span class="p">:</span>
-    <span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span> <span class="o">+</span> <span class="mf">0.0001</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span>
+<span class="k">if</span> <span class="n">add_noise</span><span class="p">:</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">fp</span> <span class="o">+</span> <span class="n">noise_amp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="p">))</span>
 
 <span class="c1"># 1. Piecewise linear interpolation</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">10</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">f1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
 
 <span class="c1"># 2. Cubic interpolation</span>
-<span class="n">f2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">f2d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">f2dd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="c1"># do a cubic polynomial fit to each interval (except the first and last)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span><span class="o">-</span><span class="mi">3</span><span class="p">):</span>
-    <span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">],</span> <span class="n">fp</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">4</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span>    
-    <span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">],</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">xp</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]))</span>
-    <span class="n">f2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
-    <span class="n">f2d</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
-    <span class="n">f2dd</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">poly</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">])</span>
-<span class="n">ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">x</span><span class="o">&gt;=</span><span class="n">xp</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">x</span><span class="o">&lt;</span><span class="n">xp</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]))</span>
-<span class="n">f2</span> <span class="o">=</span> <span class="n">f2</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">f2d</span> <span class="o">=</span> <span class="n">f2d</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
-<span class="n">f2dd</span> <span class="o">=</span> <span class="n">f2dd</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>  
-<span class="n">x2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span>
+<span class="n">x2</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">f2d</span><span class="p">,</span> <span class="n">f2dd</span> <span class="o">=</span> <span class="n">cubic_interpolation</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">xp</span><span class="p">,</span> <span class="n">fp</span><span class="p">)</span>
 
 <span class="c1"># 3. Spline</span>
 <span class="n">f3</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">CubicSpline</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">fp</span><span class="p">)</span> <span class="c1">#, bc_type = &#39;natural&#39;)</span>
@@ -483,8 +494,8 @@ Maximum error for spline is 1.150823e-02
 Maximum error for poly is 5.653960e-01
 </pre></div>
 </div>
-<img alt="_images/ddc5d2b9cad4c7b964982fc0a861f8f40eae733d198b557e0ec35e656470c0da.png" src="_images/ddc5d2b9cad4c7b964982fc0a861f8f40eae733d198b557e0ec35e656470c0da.png" />
-<img alt="_images/315caa8c064a7797a606b95d445957d9b7b92adeb5be753f2771f4ae433f741b.png" src="_images/315caa8c064a7797a606b95d445957d9b7b92adeb5be753f2771f4ae433f741b.png" />
+<img alt="_images/66cafba57be4f157483ab36622beb035bf2277b9976bdc9c9388ef067e1c7876.png" src="_images/66cafba57be4f157483ab36622beb035bf2277b9976bdc9c9388ef067e1c7876.png" />
+<img alt="_images/039ee7226d1e97e2b4e32c0afe45c6fdb6d6160546187a98ff43d5ab7b401695.png" src="_images/039ee7226d1e97e2b4e32c0afe45c6fdb6d6160546187a98ff43d5ab7b401695.png" />
 </div>
 </div>
 <p>Things to note:</p>
@@ -492,7 +503,7 @@ Maximum error for poly is 5.653960e-01
 <li><p>For <span class="math notranslate nohighlight">\(N\)</span> sample points, the error in linear interpolation decreases as <span class="math notranslate nohighlight">\(N^2\)</span>, cubic and spline decrease as <span class="math notranslate nohighlight">\(N^4\)</span>.  This is because the largest correction term (next term in the Taylor expansion) is <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> for linear and <span class="math notranslate nohighlight">\(\propto (\Delta x)^4\)</span> for cubic.</p></li>
 <li><p>The full <span class="math notranslate nohighlight">\(N-1\)</span>-order polynomial fit (Lagrange polynomial) does not behave well, often showing high frequency components, particularly near the boundaries of the domain (<a class="reference external" href="https://en.wikipedia.org/wiki/Runge's_phenomenon">Runge’s phenomenon</a>).</p></li>
 <li><p>The cubic fits show discontinities in the derivatives at the sampled points; the spline (by definition) has continuous first and second derivatives.</p></li>
-<li><p>The cubic and spline fits develop oscillations near discontinous changes in the function of derivatives.</p></li>
+<li><p>The cubic and spline fits develop oscillations near discontinous changes in the function of derivatives. Adding Gaussian noise to the data points also can lead to oscillations in the interpolated function.</p></li>
 <li><p>The cubic and spline interpolations are able to fit polynomials up to 3rd order exactly. The Lagrange fit will fit up to order <span class="math notranslate nohighlight">\(N-1\)</span> exactly.</p></li>
 </ul>
 </section>
