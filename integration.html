@@ -425,10 +425,14 @@ document.write(`
 <p>where we need the total number of points <span class="math notranslate nohighlight">\(N\)</span> to be an odd number (so we can divide the domain into a set of double intervals).</p>
 <div class="admonition-exercise-newton-cotes admonition">
 <p class="admonition-title">Exercise: Newton-Cotes</p>
-<p>Implement these three methods to check the result that the average value of <span class="math notranslate nohighlight">\(\sin^2(x)\)</span> is <span class="math notranslate nohighlight">\(1/2\)</span>, i.e.</p>
+<p>Implement these three methods to calculate the integral</p>
+<div class="math notranslate nohighlight">
+\[\int_0^{\pi/2} \cos x \, dx = 1.\]</div>
+<p>How does the error in each method scale with the number of points <span class="math notranslate nohighlight">\(N\)</span>? Is it what you expected?</p>
+<p>Next, use your code to check the result that the average value of <span class="math notranslate nohighlight">\(\sin^2(x)\)</span> is <span class="math notranslate nohighlight">\(1/2\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
 \[{1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.\]</div>
-<p>How does the error in each method scale with the number of points <span class="math notranslate nohighlight">\(N\)</span>? Does the result surprise you? Why or why not?</p>
+<p>Does the result surprise you? What happened?</p>
 </div>
 <div class="admonition-follow-up-exercise admonition">
 <p class="admonition-title">Follow up exercise:</p>
