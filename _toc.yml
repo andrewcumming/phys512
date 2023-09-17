@@ -13,7 +13,7 @@ parts:
         - file: basics
         - file: programming
         - file: floats
-    - caption: Derivatives, Integration, Interpolation
+    - caption: Manipulating functions
       chapters:
         - file: derivatives
         - file: interpolation
