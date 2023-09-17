@@ -145,7 +145,11 @@ Modify your code to use the Gauss-Hermite coefficients and check that you can ge
 Hint: If you want to use `scipy.integrate.quad` again to get the value of the integral as a comparison, note that you can give it limits of $-\infty$ to $+\infty$ using `-np.inf` and `np.inf`.
 ```
 
-Another example is $W(x)=e^{-x}$ with integration limits $0$ to $\infty$. In this case, we need Gauss-Laguerre integration -- see [`numpy.polynomial.laguerre.laggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.laggauss.html).
+Other examples are
+
+-  $W(x)=e^{-x}$ with integration limits $0$ to $\infty$. In this case, we need Gauss-Laguerre integration -- see [`numpy.polynomial.laguerre.laggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.laggauss.html)
+- $W(x)=1/\sqrt{1-x^2}$ from $x=-1$ to $1$ is Gauss-Chebyshev quadrature -- see 
+[`numpy.polynomial.chebyshev.chebgauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.chebyshev.chebgauss.html)
 
 
 ## Integration challenge

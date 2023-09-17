@@ -489,7 +489,12 @@ to get the locations and weights for different choices of <span class="math notr
 <p>Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of <span class="math notranslate nohighlight">\(e^{-x^2}\)</span>.</p>
 <p>Hint: If you want to use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code> again to get the value of the integral as a comparison, note that you can give it limits of <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span> using <code class="docutils literal notranslate"><span class="pre">-np.inf</span></code> and <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>.</p>
 </div>
-<p>Another example is <span class="math notranslate nohighlight">\(W(x)=e^{-x}\)</span> with integration limits <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span>. In this case, we need Gauss-Laguerre integration – see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.laggauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.laguerre.laggauss</span></code></a>.</p>
+<p>Other examples are</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(W(x)=e^{-x}\)</span> with integration limits <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span>. In this case, we need Gauss-Laguerre integration – see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.laguerre.laggauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.laguerre.laggauss</span></code></a></p></li>
+<li><p><span class="math notranslate nohighlight">\(W(x)=1/\sqrt{1-x^2}\)</span> from <span class="math notranslate nohighlight">\(x=-1\)</span> to <span class="math notranslate nohighlight">\(1\)</span> is Gauss-Chebyshev quadrature – see
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.chebyshev.chebgauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.chebyshev.chebgauss</span></code></a></p></li>
+</ul>
 </section>
 <section id="integration-challenge">
 <h2>Integration challenge<a class="headerlink" href="#integration-challenge" title="Permalink to this heading">#</a></h2>
