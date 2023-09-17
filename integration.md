@@ -135,7 +135,7 @@ One example is $W(x)=e^{-x^2}$, ie. integrals
 
 $$\int_0^\infty e^{-x^2} f(x) dx.$$
 
-In this case, the weights and locations are given by [numpy.polynomial.hermite.hermgauss](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html). [The locations $x_i$ are the roots of the $N$th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function $W(x)$.]
+In this case, the weights and locations are given by [`numpy.polynomial.hermite.hermgauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html). [The locations $x_i$ are the roots of the $N$th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function $W(x)$.]
 
 
 ```{admonition} Exercise: Gauss-Hermite
