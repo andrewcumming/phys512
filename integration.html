@@ -483,7 +483,7 @@ to get the locations and weights for different choices of <span class="math notr
 <p>One example is <span class="math notranslate nohighlight">\(W(x)=e^{-x^2}\)</span>, ie. integrals</p>
 <div class="math notranslate nohighlight">
 \[\int_0^\infty e^{-x^2} f(x) dx.\]</div>
-<p>In this case, the weights and locations are given by <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html">numpy.polynomial.hermite.hermgauss</a>. [The locations <span class="math notranslate nohighlight">\(x_i\)</span> are the roots of the <span class="math notranslate nohighlight">\(N\)</span>th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function <span class="math notranslate nohighlight">\(W(x)\)</span>.]</p>
+<p>In this case, the weights and locations are given by <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.hermite.hermgauss</span></code></a>. [The locations <span class="math notranslate nohighlight">\(x_i\)</span> are the roots of the <span class="math notranslate nohighlight">\(N\)</span>th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function <span class="math notranslate nohighlight">\(W(x)\)</span>.]</p>
 <div class="admonition-exercise-gauss-hermite admonition">
 <p class="admonition-title">Exercise: Gauss-Hermite</p>
 <p>Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of <span class="math notranslate nohighlight">\(e^{-x^2}\)</span>.</p>
