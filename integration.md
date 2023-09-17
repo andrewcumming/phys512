@@ -60,11 +60,17 @@ where we need the total number of points $N$ to be an odd number (so we can divi
 
 
 ```{admonition} Exercise: Newton-Cotes
-Implement these three methods to check the result that the average value of $\sin^2(x)$ is $1/2$, i.e.
+Implement these three methods to calculate the integral 
+
+$$\int_0^{\pi/2} \cos x \, dx = 1.$$
+
+How does the error in each method scale with the number of points $N$? Is it what you expected?
+
+Next, use your code to check the result that the average value of $\sin^2(x)$ is $1/2$, i.e.
 
 $${1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.$$
 
-How does the error in each method scale with the number of points $N$? Does the result surprise you? Why or why not?
+Does the result surprise you? What happened?
 ```
 
 ```{admonition} Follow up exercise:
