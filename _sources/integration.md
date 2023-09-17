@@ -107,9 +107,18 @@ For example,
 gives the $N=2$ values. In this case, the weights are both 1, and the $x$ values are $\pm 1/\sqrt{3}$. 
 
 
-```{admonition} Exercise
+```{admonition} Exercise: Gaussian quadrature
 Using [`numpy.polynomial.legendre.leggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html)
-to get the locations and weights for different choices of $N$, implement Gaussian quadratures. Check that the answer is indeed exact for polynomials of degree $2N-1$ or less. What happens for higher order polynomials? What is the error in the approximation?
+to get the locations and weights for different choices of $N$, implement Gaussian quadratures. 
+
+Check that the answer is indeed exact for polynomials of degree $2N-1$ or less. What happens for higher order polynomials? 
+
+Try a function that is not a simple polynomial, e.g. $e^{-x^2}$. What is the error in the approximation and how does it scale with $N$?
+
+Hints: 
+- to get the correct value of the integral to compare with to see how accurate your approximation is, you could use the general purpose integrator [`scipy.integrate.quad`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html)
+- to generate a polynomial with degree `N` and random coefficients between -10 and +10 (for example) you can use
+`np.polynomial.Polynomial(np.random.randint(-10,high=10,size=N+1))`
 ```
 
 Gaussian quadratures can be applied more generally to integrals of the form
@@ -128,6 +137,13 @@ $$\int_0^\infty e^{-x^2} f(x) dx.$$
 
 In this case, the weights and locations are given by [numpy.polynomial.hermite.hermgauss](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html). [The locations $x_i$ are the roots of the $N$th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function $W(x)$.]
 
+
+```{admonition} Exercise: Gauss-Hermite
+
+Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of $e^{-x^2}$.
+
+Hint: If you want to use `scipy.integrate.quad` again to get the value of the integral as a comparison, note that you can give it limits of $-\infty$ to $+\infty$ using `-np.inf` and `np.inf`.
+```
 
 ## Integration challenge
 

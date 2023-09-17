@@ -460,10 +460,18 @@ document.write(`
 </pre></div>
 </div>
 <p>gives the <span class="math notranslate nohighlight">\(N=2\)</span> values. In this case, the weights are both 1, and the <span class="math notranslate nohighlight">\(x\)</span> values are <span class="math notranslate nohighlight">\(\pm 1/\sqrt{3}\)</span>.</p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
+<div class="admonition-exercise-gaussian-quadrature admonition">
+<p class="admonition-title">Exercise: Gaussian quadrature</p>
 <p>Using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.leggauss</span></code></a>
-to get the locations and weights for different choices of <span class="math notranslate nohighlight">\(N\)</span>, implement Gaussian quadratures. Check that the answer is indeed exact for polynomials of degree <span class="math notranslate nohighlight">\(2N-1\)</span> or less. What happens for higher order polynomials? What is the error in the approximation?</p>
+to get the locations and weights for different choices of <span class="math notranslate nohighlight">\(N\)</span>, implement Gaussian quadratures.</p>
+<p>Check that the answer is indeed exact for polynomials of degree <span class="math notranslate nohighlight">\(2N-1\)</span> or less. What happens for higher order polynomials?</p>
+<p>Try a function that is not a simple polynomial, e.g. <span class="math notranslate nohighlight">\(e^{-x^2}\)</span>. What is the error in the approximation and how does it scale with <span class="math notranslate nohighlight">\(N\)</span>?</p>
+<p>Hints:</p>
+<ul class="simple">
+<li><p>to get the correct value of the integral to compare with to see how accurate your approximation is, you could use the general purpose integrator <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code></a></p></li>
+<li><p>to generate a polynomial with degree <code class="docutils literal notranslate"><span class="pre">N</span></code> and random coefficients between -10 and +10 (for example) you can use
+<code class="docutils literal notranslate"><span class="pre">np.polynomial.Polynomial(np.random.randint(-10,high=10,size=N+1))</span></code></p></li>
+</ul>
 </div>
 <p>Gaussian quadratures can be applied more generally to integrals of the form</p>
 <div class="math notranslate nohighlight">
@@ -476,6 +484,11 @@ to get the locations and weights for different choices of <span class="math notr
 <div class="math notranslate nohighlight">
 \[\int_0^\infty e^{-x^2} f(x) dx.\]</div>
 <p>In this case, the weights and locations are given by <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.hermite.hermgauss.html">numpy.polynomial.hermite.hermgauss</a>. [The locations <span class="math notranslate nohighlight">\(x_i\)</span> are the roots of the <span class="math notranslate nohighlight">\(N\)</span>th Hermite polynomial, which are the polynomials that are orthogonal under an inner product defined with weight function <span class="math notranslate nohighlight">\(W(x)\)</span>.]</p>
+<div class="admonition-exercise-gauss-hermite admonition">
+<p class="admonition-title">Exercise: Gauss-Hermite</p>
+<p>Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of <span class="math notranslate nohighlight">\(e^{-x^2}\)</span>.</p>
+<p>Hint: If you want to use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code> again to get the value of the integral as a comparison, note that you can give it limits of <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span> using <code class="docutils literal notranslate"><span class="pre">-np.inf</span></code> and <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>.</p>
+</div>
 </section>
 <section id="integration-challenge">
 <h2>Integration challenge<a class="headerlink" href="#integration-challenge" title="Permalink to this heading">#</a></h2>
