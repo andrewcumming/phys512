@@ -95,7 +95,7 @@ For a suitable choice of the weights $w_i$ and the locations $x_i$ it can be sho
 This means that with 2 evaluations of $f(x)$ we can exactly evaluate the integral of a cubic polynomial! How does this compare with Simpson's method?
 ```
 
-The proof that this works and the calculation of the values of $w_i$ and $x_i$ is quite involved. [One thing to mention is that for this particular form of the integral, the values of $x_i$ are the roots of the Legendre Polynomial $P_N(x)$.] However, we can look up $w_i$ and $x_i$ using [`numpy.polynomial.legendre.leggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html)
+The proof that this works and the calculation of the values of $w_i$ and $x_i$ is quite involved. [It uses the theory of orthogonal polynomials, so for example for this particular form of the integral, the values of $x_i$ are the roots of the Legendre Polynomial $P_N(x)$.] However, we can look up $w_i$ and $x_i$ using [`numpy.polynomial.legendre.leggauss`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.legendre.leggauss.html)
 
 For example, 
 
