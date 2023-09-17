@@ -1,12 +1,30 @@
 # Project Instructions
 
-The project component of the course will make up 30% of your grade. The due date will be the last day of class (Dec 5). 
+The project component of the course will make up 30% of your grade. The **due date** will be the **last day of class (Dec 5)**. 
 
 Working in a group of 2 or 3, you should solve a physics problem of interest to you using computational methods. You can write your own code, use existing code and libraries, or a combination of the two. The project can involve a theory calculation or modelling data or both. 
 
-**Grading**
+The topic must be approved by the instructor **by Friday Oct 6**. Before this date, you should send a short (couple of paragraphs) abstract to the instructor in a Slack message with all group members included. The abstract should describe the topic and the numerical approach that you plan to take. 
 
-You should submit your project as a Github repository containing your code and a write up of the project which explains the physics problem you are looking at, the methods you used to tackle it, your results and conclusions. Your code should be clearly commented and ready to run to reproduce the results you show in your write up. 
+**What you should submit**
+
+Each group should submit one Github repository containing the code and a write up of the project which explains the physics problem you are looking at, the methods you used to tackle it, your results and conclusions. 
+
+The write up should be a PDF file of no more than 10 pages. A suggested structure for the write up is
+- Introduction
+- Problem Description
+- Code Description
+- Code Tests
+- Results and Analysis
+- Discussion and Further Improvements
+- Conclusion
+- A statement of contributions that describes the contributions of each group member to the project.
+
+Your report should be prepared in LaTeX and for any code snippets that you include you should use code formatting as described here: https://www.overleaf.com/learn/latex/Code_listing
+
+The code you submit in your repository should be clearly commented and in a state where it is ready to run to reproduce the results you show in your write up. Note however that the write up should include all your key results (e.g. important plots that you make) -- we should be able to understand and see your results without having to run the code.
+
+**Grading**
 
 The grade for the project will be based on how well you
 
@@ -21,8 +39,6 @@ The grade for the project will be based on how well you
 
 
 **Project topic**
-
-The topic must be approved by the instructor **before the end of September**.
 
 There are many places to look to get ideas. For example, you can look at the projects that have been done at the [McGill Physics Hackathon](https://mcgill-physics-hackathon-2022.devpost.com/project-gallery), or Gezerlis' book has some interesting projects at the end of each chapter that could be good starting points. 
 
