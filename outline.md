@@ -86,9 +86,9 @@ There will also be a weekly "*Debug den*", which will be an informal hackspace w
 
 Your grade will be based on 
 
-- Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. More details on the grading scheme for homework will be given next week. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
-
-- Project (30%). In teams of 2-3 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by mid-October, and the project will be due at the end of term. More information and suggestions for topics will be provided in the first week of classes.
+- Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
+ 
+- Project (30%). In teams of 2-3 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by early October, and the project will be due at the end of term. For more information and suggestions for topics, see the [Project instructions](https://andrewcumming.github.io/phys512/project_instructions.html).
 
 - Take-home final exam (40%). A mixture of analytic and computational problems. The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
 
@@ -97,6 +97,13 @@ We will use the following distribution and communication tools:
 - Homework and project submissions will be through each students private Github repository
 - Grades will be distributed in myCourses
 - A Slack workspace is available for the class for students to collaborate on projects and to ask questions or discuss the homework. Note that discussions and questions about homework **must** be posted to the `#homework` channel (we will make a tool available to post questions anonymously if you prefer to do that). *Note that the TAs will not answer questions about homework via direct message in Slack, you must use the homework channel.*
+
+The homework will be graded according to the following rubric:
+
+0. No meaningful attempt made at a solution (no code, unrelated code, non-functional code whose function is hard to determine).
+1. Part of an answer provided / a plan or idea for a solution is discernible. Partly functional code that can be understood and forms the beginnings of a solution. 
+2. An understanding of the problem and a concrete idea for an answer / code implementation is present. Code is almost functional and understandable, but does not fully solve the problem. Alternatively, there is a complete working code but the code is hard to understand (poor style or commenting).
+3. Demonstrates a clear understanding of the problem and it's solution. Working *clear* code, or non-working code with a clear explanation of what the problem with it may be.
 
 
 ## McGill policy statements
