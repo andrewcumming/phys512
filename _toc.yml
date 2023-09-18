@@ -25,5 +25,6 @@ parts:
     - caption: Homework
       chapters:
         - file: hw1
+        - file: hw2
         - file: project_instructions
         
