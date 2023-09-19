@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Programming best practices &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Homework 2 &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'programming';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hw2';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Floating point arithmetic" href="floats.html" />
-    <link rel="prev" title="Getting set up" href="basics.html" />
+    <link rel="next" title="Project Instructions" href="project_instructions.html" />
+    <link rel="prev" title="Homework 1" href="hw1.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,9 +155,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
@@ -172,9 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="interpolation_solutions.html">Interpolation</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 </ul>
 
@@ -247,7 +247,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fprogramming.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhw2.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -277,7 +277,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/programming.md" target="_blank"
+      <li><a href="_sources/hw2.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -357,7 +357,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Programming best practices</h1>
+    <h1>Homework 2</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -371,49 +371,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="programming-best-practices">
-<h1>Programming best practices<a class="headerlink" href="#programming-best-practices" title="Permalink to this heading">#</a></h1>
-<p>No matter what your previous programming experience, hopefully you will learn a lot by doing the exercises and homeworks in this course. We’ll have a discussion about some best practices for writing code in the first class.</p>
-<p>Here are a few things to keep in mind:</p>
-<ul class="simple">
-<li><p><strong>Don’t write code unless you have to</strong>. Is there an existing library or open source code that does what you need to do? if so, you don’t need to reinvent the wheel. For this course, we will use many libraries from NumPy and SciPy. You can also search on Github to find open source codes.</p></li>
-<li><p><strong>Readability is really important</strong>. Even if you think that no one else will ever have to read your code, you will thank yourself when you come back to the code after a year and can’t remember why you wrote it the way you did! Readability can mean including helpful comments (using <code class="docutils literal notranslate"><span class="pre">#</span></code> in Python), but is also helped by the code layout, variable naming etc. <em>Very important for this course</em>: you need to write readable code for the homeworks so that the TA’s can understand it and grade it!</p></li>
-<li><p><strong>Write once</strong>, also known as DRY (don’t repeat yourself). It’s often tempting to cut and paste code when you have to do something multiple times. An simple example is when you are making multiple plots in a matplotlib script. Instead, put the code into a function or inside a loop. Having one copy of the code in one place will save endless debugging headaches.</p></li>
-<li><p><strong>If you get stuck, someone else almost certainly had the same problem.</strong> Google, Stack Overflow, or AI code generators such as ChatGPT or Github Copilot will often quickly help you find the answer (but may also give you wrong answers, especially the AI models!). <em>Note that any code that you hand in for the course that is not your own needs to come with a citation. If you use an existing code snippet from Stack Overflow or Chat GPT you need to cite your sources.</em></p></li>
-<li><p><strong>Use vector operations wherever possible</strong>. Python is a high level language and that can introduce a lot of overhead behind the scenes – for example, Python has to figure out the type of a variable because the type of variable (integer, float etc) is not explicitly given in Python programming. That takes time, especially in a loop. Try the following exercise to see what I mean.</p></li>
-</ul>
-<div class="admonition-questions-for-discussion admonition">
-<p class="admonition-title">Questions for discussion</p>
-<ul class="simple">
-<li><p>What are the advantages and disadvantages of using existing code over writing it yourself?</p></li>
-<li><p>What makes for a good comment?</p></li>
-<li><p>What are best practises for code layout or variable naming?</p></li>
-<li><p>What other best practices have I missed?</p></li>
-</ul>
-</div>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Create an array of <span class="math notranslate nohighlight">\(N=10^6\)</span> angles <span class="math notranslate nohighlight">\(\theta\)</span> equally distributed between 0 and <span class="math notranslate nohighlight">\(2\pi\)</span>. Now calculate the corresponding vector <span class="math notranslate nohighlight">\(\sin\theta\)</span> using (1) a for loop in which you loop over the theta values and calculate <span class="math notranslate nohighlight">\(\sin\theta\)</span> for each one, and (2) the vector operation <code class="docutils literal notranslate"><span class="pre">np.sin(theta)</span></code>. How long does it take in each case?</p>
-<p>Paste your answer in this sheet:
-<a class="reference external" href="https://docs.google.com/spreadsheets/d/1nDgjUhGySHeA5bnI_73m4KB_fJnwJF5tyykO4cy8P3c/edit?usp=sharing">https://docs.google.com/spreadsheets/d/1nDgjUhGySHeA5bnI_73m4KB_fJnwJF5tyykO4cy8P3c/edit?usp=sharing</a></p>
-<p><strong>Hint:</strong> To time your code, you can use</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
-
-<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-
-<span class="c1"># your code here</span>
-
-<span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;That took&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">,</span> <span class="s1">&#39; seconds&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>(see also <code class="docutils literal notranslate"><span class="pre">timeit</span></code> for more sophisticated code timing).</p>
-</div>
-<p><strong>Further reading</strong> There are many books on best programming practices and styles. One of the classics that was recently updated is</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://mcgill.on.worldcat.org/search/detail/1112609085?queryString=ti%3A%28pragmatic%20programmer%29&amp;databaseList=283%2C638&amp;origPageViewName=pages%2Fadvanced-search-page&amp;clusterResults=&amp;groupVariantRecords=&amp;expandSearch=true&amp;translateSearch=false&amp;queryTranslationLanguage=&amp;lang=en&amp;scope=wz%3A12129">The pragmatic programmer: your journey to mastery</a> by Thomas and Hunt (2020 second edition) (the link is to the McGill library ebook).</p></li>
-</ul>
-</section>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-2">
+<h1>Homework 2<a class="headerlink" href="#homework-2" title="Permalink to this heading">#</a></h1>
+<p>Due on Friday Sep 29 by midnight.</p>
+<ol class="arabic simple">
+<li><p><strong>Integration errors</strong></p></li>
+</ol>
+<p>In the class exercises on integration, we knew the function we were integrating, so we could calculate the error in our numerical integrations by comparing with the analytic answer for the integral. However, in real situations where you have a tabulated function to integrate without knowing the underlying analytic function, how do we estimate the error? One method is to see how much the numerical integral changes when you change the number of points. For example, if you have <span class="math notranslate nohighlight">\(N\)</span> function evaluations with spacing <span class="math notranslate nohighlight">\(\Delta x\)</span>, you can calculate the integral using all <span class="math notranslate nohighlight">\(N\)</span> points, and then again using approximately half the points to increase the spacing to <span class="math notranslate nohighlight">\(2\Delta x\)</span>. Comparing the values of the two integrals gives an estimate of the error. You’ll work through this idea in this question.</p>
+<p>(a) First, explain why the errors associated with the trapezoidal rule and Simpson’s rule scale <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> and <span class="math notranslate nohighlight">\((\Delta x)^4\)</span> respectively.</p>
+<p>(b) If the value for the integral when all the points are used (spacing <span class="math notranslate nohighlight">\(\Delta x\)</span>) is <span class="math notranslate nohighlight">\(I_1\)</span>, and the value for the integral when half the points are used (spacing <span class="math notranslate nohighlight">\(2\Delta x\)</span>) is <span class="math notranslate nohighlight">\(I_2\)</span>, show that the error in <span class="math notranslate nohighlight">\(I_1\)</span> can be written</p>
+<div class="math notranslate nohighlight">
+\[\epsilon_1\approx {I_1-I_2\over 3}\]</div>
+<p>for the trapezoidal rule, and</p>
+<div class="math notranslate nohighlight">
+\[\epsilon_1\approx {I_1-I_2\over 15}\]</div>
+<p>for Simpson’s rule. [<em>Hint</em>: write the true value of the integral as <span class="math notranslate nohighlight">\(I=I_1+\epsilon_1=I_2+\epsilon_2\)</span> and use the fact that you know how the errors scale with <span class="math notranslate nohighlight">\(\Delta x\)</span>.]</p>
+<p>(c) The file <a class="reference external" href="https://github.com/andrewcumming/phys512/blob/main/hw2_data.txt"><code class="docutils literal notranslate"><span class="pre">hw2_data.txt</span></code></a> has 21 samples of a function <span class="math notranslate nohighlight">\(f(x)\)</span> between <span class="math notranslate nohighlight">\(x=1\)</span> and <span class="math notranslate nohighlight">\(x=2\)</span>. Column 1 in the file gives the <span class="math notranslate nohighlight">\(x\)</span> values and column 2 the corresponding <span class="math notranslate nohighlight">\(f(x)\)</span> values.  Write a code that reads in the data from the file, integrates the function from <span class="math notranslate nohighlight">\(x=1\)</span> to <span class="math notranslate nohighlight">\(x=2\)</span>, and then carries out the procedure above to estimate the error in the integration. [<em>Hint</em>: One option to read in the data is to use  <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html"><code class="docutils literal notranslate"><span class="pre">numpy.loadtxt</span></code></a> which can read the data straight into numpy arrays.]</p>
+<p>Do this for both the trapezoidal and Simpson’s rules. Discuss whether the answer you get for the error makes sense given what you know about the accuracy of the trapezoidal rule and Simpson’s rule.</p>
+<p>(d) Because I generated the data points in the file, I know the true underlying function and its integral – the true value of the integral is <code class="docutils literal notranslate"><span class="pre">1.482974344768713</span></code> (as obtained by <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code>). Use this value to calculate the true error of the trapezoidal and Simpson’s rule integrals and compare with your estimate from part (c). Does our estimate procedure from part (b) do a good job at estimating the error?</p>
+<p>(e) <em>Optional</em>: An extension of this question is to use this idea to write an adaptive integrator that takes a function <span class="math notranslate nohighlight">\(f(x)\)</span> and iteratively increases the number of integration points until a specified precision is reached.</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Chemical potential of a Fermi gas</strong></p></li>
+</ol>
+<p>In statistical mechanics, the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span> of a gas of <span class="math notranslate nohighlight">\(N\)</span> non-interacting fermions in a volume <span class="math notranslate nohighlight">\(V\)</span> is given by the integral</p>
+<div class="math notranslate nohighlight">
+\[N = V \int_0^\infty {8\pi p^2 dp\over h^3} {1\over 1+e^{(\epsilon-\mu)/k_BT}},\]</div>
+<p>where you can assume that the particles are non-relativistic so <span class="math notranslate nohighlight">\(p = \sqrt{2m\epsilon}\)</span>. The goal in this question is to numerically invert this integral to return the chemical potential <span class="math notranslate nohighlight">\(\mu\)</span> as a function of number of particles <span class="math notranslate nohighlight">\(N\)</span> and temperature <span class="math notranslate nohighlight">\(T\)</span>.</p>
+<p>(a) Numerically evaluate the integral for different values of <span class="math notranslate nohighlight">\(\mu/k_BT\)</span> (from large and negative to large and positive) and set up an interpolating function that returns <span class="math notranslate nohighlight">\(\mu/k_BT\)</span> as a function of <span class="math notranslate nohighlight">\(N/n_QV\)</span> where
+<span class="math notranslate nohighlight">\(n_Q=(m k_BT/2\pi\hbar^2)^{3/2}\)</span>. [You may find it helpful to simplify the integral first, for example to write the integration variable as <span class="math notranslate nohighlight">\(x=\epsilon/k_BT\)</span>.]</p>
+<p>(b) Assess the errors in your calculation: describe the sources of error and estimate the accuracy of your final value of <span class="math notranslate nohighlight">\(\mu(N, T)\)</span>.</p>
+<p>(c) Compare your results with the analytic limits of non-degenerate <span class="math notranslate nohighlight">\(\mu = k_BT \ln (n/2n_Q)\)</span> and degenerate <span class="math notranslate nohighlight">\(\mu=E_F\)</span> fermions (where <span class="math notranslate nohighlight">\(E_F = p_F^2/2m\)</span> with <span class="math notranslate nohighlight">\(p_F=\hbar(3\pi^2 n)^{1/3}\)</span> is the Fermi energy). Determine the region of parameter space where each of these limits is accurate to 1%.</p>
+<ol class="arabic simple" start="3">
+<li><p><strong>Sampling the Maxwell-Boltzmann distribution</strong></p></li>
+</ol>
+<p>(a) Write a function <code class="docutils literal notranslate"><span class="pre">MaxwellBoltzmann(N)</span></code> that returns a numpy array containing <code class="docutils literal notranslate"><span class="pre">N</span></code> samples of velocity from a 3D Maxwell-Boltzmann distribution. Your function (1) should be based on <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html"><code class="docutils literal notranslate"><span class="pre">numpy.random.Generator.uniform</span></code></a> or equivalent that samples a uniform probability distribution, and (2) should not use any for loops. You should be able to generate a million samples in less than a second of runtime. In your answer, explain your algorithm.</p>
+<p>(b) Generate a large number of samples and compare a histogram of the velocities with the analytic distribution on a log-log plot. [You can use <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.hist.html"><code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot.hist</span></code></a> to draw the histogram.]</p>
+<p>(c) Compute the average velocity of your sample, and compare with the analytic result <span class="math notranslate nohighlight">\((8k_BT/\pi m)^{1/2}\)</span>. How does the error in the average velocity depend on the number of samples that you take from the distribution?</p>
+<!---
+# 3. **Changing variables to handle an infinite range**
+# -  Rational function fit used to fit a function with poles ?
+# - Gauss Chebyshev quadrature
+# - Select a particle 
+--></section>
 
     <script type="text/x-thebe-config">
     {
@@ -447,20 +446,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="basics.html"
+       href="hw1.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Getting set up</p>
+        <p class="prev-next-title">Homework 1</p>
       </div>
     </a>
     <a class="right-next"
-       href="floats.html"
+       href="project_instructions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Floating point arithmetic</p>
+        <p class="prev-next-title">Project Instructions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
