@@ -1,6 +1,6 @@
 # Homework 1
 
-Due on Tuesday September 19 6pm.
+Due on Tuesday September 19 by midnight.
 
 
 1. **Roundoff error in long term integrations of planetary orbits**
