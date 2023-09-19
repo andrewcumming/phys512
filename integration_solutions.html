@@ -1,0 +1,792 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Integration &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'integration_solutions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="Interpolation" href="interpolation_solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solutions to Exercises</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives_solutions.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation_solutions.html">Interpolation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Integration</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fintegration_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/integration_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Integration</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes">Newton-Cotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">Gaussian quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-boltzmann-distribution">Maxwell-Boltzmann distribution</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="integration">
+<h1>Integration<a class="headerlink" href="#integration" title="Permalink to this heading">#</a></h1>
+<section id="newton-cotes">
+<h2>Newton-Cotes<a class="headerlink" href="#newton-cotes" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">do_int</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="c1"># integration limits</span>
+    <span class="n">x1</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span><span class="o">-</span><span class="n">x1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Choose the function to integrate</span>
+    <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">I0</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span> 
+        <span class="c1"># Polynomial</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">I0</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># The analytic value of the integral</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">a</span>  <span class="c1"># The function to integrate</span>
+    
+    <span class="n">I1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">*</span><span class="n">dx</span>    <span class="c1"># rectangle rule</span>
+    <span class="n">I2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">dx</span><span class="o">*</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>    <span class="c1"># trapzoidal rule</span>
+    <span class="n">I3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span> <span class="o">+</span> <span class="n">f</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">dx</span>  <span class="c1">#simpson&#39;s rule</span>
+    <span class="n">I3</span> <span class="o">=</span> <span class="n">I3</span><span class="o">/</span><span class="mf">3.0</span>
+    <span class="k">return</span> <span class="nb">abs</span><span class="p">((</span><span class="n">I1</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">),</span> <span class="nb">abs</span><span class="p">((</span><span class="n">I2</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">),</span> <span class="nb">abs</span><span class="p">((</span><span class="n">I3</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">)</span>
+
+<span class="c1"># try different numbers of points, generated as 2^n + 1 so the number is odd</span>
+<span class="n">n_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)]</span>
+<span class="n">err1</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">err2</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">err3</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">n_vals</span><span class="p">:</span>
+    <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span> <span class="o">=</span> <span class="n">do_int</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">)</span>
+    <span class="n">err1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err1</span><span class="p">,</span> <span class="n">e1</span><span class="p">)</span>
+    <span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err2</span><span class="p">,</span> <span class="n">e2</span><span class="p">)</span>
+    <span class="n">err3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err3</span><span class="p">,</span> <span class="n">e3</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">err1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rectangular&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">err2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trapezoidal&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">err3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simpson&#39;</span><span class="p">)</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">n_vals</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Plot the Euler Maclaurin error formulas</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">dx</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">dx</span><span class="o">**</span><span class="mi">4</span><span class="o">/</span><span class="mi">180</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3 0.34075853066724404 0.0519405510314801 0.0022798774922103693
+5 0.1834653418221377 0.012884199027224597 0.00013458497419382986
+9 0.0949599423108507 0.003214828113830337 8.295523967971619e-06
+17 0.04828406569741284 0.0008033195149277361 5.166847063531321e-07
+33 0.024342886926189244 0.00020080567998093102 3.2265001115305836e-08
+65 0.012221646395186303 5.0199907898895724e-05 2.0161288194486815e-09
+129 0.006123373269068644 1.2549882473678053e-05 1.2600120946615334e-10
+257 0.003064824111058906 3.137464712255067e-06 7.87503395827116e-12
+513 0.0015331964220766103 7.843658088590999e-07 4.922728891187944e-13
+1025 0.0007667943025135848 1.960914292054028e-07 3.086420008457935e-14
+2049 0.00038344617411567583 4.902285577479404e-08 1.9984014443252818e-15
+</pre></div>
+</div>
+<img alt="_images/44ad8e6403e58fa4a07cd55afb6aa761e20a65d53bfbbcda551dc71d7f419af5.png" src="_images/44ad8e6403e58fa4a07cd55afb6aa761e20a65d53bfbbcda551dc71d7f419af5.png" />
+</div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>The scalings with the number of points are <span class="math notranslate nohighlight">\(1/N\)</span> for rectangular, <span class="math notranslate nohighlight">\(1/N^2\)</span> for trapezoidal, and <span class="math notranslate nohighlight">\(1/N^4\)</span> for Simpson’s rule. (You might have been expecting <span class="math notranslate nohighlight">\(1/N^3\)</span> for Simpson’s rule but because of the way it was constructed using double intervals, the third order term is antisymmetric over the double interval and cancels.)</p></li>
+<li><p>If you try integrating polynomials, you should find that the error goes to zero (machine precision) for cubic polynomials and below (Simpson), linear or below (trapezoid) or constant (rectangular).</p></li>
+<li><p>Some special cases can give surprising results. For example, for <span class="math notranslate nohighlight">\(\int \sin^2(x) dx\)</span>, all the methods can give exact results. To see why, you can rewrite <span class="math notranslate nohighlight">\(\sin^2 x=(1-\cos(2x))/2\)</span>. If you have an odd number of sample points, the cos term averages to zero and the remaining term is a constant, which all three methods will fit exactly.</p></li>
+<li><p>It is possible to derive analytic expressions for the errors in the different approximations (these are known as <a class="reference external" href="https://en.wikipedia.org/wiki/Euler%E2%80%93Maclaurin_formula">Euler Maclaurin</a> formulae). For the trapezoidal rule, the leading term is
+$<span class="math notranslate nohighlight">\(\epsilon \approx {1\over 12} (\Delta x)^2 \left[f^\prime(a) - f^\prime(b)\right]\)</span><span class="math notranslate nohighlight">\(
+and for Simpson's rule,
+\)</span><span class="math notranslate nohighlight">\(\epsilon \approx {1\over 180} (\Delta x)^4 \left[f^{\prime\prime\prime}(a) - f^{\prime\prime\prime}(b)\right].\)</span><span class="math notranslate nohighlight">\(
+These are plotted as dotted lines in the Figure, you can see that they agree remarkably well with the numerical results. (Note that when plotting we use the fact that the derivative terms are equal to unity for \)</span>\cos(x)$).</p></li>
+</ul>
+</section>
+<section id="gaussian-quadrature">
+<h2>Gaussian quadrature<a class="headerlink" href="#gaussian-quadrature" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use Gaussian quadrature to evalute the integral of polynomials from x=-1 to +1</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Some choices for functions to integrate:</span>
+<span class="c1"># The first one is a random polynomial (the size parameter sets the degree)</span>
+<span class="c1">#func = np.polynomial.Polynomial(np.random.randint(-10,high=10,size=20)) </span>
+<span class="c1">#func = np.cos</span>
+<span class="c1">#func = np.exp</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Integrate this with quad to get the true value</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">err0</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;quad gives I =  &#39;</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">err0</span><span class="p">)</span>
+
+<span class="c1"># then use Gaussian quadrature with different numbers of points</span>
+<span class="n">n_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<span class="k">for</span> <span class="n">npoints</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">legendre</span><span class="o">.</span><span class="n">leggauss</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoints</span><span class="p">):</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">npoints</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">npoints</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">n_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
+    <span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err_vec</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quad gives I =   1.493648265624854 1.6582826951881447e-14
+1 1 2.0 0.33900332898208696
+2 3 1.4330626211475785 -0.0405621898217985
+3 5 1.4986795956600294 0.0033684838331537233
+4 7 1.4933346224495394 -0.00020998462792936129
+5 9 1.493663920702629 1.048110062810725e-05
+6 11 1.4936476141506054 -4.361630937756038e-07
+7 13 1.493648288869414 1.5562271646873954e-08
+8 15 1.4936482648990144 -4.859508274756656e-10
+9 17 1.4936482656450039 1.3490379379714472e-11
+</pre></div>
+</div>
+<img alt="_images/0734ed9dc1919a61e3583ef9269cdd7cde440aa8b8aac9303d46f9ccc3840b9a.png" src="_images/0734ed9dc1919a61e3583ef9269cdd7cde440aa8b8aac9303d46f9ccc3840b9a.png" />
+</div>
+</div>
+<ul class="simple">
+<li><p>You can use the code above to check that the answer is exact for polynomials of degree <span class="math notranslate nohighlight">\(2n-1\)</span> and smaller</p></li>
+<li><p>The scaling of the error with number of points depends on the function you are integrating, but decreases approximately exponentially (rather than power law with the Newton-Cotes methods).</p></li>
+</ul>
+<p>Let’s try the Gauss-Hermite quadrature which has weighting function <span class="math notranslate nohighlight">\(W(x)=e^{-x^2}\)</span> for integrals from <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span>. In the next example I try <span class="math notranslate nohighlight">\(x^4 e^{-x^2}\)</span> which becomes exact once we go to 3 terms:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gauss-Hermite quadrature</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Function to integrate</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Integrate this with quad to get true value</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">err0</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;quad gives I =  &#39;</span><span class="p">,</span> <span class="n">I0</span><span class="p">,</span> <span class="n">err0</span><span class="p">)</span>
+
+<span class="c1"># Now try the Gauss-Hermite quadrature with different numbers of points and plot the error</span>
+<span class="n">n_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+
+<span class="k">for</span> <span class="n">npoints</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">I</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">hermite</span><span class="o">.</span><span class="n">hermgauss</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">npoints</span><span class="p">):</span>
+        <span class="c1"># note that on the next line we include only the part of the function multiplying </span>
+        <span class="c1"># the exp(-x^2), because the exp(-x^2) is already taken into account in the weights</span>
+        <span class="n">I</span> <span class="o">+=</span> <span class="n">w</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span>  <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>  
+    <span class="n">err</span> <span class="o">=</span> <span class="p">(</span><span class="n">I</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">npoints</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">npoints</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">I</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="n">n_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="n">npoints</span><span class="p">)</span>
+    <span class="n">err_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err_vec</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="n">err_vec</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quad gives I =   1.3293403881791366 1.5859180523983767e-08
+1 1 0.0 -1.0
+2 3 0.4431134627263788 -0.6666666666666666
+3 5 1.3293403881791368 1.6703367090890604e-16
+4 7 1.3293403881791377 8.351683545445302e-16
+5 9 1.3293403881791368 1.6703367090890604e-16
+6 11 1.3293403881791355 -8.351683545445302e-16
+7 13 1.3293403881791372 5.011010127267181e-16
+8 15 1.3293403881791364 -1.6703367090890604e-16
+9 17 1.3293403881791372 5.011010127267181e-16
+</pre></div>
+</div>
+<img alt="_images/b944423d0694ab9c1a540e495fa246ae1df1160c40a8734028500084cdd2ca14.png" src="_images/b944423d0694ab9c1a540e495fa246ae1df1160c40a8734028500084cdd2ca14.png" />
+</div>
+</div>
+</section>
+<section id="maxwell-boltzmann-distribution">
+<h2>Maxwell-Boltzmann distribution<a class="headerlink" href="#maxwell-boltzmann-distribution" title="Permalink to this heading">#</a></h2>
+<p>First summarize some results for the Maxwell-Boltzmann distribution from the Wikipedia page:</p>
+<p>In 1D, the distribution of velocities is</p>
+<div class="math notranslate nohighlight">
+\[f(v)  = \left({m\over 2\pi k_BT}\right)^{3/2} e^{-mv^2/2k_BT} ,\]</div>
+<p>which is normalized so that</p>
+<div class="math notranslate nohighlight">
+\[\int_0^\infty d^3v  f(v) =1.\]</div>
+<p>The mean speed is</p>
+<div class="math notranslate nohighlight">
+\[\langle v\rangle = \int_0^\infty d^3v\ v f(v).\]</div>
+<p>To get this into a simpler form, change integration variable to <span class="math notranslate nohighlight">\(x=(m/2k_BT)^{1/2} v\)</span> and use the spherical volume element <span class="math notranslate nohighlight">\(d^3 v= 4\pi v^2 dv\)</span>. This gives</p>
+<div class="math notranslate nohighlight">
+\[\langle v\rangle = \left({k_BT\over \pi m}\right)^{1/2}\ 4\sqrt{2}\ I\hspace{1cm} I = \int_0^\infty dx\ x^3\ e^{-x^2}.\]</div>
+<p>We can evaluate the integral <span class="math notranslate nohighlight">\(I\)</span> numerically (aiming for an error of 0.1%). (Spoiler: the analytic answer is 1/2).</p>
+<p>For Gaussian quadrature, you might think of using the Gauss-Hermite polynomials since we have an <span class="math notranslate nohighlight">\(e^{-x^2}\)</span> in the integral, but the limits are from zero to infinity, not -infinity to infinity. One way to do it is to write the integral as</p>
+<div class="math notranslate nohighlight">
+\[{1\over 2}\int_{-\infty}^\infty dx\ \left|x\right|^3\ e^{-x^2}.\]</div>
+<p>Note that this is not the same as having a cubic polynomial, so the usual rule about how many terms we need does not apply.</p>
+<p>The other way to do it is to rewrite</p>
+<div class="math notranslate nohighlight">
+\[\int_0^\infty dx\ x^3\ e^{-x^2}= \int_0^\infty dy\ {y\over 2} e^{-y}\]</div>
+<p>and use Laguerre polynomials.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">I0</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># the analytic result</span>
+
+<span class="c1"># First use quad</span>
+<span class="c1"># We&#39;ll set the relative error we are looking for to 1e-3 and also ask for </span>
+<span class="c1"># full output which gives us information such as how many function evaluations were done</span>
+<span class="n">I1</span><span class="p">,</span> <span class="n">err1</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">func</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">full_output</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">epsrel</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;quad gives </span><span class="si">%lg</span><span class="s2"> with error </span><span class="si">%lg</span><span class="s2">; number of evaluations=</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I1</span><span class="p">,</span> <span class="n">err1</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;neval&#39;</span><span class="p">]))</span>
+
+<span class="c1"># Now Simpson&#39;s rule</span>
+<span class="c1"># Sample the function first</span>
+<span class="n">npoints</span> <span class="o">=</span> <span class="mi">21</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">7.0</span><span class="p">,</span><span class="n">npoints</span><span class="p">)</span>  <span class="c1"># integrate to x=7</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">xp</span><span class="p">)</span>
+<span class="n">I2</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">xp</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Simpson gives </span><span class="si">%lg</span><span class="s2"> with error </span><span class="si">%lg</span><span class="s2">; number of points=</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">I2</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">I2</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">,</span> <span class="n">npoints</span><span class="p">))</span>
+
+<span class="c1"># Now use Gaussian quadrature</span>
+<span class="n">npoints</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">hermite</span><span class="o">.</span><span class="n">hermgauss</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
+<span class="n">I3</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gauss-Hermite gives </span><span class="si">%lg</span><span class="s2"> with error </span><span class="si">%lg</span><span class="s2">; number of terms=</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">I3</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">I3</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">,</span> <span class="n">npoints</span><span class="p">))</span>
+
+<span class="c1"># Gauss-Laguerre</span>
+<span class="n">npoints</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">laguerre</span><span class="o">.</span><span class="n">laggauss</span><span class="p">(</span><span class="n">npoints</span><span class="p">)</span>
+<span class="n">I4</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gauss-Laguerre gives </span><span class="si">%lg</span><span class="s2"> with error </span><span class="si">%lg</span><span class="s2">; number of terms=</span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">I4</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">I4</span><span class="o">-</span><span class="n">I0</span><span class="p">)</span><span class="o">/</span><span class="n">I0</span><span class="p">,</span> <span class="n">npoints</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>quad gives 0.5 with error 3.36729e-05; number of evaluations=75
+Simpson gives 0.499296 with error 0.00140896; number of points=21
+Gauss-Hermite gives 0.500992 with error 0.0019831; number of terms=15
+Gauss-Laguerre gives 0.5 with error 0; number of terms=1
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the Simpson’s method, we integrate to <span class="math notranslate nohighlight">\(x=7\)</span>. You can experiment with this and see how much it changes the answer. At <span class="math notranslate nohighlight">\(x=7\)</span>, the integrand becomes comparable to the machine precision, so it seems a reasonable place to stop.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="interpolation_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Interpolation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hw1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-cotes">Newton-Cotes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gaussian-quadrature">Gaussian quadrature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maxwell-boltzmann-distribution">Maxwell-Boltzmann distribution</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
