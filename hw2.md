@@ -18,11 +18,13 @@ $$\epsilon_1\approx {I_1-I_2\over 15}$$
 
 for Simpson's rule. [*Hint*: write the true value of the integral as $I=I_1+\epsilon_1=I_2+\epsilon_2$ and use the fact that you know how the errors scale with $\Delta x$.]
 
-(c) The file `hw2_data.txt` has 21 samples of a function $f(x)$ between $x=1$ and $x=2$. Column 1 in the file gives the $x$ values and column 2 the corresponding $f(x)$ values.  Write a code that reads in the data from the file, integrates the function from $x=1$ to $x=2$, and then carries out the procedure above to estimate the error in the integration. [*Hint*: One option to read in the data is to use  [`numpy.loadtxt`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) which can read the data straight into numpy arrays.]
+(c) The file [`hw2_data.txt`](https://github.com/andrewcumming/phys512/blob/main/hw2_data.txt) has 21 samples of a function $f(x)$ between $x=1$ and $x=2$. Column 1 in the file gives the $x$ values and column 2 the corresponding $f(x)$ values.  Write a code that reads in the data from the file, integrates the function from $x=1$ to $x=2$, and then carries out the procedure above to estimate the error in the integration. [*Hint*: One option to read in the data is to use  [`numpy.loadtxt`](https://numpy.org/doc/stable/reference/generated/numpy.loadtxt.html) which can read the data straight into numpy arrays.]
 
-Do this for both the trapezoidal and Simpson's rules. Is the answer you get for the error what you would expect in each case?
+Do this for both the trapezoidal and Simpson's rules. Discuss whether the answer you get for the error makes sense given what you know about the accuracy of the trapezoidal rule and Simpson's rule.
 
-(d) *Optional*: An extension of this question is to use this idea to write an adaptive integrator that takes a function $f(x)$ and iteratively increases the number of integration points until a specified precision is reached.
+(d) Because I generated the data points in the file, I know the true underlying function and its integral -- the true value of the integral is `1.482974344768713` (as obtained by `scipy.integrate.quad`). Use this value to calculate the true error of the trapezoidal and Simpson's rule integrals and compare with your estimate from part (c). Does our estimate procedure from part (b) do a good job at estimating the error?
+
+(e) *Optional*: An extension of this question is to use this idea to write an adaptive integrator that takes a function $f(x)$ and iteratively increases the number of integration points until a specified precision is reached.
 
 
 2. **Chemical potential of a Fermi gas** 
@@ -36,9 +38,9 @@ where you can assume that the particles are non-relativistic so $p = \sqrt{2m\ep
 (a) Numerically evaluate the integral for different values of $\mu/k_BT$ (from large and negative to large and positive) and set up an interpolating function that returns $\mu/k_BT$ as a function of $N/n_QV$ where 
 $n_Q=(m k_BT/2\pi\hbar^2)^{3/2}$. [You may find it helpful to simplify the integral first, for example to write the integration variable as $x=\epsilon/k_BT$.]
 
-(b) Assess the errors in your calculation: describe the different sources of error and estimate the accuracy of your final value of $\mu(N, T)$.
+(b) Assess the errors in your calculation: describe the sources of error and estimate the accuracy of your final value of $\mu(N, T)$.
 
-(c) Compare your results with the analytic limits of non-degenerate $\mu = k_BT \ln (n/n_Q)$ and degenerate $\mu=E_F$ fermions (where $E_F = p_F^2/2m$ with $p_F=\hbar(3\pi^2 n)^{1/3}$ is the Fermi energy). Determine the region of parameter space where each of these limits is accurate to 0.1\%. 
+(c) Compare your results with the analytic limits of non-degenerate $\mu = k_BT \ln (n/2n_Q)$ and degenerate $\mu=E_F$ fermions (where $E_F = p_F^2/2m$ with $p_F=\hbar(3\pi^2 n)^{1/3}$ is the Fermi energy). Determine the region of parameter space where each of these limits is accurate to 1\%. 
 
 
 3. **Sampling the Maxwell-Boltzmann distribution**
