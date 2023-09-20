@@ -167,7 +167,9 @@ For Gaussian quadrature, try both Gauss-Hermite and Gauss-Laguerre. Which one is
 
 ## Further reading
 
-- Overview of [`scipy.intgerate'](https://docs.scipy.org/doc/scipy/tutorial/integrate.html)
+- Integration methods are covered in Chapter 7 of Gezerlis.
+
+- Overview of [`scipy.integrate'](https://docs.scipy.org/doc/scipy/tutorial/integrate.html)
 
 - [QUADPACK](https://en.wikipedia.org/wiki/QUADPACK) is the Fortran 77 library that is used by `scipy.integrate.quad` under the hood.
 
