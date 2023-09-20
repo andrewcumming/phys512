@@ -165,6 +165,11 @@ For Simpson's rule you can use your own implementation from above or you could t
 For Gaussian quadrature, try both Gauss-Hermite and Gauss-Laguerre. Which one is best?
 ```
 
+## Further reading
+
+- Overview of [`scipy.intgerate'](https://docs.scipy.org/doc/scipy/tutorial/integrate.html)
+
+- [QUADPACK](https://en.wikipedia.org/wiki/QUADPACK) is the Fortran 77 library that is used by `scipy.integrate.quad` under the hood.
 
 
 
