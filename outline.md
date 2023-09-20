@@ -67,6 +67,7 @@ Other books you could look at are:
 - [An Introduction to Computational Physics](https://mcgill.on.worldcat.org/search/detail/63814390?queryString=tao%20pang%20computational&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Tao Pang (the link is to the McGill library ebook). Excellent coverage of the topics in this course, with code samples in Fortran/Java.
 - [Computational Physics](https://www.physics.purdue.edu/~hisao/book/) by Giordano and Nakanishi. An interesting book that is organized by physics topic rather than numerical method.
 - [Numerical Recipes: The Art of Scientific Computing](http://numerical.recipes/book.html) by Press, Teukolsky, Vetterling and Flannery. The classic book on numerical methods with really good explanations. The downside is that the C/Fortran code comes with a very restrictive license. Available to read online (although with annoying popups unless you purchase a license).
+- [Introductory Computational Physics](https://mcgill.on.worldcat.org/search/detail/569384322?queryString=au%3A%28klein%20godunov%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129) by Klein and Godunov has a nice concise treatment of different topics. 
 
 There are also other courses on computational physics that have materials online:
 
