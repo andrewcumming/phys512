@@ -18,11 +18,16 @@ parts:
         - file: derivatives
         - file: interpolation
         - file: integration
-    - caption: Solutions to Exercises
+        - file: function_solutions
+          sections:
+            - file: derivatives_solutions
+            - file: interpolation_solutions
+            - file: integration_solutions
+    - caption: Random numbers
       chapters:
-        - file: derivatives_solutions
-        - file: interpolation_solutions
-        - file: integration_solutions
+        - file: random
+        - file: lcg
+        - file: generating_random
     - caption: Homework
       chapters:
         - file: hw1
