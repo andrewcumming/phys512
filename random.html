@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>PHYS 512 Computational Physics with Applications &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Random numbers &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -61,10 +61,11 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'intro';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'random';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="PHYS 512 Computational Physics with Applications: Winter 2023 Course outline" href="outline.html" />
+    <link rel="next" title="Linear Congruential Generators" href="lcg.html" />
+    <link rel="prev" title="Integration" href="integration_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -130,7 +131,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="sidebar-primary-item">
   
 
-<a class="navbar-brand logo" href="#">
+<a class="navbar-brand logo" href="intro.html">
   
   
   
@@ -170,8 +171,8 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Random numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
 </ul>
@@ -251,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fintro.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Frandom.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -281,7 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/intro.md" target="_blank"
+      <li><a href="_sources/random.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +362,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>PHYS 512 Computational Physics with Applications</h1>
+    <h1>Random numbers</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -375,19 +376,11 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="phys-512-computational-physics-with-applications">
-<h1>PHYS 512 Computational Physics with Applications<a class="headerlink" href="#phys-512-computational-physics-with-applications" title="Permalink to this heading">#</a></h1>
-<p>This is the course website for PHYS 512 Computational Physics with Applications at McGill University, Fall term 2023.</p>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
-<div class="toctree-wrapper compound">
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="random-numbers">
+<h1>Random numbers<a class="headerlink" href="#random-numbers" title="Permalink to this heading">#</a></h1>
+<p>Random numbers are useful in many applications in computational physics. An obvious one is to simulate noise or stochastic systems, but they also allow efficient sampling of functions for integration or for parameter searches.</p>
+<p>Although there are sources of true randomness (so-called entropy sources) in operating systems, e.g. linked to thermal noise in hardware components, in general you will be dealing with <strong>pseudo random number generators</strong> which are algorithms that produce deterministic sequences of numbers that have the statistical properties of random numbers.</p>
+<p>An important concept is the random number <strong>seed</strong>. This provides a starting point for the random sequence, and enables the random sequence to be reproduced, i.e. each seed gives rise to a certain sequence of random numbers. This is important if you want to be able to reproduce results exactly based on random numbers. If you don’t specify a seed, the system will generate one, but the exact sequence of numbers will be different. This may or may not be important, e.g. if you are interested only in the statistical properties. It can certainly be good to try different seeds and make sure your results don’t depend on choice of seed.</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -421,12 +414,21 @@ document.write(`
   
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="integration_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Integration</p>
+      </div>
+    </a>
     <a class="right-next"
-       href="outline.html"
+       href="lcg.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">PHYS 512 Computational Physics with Applications: Winter 2023 Course outline</p>
+        <p class="prev-next-title">Linear Congruential Generators</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
