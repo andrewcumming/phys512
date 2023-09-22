@@ -28,6 +28,9 @@ parts:
         - file: random
         - file: lcg
         - file: generating_random
+        - file: random_solutions
+          sections:
+            - file: prob_distributions_solutions
     - caption: Homework
       chapters:
         - file: hw1
