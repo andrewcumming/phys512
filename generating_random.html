@@ -400,7 +400,7 @@ document.write(`
 <section id="rejection-method">
 <h2>Rejection method<a class="headerlink" href="#rejection-method" title="Permalink to this heading">#</a></h2>
 <p>If <span class="math notranslate nohighlight">\(f(x)\)</span> is the probability distribution that we want, the rejection method is to generate points that are uniformly distributed in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane and only accept points that lie within the curve <span class="math notranslate nohighlight">\(y=f(x)\)</span>. The <span class="math notranslate nohighlight">\(x\)</span> values will then be distributed according to <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
-<p>For example, consider the distribution <span class="math notranslate nohighlight">\(f(x)=\sin x\)</span> for <span class="math notranslate nohighlight">\(x=0\)</span> to <span class="math notranslate nohighlight">\(x=\pi\)</span> (note that this is normalized to unity as expected for a probability distribution). We choose a set of <span class="math notranslate nohighlight">\((x,y)\)</span> pairs in which <span class="math notranslate nohighlight">\(x\)</span> is uniformly-distributed between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>, and <span class="math notranslate nohighlight">\(y\)</span> is uniformly-distributed between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> (<span class="math notranslate nohighlight">\(1\)</span> is the maximum value of <span class="math notranslate nohighlight">\(\sin x\)</span>). We keep only the values of <span class="math notranslate nohighlight">\(x\)</span> which have a corresponding <span class="math notranslate nohighlight">\(y\)</span> that is <span class="math notranslate nohighlight">\(y&lt;f(x)\)</span>. These <span class="math notranslate nohighlight">\(x\)</span>-values will be distributed according to <span class="math notranslate nohighlight">\(f(x)=\sin x\)</span>.</p>
+<p>For example, consider the distribution <span class="math notranslate nohighlight">\(f(x)=\sin x\)</span> for <span class="math notranslate nohighlight">\(x=0\)</span> to <span class="math notranslate nohighlight">\(x=\pi\)</span> (note that this is normalized to unity as expected for a probability distribution). We choose a set of <span class="math notranslate nohighlight">\((x,y)\)</span> pairs in which <span class="math notranslate nohighlight">\(x\)</span> is uniformly-distributed between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(\pi\)</span>, and <span class="math notranslate nohighlight">\(y\)</span> is uniformly-distributed between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(1\)</span> (<span class="math notranslate nohighlight">\(1\)</span> is the maximum value of <span class="math notranslate nohighlight">\(\sin x\)</span>). We keep only the values of <span class="math notranslate nohighlight">\(x\)</span> which have a corresponding <span class="math notranslate nohighlight">\(y\)</span> that is <span class="math notranslate nohighlight">\(y &lt; f(x)\)</span>. These <span class="math notranslate nohighlight">\(x\)</span>-values will be distributed according to <span class="math notranslate nohighlight">\(f(x)=\sin x\)</span>.</p>
 <p>This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another probability distribution for generating the test points which is shaped such that a small number of points end up being rejected.</p>
 </section>
 <section id="transformation-method">
@@ -418,6 +418,32 @@ document.write(`
 <p>The values of <span class="math notranslate nohighlight">\(x\)</span> will be exponentially-distributed.</p>
 <p>This method has the advantage that all samples are used (there is no rejection). Note also that we have used a sampling of points in a finite range to generate a distribution that covers a semi-infinite range in <span class="math notranslate nohighlight">\(x\)</span> (<span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span>).
 The disadvantage of this technique is that the forward and inverse transforms may not be available analytically or hard to evaluate.</p>
+<p>More generally, we want to find <span class="math notranslate nohighlight">\(y\)</span> such that <span class="math notranslate nohighlight">\(f(x) dx = dy\)</span> or <span class="math notranslate nohighlight">\(dy/dx = f(x)\)</span>. Integrating gives</p>
+<div class="math notranslate nohighlight">
+\[y(x) = \int^x f(x) dx,\]</div>
+<p>ie. <span class="math notranslate nohighlight">\(y(x)\)</span> is the <strong>cumulative distribution function</strong> (CDF) of <span class="math notranslate nohighlight">\(x\)</span>. If you have a cumulative distribution function, then you can invert it to generate samples with the correct distribution.</p>
+<p>Here are two more examples:</p>
+<p><strong>Lorentzian (Cauchy distribution)</strong></p>
+<p>The normalized distribution is</p>
+<div class="math notranslate nohighlight">
+\[f(x) = {1\over \pi}{1\over 1+x^2}\]</div>
+<p>for <span class="math notranslate nohighlight">\(-\infty &lt; x &lt; \infty\)</span></p>
+<p>Calculate the CDF:</p>
+<div class="math notranslate nohighlight">
+\[{dy\over dx} = {1\over \pi}{1\over 1+x^2}\Rightarrow y = {1\over \pi}\left[\arctan(x)\right]^x_{-\infty} = {1\over \pi}\arctan(x) + {1\over 2}\]</div>
+<p>Inverting this gives:</p>
+<div class="math notranslate nohighlight">
+\[\Rightarrow x = \tan\left(\pi\left(y-{1\over 2}\right)\right)\]</div>
+<p><strong>Power law distribution</strong></p>
+<p>If we have a power law distribution <span class="math notranslate nohighlight">\(f(x) = C x^{-\alpha}\)</span> for <span class="math notranslate nohighlight">\(a &lt; x &lt; b\)</span>, where <span class="math notranslate nohighlight">\(C\)</span> is the normalization factor,</p>
+<div class="math notranslate nohighlight">
+\[\int_a^b C x^{-\alpha} dx = 1\Rightarrow C = (1-\alpha)\left[b^{1-\alpha}-a^{1-\alpha}\right]^{-1},\]</div>
+<p>the CDF is given by:</p>
+<div class="math notranslate nohighlight">
+\[{dy\over dx} = C x^{-\alpha} \Rightarrow y = {C\over 1-\alpha} \left[x^{1-\alpha}\right]^x_a  = {x^{1-\alpha} - a^{1-\alpha}\over b^{1-\alpha} - a^{1-\alpha}}\]</div>
+<p>which can be inverted as:</p>
+<div class="math notranslate nohighlight">
+\[\Rightarrow x =  \left[b^{1-\alpha}y + a^{1-\alpha} (1-y)\right]     ^{1/(1-\alpha)}\]</div>
 </section>
 <section id="ratio-of-uniforms">
 <h2>Ratio of uniforms<a class="headerlink" href="#ratio-of-uniforms" title="Permalink to this heading">#</a></h2>
@@ -427,7 +453,7 @@ The disadvantage of this technique is that the forward and inverse transforms ma
 <li><p>keep only those points which have</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[0\leq u \leq \sqrt{2f\left({v\over u}\right)}\]</div>
+\[0\leq u \leq \sqrt{f\left({v\over u}\right)}\]</div>
 <ol class="arabic simple" start="3">
 <li><p>form <span class="math notranslate nohighlight">\(x\)</span> values by taking the ratio of <span class="math notranslate nohighlight">\(v\)</span> and <span class="math notranslate nohighlight">\(u\)</span>, ie. <span class="math notranslate nohighlight">\(x=v/u\)</span>.</p></li>
 <li><p>the <span class="math notranslate nohighlight">\(x\)</span> values will be distributed according to <span class="math notranslate nohighlight">\(f(x)\)</span>.</p></li>
@@ -437,6 +463,17 @@ Again note how this method allows us to access the range <span class="math notra
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise:</p>
 <p>Implement these three methods for the exponential distribution and check that they work by comparing a histogram of your <span class="math notranslate nohighlight">\(x\)</span> values with the analytic function.</p>
+</div>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise:</p>
+<p>Try implementing one of the following:</p>
+<ul class="simple">
+<li><p>Lorentzian distribution using transformation method</p></li>
+<li><p>Power law distribution using transformation method</p></li>
+<li><p>Lorentzian distribution with ratio of uniforms</p></li>
+<li><p>Gaussian with ratio of uniforms</p></li>
+</ul>
+<p>Again compare your answer with the analytic distribution.</p>
 </div>
 </section>
 </section>

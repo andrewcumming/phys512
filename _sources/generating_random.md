@@ -6,7 +6,7 @@ Suppose we have access to a source of random numbers that are uniformly distribu
 
 If $f(x)$ is the probability distribution that we want, the rejection method is to generate points that are uniformly distributed in the $(x,y)$ plane and only accept points that lie within the curve $y=f(x)$. The $x$ values will then be distributed according to $f(x)$. 
 
-For example, consider the distribution $f(x)=\sin x$ for $x=0$ to $x=\pi$ (note that this is normalized to unity as expected for a probability distribution). We choose a set of $(x,y)$ pairs in which $x$ is uniformly-distributed between $0$ and $\pi$, and $y$ is uniformly-distributed between $0$ and $1$ ($1$ is the maximum value of $\sin x$). We keep only the values of $x$ which have a corresponding $y$ that is $y<f(x)$. These $x$-values will be distributed according to $f(x)=\sin x$.
+For example, consider the distribution $f(x)=\sin x$ for $x=0$ to $x=\pi$ (note that this is normalized to unity as expected for a probability distribution). We choose a set of $(x,y)$ pairs in which $x$ is uniformly-distributed between $0$ and $\pi$, and $y$ is uniformly-distributed between $0$ and $1$ ($1$ is the maximum value of $\sin x$). We keep only the values of $x$ which have a corresponding $y$ that is $y < f(x)$. These $x$-values will be distributed according to $f(x)=\sin x$.
 
 This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another probability distribution for generating the test points which is shaped such that a small number of points end up being rejected.
 
@@ -31,6 +31,45 @@ The values of $x$ will be exponentially-distributed.
 This method has the advantage that all samples are used (there is no rejection). Note also that we have used a sampling of points in a finite range to generate a distribution that covers a semi-infinite range in $x$ ($0$ to $\infty$).
 The disadvantage of this technique is that the forward and inverse transforms may not be available analytically or hard to evaluate.
 
+More generally, we want to find $y$ such that $f(x) dx = dy$ or $dy/dx = f(x)$. Integrating gives
+
+$$y(x) = \int^x f(x) dx,$$ 
+
+ie. $y(x)$ is the **cumulative distribution function** (CDF) of $x$. If you have a cumulative distribution function, then you can invert it to generate samples with the correct distribution.
+
+Here are two more examples:
+
+**Lorentzian (Cauchy distribution)**
+
+The normalized distribution is 
+
+$$f(x) = {1\over \pi}{1\over 1+x^2}$$
+
+for $-\infty < x < \infty$
+
+Calculate the CDF:
+
+$${dy\over dx} = {1\over \pi}{1\over 1+x^2}\Rightarrow y = {1\over \pi}\left[\arctan(x)\right]^x_{-\infty} = {1\over \pi}\arctan(x) + {1\over 2}$$
+
+Inverting this gives:
+
+$$\Rightarrow x = \tan\left(\pi\left(y-{1\over 2}\right)\right)$$
+
+**Power law distribution**
+
+If we have a power law distribution $f(x) = C x^{-\alpha}$ for $a < x < b$, where $C$ is the normalization factor,
+
+$$\int_a^b C x^{-\alpha} dx = 1\Rightarrow C = (1-\alpha)\left[b^{1-\alpha}-a^{1-\alpha}\right]^{-1},$$
+
+the CDF is given by:
+
+$${dy\over dx} = C x^{-\alpha} \Rightarrow y = {C\over 1-\alpha} \left[x^{1-\alpha}\right]^x_a  = {x^{1-\alpha} - a^{1-\alpha}\over b^{1-\alpha} - a^{1-\alpha}}$$
+
+which can be inverted as:
+
+$$\Rightarrow x =  \left[b^{1-\alpha}y + a^{1-\alpha} (1-y)\right]     ^{1/(1-\alpha)}$$
+
+
 ## Ratio of uniforms
 
 The ratio of uniforms is a very interesting method that also relies on selecting points in the 2D plane, but in a different way. For a probability distribution $f(x)$, the procedure is:
@@ -39,7 +78,7 @@ The ratio of uniforms is a very interesting method that also relies on selecting
 
 2. keep only those points which have 
 
-$$0\leq u \leq \sqrt{2f\left({v\over u}\right)}$$
+$$0\leq u \leq \sqrt{f\left({v\over u}\right)}$$
 
 3. form $x$ values by taking the ratio of $v$ and $u$, ie. $x=v/u$.
 
@@ -50,4 +89,16 @@ Again note how this method allows us to access the range $x=0$ to $\infty$, sinc
 
 ```{admonition} Exercise:
 Implement these three methods for the exponential distribution and check that they work by comparing a histogram of your $x$ values with the analytic function.
+```
+
+
+```{admonition} Exercise:
+Try implementing one of the following:
+
+- Lorentzian distribution using transformation method
+- Power law distribution using transformation method
+- Lorentzian distribution with ratio of uniforms
+- Gaussian with ratio of uniforms
+
+Again compare your answer with the analytic distribution.
 ```
