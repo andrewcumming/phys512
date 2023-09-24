@@ -8,7 +8,7 @@ If $f(x)$ is the probability distribution that we want, the rejection method is 
 
 For example, consider the distribution $f(x)=\sin x$ for $x=0$ to $x=\pi$ (note that this is normalized to unity as expected for a probability distribution). We choose a set of $(x,y)$ pairs in which $x$ is uniformly-distributed between $0$ and $\pi$, and $y$ is uniformly-distributed between $0$ and $1$ ($1$ is the maximum value of $\sin x$). We keep only the values of $x$ which have a corresponding $y$ that is $y < f(x)$. These $x$-values will be distributed according to $f(x)=\sin x$.
 
-This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another probability distribution for generating the test points which is shaped such that a small number of points end up being rejected.
+This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another probability distribution $p(x)$ for generating the test points which is shaped such that a small number of points end up being rejected (this is known as **importance sampling**). In this case, the criterion for accepting a point is modified to $y < f(x)/p(x)$.
 
 ## Transformation method
 
@@ -99,6 +99,9 @@ Try implementing one of the following:
 - Power law distribution using transformation method
 - Lorentzian distribution with ratio of uniforms
 - Gaussian with ratio of uniforms
+- The distribution $f(x) = exp(-|x^3|)$ using the rejection method
+- The distribution $f(x) = exp(-|x^3|)$ using the rejection method but sampling from a Gaussian in $x$
 
-Again compare your answer with the analytic distribution.
+Again compare your answer with the analytic distribution, and in the last two examples, compare the acceptance fraction.
+
 ```
