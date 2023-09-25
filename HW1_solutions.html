@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Homework 1 solutions &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'HW1_solutions';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Homework solutions" href="homework_solutions.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 1 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2FHW1_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/HW1_solutions.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Homework 1 solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-1-solutions">
+<h1>Homework 1 solutions<a class="headerlink" href="#homework-1-solutions" title="Permalink to this heading">#</a></h1>
+<ol class="arabic simple">
+<li><p><strong>Long term planetary orbits</strong></p></li>
+</ol>
+<p>First write down the equations of the orbit that we need to solve.</p>
+<p>The acceleration is</p>
+<div class="math notranslate nohighlight">
+\[a = {GM\over r^2}\]</div>
+<p>towards the Sun, where <span class="math notranslate nohighlight">\(M\)</span> is the mass of the Sun and <span class="math notranslate nohighlight">\(r\)</span> is the Earth-Sun distance.</p>
+<p>A circular orbit has <span class="math notranslate nohighlight">\(a = v^2/r\)</span>, so the velocity is given by <span class="math notranslate nohighlight">\(v^2 = GM/r\)</span>.</p>
+<p>First compute the orbit and make sure it looks like a circle:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1"># Constants</span>
+<span class="n">GM</span> <span class="o">=</span> <span class="mf">1.3271e20</span>   <span class="c1"># Gravitational parameter for the Sun (SI units)</span>
+<span class="n">rAU</span> <span class="o">=</span> <span class="mf">1.496e11</span>    <span class="c1"># AU = astronomical unit (Earth-Sun distance) in m</span>
+<span class="n">secperyear</span> <span class="o">=</span> <span class="mi">3600</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">365</span>
+
+<span class="c1"># Compute the velocity and energy for a circular orbit</span>
+<span class="n">vEarth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">GM</span> <span class="o">/</span> <span class="n">rAU</span><span class="p">)</span>
+<span class="n">E0</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">GM</span> <span class="o">/</span> <span class="n">rAU</span>
+
+<span class="c1"># Initial conditions</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rAU</span>
+<span class="n">vx</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vy</span> <span class="o">=</span> <span class="n">vEarth</span>
+
+<span class="c1"># Timestep </span>
+<span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">*=</span> <span class="n">secperyear</span>
+<span class="n">t</span><span class="o">=</span><span class="mf">0.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;nsteps = </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">nsteps</span><span class="p">,))</span>
+
+<span class="n">t_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">x_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">y_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">vx_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+<span class="n">vy_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsteps</span><span class="p">):</span>
+    
+    <span class="c1"># compute the acceleration</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">rr</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">ay</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">rr</span><span class="o">**</span><span class="mi">3</span>
+    
+    <span class="c1"># take the timestep</span>
+    <span class="c1"># for semi-implicit Euler (second order), do the velocity update first</span>
+    <span class="c1"># for explicit Euler (first order), do the position updates before the velocity</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">ax</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">vy</span> <span class="o">+</span> <span class="n">ay</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vx</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">dt</span>
+
+    <span class="c1"># store the results</span>
+    <span class="n">t_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">t</span>
+    <span class="n">x_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+    <span class="n">y_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+    <span class="n">vx_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vx</span>
+    <span class="n">vy_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">vy</span>
+
+    
+<span class="n">rr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_vec</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">energy</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">/</span> <span class="n">rr</span>  <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">vx_vec</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Delta E/E = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">energy</span><span class="o">-</span><span class="n">E0</span><span class="p">)</span><span class="o">/</span><span class="n">E0</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vec</span><span class="o">/</span><span class="n">rAU</span><span class="p">,</span> <span class="n">y_vec</span><span class="o">/</span><span class="n">rAU</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vec</span><span class="o">/</span><span class="n">secperyear</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x_vec</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">rAU</span><span class="p">)</span><span class="o">/</span><span class="n">rAU</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vec</span><span class="o">/</span><span class="n">secperyear</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">vx_vec</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">vEarth</span><span class="p">)</span><span class="o">/</span><span class="n">vEarth</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_vec</span><span class="o">/</span><span class="n">secperyear</span><span class="p">,</span> <span class="p">(</span><span class="n">energy</span><span class="o">-</span><span class="n">E0</span><span class="p">)</span><span class="o">/</span><span class="n">E0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 1000
+Delta E/E =  -1.9724690657386198e-05
+</pre></div>
+</div>
+<img alt="_images/7d2b9ef21b9830576b3ae0af9d0b86b2b1203e9466b2490d850629724f98c403.png" src="_images/7d2b9ef21b9830576b3ae0af9d0b86b2b1203e9466b2490d850629724f98c403.png" />
+<img alt="_images/fcd10343bb6da616372bc06735f187ce9664560effcd4825df34b599060d2a3b.png" src="_images/fcd10343bb6da616372bc06735f187ce9664560effcd4825df34b599060d2a3b.png" />
+<img alt="_images/0401c16dccc4ff326f8197aa0459828933f3fff6412e8677852af6ba4bbe7a76.png" src="_images/0401c16dccc4ff326f8197aa0459828933f3fff6412e8677852af6ba4bbe7a76.png" />
+<img alt="_images/d50f7c8ebcb0d085635f8c5e9a9b9959cb9c217fbe824dc1d88b7c37df03e6ad.png" src="_images/d50f7c8ebcb0d085635f8c5e9a9b9959cb9c217fbe824dc1d88b7c37df03e6ad.png" />
+</div>
+</div>
+<p>Now do this for different timesteps</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">evolve</span><span class="p">(</span><span class="n">dt</span><span class="p">):</span>
+    
+    <span class="c1"># Initial conditions</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">rAU</span>
+    <span class="n">vx</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">vy</span> <span class="o">=</span> <span class="n">vEarth</span>
+
+    <span class="n">nsteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="p">(</span><span class="mi">0</span><span class="o">-</span><span class="n">dt</span><span class="p">))</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">**</span><span class="n">dt</span> <span class="o">*</span> <span class="n">secperyear</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsteps</span><span class="p">):</span>
+            
+        <span class="c1"># compute the acceleration</span>
+        <span class="n">rr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="n">rr</span>
+        <span class="n">ay</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">*</span> <span class="n">y</span> <span class="o">/</span> <span class="n">rr</span>
+        
+        <span class="c1"># take the timestep</span>
+        <span class="c1"># for semi-implicit Euler (second order), do the velocity update first</span>
+        <span class="c1"># for explicit Euler (first order), do the position updates before the velocity</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span> <span class="o">+</span> <span class="n">ax</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="n">vy</span> <span class="o">+</span> <span class="n">ay</span> <span class="o">*</span> <span class="n">dt</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">vx</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">vy</span> <span class="o">*</span> <span class="n">dt</span>
+
+    <span class="n">energy</span> <span class="o">=</span> <span class="o">-</span> <span class="n">GM</span> <span class="o">/</span> <span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">y</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>  <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+     
+    <span class="k">return</span> <span class="n">energy</span><span class="p">,</span> <span class="n">nsteps</span>
+
+<span class="c1"># Constants</span>
+<span class="n">GM</span> <span class="o">=</span> <span class="mf">1.3271e20</span>   <span class="c1"># Gravitational parameter for the Sun (SI units)</span>
+<span class="n">rAU</span> <span class="o">=</span> <span class="mf">1.496e11</span>    <span class="c1"># AU = astronomical unit (Earth-Sun distance) in m</span>
+<span class="n">secperyear</span> <span class="o">=</span> <span class="mi">3600</span><span class="o">*</span><span class="mi">24</span><span class="o">*</span><span class="mi">365</span>
+
+<span class="c1"># Compute the velocity and energy for a circular orbit</span>
+<span class="n">vEarth</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">GM</span> <span class="o">/</span> <span class="n">rAU</span><span class="p">)</span>
+<span class="n">E0</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">GM</span> <span class="o">/</span> <span class="n">rAU</span>
+
+<span class="c1"># The different values of log10 timestep to try</span>
+<span class="n">dt_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mf">9.1</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt_vals</span><span class="p">)</span>
+
+<span class="n">E_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">n_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([],</span> <span class="n">dtype</span> <span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">dt_vals</span><span class="p">:</span>
+    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">E</span><span class="p">,</span> <span class="n">nsteps</span> <span class="o">=</span> <span class="n">evolve</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">,</span> <span class="p">(</span><span class="n">E</span><span class="o">-</span><span class="n">E0</span><span class="p">)</span><span class="o">/</span><span class="n">E0</span><span class="p">,</span> <span class="n">t1</span><span class="o">-</span><span class="n">t0</span><span class="p">)</span>
+    <span class="n">E_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">E_vals</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">E</span><span class="o">-</span><span class="n">E0</span><span class="p">)</span><span class="o">/</span><span class="n">E0</span><span class="p">))</span>
+    <span class="n">n_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dt_vals</span><span class="p">,</span> <span class="n">E_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">\Delta t\ (\mathrm</span><span class="si">{yr}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta E/E$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="n">E_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="mf">1e-16</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n_vals</span><span class="p">),</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vals</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_vals</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Number of steps&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta E/E$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-1.  -1.5 -2.  -2.5 -3.  -3.5 -4.  -4.5 -5.  -5.5 -6.  -6.5 -7.  -7.5
+ -8.  -8.5 -9. ]
+-1.0 10 -0.07183938624734791 5.125999450683594e-05
+-1.5 31 -0.0005620920258684807 5.2928924560546875e-05
+-2.0 100 -2.5277116776878066e-07 0.0001468658447265625
+-2.5 316 -1.0393759622775783e-08 0.0004467964172363281
+-3.0 1000 -2.1997291674745818e-10 0.0010802745819091797
+-3.5 3162 -2.6377522768445045e-11 0.002825021743774414
+-4.0 10000 -2.093522445015285e-12 0.008417129516601562
+-4.5 31622 -2.2576017123215092e-13 0.021621227264404297
+-5.0 100000 -3.8836124694102156e-14 0.057350873947143555
+-5.5 316227 -6.745928926103558e-14 0.1693429946899414
+-6.0 1000000 1.5937593040555416e-13 0.5223250389099121
+-6.5 3162277 2.394670387712458e-13 1.6560380458831787
+-7.0 10000000 -9.946885639645126e-13 5.324723243713379
+-7.5 31622776 -1.84908330723476e-13 16.520429134368896
+-8.0 100000000 6.651862188090161e-13 51.796481132507324
+-8.5 316227766 1.1378043867991797e-12 162.00765204429626
+-9.0 1000000000 -1.0711513838639733e-12 515.1064240932465
+</pre></div>
+</div>
+<img alt="_images/cb5a8d1d36eebb4aabfddf1aeec40df18aba21f76c5ca100c9e7192911461ffb.png" src="_images/cb5a8d1d36eebb4aabfddf1aeec40df18aba21f76c5ca100c9e7192911461ffb.png" />
+<img alt="_images/a66ac58e4c00dde50675cfa6b5f22d08c4387de7632760b32a4f18db757e5d63.png" src="_images/a66ac58e4c00dde50675cfa6b5f22d08c4387de7632760b32a4f18db757e5d63.png" />
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p><strong>Interpolation and thermodynamics</strong></p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First calculate P, S, and F on a coarse grid and make some color</span>
+<span class="c1"># maps to show what they look like</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.interpolate</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="k">def</span> <span class="nf">P</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">T</span>
+
+<span class="k">def</span> <span class="nf">S</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">nQ</span> <span class="o">=</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">kB</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mf">1.5</span>
+    <span class="k">return</span> <span class="n">kB</span> <span class="o">*</span> <span class="p">(</span><span class="mf">2.5</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="n">nQ</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">F</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">T</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">rho</span> <span class="o">/</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">nQ</span> <span class="o">=</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="o">*</span><span class="n">kB</span><span class="o">*</span><span class="n">T</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">hbar</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mf">1.5</span>
+    <span class="k">return</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="n">nQ</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span><span class="p">)</span>
+
+<span class="c1"># constants</span>
+<span class="n">mu</span> <span class="o">=</span> <span class="mf">1.66e-27</span> <span class="c1"># kg</span>
+<span class="n">kB</span> <span class="o">=</span> <span class="mf">1.381e-23</span> <span class="c1"># SI</span>
+<span class="n">hbar</span> <span class="o">=</span> <span class="mf">6.626e-34</span> <span class="c1"># SI</span>
+
+<span class="c1"># grid in log T and log rho</span>
+<span class="n">Tp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">rhop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">Tgrid</span><span class="p">,</span> <span class="n">rhogrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span> <span class="n">rhop</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">Pgrid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">rhogrid</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid</span><span class="p">))</span>
+<span class="n">Sgrid</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">rhogrid</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid</span><span class="p">)</span><span class="o">/</span><span class="n">kB</span>
+<span class="n">Fgrid</span> <span class="o">=</span> <span class="n">F</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">rhogrid</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Pgrid</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
+           <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\log_</span><span class="si">{10}</span><span class="s1">$ Pressure&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Sgrid</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
+           <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Entropy ($S/k_B$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">Fgrid</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> 
+           <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Free energy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ad239492a735a84d4349cb0a5f8d24e8495f4381441fb67922cac3de5bee935b.png" src="_images/ad239492a735a84d4349cb0a5f8d24e8495f4381441fb67922cac3de5bee935b.png" />
+<img alt="_images/27a4d49ddd1aa158ddcb7689b72682b2cdc119bc1bccf52552e3ae53ed91585c.png" src="_images/27a4d49ddd1aa158ddcb7689b72682b2cdc119bc1bccf52552e3ae53ed91585c.png" />
+<img alt="_images/f9575701f3e52c9768893e7a7011088a8240e17c03268b1cc43fa095f8bece11.png" src="_images/f9575701f3e52c9768893e7a7011088a8240e17c03268b1cc43fa095f8bece11.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here we calculate the entropy by differentiating the free energy</span>
+
+<span class="n">Finterp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">RectBivariateSpline</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span><span class="n">rhop</span><span class="p">,</span><span class="n">Fgrid</span><span class="p">)</span>
+<span class="n">SS</span> <span class="o">=</span> <span class="n">Finterp</span><span class="o">.</span><span class="n">partial_derivative</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="c1">#dSdrho = Sinterp.partial_derivative(0,1)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">SS</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span><span class="n">rhop</span><span class="p">)</span><span class="o">/</span> <span class="p">(</span><span class="mf">10.0</span><span class="o">**</span><span class="n">Tgrid</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">*</span> <span class="n">kB</span><span class="p">)</span> <span class="o">*</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span>
+           <span class="n">interpolation</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="c1">#plt.imshow(Sgrid, aspect=&#39;auto&#39;, origin=&#39;lower&#39;, extent=(rhop[0],rhop[-1],Tp[0],Tp[-1]), </span>
+<span class="c1">#         interpolation=&#39;none&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Entropy ($S/k_B$)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/dc53bb86ad3d5628ecada9f0b8b81085311ba2a9fb32be16737ac0119c669481.png" src="_images/dc53bb86ad3d5628ecada9f0b8b81085311ba2a9fb32be16737ac0119c669481.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now interpolate P and S, plot the fractional errors in the interpolation</span>
+<span class="c1"># and check for thermodynamic consistency using the derivatives</span>
+
+<span class="c1">#Pinterp = scipy.interpolate.RegularGridInterpolator((Tp,rhop),Pgrid, bounds_error=False, fill_value=None)</span>
+<span class="c1">#Sinterp = scipy.interpolate.RegularGridInterpolator((Tp,rhop),Sgrid, bounds_error=False, fill_value=None)</span>
+
+<span class="n">Pinterp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">RectBivariateSpline</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span><span class="n">rhop</span><span class="p">,</span><span class="n">Pgrid</span><span class="p">)</span>
+<span class="n">Sinterp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">RectBivariateSpline</span><span class="p">(</span><span class="n">Tp</span><span class="p">,</span><span class="n">rhop</span><span class="p">,</span><span class="n">Sgrid</span><span class="p">)</span>
+
+<span class="n">dPdT</span> <span class="o">=</span> <span class="n">Pinterp</span><span class="o">.</span><span class="n">partial_derivative</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dSdrho</span> <span class="o">=</span> <span class="n">Sinterp</span><span class="o">.</span><span class="n">partial_derivative</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># now compute the function on a finer grid</span>
+<span class="n">Tp2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">rhop2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">Tgrid2</span><span class="p">,</span> <span class="n">rhogrid2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span> <span class="n">rhop2</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s1">&#39;ij&#39;</span><span class="p">)</span>
+<span class="n">ngrid2</span> <span class="o">=</span> <span class="mf">10.0</span><span class="o">**</span><span class="n">rhogrid2</span> <span class="o">/</span> <span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="n">mu</span><span class="p">)</span>
+<span class="n">Pgrid2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">P</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">rhogrid2</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid2</span><span class="p">))</span>
+<span class="n">Sgrid2</span> <span class="o">=</span> <span class="n">S</span><span class="p">(</span><span class="mi">10</span><span class="o">**</span><span class="n">rhogrid2</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid2</span><span class="p">)</span><span class="o">/</span><span class="n">kB</span>
+
+<span class="c1"># plot the fractional error</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">((</span><span class="n">Pinterp</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span><span class="n">rhop2</span><span class="p">)</span><span class="o">-</span><span class="n">Pgrid2</span><span class="p">)</span><span class="o">/</span><span class="n">Pgrid2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+          <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Pressure&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">((</span><span class="n">Sinterp</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span><span class="n">rhop2</span><span class="p">)</span><span class="o">-</span><span class="n">Sgrid2</span><span class="p">)</span><span class="o">/</span><span class="n">Sgrid2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Entropy&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">f1</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">Pinterp</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span><span class="n">rhop2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dPdT</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span><span class="n">rhop2</span><span class="p">)</span><span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="n">Tgrid2</span> <span class="o">/</span> <span class="n">ngrid2</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;dPdT&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">f2</span> <span class="o">=</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">dSdrho</span><span class="p">(</span><span class="n">Tp2</span><span class="p">,</span><span class="n">rhop2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">*</span><span class="n">ngrid2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;dSdrho&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="n">f1</span><span class="p">),</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">rhop2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">rhop2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">Tp2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Consistency&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">f1</span><span class="o">+</span><span class="n">f2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">f1</span><span class="o">-</span><span class="n">f2</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/52f4a7b9da018cac8c9973cc184e07bbe78b953f837182093a07e513a42d23a2.png" src="_images/52f4a7b9da018cac8c9973cc184e07bbe78b953f837182093a07e513a42d23a2.png" />
+<img alt="_images/f66bef3ff82a9dc44dec6bc0dda86b09407c39c1c00e77a7b442e15e31e51deb.png" src="_images/f66bef3ff82a9dc44dec6bc0dda86b09407c39c1c00e77a7b442e15e31e51deb.png" />
+<img alt="_images/e31ce5a4626314897729723895fb360ce7d255c24c974a7764bee8b8123c2627.png" src="_images/e31ce5a4626314897729723895fb360ce7d255c24c974a7764bee8b8123c2627.png" />
+<img alt="_images/ea607227cac1f6884d9fca1c9ba27530c6ba4f9b22ef3844e8d39cf3c601b0fb.png" src="_images/ea607227cac1f6884d9fca1c9ba27530c6ba4f9b22ef3844e8d39cf3c601b0fb.png" />
+<img alt="_images/fa9b409c4fe66619f6bea99d6be319295e5a874841216f2430597b287aafbe89.png" src="_images/fa9b409c4fe66619f6bea99d6be319295e5a874841216f2430597b287aafbe89.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-1.390557629454562e-14
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="homework_solutions.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework solutions</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
