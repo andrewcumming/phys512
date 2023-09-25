@@ -99,8 +99,8 @@ Try implementing one of the following:
 - Power law distribution using transformation method
 - Lorentzian distribution with ratio of uniforms
 - Gaussian with ratio of uniforms
-- The distribution $f(x) = \exp(-|x^3|)$ using the rejection method
-- The distribution $f(x) = \exp(-|x^3|)$ using the rejection method but sampling from a Gaussian in $x$
+- The distribution $f(x) = \exp(-|x^3|)$ ($-\infty<x<\infty$) using the rejection method with uniform sampling of $x$
+- The distribution $f(x) = \exp(-|x^3|)$ ($-\infty<x<\infty$) using the rejection method sampling from a Gaussian in $x$
 
 Again compare your answer with the analytic distribution, and in the last two examples, compare the acceptance fraction.
 
