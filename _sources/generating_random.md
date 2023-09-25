@@ -87,12 +87,12 @@ $$0\leq u \leq \sqrt{f\left({v\over u}\right)}$$
 In this method, $f(x)$ doesn't need to be normalized, only the shape of the function is needed.  This method was introduced by [Kinderman and Monahan 1977](https://dl.acm.org/doi/pdf/10.1145/355744.355750). 
 Again note how this method allows us to access the range $x=0$ to $\infty$, since the ratio $v/u\rightarrow \infty$ for $u\rightarrow 0$. 
 
-```{admonition} Exercise:
+```{admonition} Exercise 1
 Implement these three methods for the exponential distribution and check that they work by comparing a histogram of your $x$ values with the analytic function.
 ```
 
 
-```{admonition} Exercise:
+```{admonition} Exercise 2
 Try implementing one of the following:
 
 - Lorentzian distribution using transformation method
