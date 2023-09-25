@@ -36,4 +36,6 @@ parts:
         - file: hw1
         - file: hw2
         - file: project_instructions
-        
+        - file: homework_solutions
+          sections:
+            - file: HW1_solutions
