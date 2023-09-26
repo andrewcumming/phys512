@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Floating point arithmetic &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Metropolis-Hastings algorithm &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'floats';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'metropolis';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Derivatives" href="derivatives.html" />
-    <link rel="prev" title="Programming best practices" href="programming.html" />
+    <link rel="next" title="Solutions to exercises" href="random_solutions.html" />
+    <link rel="prev" title="Monte Carlo integration" href="monte_carlo_integration.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,10 +155,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Floating point arithmetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
 <ul class="nav bd-sidenav">
@@ -173,12 +173,12 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Metropolis-Hastings algorithm</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
 </ul>
@@ -264,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Ffloats.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fmetropolis.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -294,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/floats.md" target="_blank"
+      <li><a href="_sources/metropolis.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -363,9 +363,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -376,21 +374,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Floating point arithmetic</h1>
+    <h1>Metropolis-Hastings algorithm</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -400,96 +388,33 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="floating-point-arithmetic">
-<h1>Floating point arithmetic<a class="headerlink" href="#floating-point-arithmetic" title="Permalink to this heading">#</a></h1>
-<section id="how-floating-point-numbers-are-represented">
-<h2>How floating point numbers are represented<a class="headerlink" href="#how-floating-point-numbers-are-represented" title="Permalink to this heading">#</a></h2>
-<p>The format of floating point numbers is set out in the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> standard. Double-precision floating point numbers are represented using 64 bits (8 bytes). These are split into 1 bit for the sign of the number (0 for positive, 1 for negative), 11 bits for the exponent, and the remaining 52 bits are for the mantissa (also known as the significand).</p>
-<p><img alt="Illustration of bit formatting for a double precision float" src="_images/IEEE_754_Double_Floating_Point_Format.png" /></p>
-<p>(<a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Image credit: Wikipedia</a>)</p>
-<p>The corresponding floating point number is</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="metropolis-hastings-algorithm">
+<h1>Metropolis-Hastings algorithm<a class="headerlink" href="#metropolis-hastings-algorithm" title="Permalink to this heading">#</a></h1>
+<p>Another way to sample a probability distribution is to use a <strong>Markov Chain Monte Carlo</strong> method. In these methods, we generate a sequence (or chain) of <span class="math notranslate nohighlight">\(x\)</span> values that sample a given probability distribution <span class="math notranslate nohighlight">\(f(x)\)</span>. Each sample <span class="math notranslate nohighlight">\(x_i\)</span> is generated from the previous one <span class="math notranslate nohighlight">\(x_{i-1}\)</span> in some probabilistic way, so <span class="math notranslate nohighlight">\(x_i\)</span> depends only on the state before it <span class="math notranslate nohighlight">\(x_{i-1}\)</span> (this is the Markov chain part).</p>
+<p>The <strong>Metropolis-Hastings algorithm</strong> is a simple method to do this. To generate the next value in  the chain <span class="math notranslate nohighlight">\(x_{i+1}\)</span> given the current value <span class="math notranslate nohighlight">\(x_i\)</span>, the procedure is as follows:</p>
+<ul class="simple">
+<li><p>Propose a jump from the current value <span class="math notranslate nohighlight">\(x_i=x\)</span> to a new candidate value <span class="math notranslate nohighlight">\(x^\prime\)</span> according to a proposal distribution <span class="math notranslate nohighlight">\(p(x^\prime|x)\)</span>. The proposal distribution should be symmetric, ie. the probability of choosing a new  location <span class="math notranslate nohighlight">\(x^\prime\)</span> given that we are now at <span class="math notranslate nohighlight">\(x\)</span> should be the same as the probability of choosing <span class="math notranslate nohighlight">\(x\)</span> if we were located at <span class="math notranslate nohighlight">\(x^\prime\)</span>. For example, in 1D we could choose <span class="math notranslate nohighlight">\(x^\prime = x_i + \Delta x\)</span> with <span class="math notranslate nohighlight">\(\Delta x\)</span> drawn from a Gaussian distribution.</p></li>
+<li><p>Evaluate the ratio <span class="math notranslate nohighlight">\(\alpha = f(x^\prime)/f(x)\)</span>. If <span class="math notranslate nohighlight">\(\alpha&gt;1\)</span>, ie. the new point is located in a region with larger <span class="math notranslate nohighlight">\(f(x)\)</span>, then we accept the move and set <span class="math notranslate nohighlight">\(x_{i+1} = x^\prime\)</span>. If <span class="math notranslate nohighlight">\(\alpha&lt;1\)</span>, we accept the move with probability <span class="math notranslate nohighlight">\(\alpha\)</span>. If the move if rejected, then we set <span class="math notranslate nohighlight">\(x_{i+1} = x_i\)</span>.  (Note that this entire step can be achieved by choosing a uniform deviate <span class="math notranslate nohighlight">\(u\)</span> between 0 and 1, and accepting the move if <span class="math notranslate nohighlight">\(u&lt;\alpha\)</span>.)</p></li>
+</ul>
+<p>After an initial <em>burn-in</em> phase, the chain will reach equilibrium and the samples <span class="math notranslate nohighlight">\(\{x_i\}\)</span> will be distributed according to the probability distribution <span class="math notranslate nohighlight">\(f(x)\)</span>. The reason this works is that in equilibrium, the rate at which we move from point <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(x^\prime\)</span> should be equal to the rate at which we move in the reverse direction, from <span class="math notranslate nohighlight">\(x^\prime\)</span> to <span class="math notranslate nohighlight">\(x\)</span>. This is the principle of detailed balance. Therefore</p>
 <div class="math notranslate nohighlight">
-\[(-1)^s \times (1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}) \times 2^{e-1023}\]</div>
-<p>where <span class="math notranslate nohighlight">\(s\)</span> is the value of the sign bit (0 or 1), <span class="math notranslate nohighlight">\(e\)</span> is the value of the exponent, and <span class="math notranslate nohighlight">\(b_i\)</span> corresponds to bit <span class="math notranslate nohighlight">\(i\)</span> in the fraction, as labelled in the diagram.</p>
-<p>The values of the exponents range from</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(e=00000000001\)</span> (binary) <span class="math notranslate nohighlight">\(=1\)</span> (base 10), corresponding to <span class="math notranslate nohighlight">\(2^{e-1023}=2^{1-1023}=2^{-1022}\)</span></p></li>
-</ul>
-<p>to</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(e=11111111110=2046\)</span>, corresponding to <span class="math notranslate nohighlight">\(2^{e-1023}=2^{2046-1023}=2^{1023}\)</span></p></li>
-</ul>
-<p>(The values <span class="math notranslate nohighlight">\(e=0\)</span> and <span class="math notranslate nohighlight">\(e=2047\)</span> have special meaning – see the <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Wikipedia page on Double-precision floating-point format</a> for more information.)</p>
-<div class="admonition-questions admonition">
-<p class="admonition-title">Questions</p>
-<ul class="simple">
-<li><p>What is the order of magnitude of the largest and smallest values that can be stored in a double?</p></li>
-<li><p>What is the binary representation of the number 3.0?</p></li>
-</ul>
-</div>
-<p>We focused here on double precision numbers, which are standard in 64 bit machines. Single precision floats are 32 bits, with 8 bits for exponent and 23 for mantissa.</p>
-<p><strong>Further reading:</strong> <a class="reference external" href="https://dl.acm.org/doi/10.1145/103162.103163">What every computer scientist should know about floating-point arithmetic</a> by David Goldberg.</p>
-</section>
-<section id="roundoff-error">
-<h2>Roundoff error<a class="headerlink" href="#roundoff-error" title="Permalink to this heading">#</a></h2>
-<p>Roundoff error occurs because of the finite precision of floating point variables which means that many values cannot be represented exactly. You might think of irrational numbers (e.g. <span class="math notranslate nohighlight">\(\pi\)</span>) or recurring decimal such as <span class="math notranslate nohighlight">\(1/11=0.0909\dots\)</span>, but even <span class="math notranslate nohighlight">\(1/10=0.1\)</span> doesn’t have an exact representation in floating point where the fraction is written in base 2.</p>
+\[n(x) \times (\mathrm{rate\ of}\ x\rightarrow x^\prime)
+=
+n(x^\prime) \times (\mathrm{rate\ of}\ x^\prime\rightarrow x)
+\]</div>
+<p>If <span class="math notranslate nohighlight">\(x^\prime\)</span> has a larger value of the probability <span class="math notranslate nohighlight">\(f(x)\)</span>, then the transition from <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(x^\prime\)</span> will always happen (we always accept), i.e. the rate is 1. The rate of the reverse transition from <span class="math notranslate nohighlight">\(x^\prime\)</span> to <span class="math notranslate nohighlight">\(x\)</span> is then <span class="math notranslate nohighlight">\(f(x)/f(x^\prime)&lt;1\)</span>. Therefore</p>
+<div class="math notranslate nohighlight">
+\[n(x) = n(x^\prime) f(x)/f(x^\prime)\]</div>
+<div class="math notranslate nohighlight">
+\[{n(x)\over n(x^\prime)}= {f(x)\over f(x^\prime)}\]</div>
+<p>which shows that <span class="math notranslate nohighlight">\(n(x)\)</span> will be distributed as <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
-<p>Here are some floating point expressions to evaluate to illustrate roundoff:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">(2**0.5)**2</span> <span class="pre">-</span> <span class="pre">2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.1</span> <span class="pre">+</span> <span class="pre">2.2</span> <span class="pre">-</span> <span class="pre">3.3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.10000001</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.10000000000000001</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">1e-15</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">1e-16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(0.7</span> <span class="pre">+</span> <span class="pre">0.1)</span> <span class="pre">+</span> <span class="pre">0.3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.7</span> <span class="pre">+</span> <span class="pre">(0.1</span> <span class="pre">+</span> <span class="pre">0.3)</span></code></p></li>
-</ul>
+<p>Code up this algorithm and generate <span class="math notranslate nohighlight">\(10^4\)</span> samples from the distribution <span class="math notranslate nohighlight">\(f(x) = \exp(-\left|x^3\right|)\)</span>. Confirm that you are getting the correct distribution by comparing the histogram of <span class="math notranslate nohighlight">\(x\)</span>-values with the analytic expression.</p>
+<p>Plot the values <span class="math notranslate nohighlight">\(\{x_i\}\)</span> against iteration number <span class="math notranslate nohighlight">\(i\)</span>, and plot <span class="math notranslate nohighlight">\(x_i\)</span> against <span class="math notranslate nohighlight">\(x_{i+1}\)</span> for the values in the chain. What do you notice?
+How do your results change when you take different values for the width of the proposal distribution?</p>
+<p>Compare your results with the same plots for <span class="math notranslate nohighlight">\(10^4\)</span> values from <span class="math notranslate nohighlight">\(f(x)\)</span> chosen by the rejection method.</p>
 </div>
-<p>The size of the roundoff error is set by the number of bits that we have available for the fraction. For double precision, it is of order <span class="math notranslate nohighlight">\(2^{-52}\approx 2.2\times 10^{-16}\)</span>. Note that because we are talking about the fraction here, this number is the relative error rather than an absolute error. You might be thinking that this seems like a very small effect, since <span class="math notranslate nohighlight">\(2^{-52}\)</span> is a small number! This is true, but you do have to be careful under certain situations:</p>
-<ul class="simple">
-<li><p><strong>Comparing floats.</strong> Rather than comparing floats, it’s better to instead test whether they are close to each other. E.g., with <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1.1</span> <span class="pre">+</span> <span class="pre">2.2</span></code>, <code class="docutils literal notranslate"><span class="pre">x==3.3</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, whereas <code class="docutils literal notranslate"><span class="pre">abs(x-3.3)</span> <span class="pre">&lt;</span> <span class="pre">1e-8</span></code>  returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
-<li><p><strong>Subtracting numbers that are almost equal.</strong> This comes up in many problems where you are evaluating a physical quantity which is given by subtracting two terms that almost cancel. If the difference between the two numbers becomes comparable to the floating point precision, roundoff error can dominate the answer. In these cases, you can often rewrite the expressions to be evaluated to avoid the subtraction, an example is given below.</p></li>
-<li><p><strong>When doing many operations and errors accumulate.</strong> Small errors accumulate over many operations. An example is long term integrations of planetary orbits, for example when trying to compute the future evolution of the Solar System. Finite precision in chaotic systems can have a big impact on the solution.</p></li>
-</ul>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Consider the two forms of the function</p>
-<div class="math notranslate nohighlight">
-\[f(x) = \sqrt{1+x^2}-x = {1\over \sqrt{1+x^2}+x}\]</div>
-<p>One of these involves a subtraction, and one doesn’t. Try evaluating and plotting these two expressions as a function of <span class="math notranslate nohighlight">\(x\)</span>. Which is more accurate? Do you see the effects of roundoff error at large values of <span class="math notranslate nohighlight">\(x\)</span>? How do you explain the size of <span class="math notranslate nohighlight">\(x\)</span> where roundoff error appears?</p>
-</div>
-<p><strong>Further reading</strong></p>
-<ul class="simple">
-<li><p>Gezerlis, Chapter 2</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html">Floating Point Arithmetic: Issues and Limitations</a> from the Python documentation</p></li>
-<li><p><a class="reference external" href="https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/">Examples of floating point problems</a></p></li>
-<li><p><a class="reference external" href="http://www.indowsway.com/floatingpoint.htm">The Perils of Floating Point</a></p></li>
-</ul>
-</section>
-<section id="numpy-data-types">
-<h2>NumPy data types<a class="headerlink" href="#numpy-data-types" title="Permalink to this heading">#</a></h2>
-<p>NumPy has many different data types, which you can read about here:
-<a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html">https://numpy.org/doc/stable/user/basics.types.html</a></p>
-<p>The default type for a floating point is a 64 bit float as we discussed above.</p>
-<div class="admonition-exercises admonition">
-<p class="admonition-title">Exercises</p>
-<p>Here are some things to try to investigate NumPy data types:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">np.finfo(np.float32).eps</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.finfo(np.float64).eps</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.ones(10);</span> <span class="pre">a.dtype</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.double(2.2)</span> <span class="pre">+</span> <span class="pre">np.double(1.1)</span> <span class="pre">-</span> <span class="pre">np.double(3.3)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.single(2.2)</span> <span class="pre">+</span> <span class="pre">np.single(1.1)</span> <span class="pre">-</span> <span class="pre">np.single(3.3)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int_(2)</span> <span class="pre">**</span> <span class="pre">10;</span>&#160;&#160; <span class="pre">2**10</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int_(2)</span> <span class="pre">**</span> <span class="pre">100;</span>&#160;&#160; <span class="pre">2**100</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.spacing(3.0)</span></code></p></li>
-</ul>
-</div>
-<p>The last example is one of several functions that NumPy has for dealing with floats — see <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">https://numpy.org/doc/stable/reference/routines.math.html</a></p>
-<p>Note that numpy integers do not behave like Python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -524,20 +449,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="programming.html"
+       href="monte_carlo_integration.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Programming best practices</p>
+        <p class="prev-next-title">Monte Carlo integration</p>
       </div>
     </a>
     <a class="right-next"
-       href="derivatives.html"
+       href="random_solutions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Derivatives</p>
+        <p class="prev-next-title">Solutions to exercises</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -550,22 +475,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
