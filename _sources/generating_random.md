@@ -8,7 +8,8 @@ If $f(x)$ is the probability distribution that we want, the rejection method is 
 
 For example, consider the distribution $f(x)=\sin x$ for $x=0$ to $x=\pi$ (note that this is normalized to unity as expected for a probability distribution). We choose a set of $(x,y)$ pairs in which $x$ is uniformly-distributed between $0$ and $\pi$, and $y$ is uniformly-distributed between $0$ and $1$ ($1$ is the maximum value of $\sin x$). We keep only the values of $x$ which have a corresponding $y$ that is $y < f(x)$. These $x$-values will be distributed according to $f(x)=\sin x$.
 
-This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another probability distribution $p(x)$ for generating the test points which is shaped such that a small number of points end up being rejected (this is known as **importance sampling**). In this case, the criterion for accepting a point is modified to $y < f(x)/p(x)$.
+This method is very straightforward to implement, but has the disadvantage that we have to reject some fraction of the sampled points. The rejection fraction can be large if the probability distribution is far from uniform (e.g. very peaked). A way around this is to use another distribution $g(x)$ for generating the test points which lies everywhere above $f(x)$, but is shaped such that a small number of points end up being rejected (this approach is known as **importance sampling**). In this case, we generate $x$-values from $g(x)$, $y$ values uniformly-distributed between 0 and 1, and accept the points which have $y < f(x)/g(x)$.
+
 
 ## Transformation method
 
