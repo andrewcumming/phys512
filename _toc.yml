@@ -33,6 +33,7 @@ parts:
         - file: random_solutions
           sections:
             - file: prob_distributions_solutions
+            - file: prob_distributions_solutions_part2
     - caption: Homework
       chapters:
         - file: hw1
