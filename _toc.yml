@@ -28,6 +28,8 @@ parts:
         - file: random
         - file: lcg
         - file: generating_random
+        - file: monte_carlo_integration
+        - file: metropolis
         - file: random_solutions
           sections:
             - file: prob_distributions_solutions
