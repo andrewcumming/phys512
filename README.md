@@ -9,6 +9,6 @@ Built with [Jupyter Book](https://jupyterbook.org/intro.html)
 
 To update the website use
 
-`jupyter-book build ../phys645`
+`jupyter-book build ../phys512`
 
 `ghp-import -n -p -f _build/html`
