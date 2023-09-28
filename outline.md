@@ -104,7 +104,7 @@ The homework will be graded according to the following rubric:
 0. No meaningful attempt made at a solution (no code, unrelated code, non-functional code whose function is hard to determine).
 1. Part of an answer provided / a plan or idea for a solution is discernible. Partly functional code that can be understood and forms the beginnings of a solution. 
 2. An understanding of the problem and a concrete idea for an answer / code implementation is present. Code is almost functional and understandable, but does not fully solve the problem. Alternatively, there is a complete working code but the code is hard to understand (poor style or commenting).
-3. Demonstrates a clear understanding of the problem and it's solution. Working *clear* code, or non-working code with a clear explanation of what the problem with it may be.
+3. Demonstrates a clear understanding of the problem and its solution. Working *clear* code, or non-working code with a clear explanation of what the problem with it may be.
 
 
 ## McGill policy statements
