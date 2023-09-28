@@ -1,20 +1,22 @@
 # Metropolis-Hastings algorithm
 
-Another way to sample a probability distribution is to use a **Markov Chain Monte Carlo** method. In these methods, we generate a sequence (or chain) of $x$ values that sample a given probability distribution $f(x)$. Each sample $x_i$ is generated from the previous one $x_{i-1}$ in some probabilistic way, so $x_i$ depends only on the state before it $x_{i-1}$ (this is the Markov chain part).
+Another way to sample a probability distribution is to use a **Markov Chain Monte Carlo** method. In these methods, we generate a sequence (or chain) of $x$ values that sample a given probability distribution $f(x)$. Each sample $x_i$ is generated from the previous one $x_{i-1}$ in some probabilistic way, so $x_i$ depends only on the state before it $x_{i-1}$ (this is the Markov chain part). By choosing the dependence of $x_i$ on $x_{i-1}$ in an appropriate way, we can generate a sequence $\{x_i\}$ that are random samples from any given probability distribution $f(x)$.
 
 The **Metropolis-Hastings algorithm** is a simple method to do this. To generate the next value in  the chain $x_{i+1}$ given the current value $x_i$, the procedure is as follows:
 
-- Propose a jump from the current value $x_i=x$ to a new candidate value $x^\prime$ according to a proposal distribution $p(x^\prime|x)$. The proposal distribution should be symmetric, ie. the probability of choosing a new  location $x^\prime$ given that we are now at $x$ should be the same as the probability of choosing $x$ if we were located at $x^\prime$. For example, in 1D we could choose $x^\prime = x_i + \Delta x$ with $\Delta x$ drawn from a Gaussian distribution.
+1. Propose a jump from the current value $x_i=x$ to a new candidate value $x^\prime$ according to a proposal distribution $p(x^\prime|x)$. The proposal distribution should be symmetric, ie. the probability of choosing a new  location $x^\prime$ given that we are now at $x$ should be the same as the probability of choosing $x$ if we were located at $x^\prime$. For example, in 1D we could choose $x^\prime = x_i + \Delta x$ with $\Delta x$ drawn from a Gaussian distribution.
 
-- Evaluate the ratio $\alpha = f(x^\prime)/f(x)$. If $\alpha>1$, ie. the new point is located in a region with larger $f(x)$, then we accept the move and set $x_{i+1} = x^\prime$. If $\alpha<1$, we accept the move with probability $\alpha$. If the move is rejected, then we set $x_{i+1} = x_i$.  (Note that this entire step can be achieved by choosing a uniform deviate $u$ between 0 and 1, and accepting the move if $u<\alpha$.)
+2. Evaluate the ratio $\alpha = f(x^\prime)/f(x)$. If $\alpha>1$, ie. the new point is located in a region with larger $f(x)$, then we accept the move and set $x_{i+1} = x^\prime$. If $\alpha<1$, we accept the move with probability $\alpha$. If the move is rejected, then we set $x_{i+1} = x_i$.  (Note that this entire step can be achieved by choosing a uniform deviate $u$ between 0 and 1, and accepting the move if $u<\alpha$.)
 
-After an initial *burn-in* phase, the chain will reach equilibrium and the samples $\{x_i\}$ will be distributed according to the probability distribution $f(x)$. The reason this works is that in equilibrium, the rate at which we move from point $x$ to $x^\prime$ should be equal to the rate at which we move in the reverse direction, from $x^\prime$ to $x$. This is the principle of detailed balance. Therefore
+The size of the jump in step 1 is set by the width of the Gaussian used to sample the jump size $\Delta x$. The width should be chosen so that a reasonable number of trial jumps are accepted. Typically an acceptance fraction of $\approx 0.25$ is a good choice.
+
+After an initial *burn-in* phase, the chain will reach equilibrium and the samples $\{x_i\}$ will be distributed according to the probability distribution $f(x)$. The reason this works is that in equilibrium, the rate at which we move from point $x$ to $x^\prime$ should be equal to the rate at which we move in the reverse direction, from $x^\prime$ to $x$. This is the principle of *detailed balance*. Therefore
 
 $$n(x) \times (\mathrm{rate\ of}\ x\rightarrow x^\prime)
 =
-n(x^\prime) \times (\mathrm{rate\ of}\ x^\prime\rightarrow x)
+n(x^\prime) \times (\mathrm{rate\ of}\ x^\prime\rightarrow x),
 $$
-
+where $n(x)$ is the density of points at $x$.
 If $x^\prime$ has a larger value of the probability $f(x^\prime)>f(x)$, then the transition from $x$ to $x^\prime$ will always happen (we always accept), i.e. the rate is 1. The rate of the reverse transition from $x^\prime$ to $x$ is then $f(x)/f(x^\prime)<1$. Therefore
 
 $$n(x) = n(x^\prime) f(x)/f(x^\prime)$$
@@ -22,6 +24,11 @@ $$n(x) = n(x^\prime) f(x)/f(x^\prime)$$
 $${n(x)\over n(x^\prime)}= {f(x)\over f(x^\prime)}$$
 
 which shows that $n(x)$ will be distributed as $f(x)$.
+
+
+
+
+
 
 ```{admonition} Exercise
 
