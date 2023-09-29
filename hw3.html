@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Project Instructions &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Homework 3 &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'project_instructions';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hw3';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Homework solutions" href="homework_solutions.html" />
-    <link rel="prev" title="Homework 3" href="hw3.html" />
+    <link rel="next" title="Project Instructions" href="project_instructions.html" />
+    <link rel="prev" title="Homework 2" href="hw2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -189,8 +191,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Project Instructions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
 </ul>
@@ -266,7 +268,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fproject_instructions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhw3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -296,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/project_instructions.md" target="_blank"
+      <li><a href="_sources/hw3.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -376,7 +378,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Project Instructions</h1>
+    <h1>Homework 3</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -390,42 +392,49 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="project-instructions">
-<h1>Project Instructions<a class="headerlink" href="#project-instructions" title="Permalink to this heading">#</a></h1>
-<p>The project component of the course will make up 30% of your grade. The <strong>due date</strong> will be the <strong>last day of class (Dec 5)</strong>.</p>
-<p>Working in a group of 2 or 3, you should solve a physics problem of interest to you using computational methods. You can write your own code, use existing code and libraries, or a combination of the two. The project can involve a theory calculation or modelling data or both.</p>
-<p>The topic must be approved by the instructor <strong>by Friday Oct 6</strong>. Before this date, you should send a short (couple of paragraphs) abstract to the instructor in a Slack message with all group members included. The abstract should describe the topic and the numerical approach that you plan to take.</p>
-<p><strong>What you should submit</strong></p>
-<p>Each group should submit one Github repository containing the code and a write up of the project which explains the physics problem you are looking at, the methods you used to tackle it, your results and conclusions.</p>
-<p>The write up should be a PDF file of no more than 10 pages. A suggested structure for the write up is</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
+<h1>Homework 3<a class="headerlink" href="#homework-3" title="Permalink to this heading">#</a></h1>
+<p>Due on Friday Oct 13 by midnight.</p>
+<p>In this homework, we will look at some applications of Monte Carlo methods.</p>
+<ol class="arabic simple">
+<li><p><strong>Diffusion-limited aggregation</strong></p></li>
+</ol>
+<p>In this question we want to model the growth of a crystal starting with a small solid “seed” that grows as particles from the liquid randomly encounter the seed and stick to it. Once the particle sticks, it becomes part of the solid and can in turn cause liquid particles to stick to it. In this way, the liquid particles freeze onto the growing solid. Because the rate of growth is set by how quickly the liquid particles diffuse and encounter the growing crystal, this process is known as diffusion-limited aggregation.</p>
+<p>(a) First model the liquid particles – consider a collection of <span class="math notranslate nohighlight">\(N=10^4\)</span> particles undergoing Brownian motion, i.e. random walks. The particles do not interact, so we don’t have to worry about collisions between particles, they move independently from one another.</p>
+<p>A simple way to do this is to assume that the particles can only occupy discrete locations (<span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>) on a square <span class="math notranslate nohighlight">\(n\times n\)</span> grid (a good value to choose is <span class="math notranslate nohighlight">\(n=200\)</span>). Start with a random choice of position for each particle and update the positions at each timestep by assuming the particle can either stay where it is or jump to one of the neighbouring 8 squares. (Note that you can do this efficiently by storing the locations of all the particles in a vector and updating all the locations at once in a vector operation. Also, you can assume periodic boundary conditions, so that if a particle moves off the right hand side of the grid it reappears on the left and so on.)</p>
+<p>Implement this and plot the trajectories of your particles. Investigate how the distance moved from the starting location depends on time. Is it what you expect for a random walk?</p>
+<p>(b) Now create a separate <span class="math notranslate nohighlight">\(n\times n\)</span> array that will keep track of which locations are occupied by solid (once particles become solid they stop moving so you just need to keep track of where they are). For the initial condition, put a small collection of solid particles in the center of your grid (the “seed”). Then evolve the liquid particles in time as in part (a). If a liquid particle moves next to a solid particle, then it becomes part of the solid (and is removed from the collection of liquid particles). Evolve your simulation in time until 80% of your particles have solidified.
+Plot the 2D distribution of liquid and solid particles at different times during the simulation (even better, make a movie showing what happens over time).</p>
+<p>(c) Plot the number of solid particles against time. How does <span class="math notranslate nohighlight">\(N_\mathrm{solid}\)</span> change with time? Can you understand this using your results from part (a) on how the liquid particles move?</p>
+<p>(It may also help to plot the number density of liquid particles as a function of radial distance from the centre of the grid and look at how it evolves with time).</p>
+<ol class="arabic simple" start="2">
+<li><p><strong>Ising model</strong></p></li>
+</ol>
+<p>The Ising model is a simple model of a ferromagnetic material in which a lattice of spins interact via nearest-neighbour interactions. In 2D, we have a square lattice with <span class="math notranslate nohighlight">\(n\times n = N\)</span> lattice sites on which the spins sit. Each spin can be either up (<span class="math notranslate nohighlight">\(s=+1\)</span>) or down (<span class="math notranslate nohighlight">\(s=-1\)</span>), and the total energy of the system is</p>
+<div class="math notranslate nohighlight">
+\[E = -\sum_\mathrm{nn} s_i s_j,\]</div>
+<p>where “nn” in the sum indicates that the sum is over nearest-neighbour pairs (with each pair counted once). Any given spin interacts only with the spins that are immediately up, down, left and right from its location. We can see that the energy will be minimized when neighbouring spins are aligned.</p>
+<p>For any given configuration of spins, the total magnetization is</p>
+<div class="math notranslate nohighlight">
+\[M = \sum_i s_i.\]</div>
+<p>At a temperature <span class="math notranslate nohighlight">\(T\)</span>, the probability that the system is in a configuration with energy <span class="math notranslate nohighlight">\(E\)</span> is given by the Boltzmann distribution</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Prob}(E) \propto \exp\left(-E/k_b T\right).\hspace{1cm} (*)\]</div>
+<p>To calculate the magnetization at a given temperature, we need to sample the possible configurations from this probability distribution and then we can average over them to find the mean magnetization <span class="math notranslate nohighlight">\(\langle M\rangle\)</span> as a function of temperature. Since the energy <span class="math notranslate nohighlight">\(E\)</span> depends on the values of the <span class="math notranslate nohighlight">\(N\)</span> spins <span class="math notranslate nohighlight">\(\{s_i\}\)</span>, we are dealing with a <span class="math notranslate nohighlight">\(2^N\)</span> dimensional parameter space, and so this an example where Monte Carlo methods are needed to sample from the probability distribution.</p>
+<p>(a) Use the Metropolis-Hastings algorithm to generate a sample of configurations <span class="math notranslate nohighlight">\(\{s_i\}\)</span> from the probability distribution (*). Rather than storing the sequence of configurations, instead calculate <span class="math notranslate nohighlight">\(M\)</span> at each step and store the chain of <span class="math notranslate nohighlight">\(M\)</span> values.</p>
+<p>Some hints:</p>
 <ul class="simple">
-<li><p>Introduction</p></li>
-<li><p>Problem Description</p></li>
-<li><p>Code Description</p></li>
-<li><p>Code Tests</p></li>
-<li><p>Results and Analysis</p></li>
-<li><p>Discussion and Further Improvements</p></li>
-<li><p>Conclusion</p></li>
-<li><p>A statement of contributions that describes the contributions of each group member to the project.</p></li>
+<li><p>for the proposal step of the Metropolis algorithm, you can choose a spin at random and consider flipping it from up to down or vice versa.</p></li>
+<li><p>when you assess whether or not to accept the proposed change, you can use the change in energy due to the spin flip, which is</p></li>
 </ul>
-<p>Your report should be prepared in LaTeX and for any code snippets that you include you should use code formatting as described here: <a class="reference external" href="https://www.overleaf.com/learn/latex/Code_listing">https://www.overleaf.com/learn/latex/Code_listing</a></p>
-<p>The code you submit in your repository should be clearly commented and in a state where it is ready to run to reproduce the results you show in your write up. Note however that the write up should include all your key results (e.g. important plots that you make) – we should be able to understand and see your results without having to run the code.</p>
-<p><strong>Grading</strong></p>
-<p>The grade for the project will be based on how well you</p>
+<div class="math notranslate nohighlight">
+\[\Delta E = 2 s_i \left( s_\mathrm{up} + s_\mathrm{down} + s_\mathrm{left} +s_\mathrm{right} \right)\]</div>
+<p>(where the spins here are the current values before the spin flip).</p>
 <ul class="simple">
-<li><p>explain the physics problem that you are trying to solve, why it is interesting and why computational techniques are needed to solve it</p></li>
-<li><p>used appropriate numerical tools to tackle your problem, whether this is to implement an algorithm yourself or apply an existing code to your problem</p></li>
-<li><p>explain what you have done and how the code works so that another student in the course could understand what you did and reproduce your work.</p></li>
-<li><p>demonstrate critical thinking while carrying out the project. For example, by checking whether your code was producing the right answer by comparing with analytic solutions in appropriate limits or comparing with previous published results, or by discussing whether the results make sense physically.</p></li>
+<li><p>you can use periodic boundary conditions for the lattice, and you might find it simpler to store the spins in a 1D array rather than a 2D array.</p></li>
 </ul>
-<p><strong>Project topic</strong></p>
-<p>There are many places to look to get ideas. For example, you can look at the projects that have been done at the <a class="reference external" href="https://mcgill-physics-hackathon-2022.devpost.com/project-gallery">McGill Physics Hackathon</a>, or Gezerlis’ book has some interesting projects at the end of each chapter that could be good starting points.</p>
-<p>To give you a sense of an appropriate scope for the project, here are a few specific project ideas:</p>
-<ul class="simple">
-<li><p>Use molecular dynamics to simulate particles interacting with a Lennard-Jones potential and investigate for example the transition from liquid to solid, or the response of a solid lattice to impurities.</p></li>
-<li><p>Integrate the geodesic equations in the Schwarzschild metric and produce an image of a black hole surrounded by an accretion disk (as in the movie <em>Interstellar</em>).</p></li>
-<li><p>(This one is from last year’s course) Write an N-body code that calculates the forces by computing the gradient of the potential. The potential should be found by gridding the particle positions into a density, and convolving that density with the (softened) potential from a single particle. The acceleration is then found by taking the gradient of the potential. You will probably wish to use a leapfrog solver with ﬁxed timestep. Use it to investigate a situation with at least hundreds of thousands of particles.</p></li>
-</ul>
+<p>(b) Make plots of your chains of <span class="math notranslate nohighlight">\(M\)</span> (i.e. plot <span class="math notranslate nohighlight">\(M\)</span> against iteration number) for different temperatures in the range <span class="math notranslate nohighlight">\(k_BT = 1\)</span>–<span class="math notranslate nohighlight">\(4\)</span>. Do you see a “burn-in” phase? You should see a dramatic difference in behavior between low and high temperatures - a phase transition. How do your sequences change as <span class="math notranslate nohighlight">\(T\)</span> changes?</p>
+<p>(c) Plot the mean magnetization <span class="math notranslate nohighlight">\(\langle |M|\rangle\)</span> and the variance <span class="math notranslate nohighlight">\(\mathrm{Var}(M)\)</span> as a function of temperature. A characteristic of second order phase transitions is large fluctuations during the phase transition. Do you see this behaviour?</p>
 </section>
 
     <script type="text/x-thebe-config">
@@ -460,20 +469,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hw3.html"
+       href="hw2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 3</p>
+        <p class="prev-next-title">Homework 2</p>
       </div>
     </a>
     <a class="right-next"
-       href="homework_solutions.html"
+       href="project_instructions.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework solutions</p>
+        <p class="prev-next-title">Project Instructions</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
