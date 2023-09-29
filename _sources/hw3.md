@@ -38,7 +38,7 @@ At a temperature $T$, the probability that the system is in a configuration with
 
 $$\mathrm{Prob}(E) \propto \exp\left(-E/k_b T\right).\hspace{1cm} (*)$$
 
-To calculate the magnetization at a given temperature, we need to sample the possible configurations from this probability distribution and then we can average over them to find the mean magnetization $\langle M\rangle$ as a function of temperature. Since the energy $E$ depends on the values of the $N$ spins $\{s_i\}$, we are dealing with a $2^N$ dimensional parameter space, and so this an example where Monte Carlo methods are needed to sample from the probability distribution.
+To calculate the magnetization at a given temperature, we need to sample the possible configurations from this probability distribution and then we can average over them to find the mean magnetization $\langle M\rangle$ as a function of temperature. Since the energy $E$ depends on the values of the $N$ spins $\{s_i\}$, we are dealing with an $N$ dimensional parameter space (with $2^N$ possible sample points), and so this an example where Monte Carlo methods are needed to sample from the probability distribution.
 
 (a) Use the Metropolis-Hastings algorithm to generate a sample of configurations $\{s_i\}$ from the probability distribution (*). Rather than storing the sequence of configurations, instead calculate $M$ at each step and store the chain of $M$ values. 
 
