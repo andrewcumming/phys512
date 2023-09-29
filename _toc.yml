@@ -34,6 +34,8 @@ parts:
           sections:
             - file: prob_distributions_solutions
             - file: prob_distributions_solutions_part2
+            - file: montecarlo_solutions.ipynb
+            - file: metropolis_solutions.ipynb
     - caption: Homework
       chapters:
         - file: hw1
