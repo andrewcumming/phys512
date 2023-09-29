@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'montecarlo_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -391,6 +393,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-integration">
 <h1>Monte Carlo Integration<a class="headerlink" href="#monte-carlo-integration" title="Permalink to this heading">#</a></h1>
+<p>Integrate <span class="math notranslate nohighlight">\(\exp(-|x^3|)\)</span> from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\infty\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -408,14 +411,18 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">integrate_MC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">sampling</span> <span class="o">=</span> <span class="s1">&#39;uniform&#39;</span><span class="p">):</span>
 
     <span class="k">if</span> <span class="n">sampling</span> <span class="o">==</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">:</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">)</span>    <span class="c1"># Generate x values between +-xmax</span>
+        <span class="c1"># We need to normalize the Gaussian from 0 to infinity</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">)</span>    
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">xmax</span> <span class="o">=</span> <span class="mi">3</span>
-        <span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">xmax</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">xmax</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">))</span>
+        <span class="c1"># Generate x values between 0 and xmax</span>
+        <span class="n">xmax</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">xmax</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">xmax</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">N</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">N</span>
+    <span class="c1"># use np.mean to calculate the integral as an alternative to np.sum()/N</span>
+    <span class="c1"># also return the error in the mean, which is an error estimate for the integral</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">p</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">N</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -426,31 +433,34 @@ document.write(`
     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
 
 <span class="c1"># Compute the integral using quad form comparison</span>
-<span class="n">I0</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral from scipy.quad = </span><span class="si">%g</span><span class="s2"> with error </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="n">err</span><span class="p">))</span>
+<span class="n">I0</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">quad</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">full_output</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Integral from scipy.quad = </span><span class="si">%g</span><span class="s2"> with error </span><span class="si">%g</span><span class="s2"> (</span><span class="si">%d</span><span class="s2"> function evaluations)&quot;</span> <span class="o">%</span> 
+      <span class="p">(</span><span class="n">I0</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">info</span><span class="p">[</span><span class="s1">&#39;neval&#39;</span><span class="p">]))</span>
 
+<span class="c1"># Number of samples for the MC integration</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
 
+<span class="c1"># Now do the integration 1000 times for both uniform and Gaussian</span>
 <span class="n">n_trials</span> <span class="o">=</span> <span class="mi">1000</span>
 <span class="n">I_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span>
 <span class="n">I2_arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_trials</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_trials</span><span class="p">):</span>
-    <span class="n">I_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrate_MC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
-    <span class="n">I2_arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">integrate_MC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">sampling</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
-
+    <span class="n">I_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">err</span> <span class="o">=</span> <span class="n">integrate_MC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+    <span class="n">I2_arr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">err2</span> <span class="o">=</span> <span class="n">integrate_MC</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">sampling</span> <span class="o">=</span> <span class="s1">&#39;gaussian&#39;</span><span class="p">)</span>
+    
 <span class="n">I_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">I_arr</span><span class="p">)</span>
 <span class="n">I_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">I_arr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uniform: I = </span><span class="si">%g</span><span class="s2"> +- </span><span class="si">%g</span><span class="s2">; frac err = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I_mean</span><span class="p">,</span> <span class="n">I_std</span><span class="p">,</span> <span class="n">I_std</span><span class="o">/</span><span class="n">I_mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Uniform: I = </span><span class="si">%g</span><span class="s2"> +- </span><span class="si">%g</span><span class="s2">; frac err = </span><span class="si">%g</span><span class="s2">; error estimate = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I_mean</span><span class="p">,</span> <span class="n">I_std</span><span class="p">,</span> <span class="n">I_std</span><span class="o">/</span><span class="n">I_mean</span><span class="p">,</span> <span class="n">err</span><span class="p">))</span>
 
 <span class="n">I2_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">I2_arr</span><span class="p">)</span>
 <span class="n">I2_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">I2_arr</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gaussian: I = </span><span class="si">%g</span><span class="s2"> +- </span><span class="si">%g</span><span class="s2">; frac err = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I2_mean</span><span class="p">,</span> <span class="n">I2_std</span><span class="p">,</span> <span class="n">I2_std</span><span class="o">/</span><span class="n">I2_mean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Gaussian: I = </span><span class="si">%g</span><span class="s2"> +- </span><span class="si">%g</span><span class="s2">; frac err = </span><span class="si">%g</span><span class="s2">; error estimate = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">I2_mean</span><span class="p">,</span> <span class="n">I2_std</span><span class="p">,</span> <span class="n">I2_std</span><span class="o">/</span><span class="n">I2_mean</span><span class="p">,</span> <span class="n">err2</span><span class="p">))</span>
 
 <span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">I_arr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>    
 <span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">I2_arr</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>    
+<span class="n">plt</span><span class="o">.</span><span class="n">stairs</span><span class="p">(</span><span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">I0</span><span class="p">,</span> <span class="n">I0</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)),</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.05</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">counts</span><span class="p">)))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -458,16 +468,25 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Integral from scipy.quad = 1.78596 with error 5.49113e-09
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Integral from scipy.quad = 0.89298 with error 2.74557e-09 (135 function evaluations)
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uniform: I = 1.78656 +- 0.0220357; frac err = 0.0123341
-Gaussian: I = 1.78585 +- 0.00960208; frac err = 0.00537675
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uniform: I = 0.892213 +- 0.0250663; frac err = 0.0280945; error estimate = 0.0252115
+Gaussian: I = 0.892925 +- 0.00480104; frac err = 0.00537675; error estimate = 0.00464791
 </pre></div>
 </div>
-<img alt="_images/70c315edeb9d437fffb67f68248706e2cecc6840007ca119b62e1a4ed5aea6c4.png" src="_images/70c315edeb9d437fffb67f68248706e2cecc6840007ca119b62e1a4ed5aea6c4.png" />
+<img alt="_images/0d359343c4bce7dd928bfd1097c3ecbfdef47cb84ab7c7da6247dfe21fe13b77.png" src="_images/0d359343c4bce7dd928bfd1097c3ecbfdef47cb84ab7c7da6247dfe21fe13b77.png" />
 </div>
 </div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>if you try different <span class="math notranslate nohighlight">\(N\)</span> values, you’ll see that the fractional error scales <span class="math notranslate nohighlight">\(\propto 1/\sqrt{N}\)</span>.</p></li>
+<li><p>since our estimate for the integral is the mean value of the <span class="math notranslate nohighlight">\(N\)</span> samples of <span class="math notranslate nohighlight">\(f(x)/p(x)\)</span>, another way to estimate the error in the integration is to calculate the error in the mean (or ``standard error’’),</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\sigma_I^2 = {1\over N} \mathrm{Var}(f) = {1\over N} \left( \langle f^2\rangle - \langle f\rangle^2\right).\]</div>
+<p>The function <code class="docutils literal notranslate"><span class="pre">integrate_MC</span></code> in the code above does this by returning <span class="math notranslate nohighlight">\(\sigma_I\)</span> as <code class="docutils literal notranslate"><span class="pre">np.std(f(x)/p(x))/np.sqrt(N)</span></code></p>
+<p>The values agree well with the standard deviation calculated from the histograms.</p>
 </section>
 
     <script type="text/x-thebe-config">
