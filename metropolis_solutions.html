@@ -367,7 +367,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -383,6 +385,14 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-of-exp-x-3">Integral of <span class="math notranslate nohighlight">\(\exp(-|x^3|)\)</span></a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -394,6 +404,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="metropolis-hastings">
 <h1>Metropolis-Hastings<a class="headerlink" href="#metropolis-hastings" title="Permalink to this heading">#</a></h1>
+<section id="integral-of-exp-x-3">
+<h2>Integral of <span class="math notranslate nohighlight">\(\exp(-|x^3|)\)</span><a class="headerlink" href="#integral-of-exp-x-3" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -433,12 +445,12 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Acceptance fraction = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">count</span><span class="o">/</span><span class="n">N</span><span class="p">,))</span>
 
-<span class="c1"># Also do uniform sampling for comparison</span>
+<span class="c1"># Generate the same number of samples using the rejection method with uniform sampling</span>
 <span class="n">xmax</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">xu</span> <span class="o">=</span> <span class="o">-</span><span class="n">xmax</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">xmax</span><span class="o">*</span><span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>    <span class="c1"># Generate x values between +-xmax</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="p">)</span>
 <span class="n">xu</span> <span class="o">=</span> <span class="n">xu</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">f</span><span class="p">(</span><span class="n">xu</span><span class="p">))]</span>  
-<span class="n">xu</span> <span class="o">=</span> <span class="n">xu</span><span class="p">[:</span><span class="n">N</span><span class="p">]</span>
+<span class="n">xu</span> <span class="o">=</span> <span class="n">xu</span><span class="p">[:</span><span class="n">count</span><span class="p">]</span>
         
 <span class="c1"># Plot the distribution        </span>
 <span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
@@ -476,20 +488,21 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.3596
 </pre></div>
 </div>
-<img alt="_images/7f443b380be43f96a0198930542e22b6c92426c8a0dad6f83c77ee739a5dd07a.png" src="_images/7f443b380be43f96a0198930542e22b6c92426c8a0dad6f83c77ee739a5dd07a.png" />
+<img alt="_images/181e81ba6a6e8953b6374bcb2867b891c93b1f1e9772ea3204eb10ef1ce233ea.png" src="_images/181e81ba6a6e8953b6374bcb2867b891c93b1f1e9772ea3204eb10ef1ce233ea.png" />
 <img alt="_images/f4c19779a64f5d870b89e7a9a52c50007b1970a0e3d3f12a169095410bde3c6d.png" src="_images/f4c19779a64f5d870b89e7a9a52c50007b1970a0e3d3f12a169095410bde3c6d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/b9a10985818103b0ebf521257593e36c33d72b9acc80df93c16ba01e77277c83.png" src="_images/b9a10985818103b0ebf521257593e36c33d72b9acc80df93c16ba01e77277c83.png" />
+<img alt="_images/86b63c876657955d2c8ee91245076cbb49122667abbfbe7d59c0ccfb0cef61c8.png" src="_images/86b63c876657955d2c8ee91245076cbb49122667abbfbe7d59c0ccfb0cef61c8.png" />
 </div>
 </div>
 <p>Notes:</p>
 <ul class="simple">
 <li><p>We started at <span class="math notranslate nohighlight">\(x=0\)</span> which is right in the middle of the high probability region. If instead you start at a point that has a low probability (e.g. try <span class="math notranslate nohighlight">\(x=-5\)</span> as initial condition in line 7), you will see that the chain has a “burn in” period in which it moves towards the higher probability regions. The part of the chain should be discarded.</p></li>
 <li><p>The time series for the MCMC shows clear correlations, whereas the rejection method samples are uncorrelated. This can be seen in the plot of <span class="math notranslate nohighlight">\(x_i\)</span> vs <span class="math notranslate nohighlight">\(x_{i+1}\)</span> – in particular you can see the line of points where the proposed jump was not accepted.</p></li>
-<li><p>Try changing the <code class="docutils literal notranslate"><span class="pre">scale</span></code> in the normal distribution we’re using for the jump and see how the acceptance ratio and the correlations behave. You want to choose a jump size that is large enough to explore the probability distribution, but small enough to get a reasonable acceptance rate for the jumps. An acceptance rate of around <span class="math notranslate nohighlight">\(0.2\)</span>–<span class="math notranslate nohighlight">\(0.3\)</span> is good to aim for.</p></li>
+<li><p>Try changing the <code class="docutils literal notranslate"><span class="pre">scale</span></code> in the normal distribution we’re using for the jump and see how the acceptance ratio and the correlations behave. You want to choose a jump size that is large enough to explore the probability distribution, but small enough to get a reasonable acceptance rate for the jumps. An acceptance rate of around <span class="math notranslate nohighlight">\(0.2\)</span>-<span class="math notranslate nohighlight">\(0.3\)</span> is good to aim for.</p></li>
 </ul>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -550,6 +563,20 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#integral-of-exp-x-3">Integral of <span class="math notranslate nohighlight">\(\exp(-|x^3|)\)</span></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
