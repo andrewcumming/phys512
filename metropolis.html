@@ -367,7 +367,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -383,6 +385,17 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-mcmc">Fitting data with MCMC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanet-hunting-with-radial-velocities">Example: Exoplanet hunting with radial velocities</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -414,14 +427,99 @@ If <span class="math notranslate nohighlight">\(x^\prime\)</span> has a larger v
 <div class="math notranslate nohighlight">
 \[{n(x)\over n(x^\prime)}= {f(x)\over f(x^\prime)}\]</div>
 <p>which shows that <span class="math notranslate nohighlight">\(n(x)\)</span> will be distributed as <span class="math notranslate nohighlight">\(f(x)\)</span>.</p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
+<div class="admonition-exercise-sampling-exp-x-3-with-metropolis-hastings admonition">
+<p class="admonition-title">Exercise: Sampling <span class="math notranslate nohighlight">\(\exp(-|x^3|)\)</span> with Metropolis-Hastings</p>
 <p>Code up this algorithm and generate <span class="math notranslate nohighlight">\(10^4\)</span> samples from the distribution <span class="math notranslate nohighlight">\(f(x) = \exp(-\left|x^3\right|)\)</span>. Confirm that you are getting the correct distribution by comparing the histogram of <span class="math notranslate nohighlight">\(x\)</span>-values with the analytic expression.</p>
 <p>Plot the values <span class="math notranslate nohighlight">\(\{x_i\}\)</span> against iteration number <span class="math notranslate nohighlight">\(i\)</span>, and plot <span class="math notranslate nohighlight">\(x_i\)</span> against <span class="math notranslate nohighlight">\(x_{i+1}\)</span> for the values in the chain. What do you notice?</p>
 <p>How do your results change when you take different values for the width of the proposal distribution?</p>
 <p>Also, investigate what happens when you change your starting value of <span class="math notranslate nohighlight">\(x\)</span>. How long does it take for the chain to reach equilibrium?</p>
 <p>Compare your results with the same plots for <span class="math notranslate nohighlight">\(10^4\)</span> values from <span class="math notranslate nohighlight">\(f(x)\)</span> chosen by the rejection method.</p>
 </div>
+<section id="fitting-data-with-mcmc">
+<h2>Fitting data with MCMC<a class="headerlink" href="#fitting-data-with-mcmc" title="Permalink to this heading">#</a></h2>
+<p>A common application of MCMC methods is in fitting models to data. Imagine that you have a set of measurements <span class="math notranslate nohighlight">\(\{y_i\}\)</span> and a model that makes a prediction for each measurement <span class="math notranslate nohighlight">\(m_i(\vec{a})\)</span>, where <span class="math notranslate nohighlight">\(\vec{a}=(a_1, a_2, ...)\)</span> are the parameters of the model.
+Assuming that the errors are Gaussian with standard deviation <span class="math notranslate nohighlight">\(\sigma_i\)</span> for measurement <span class="math notranslate nohighlight">\(i\)</span>, the probability of getting the data given a set of model parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>, ie. the <strong>likelihood</strong> is</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \prod_i \exp\left(-{(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) \]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \exp\left(-  \sum_i {(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) = \exp\left(-{\chi^2(\vec{a})\over 2}\right).\]</div>
+<p>In Bayesian statistics, the probability of the model parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span> given the data (the posterior) is the product of the prior (probability of the parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>) and the likelihood, i.e. <span class="math notranslate nohighlight">\(\mathrm{Prob}(\vec{a}|\{y_i\}) \propto \mathrm{Prob}(\vec{a})\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right)\)</span>. Here for simplicity, we will assume that all priors are uniform, so that</p>
+<div class="math notranslate nohighlight">
+\[\mathrm{Prob}\left(\vec{a}|\{y_i\}\right)\propto  \exp\left(-{\chi^2(\vec{a})\over 2}\right).\]</div>
+<p>To find the constraints on the model parameters, we can use MCMC to draw samples of <span class="math notranslate nohighlight">\(\vec{a}\)</span> from this probability distribution.</p>
+<section id="example-exoplanet-hunting-with-radial-velocities">
+<h3>Example: Exoplanet hunting with radial velocities<a class="headerlink" href="#example-exoplanet-hunting-with-radial-velocities" title="Permalink to this heading">#</a></h3>
+<p>The example we will look at is using measurements of the radial velocity wobble of a star to infer the properties of an orbiting exoplanet. if the exoplanet is in an eccentric orbit, we need 6 parameters to describe the radial velocity of the star:</p>
+<ul class="simple">
+<li><p>the orbital period <span class="math notranslate nohighlight">\(P\)</span> (in days)</p></li>
+<li><p>the planet mass <span class="math notranslate nohighlight">\(M_P\)</span> (in Jupiter masses)</p></li>
+<li><p>the eccentricity <span class="math notranslate nohighlight">\(e\)</span> (from 0 for circular orbits to a maximum of 1)</p></li>
+<li><p>argument of periastron <span class="math notranslate nohighlight">\(\omega\)</span> (in radians) (this determines the orientation of the ellipse relative to the plane of the sky)</p></li>
+<li><p>the time of pericenter (days)</p></li>
+<li><p>an overall velocity offset (m/s)</p></li>
+</ul>
+<p>where we’ve also given the units we’ll use for each.</p>
+<p>The following function returns the radial velocity for a set of times <code class="docutils literal notranslate"><span class="pre">t</span></code>, orbital period <code class="docutils literal notranslate"><span class="pre">P</span></code> and the remaining parameters in the vector <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">rv</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">P</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="c1"># Calculates the radial velocity of a star orbited by a planet</span>
+    <span class="c1"># at the times in the vector t</span>
+    
+    <span class="c1"># extract the orbit parameters</span>
+    <span class="c1"># P, t and tp in days, mp in Jupiter masses, v0 in m/s  </span>
+    <span class="n">mp</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">omega</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">v0</span> <span class="o">=</span> <span class="n">x</span>
+        
+    <span class="c1"># mean anomaly</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="n">tp</span><span class="p">)</span> <span class="o">/</span> <span class="n">P</span>
+    
+    <span class="c1"># velocity amplitude</span>
+    <span class="n">K</span> <span class="o">=</span> <span class="mi">204</span> <span class="o">*</span> <span class="n">P</span><span class="o">**</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">mp</span>  <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mf">1.0</span><span class="o">-</span><span class="n">e</span><span class="o">*</span><span class="n">e</span><span class="p">)</span> <span class="c1"># m/s</span>
+    
+    <span class="c1"># solve Kepler&#39;s equation for the eccentric anomaly E - e * np.sin(E) = M</span>
+    <span class="c1"># Iterative method from Heintz DW, &quot;Double stars&quot;, Reidel, 1978</span>
+    <span class="c1"># first guess</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="n">M</span> <span class="o">+</span> <span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>  <span class="o">+</span> <span class="p">((</span><span class="n">e</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">M</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">E0</span> <span class="o">=</span> <span class="n">E</span> 
+        <span class="n">M0</span> <span class="o">=</span> <span class="n">E0</span> <span class="o">-</span> <span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">E0</span><span class="p">)</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">E0</span> <span class="o">+</span> <span class="p">(</span><span class="n">M</span><span class="o">-</span><span class="n">M0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">e</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">E0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">E</span><span class="o">-</span><span class="n">E0</span><span class="p">)))</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">:</span>
+            <span class="k">break</span>
+        
+    <span class="c1"># evaluate the velocities</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">1</span><span class="o">+</span><span class="n">e</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">e</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">tan</span><span class="p">(</span><span class="n">E</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="n">vel</span> <span class="o">=</span> <span class="n">v0</span> <span class="o">+</span> <span class="n">K</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="n">omega</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="p">))</span>
+    
+    <span class="k">return</span> <span class="n">vel</span>
+</pre></div>
+</div>
+<p>In the following exercise, you will put this to work to model some actual radial velocity data and constrain the orbital parameters of the planet.</p>
+<div class="admonition-exercise-exoplanet-orbit-fit admonition">
+<p class="admonition-title">Exercise: exoplanet orbit fit</p>
+<p>The file <a class="reference external" href="https://github.com/andrewcumming/phys512/blob/main/rvs.txt">rvs.txt</a> contains a set of radial velocity data for an exoplanet. You can read in this data using</p>
+<p><code class="docutils literal notranslate"><span class="pre">tobs,</span> <span class="pre">vobs,</span> <span class="pre">eobs</span> <span class="pre">=</span> <span class="pre">np.loadtxt('rvs.txt',</span> <span class="pre">unpack=True)</span></code></p>
+<p>which will give you the observation times <code class="docutils literal notranslate"><span class="pre">tobs</span></code>, the velocities <code class="docutils literal notranslate"><span class="pre">vobs</span></code> and the error for each measurement <code class="docutils literal notranslate"><span class="pre">eobs</span></code>.</p>
+<p>The orbital period of this planet is <span class="math notranslate nohighlight">\(P=1724\)</span> days. Use MCMC to find the remaining 5 parameters of the orbit <span class="math notranslate nohighlight">\((M_P, e, \omega_P, t_0, v_0)\)</span>.</p>
+<p>Plot the chain of each of the 5 parameters and identify the burn-in phase.</p>
+<p>Plot the radial velocity curve <span class="math notranslate nohighlight">\(v(t)\)</span> corresponding to the last set of parameters in your chain and make sure it goes through the data points.</p>
+<p>Plot histograms of the 5 parameters. Also look at 2D histograms for different pairs of parameters: do you see any correlations between parameters?</p>
+</div>
+<p>Some hints for this exercise:</p>
+<ul class="simple">
+<li><p>Change only one parameter at a time when you make a step in the MCMC. This will lead to a higher acceptance fraction. Each time you make a step, you can select one of the parameters at random and change only that one.</p></li>
+<li><p>You can use a Gaussian proposal distribution for each parameter. Good choices for the widths of the Gaussians for the parameters <span class="math notranslate nohighlight">\((M_P, e, \omega_P, t_0, v_0)\)</span> are <span class="math notranslate nohighlight">\((0.03, 0.03, 0.03, 3.0, 1.0)\)</span>.</p></li>
+<li><p>If you define the numpy array <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">np.zeros((N,</span> <span class="pre">5))</span></code> then you can use <code class="docutils literal notranslate"><span class="pre">x[i]</span></code> to access the parameters for iteration <code class="docutils literal notranslate"><span class="pre">i</span></code>. (<code class="docutils literal notranslate"><span class="pre">N</span></code> here is the number of iterations)</p></li>
+<li><p>Rather than take the ratio of <span class="math notranslate nohighlight">\(e^{-\chi^2/2}\)</span> before and after the jump, it is better to write the ratio of probabilities as <span class="math notranslate nohighlight">\(e^{-\Delta\chi^2/2}\)</span> to avoid overflow/underflow errors.</p></li>
+<li><p>To visualize your results, you can use <a class="reference external" href="https://corner.readthedocs.io/en/latest/"><code class="docutils literal notranslate"><span class="pre">corner</span></code></a> to plot a “triangle” plot. If you don’t have this installed, try <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">corner</span></code>. If your samples are in the vector <code class="docutils literal notranslate"><span class="pre">x</span></code>, then you can use</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">corner</span>
+<span class="n">figure</span> <span class="o">=</span> <span class="n">corner</span><span class="o">.</span><span class="n">corner</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> 
+        <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$M/M_J$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$t_P$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$v_0$&#39;</span><span class="p">],</span> 
+        <span class="n">show_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -482,6 +580,23 @@ If <span class="math notranslate nohighlight">\(x^\prime\)</span> has a larger v
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-mcmc">Fitting data with MCMC</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanet-hunting-with-radial-velocities">Example: Exoplanet hunting with radial velocities</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
