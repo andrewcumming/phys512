@@ -1,7 +1,9 @@
 # Monte Carlo integration
 
-In our discussion of the rejection method, you might have wondered whether we could use the samples of $f(x)$ to calculate the integral under the curve. Indeed, for a uniform sampling of $x$ values $\left\{x_i\right\}$ between $x=a$ and $x=b$ and the corresponding function values $f(x_i)$, 
-we can estimate the value of the integral using
+In the previous integration methods we looked at, we typically evaluated the integrand $f(x)$ on a regular grid of points in $x$. In Monte Carlo integration, we sample the $x$-points from a probability distribution instead. 
+
+The simplest case is to take a uniformly-distributed sample of $x$ values $\left\{x_i\right\}$ between $x=a$ and $x=b$. If we calculate the corresponding function values $f(x_i)$, 
+we can then estimate the value of the integral using
 
 $$\int_a^b dx f(x) \approx {(b-a)\over N} \sum_i f(x_i).$$
 
@@ -24,3 +26,13 @@ In each case, take the number of samples to be $N=10^4$ and repeat the integrati
 Repeat for different $N$ values. How does the error in your value for the integral scale with $N$?
 
 ```
+
+The previous exercise shows that the integration error is $\propto N^{-1/2}$. This may not look that attractive -- for one-dimensional integrals, Simpson's rule gives a much smaller error $\propto N^{-4}$. However, Monte Carlo integration wins for high-dimensional integrals. If we sample a function $N$ times in $d$ dimensions, the number of samples per dimension is $N^{1/d}$, so the Simpson's rule accuracy for any particular direction becomes $N^{-4/d}$. This is known as the **curse of dimensionality**. For multi-dimensional integrals, you can get a better error with Monte Carlo integration, and it is also simpler to code up.
+
+**Further reading**
+
+- The [VEGAS algorithm](https://en.wikipedia.org/wiki/VEGAS_algorithm) is a more sophisticated algorithm for Monte Carlo integration that uses the $f(x)$ samples that are being collected to refine the importance sampling probability distribution.
+
+- Metropolis (1953) [Equation of State Calculations by Fast Computing Machines](https://pubs.aip.org/aip/jcp/article/21/6/1087/202680/Equation-of-State-Calculations-by-Fast-Computing)
+
+- A good book is Newman and Barkema [Monte Carlo Methods in Statistical Physics](https://mcgill.on.worldcat.org/search/detail/40927360?queryString=au%3A%28newman%29%20AND%20ti%3A%28monte%20carlo%20methods%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129)

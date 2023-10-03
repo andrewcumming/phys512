@@ -394,8 +394,9 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="monte-carlo-integration">
 <h1>Monte Carlo integration<a class="headerlink" href="#monte-carlo-integration" title="Permalink to this heading">#</a></h1>
-<p>In our discussion of the rejection method, you might have wondered whether we could use the samples of <span class="math notranslate nohighlight">\(f(x)\)</span> to calculate the integral under the curve. Indeed, for a uniform sampling of <span class="math notranslate nohighlight">\(x\)</span> values <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> between <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=b\)</span> and the corresponding function values <span class="math notranslate nohighlight">\(f(x_i)\)</span>,
-we can estimate the value of the integral using</p>
+<p>In the previous integration methods we looked at, we typically evaluated the integrand <span class="math notranslate nohighlight">\(f(x)\)</span> on a regular grid of points in <span class="math notranslate nohighlight">\(x\)</span>. In Monte Carlo integration, we sample the <span class="math notranslate nohighlight">\(x\)</span>-points from a probability distribution instead.</p>
+<p>The simplest case is to take a uniformly-distributed sample of <span class="math notranslate nohighlight">\(x\)</span> values <span class="math notranslate nohighlight">\(\left\{x_i\right\}\)</span> between <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=b\)</span>. If we calculate the corresponding function values <span class="math notranslate nohighlight">\(f(x_i)\)</span>,
+we can then estimate the value of the integral using</p>
 <div class="math notranslate nohighlight">
 \[\int_a^b dx f(x) \approx {(b-a)\over N} \sum_i f(x_i).\]</div>
 <p>You can think of this as <span class="math notranslate nohighlight">\(\sum_i f(x_i) \Delta x\)</span> with the mean spacing of points <span class="math notranslate nohighlight">\(\Delta x = (b-a)/N\)</span>.</p>
@@ -410,6 +411,13 @@ we can estimate the value of the integral using</p>
 <p>In each case, take the number of samples to be <span class="math notranslate nohighlight">\(N=10^4\)</span> and repeat the integration 1000 times. Plot a histogram of the values of the integral that you obtain. Calculate the mean and standard deviation and compare the uniform and Gaussian sampling, and also with the exact value of the integral (you can use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code>).</p>
 <p>Repeat for different <span class="math notranslate nohighlight">\(N\)</span> values. How does the error in your value for the integral scale with <span class="math notranslate nohighlight">\(N\)</span>?</p>
 </div>
+<p>The previous exercise shows that the integration error is <span class="math notranslate nohighlight">\(\propto N^{-1/2}\)</span>. This may not look that attractive – for one-dimensional integrals, Simpson’s rule gives a much smaller error <span class="math notranslate nohighlight">\(\propto N^{-4}\)</span>. However, Monte Carlo integration wins for high-dimensional integrals. If we sample a function <span class="math notranslate nohighlight">\(N\)</span> times in <span class="math notranslate nohighlight">\(d\)</span> dimensions, the number of samples per dimension is <span class="math notranslate nohighlight">\(N^{1/d}\)</span>, so the Simpson’s rule accuracy for any particular direction becomes <span class="math notranslate nohighlight">\(N^{-4/d}\)</span>. This is known as the <strong>curse of dimensionality</strong>. For multi-dimensional integrals, you can get a better error with Monte Carlo integration, and it is also simpler to code up.</p>
+<p><strong>Further reading</strong></p>
+<ul class="simple">
+<li><p>The <a class="reference external" href="https://en.wikipedia.org/wiki/VEGAS_algorithm">VEGAS algorithm</a> is a more sophisticated algorithm for Monte Carlo integration that uses the <span class="math notranslate nohighlight">\(f(x)\)</span> samples that are being collected to refine the importance sampling probability distribution.</p></li>
+<li><p>Metropolis (1953) <a class="reference external" href="https://pubs.aip.org/aip/jcp/article/21/6/1087/202680/Equation-of-State-Calculations-by-Fast-Computing">Equation of State Calculations by Fast Computing Machines</a></p></li>
+<li><p>A good book is Newman and Barkema <a class="reference external" href="https://mcgill.on.worldcat.org/search/detail/40927360?queryString=au%3A%28newman%29%20AND%20ti%3A%28monte%20carlo%20methods%29&amp;databaseList=283%2C638&amp;origPageViewName=pages%2Fadvanced-search-page&amp;clusterResults=&amp;groupVariantRecords=&amp;expandSearch=true&amp;translateSearch=false&amp;queryTranslationLanguage=&amp;lang=en&amp;scope=wz%3A12129">Monte Carlo Methods in Statistical Physics</a></p></li>
+</ul>
 </section>
 
     <script type="text/x-thebe-config">
