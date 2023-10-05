@@ -390,7 +390,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-mcmc">Fitting data with MCMC</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-data-to-constrain-model-parameters-with-mcmc">Using data to constrain model parameters with MCMC</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanet-hunting-with-radial-velocities">Example: Exoplanet hunting with radial velocities</a></li>
 </ul>
 </li>
@@ -414,11 +414,12 @@ document.write(`
 <li><p>Evaluate the ratio <span class="math notranslate nohighlight">\(\alpha = f(x^\prime)/f(x)\)</span>. If <span class="math notranslate nohighlight">\(\alpha&gt;1\)</span>, ie. the new point is located in a region with larger <span class="math notranslate nohighlight">\(f(x)\)</span>, then we accept the move and set <span class="math notranslate nohighlight">\(x_{i+1} = x^\prime\)</span>. If <span class="math notranslate nohighlight">\(\alpha&lt;1\)</span>, we accept the move with probability <span class="math notranslate nohighlight">\(\alpha\)</span>. If the move is rejected, then we set <span class="math notranslate nohighlight">\(x_{i+1} = x_i\)</span>.  (Note that this entire step can be achieved by choosing a uniform deviate <span class="math notranslate nohighlight">\(u\)</span> between 0 and 1, and accepting the move if <span class="math notranslate nohighlight">\(u&lt;\alpha\)</span>.)</p></li>
 </ol>
 <p>The size of the jump in step 1 is set by the width of the Gaussian used to sample the jump size <span class="math notranslate nohighlight">\(\Delta x\)</span>. The width should be chosen so that a reasonable number of trial jumps are accepted. Typically an acceptance fraction of <span class="math notranslate nohighlight">\(\approx 0.25\)</span> is a good choice.</p>
-<p>After an initial <em>burn-in</em> phase, the chain will reach equilibrium and the samples <span class="math notranslate nohighlight">\(\{x_i\}\)</span> will be distributed according to the probability distribution <span class="math notranslate nohighlight">\(f(x)\)</span>. The reason this works is that in equilibrium, the rate at which we move from point <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(x^\prime\)</span> should be equal to the rate at which we move in the reverse direction, from <span class="math notranslate nohighlight">\(x^\prime\)</span> to <span class="math notranslate nohighlight">\(x\)</span>. This is the principle of <em>detailed balance</em>. Therefore</p>
+<p>After an initial <em>burn-in</em> phase, the chain will reach equilibrium and the samples <span class="math notranslate nohighlight">\(\{x_i\}\)</span> will be distributed according to the probability distribution <span class="math notranslate nohighlight">\(f(x)\)</span>. The reason this works is that in equilibrium, the rate at which we move from point <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(x^\prime\)</span> should be equal to the rate at which we move in the reverse direction, from <span class="math notranslate nohighlight">\(x^\prime\)</span> to <span class="math notranslate nohighlight">\(x\)</span>. This is the principle of <em>detailed balance</em>. Balancing the forward and backward rates gives</p>
 <div class="math notranslate nohighlight">
-\[n(x) \times (\mathrm{rate\ of}\ x\rightarrow x^\prime)
-=
-n(x^\prime) \times (\mathrm{rate\ of}\ x^\prime\rightarrow x),
+\[n(x) \times (\mathrm{jump\ probability\ from}\ x\rightarrow x^\prime)\]</div>
+<div class="math notranslate nohighlight">
+\[=
+n(x^\prime) \times (\mathrm{jump\ probability\ from}\ x^\prime\rightarrow x),
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(n(x)\)</span> is the density of points at <span class="math notranslate nohighlight">\(x\)</span>.
 If <span class="math notranslate nohighlight">\(x^\prime\)</span> has a larger value of the probability <span class="math notranslate nohighlight">\(f(x^\prime)&gt;f(x)\)</span>, then the transition from <span class="math notranslate nohighlight">\(x\)</span> to <span class="math notranslate nohighlight">\(x^\prime\)</span> will always happen (we always accept), i.e. the rate is 1. The rate of the reverse transition from <span class="math notranslate nohighlight">\(x^\prime\)</span> to <span class="math notranslate nohighlight">\(x\)</span> is then <span class="math notranslate nohighlight">\(f(x)/f(x^\prime)&lt;1\)</span>. Therefore</p>
@@ -435,16 +436,18 @@ If <span class="math notranslate nohighlight">\(x^\prime\)</span> has a larger v
 <p>Also, investigate what happens when you change your starting value of <span class="math notranslate nohighlight">\(x\)</span>. How long does it take for the chain to reach equilibrium?</p>
 <p>Compare your results with the same plots for <span class="math notranslate nohighlight">\(10^4\)</span> values from <span class="math notranslate nohighlight">\(f(x)\)</span> chosen by the rejection method.</p>
 </div>
-<section id="fitting-data-with-mcmc">
-<h2>Fitting data with MCMC<a class="headerlink" href="#fitting-data-with-mcmc" title="Permalink to this heading">#</a></h2>
-<p>A common application of MCMC methods is in fitting models to data. Imagine that you have a set of measurements <span class="math notranslate nohighlight">\(\{y_i\}\)</span> and a model that makes a prediction for each measurement <span class="math notranslate nohighlight">\(m_i(\vec{a})\)</span>, where <span class="math notranslate nohighlight">\(\vec{a}=(a_1, a_2, ...)\)</span> are the parameters of the model.
-Assuming that the errors are Gaussian with standard deviation <span class="math notranslate nohighlight">\(\sigma_i\)</span> for measurement <span class="math notranslate nohighlight">\(i\)</span>, the probability of getting the data given a set of model parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>, ie. the <strong>likelihood</strong> is</p>
+<section id="using-data-to-constrain-model-parameters-with-mcmc">
+<h2>Using data to constrain model parameters with MCMC<a class="headerlink" href="#using-data-to-constrain-model-parameters-with-mcmc" title="Permalink to this heading">#</a></h2>
+<p>A common application of MCMC methods is in fitting models to data and constraining model parameters. Imagine that you have a set of measurements <span class="math notranslate nohighlight">\(\{y_i\}\)</span> and a model that makes a prediction for each measurement <span class="math notranslate nohighlight">\(m_i(\vec{a})\)</span>, where <span class="math notranslate nohighlight">\(\vec{a}=(a_1, a_2, ...)\)</span> are the parameters of the model.
+Assuming that the errors are Gaussian with standard deviation <span class="math notranslate nohighlight">\(\sigma_i\)</span> for measurement <span class="math notranslate nohighlight">\(i\)</span>, the probability of getting the data given a set of model parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>, ie. the <strong>likelihood</strong>, is</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \prod_i \exp\left(-{(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) \]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \exp\left(-  \sum_i {(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) = \exp\left(-{\chi^2(\vec{a})\over 2}\right).\]</div>
-<p>In Bayesian statistics, the probability of the model parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span> given the data (the posterior) is the product of the prior (probability of the parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>) and the likelihood, i.e. <span class="math notranslate nohighlight">\(\mathrm{Prob}(\vec{a}|\{y_i\}) \propto \mathrm{Prob}(\vec{a})\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right)\)</span>. Here for simplicity, we will assume that all priors are uniform, so that</p>
+<p>Minimizing <span class="math notranslate nohighlight">\(\chi^2\)</span> maximizes the likelihood, so one approach is to find the set of parameters that minimize <span class="math notranslate nohighlight">\(\chi^2\)</span>: these are the best fit parameters. But we can also view the likelihood as telling us the probability of different parameter choices. If we sample from this probability distribution, we can generate the distribution of parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span> consistent with the data. This not only shows us what the best fit parameters are (maximum likelihood), but we can also do things like calculate the mean value of different parameters given their distribution, or look at the width of the distribution to estimate the error in the best fit parameters, or look for correlations between parameters.</p>
+<p>There’s one additional subtlety to mention: the likelihood is the probability of the data given the model, but we really want to know the probability of the model given the data.
+In Bayesian statistics, this is called the <strong>posterior</strong>, and is the product of the <strong>prior</strong> (probability of the parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>) and the likelihood, i.e. <span class="math notranslate nohighlight">\(\mathrm{Prob}(\vec{a}|\{y_i\}) \propto \mathrm{Prob}(\vec{a})\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right)\)</span>. The prior summarizes our prior knowledge about the parameters <span class="math notranslate nohighlight">\(\vec{a}\)</span>. Here for simplicity, we will assume that all priors are uniform, so that</p>
 <div class="math notranslate nohighlight">
 \[\mathrm{Prob}\left(\vec{a}|\{y_i\}\right)\propto  \exp\left(-{\chi^2(\vec{a})\over 2}\right).\]</div>
 <p>To find the constraints on the model parameters, we can use MCMC to draw samples of <span class="math notranslate nohighlight">\(\vec{a}\)</span> from this probability distribution.</p>
@@ -589,7 +592,7 @@ Assuming that the errors are Gaussian with standard deviation <span class="math 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fitting-data-with-mcmc">Fitting data with MCMC</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-data-to-constrain-model-parameters-with-mcmc">Using data to constrain model parameters with MCMC</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-exoplanet-hunting-with-radial-velocities">Example: Exoplanet hunting with radial velocities</a></li>
 </ul>
 </li>

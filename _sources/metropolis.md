@@ -10,11 +10,12 @@ The **Metropolis-Hastings algorithm** is a simple method to do this. To generate
 
 The size of the jump in step 1 is set by the width of the Gaussian used to sample the jump size $\Delta x$. The width should be chosen so that a reasonable number of trial jumps are accepted. Typically an acceptance fraction of $\approx 0.25$ is a good choice.
 
-After an initial *burn-in* phase, the chain will reach equilibrium and the samples $\{x_i\}$ will be distributed according to the probability distribution $f(x)$. The reason this works is that in equilibrium, the rate at which we move from point $x$ to $x^\prime$ should be equal to the rate at which we move in the reverse direction, from $x^\prime$ to $x$. This is the principle of *detailed balance*. Therefore
+After an initial *burn-in* phase, the chain will reach equilibrium and the samples $\{x_i\}$ will be distributed according to the probability distribution $f(x)$. The reason this works is that in equilibrium, the rate at which we move from point $x$ to $x^\prime$ should be equal to the rate at which we move in the reverse direction, from $x^\prime$ to $x$. This is the principle of *detailed balance*. Balancing the forward and backward rates gives
 
-$$n(x) \times (\mathrm{rate\ of}\ x\rightarrow x^\prime)
-=
-n(x^\prime) \times (\mathrm{rate\ of}\ x^\prime\rightarrow x),
+$$n(x) \times (\mathrm{jump\ probability\ from}\ x\rightarrow x^\prime)$$
+
+$$=
+n(x^\prime) \times (\mathrm{jump\ probability\ from}\ x^\prime\rightarrow x),
 $$
 where $n(x)$ is the density of points at $x$.
 If $x^\prime$ has a larger value of the probability $f(x^\prime)>f(x)$, then the transition from $x$ to $x^\prime$ will always happen (we always accept), i.e. the rate is 1. The rate of the reverse transition from $x^\prime$ to $x$ is then $f(x)/f(x^\prime)<1$. Therefore
@@ -41,10 +42,10 @@ Compare your results with the same plots for $10^4$ values from $f(x)$ chosen by
 ```
 
 
-## Fitting data with MCMC
+## Using data to constrain model parameters with MCMC
 
-A common application of MCMC methods is in fitting models to data. Imagine that you have a set of measurements $\{y_i\}$ and a model that makes a prediction for each measurement $m_i(\vec{a})$, where $\vec{a}=(a_1, a_2, ...)$ are the parameters of the model.
-Assuming that the errors are Gaussian with standard deviation $\sigma_i$ for measurement $i$, the probability of getting the data given a set of model parameters $\vec{a}$, ie. the **likelihood** is
+A common application of MCMC methods is in fitting models to data and constraining model parameters. Imagine that you have a set of measurements $\{y_i\}$ and a model that makes a prediction for each measurement $m_i(\vec{a})$, where $\vec{a}=(a_1, a_2, ...)$ are the parameters of the model.
+Assuming that the errors are Gaussian with standard deviation $\sigma_i$ for measurement $i$, the probability of getting the data given a set of model parameters $\vec{a}$, ie. the **likelihood**, is
 
 $$\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \prod_i \exp\left(-{(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) $$
 
@@ -52,7 +53,10 @@ or
 
 $$\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right) \propto  \exp\left(-  \sum_i {(y_i-m_i(\vec{a}))^2\over 2\sigma_i^2}\right) = \exp\left(-{\chi^2(\vec{a})\over 2}\right).$$
 
-In Bayesian statistics, the probability of the model parameters $\vec{a}$ given the data (the posterior) is the product of the prior (probability of the parameters $\vec{a}$) and the likelihood, i.e. $\mathrm{Prob}(\vec{a}|\{y_i\}) \propto \mathrm{Prob}(\vec{a})\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right)$. Here for simplicity, we will assume that all priors are uniform, so that 
+Minimizing $\chi^2$ maximizes the likelihood, so one approach is to find the set of parameters that minimize $\chi^2$: these are the best fit parameters. But we can also view the likelihood as telling us the probability of different parameter choices. If we sample from this probability distribution, we can generate the distribution of parameters $\vec{a}$ consistent with the data. This not only shows us what the best fit parameters are (maximum likelihood), but we can also do things like calculate the mean value of different parameters given their distribution, or look at the width of the distribution to estimate the error in the best fit parameters, or look for correlations between parameters. 
+
+There's one additional subtlety to mention: the likelihood is the probability of the data given the model, but we really want to know the probability of the model given the data. 
+In Bayesian statistics, this is called the **posterior**, and is the product of the **prior** (probability of the parameters $\vec{a}$) and the likelihood, i.e. $\mathrm{Prob}(\vec{a}|\{y_i\}) \propto \mathrm{Prob}(\vec{a})\mathrm{Prob}\left(\{y_i\} | \vec{a}   \right)$. The prior summarizes our prior knowledge about the parameters $\vec{a}$. Here for simplicity, we will assume that all priors are uniform, so that 
 
 $$\mathrm{Prob}\left(\vec{a}|\{y_i\}\right)\propto  \exp\left(-{\chi^2(\vec{a})\over 2}\right).$$
 
