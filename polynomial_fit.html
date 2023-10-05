@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Floating point arithmetic &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Polynomial fitting &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'floats';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'polynomial_fit';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Derivatives" href="derivatives.html" />
-    <link rel="prev" title="Programming best practices" href="programming.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="Linear least squares" href="linear_least_squares.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -155,10 +155,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
 <li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Floating point arithmetic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
 <ul class="nav bd-sidenav">
@@ -188,11 +188,11 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving equations</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
-<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Polynomial fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -275,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Ffloats.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fpolynomial_fit.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -305,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/floats.md" target="_blank"
+      <li><a href="_sources/polynomial_fit.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -315,7 +315,7 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="btn__icon-container">
   <i class="fas fa-file"></i>
   </span>
-<span class="btn__text-container">.md</span>
+<span class="btn__text-container">.ipynb</span>
 </a>
 </li>
       
@@ -387,7 +387,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Floating point arithmetic</h1>
+    <h1>Polynomial fitting</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,9 +397,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
 </ul>
             </nav>
         </div>
@@ -411,95 +409,140 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="floating-point-arithmetic">
-<h1>Floating point arithmetic<a class="headerlink" href="#floating-point-arithmetic" title="Permalink to this heading">#</a></h1>
-<section id="how-floating-point-numbers-are-represented">
-<h2>How floating point numbers are represented<a class="headerlink" href="#how-floating-point-numbers-are-represented" title="Permalink to this heading">#</a></h2>
-<p>The format of floating point numbers is set out in the <a class="reference external" href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a> standard. Double-precision floating point numbers are represented using 64 bits (8 bytes). These are split into 1 bit for the sign of the number (0 for positive, 1 for negative), 11 bits for the exponent, and the remaining 52 bits are for the mantissa (also known as the significand).</p>
-<p><img alt="Illustration of bit formatting for a double precision float" src="_images/IEEE_754_Double_Floating_Point_Format.png" /></p>
-<p>(<a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Image credit: Wikipedia</a>)</p>
-<p>The corresponding floating point number is</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="polynomial-fitting">
+<h1>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s consider the example of fitting a polynomial to some measurements of <span class="math notranslate nohighlight">\(y_i(x_i)\)</span> (ie. <span class="math notranslate nohighlight">\(y\)</span> measured at a set of points <span class="math notranslate nohighlight">\(x_i\)</span>). An obvious way to solve the normal equations</p>
 <div class="math notranslate nohighlight">
-\[(-1)^s \times (1 + \sum_{i=1}^{52} b_{52-i} 2^{-i}) \times 2^{e-1023}\]</div>
-<p>where <span class="math notranslate nohighlight">\(s\)</span> is the value of the sign bit (0 or 1), <span class="math notranslate nohighlight">\(e\)</span> is the value of the exponent, and <span class="math notranslate nohighlight">\(b_i\)</span> corresponds to bit <span class="math notranslate nohighlight">\(i\)</span> in the fraction, as labelled in the diagram.</p>
-<p>The values of the exponents range from</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(e=00000000001\)</span> (binary) <span class="math notranslate nohighlight">\(=1\)</span> (base 10), corresponding to <span class="math notranslate nohighlight">\(2^{e-1023}=2^{1-1023}=2^{-1022}\)</span></p></li>
-</ul>
-<p>to</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(e=11111111110=2046\)</span>, corresponding to <span class="math notranslate nohighlight">\(2^{e-1023}=2^{2046-1023}=2^{1023}\)</span></p></li>
-</ul>
-<p>(The values <span class="math notranslate nohighlight">\(e=0\)</span> and <span class="math notranslate nohighlight">\(e=2047\)</span> have special meaning – see the <a class="reference external" href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format">Wikipedia page on Double-precision floating-point format</a> for more information.)</p>
-<div class="admonition-questions admonition">
-<p class="admonition-title">Questions</p>
-<ul class="simple">
-<li><p>What is the order of magnitude of the largest and smallest values that can be stored in a double?</p></li>
-<li><p>What is the binary representation of the number 3.0?</p></li>
-</ul>
-</div>
-<p>We focused here on double precision numbers, which are standard in 64 bit machines. Single precision floats are 32 bits, with 8 bits for exponent and 23 for mantissa.</p>
-<p><strong>Further reading:</strong> <a class="reference external" href="https://dl.acm.org/doi/10.1145/103162.103163">What every computer scientist should know about floating-point arithmetic</a> by David Goldberg.</p>
-</section>
-<section id="roundoff-error">
-<h2>Roundoff error<a class="headerlink" href="#roundoff-error" title="Permalink to this heading">#</a></h2>
-<p>Roundoff error occurs because of the finite precision of floating point variables which means that many values cannot be represented exactly. You might think of irrational numbers (e.g. <span class="math notranslate nohighlight">\(\pi\)</span>) or recurring decimal such as <span class="math notranslate nohighlight">\(1/11=0.0909\dots\)</span>, but even <span class="math notranslate nohighlight">\(1/10=0.1\)</span> doesn’t have an exact representation in floating point where the fraction is written in base 2.</p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Here are some floating point expressions to evaluate to illustrate roundoff:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">(2**0.5)**2</span> <span class="pre">-</span> <span class="pre">2</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1.1</span> <span class="pre">+</span> <span class="pre">2.2</span> <span class="pre">-</span> <span class="pre">3.3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.10000001</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.1</span> <span class="pre">==</span> <span class="pre">0.10000000000000001</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">1e-15</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span> <span class="pre">+</span> <span class="pre">1e-16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">(0.7</span> <span class="pre">+</span> <span class="pre">0.1)</span> <span class="pre">+</span> <span class="pre">0.3</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">0.7</span> <span class="pre">+</span> <span class="pre">(0.1</span> <span class="pre">+</span> <span class="pre">0.3)</span></code></p></li>
-</ul>
-</div>
-<p>The size of the roundoff error is set by the number of bits that we have available for the fraction. For double precision, it is of order <span class="math notranslate nohighlight">\(2^{-52}\approx 2.2\times 10^{-16}\)</span>. Note that because we are talking about the fraction here, this number is the relative error rather than an absolute error. You might be thinking that this seems like a very small effect, since <span class="math notranslate nohighlight">\(2^{-52}\)</span> is a small number! This is true, but you do have to be careful under certain situations:</p>
-<ul class="simple">
-<li><p><strong>Comparing floats.</strong> Rather than comparing floats, it’s better to instead test whether they are close to each other. E.g., with <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">=</span> <span class="pre">1.1</span> <span class="pre">+</span> <span class="pre">2.2</span></code>, <code class="docutils literal notranslate"><span class="pre">x==3.3</span></code> returns <code class="docutils literal notranslate"><span class="pre">False</span></code>, whereas <code class="docutils literal notranslate"><span class="pre">abs(x-3.3)</span> <span class="pre">&lt;</span> <span class="pre">1e-8</span></code>  returns <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
-<li><p><strong>Subtracting numbers that are almost equal.</strong> This comes up in many problems where you are evaluating a physical quantity which is given by subtracting two terms that almost cancel. If the difference between the two numbers becomes comparable to the floating point precision, roundoff error can dominate the answer. In these cases, you can often rewrite the expressions to be evaluated to avoid the subtraction, an example is given below.</p></li>
-<li><p><strong>When doing many operations and errors accumulate.</strong> Small errors accumulate over many operations. An example is long term integrations of planetary orbits, for example when trying to compute the future evolution of the Solar System. Finite precision in chaotic systems can have a big impact on the solution.</p></li>
-</ul>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise</p>
-<p>Consider the two forms of the function</p>
+\[\mathbf{A^T} \mathbf{d} = \mathbf{A^T}\mathbf{A}\mathbf{a}\]</div>
+<p>is to calculate the inverse of <span class="math notranslate nohighlight">\(\mathbf{A^T}\mathbf{A}\)</span> and write</p>
 <div class="math notranslate nohighlight">
-\[f(x) = \sqrt{1+x^2}-x = {1\over \sqrt{1+x^2}+x}\]</div>
-<p>One of these involves a subtraction, and one doesn’t. Try evaluating and plotting these two expressions as a function of <span class="math notranslate nohighlight">\(x\)</span>. Which is more accurate? Do you see the effects of roundoff error at large values of <span class="math notranslate nohighlight">\(x\)</span>? How do you explain the size of <span class="math notranslate nohighlight">\(x\)</span> where roundoff error appears?</p>
+\[\mathbf{a} = (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{d}.\]</div>
+<p>For simplicity, let’s take a constant error <span class="math notranslate nohighlight">\(\sigma_i\)</span> for each point, so the <span class="math notranslate nohighlight">\(\sigma_i\)</span>’s drop out of the equations and we’ll just ignore them.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first generate some data from a random polynomial</span>
+
+<span class="n">k</span> <span class="o">=</span> <span class="mi">10</span>   <span class="c1"># order of polynomial</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span>   <span class="c1"># number of data points</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs = &quot;</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Compute the design matrix</span>
+<span class="c1"># A_{ij} = f_k(x_i)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">A</span><span class="p">[:,</span> <span class="n">kk</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">**</span><span class="n">kk</span>
+
+<span class="c1"># Now do the linear algebra part </span>
+<span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@y</span>
+<span class="n">lhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@A</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span><span class="nd">@rhs</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitted coeffs = &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;frac error = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">a0</span><span class="p">)</span><span class="o">/</span><span class="n">a0</span><span class="p">)</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
 </div>
-<p><strong>Further reading</strong></p>
-<ul class="simple">
-<li><p>Gezerlis, Chapter 2</p></li>
-<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/floatingpoint.html">Floating Point Arithmetic: Issues and Limitations</a> from the Python documentation</p></li>
-<li><p><a class="reference external" href="https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/">Examples of floating point problems</a></p></li>
-<li><p><a class="reference external" href="http://www.indowsway.com/floatingpoint.htm">The Perils of Floating Point</a></p></li>
-</ul>
-</section>
-<section id="numpy-data-types">
-<h2>NumPy data types<a class="headerlink" href="#numpy-data-types" title="Permalink to this heading">#</a></h2>
-<p>NumPy has many different data types, which you can read about here:
-<a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html">https://numpy.org/doc/stable/user/basics.types.html</a></p>
-<p>The default type for a floating point is a 64 bit float as we discussed above.</p>
-<div class="admonition-exercises admonition">
-<p class="admonition-title">Exercises</p>
-<p>Here are some things to try to investigate NumPy data types:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">np.finfo(np.float32).eps</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.finfo(np.float64).eps</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">np.ones(10);</span> <span class="pre">a.dtype</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.double(2.2)</span> <span class="pre">+</span> <span class="pre">np.double(1.1)</span> <span class="pre">-</span> <span class="pre">np.double(3.3)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.single(2.2)</span> <span class="pre">+</span> <span class="pre">np.single(1.1)</span> <span class="pre">-</span> <span class="pre">np.single(3.3)</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int_(2)</span> <span class="pre">**</span> <span class="pre">10;</span>&#160;&#160; <span class="pre">2**10</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int_(2)</span> <span class="pre">**</span> <span class="pre">100;</span>&#160;&#160; <span class="pre">2**100</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.spacing(3.0)</span></code></p></li>
-</ul>
 </div>
-<p>The last example is one of several functions that NumPy has for dealing with floats — see <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">https://numpy.org/doc/stable/reference/routines.math.html</a></p>
-<p>Note that numpy integers do not behave like Python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.</p>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs =  [-0.16084375  0.08271701 -0.92414179  0.67078032 -0.72587847  0.85147718
+  0.5811347   0.81677791 -0.85998568 -0.60382754  0.93911212]
+Fitted coeffs =  [ 6.13761189e-01  8.27170079e-02 -9.10192106e+01  6.70780327e-01
+  4.04404528e+01  8.51477180e-01 -9.18388285e+00  8.16777908e-01
+  1.41848877e+00 -6.03827537e-01  7.96697558e-01]
+frac error =  [-4.81588451e+00  2.42842219e-08  9.74905254e+01  7.58027371e-09
+ -5.67124288e+01  1.92493502e-09 -1.68033634e+01 -1.65423151e-09
+ -2.64943302e+00 -2.22537899e-10 -1.51648092e-01]
+</pre></div>
+</div>
+<img alt="_images/daa73cb67fb1965c4f8f54479a651a2a7e2d574c393a5b4d0f767565be6fbedd.png" src="_images/daa73cb67fb1965c4f8f54479a651a2a7e2d574c393a5b4d0f767565be6fbedd.png" />
+</div>
+</div>
+<p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
+<section id="using-svd">
+<h2>Using SVD<a class="headerlink" href="#using-svd" title="Permalink to this heading">#</a></h2>
+<p>Singular value decomposition (SVD) is extremely useful in these situations where you are dealing with a close-to-singular matrix. The ratio of the largest to smallest singular values is known as the <strong>condition number</strong> of the matrix, and measures how close to singular it is.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">Sdiag</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of singular values = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">))</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">))))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.linalg.cond gives </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 37411
+np.linalg.cond gives 37411
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s use SVD to rewrite the normal equations:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A^T} \mathbf{d} = \mathbf{A^T}\mathbf{A}\mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{VSU^T} \mathbf{d} = \mathbf{VSU^T}\mathbf{USV^T} \mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{VSU^T} \mathbf{d} = \mathbf{VS^2V^T} \mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{V^TVS}\mathbf{U^T} \mathbf{d} = \mathbf{V^T}\mathbf{VS^2V^T} \mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{SU^T} \mathbf{d} = \mathbf{S^2V^T} \mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[ \mathbf{U^T} \mathbf{d} = \mathbf{SV^T} \mathbf{a}\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \mathbf{VS^{-1}}\mathbf{U^T} \mathbf{d} =  \mathbf{a}\]</div>
+<p>The matrix <span class="math notranslate nohighlight">\(\mathbf{VS^{-1}}\mathbf{U^T}\)</span> is called the <strong>pseudo-inverse</strong>. We can use it to map from the data vector <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> to the model parameters <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aSVD</span> <span class="o">=</span> <span class="n">VT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Sdiag</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitted coeffs = &quot;</span><span class="p">,</span> <span class="n">aSVD</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;frac error = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">aSVD</span><span class="o">-</span><span class="n">a0</span><span class="p">)</span><span class="o">/</span><span class="n">a0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">aSVD</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">xx</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted coeffs =  [-0.15303503  0.08271701 -1.11134245  0.67078032 -0.10624413  0.85147718
+ -0.05622884  0.81677791 -0.61738019 -0.60382754  0.90933781]
+frac error =  [-4.85485175e-02 -6.99618834e-14  2.02567027e-01  2.23441421e-14
+ -8.53633724e-01 -3.67693816e-14 -1.09675698e+00  2.58261606e-14
+ -2.82104096e-01 -2.39023536e-15 -3.17047438e-02]
+</pre></div>
+</div>
+<img alt="_images/29dc79626523996e4544d21e83d114b958742881675e2bedf125c0e49aafe10e.png" src="_images/29dc79626523996e4544d21e83d114b958742881675e2bedf125c0e49aafe10e.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -535,20 +578,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="programming.html"
+       href="linear_least_squares.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Programming best practices</p>
+        <p class="prev-next-title">Linear least squares</p>
       </div>
     </a>
     <a class="right-next"
-       href="derivatives.html"
+       href="hw1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Derivatives</p>
+        <p class="prev-next-title">Homework 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -570,9 +613,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
 </ul>
   </nav></div>
 

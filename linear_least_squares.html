@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework solutions &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Linear least squares &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -61,11 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'homework_solutions';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'linear_least_squares';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Homework 1 solutions" href="HW1_solutions.html" />
-    <link rel="prev" title="Project Instructions" href="project_instructions.html" />
+    <link rel="next" title="Polynomial fitting" href="polynomial_fit.html" />
+    <link rel="prev" title="Matrices in numpy" href="matrices.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -186,19 +188,19 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving equations</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
 
-<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Homework solutions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
 </ul>
 </li>
@@ -273,7 +275,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhomework_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Flinear_least_squares.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,7 +305,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/homework_solutions.md" target="_blank"
+      <li><a href="_sources/linear_least_squares.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -383,7 +385,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework solutions</h1>
+    <h1>Linear least squares</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -397,9 +399,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-solutions">
-<h1>Homework solutions<a class="headerlink" href="#homework-solutions" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-least-squares">
+<h1>Linear least squares<a class="headerlink" href="#linear-least-squares" title="Permalink to this heading">#</a></h1>
+<p>Linear least squares refers to the problem of minimizing <span class="math notranslate nohighlight">\(\chi^2\)</span> with a model that can be written as a linear combination of <em>basis functions</em> <span class="math notranslate nohighlight">\(f_j(x)\)</span> as</p>
+<div class="math notranslate nohighlight">
+\[m(x) = \sum_{j=1}^M a_j f_j(x)\]</div>
+<p>where <span class="math notranslate nohighlight">\(a_j\)</span> are the model parameters. For example if we wanted to fit a polynomial we would choose <span class="math notranslate nohighlight">\(f_j(x) = x^{j-1}\)</span> and minimize <span class="math notranslate nohighlight">\(\chi^2\)</span> to find the polynomial coefficients <span class="math notranslate nohighlight">\(\{a_j\}\)</span>.</p>
+<p>We’ll follow the analysis of Numerical Recipes with some small changes in notation. Write out <span class="math notranslate nohighlight">\(\chi^2\)</span> and minimize it:</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = \sum_{i=1}^N \left[ {y_i - \sum_{j=1}^M a_j f_j(x_i)\over \sigma_i}\right]^2\]</div>
+<div class="math notranslate nohighlight">
+\[{\partial \chi^2\over\partial a_k} = 0 \Rightarrow \sum_{i=1}^N {1\over\sigma_i^2}\left[ y_i - \sum_{j=1}^M a_j f_j(x_i)\right] f_k(x_i) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^N {y_i\over\sigma_i}{f_k(x_i)\over\sigma_i} - \sum_{i=1}^N\sum_{j=1}^M a_k {f_j(x_i)\over\sigma_i }{f_k(x_i)\over \sigma_i} = 0\]</div>
+<p>At this point it is useful to define the <em>design matrix</em></p>
+<div class="math notranslate nohighlight">
+\[A_{ij} = {f_j(x_i)\over \sigma_i}\]</div>
+<p>and also the vector <span class="math notranslate nohighlight">\(\vec{d}\)</span> which is the data weighted by the errors at each point:</p>
+<div class="math notranslate nohighlight">
+\[d_i = {y_i\over\sigma_i}.\]</div>
+<p>Then we have</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^N A_{ik} b_i - \sum_{i=1}^N\sum_{j=1}^M a_k A_{ij}A_{ik} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\sum_{i=1}^N (A^T)_{ki} b_i  - \sum_{j=1}^M \sum_{i=1}^N  (A^T)_{ji}A_{ik} a_k  = 0\]</div>
+<p>So in matrix form, we have</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A^T} \mathbf{d} = \mathbf{A^T}\mathbf{A}\mathbf{a}.\]</div>
+<p>These are known as the <strong>normal equations</strong> for the linear least squares problem.</p>
+<p>We’ve assumed here that the noise is uncorrelated between measurements (the noise on one measurement does not depend on the noise on a previous measurement). The normal equations can be generalized to include correlated noise, but we’ll leave this for later and for now focus on how we can solve these equations.</p>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise:</p>
+<p>Show that <span class="math notranslate nohighlight">\(\chi^2\)</span> can be written in our matrix notation as</p>
+<div class="math notranslate nohighlight">
+\[\chi^2 = (\mathbf{d} - \mathbf{A}\mathbf{a})^T  (\mathbf{d} - \mathbf{A}\mathbf{a}).\]</div>
 </div>
 </section>
 
@@ -435,20 +468,20 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="project_instructions.html"
+       href="matrices.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Project Instructions</p>
+        <p class="prev-next-title">Matrices in numpy</p>
       </div>
     </a>
     <a class="right-next"
-       href="HW1_solutions.html"
+       href="polynomial_fit.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework 1 solutions</p>
+        <p class="prev-next-title">Polynomial fitting</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
