@@ -18,6 +18,18 @@ execute:
 #  latex_documents:
 #    targetname: book.tex
 
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - attrs_inline
+    - colon_fence
+    - deflist
+    - dollarmath
+    - linkify
+    - smartquotes
+    - html_admonition
+    - html_image
+
 # Add a bibtex file so that we can create citations
 #bibtex_bibfiles:
 #  - references.bib
