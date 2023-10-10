@@ -431,12 +431,11 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first generate some data from a random polynomial</span>
 
-<span class="n">k</span> <span class="o">=</span> <span class="mi">30</span>   <span class="c1"># order of polynomial</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># order of polynomial</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># number of data points</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs = &quot;</span><span class="p">,</span> <span class="n">a0</span><span class="p">)</span>
 <span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
@@ -452,8 +451,10 @@ document.write(`
 <span class="n">lhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@A</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span><span class="nd">@rhs</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitted coeffs = &quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;frac error = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="n">a0</span><span class="p">)</span><span class="o">/</span><span class="n">a0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs, Fitted coeffs, Fractional error&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%13g</span><span class="s2"> </span><span class="si">%13g</span><span class="s2"> </span><span class="si">%13g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 
 <span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
 <span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -468,32 +469,32 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs =  [-0.13564204  0.96653257  0.91521178  0.33418877 -0.40120168 -0.87562614
- -0.66050358  0.319727    0.65847729  0.00209452 -0.51024274  0.92179628
-  0.3309407   0.41878553 -0.88505232  0.82466854 -0.4509475  -0.83370449
-  0.36346066 -0.62335289 -0.69169761  0.30200372 -0.20291805  0.95315175
-  0.40944992  0.44805726  0.81949615  0.91611657 -0.82730855  0.48013652
- -0.58860843]
-Fitted coeffs =  [ 3.69413174e+09  2.28536618e+09 -6.40065638e+09 -3.54285734e+09
-  3.66992671e+09  1.91608715e+09 -1.08533596e+09 -4.48535563e+08
-  3.59773795e+08  6.49661565e+07 -1.85940283e+08 -2.59064008e+07
-  7.05687586e+07  1.06568149e+07 -1.61532372e+07 -2.48599633e+06
-  2.17626076e+06  4.90521044e+05 -6.93445741e+04 -1.04379646e+05
- -4.85675201e+04  1.00228750e+04  1.14403642e+04  3.14807574e+03
- -7.66965400e+02 -1.23229671e+03 -9.71426220e+01  1.68820460e+02
-  1.96073001e+01 -8.08422102e+00 -1.68957478e+00]
-frac error =  [-2.72344169e+10  2.36449991e+09 -6.99363421e+09 -1.06013656e+10
- -9.14733631e+09 -2.18824799e+09  1.64319466e+09 -1.40287046e+09
-  5.46372364e+08  3.10171411e+10  3.64415341e+08 -2.81042593e+07
-  2.13236867e+08  2.54469502e+07  1.82511655e+07 -3.01454103e+06
- -4.82597463e+06 -5.88364199e+05 -1.90790767e+05  1.67447725e+05
-  7.02139605e+04  3.31869193e+04 -5.63802332e+04  3.30180644e+03
- -1.87416044e+03 -2.75131081e+03 -1.19539448e+02  1.83278361e+02
- -2.47001057e+01 -1.78373382e+01  1.87045632e+00]
-rms deviation / max(y) = 1.49325
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
+    -0.926445       3759.47      -4058.96
+    -0.413254       135.945      -329.962
+     0.495435      -1948.18      -3933.25
+     -0.26004      -81.5769       312.709
+    -0.680048       502.376      -739.735
+     0.585408       35.9797       60.4608
+     0.138324      -259.204       -1874.9
+     0.296862      -17.7195      -60.6895
+     -0.43841       115.886      -265.331
+    -0.937403        5.2939      -6.64742
+    -0.800039       -26.518       32.1459
+    -0.638173      -1.76854       1.77125
+    0.0731783       2.69849       35.8755
+     0.114682      0.222594      0.940977
+    -0.975434     -0.994817      0.019871
+     0.135161      0.130273    -0.0361654
+     0.542304      0.515609    -0.0492252
+     0.990973      0.990956  -1.64322e-05
+    -0.630897     -0.628235   -0.00421881
+     0.750105      0.750104  -1.49966e-06
+    -0.931477     -0.931569    9.8856e-05
+rms deviation / max(y) = 0.00145337
 </pre></div>
 </div>
-<img alt="_images/467eecec87c30d9db69558d37acf39cbf3fb220dbbefbf2d97d90d5e32ea47f3.png" src="_images/467eecec87c30d9db69558d37acf39cbf3fb220dbbefbf2d97d90d5e32ea47f3.png" />
+<img alt="_images/e2c4e1421e53a3bf00fe0ef1fed98a7cb87744b1aece1bb58ce3262a79c8382a.png" src="_images/e2c4e1421e53a3bf00fe0ef1fed98a7cb87744b1aece1bb58ce3262a79c8382a.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -511,8 +512,8 @@ rms deviation / max(y) = 1.49325
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 1.16147e+14
-np.linalg.cond gives 1.16147e+14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 1.02088e+09
+np.linalg.cond gives 1.02088e+09
 </pre></div>
 </div>
 </div>
@@ -537,8 +538,9 @@ np.linalg.cond gives 1.16147e+14
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aSVD</span> <span class="o">=</span> <span class="n">VT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Sdiag</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fitted coeffs = &quot;</span><span class="p">,</span> <span class="n">aSVD</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;frac error = &quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">aSVD</span><span class="o">-</span><span class="n">a0</span><span class="p">)</span><span class="o">/</span><span class="n">a0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs, Fitted coeffs, Fractional error&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%13g</span><span class="s2">, </span><span class="si">%13g</span><span class="s2"> </span><span class="si">%13g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">aSVD</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">aSVD</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 
@@ -555,24 +557,32 @@ np.linalg.cond gives 1.16147e+14
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitted coeffs =  [-0.1356421   0.96653251  0.91521263  0.33418751 -0.40120888 -0.87559509
- -0.66046906  0.3196106   0.65838623  0.00280762 -0.50976562  0.92089844
-  0.32983398  0.42016602 -0.88427734  0.82421875 -0.4519043  -0.83337402
-  0.36364746 -0.62353516 -0.6918335   0.30213928 -0.20287323  0.95313263
-  0.40944862  0.44805956  0.81949663  0.91611642 -0.82730862  0.48013653
- -0.58860843]
-frac error =  [ 4.62917976e-07 -5.99253924e-08  9.34250617e-07 -3.78184093e-06
-  1.79368664e-05 -3.54626104e-05 -5.22747016e-05 -3.64075377e-04
- -1.38289577e-04  3.40455755e-01 -9.35079143e-04 -9.74014537e-04
- -3.34415336e-03  3.29640552e-03 -8.75624029e-04 -5.45422635e-04
-  2.12174326e-03 -3.96389166e-04  5.13960836e-04  2.92401548e-04
-  1.96457398e-04  4.48887445e-04 -2.20890887e-04 -2.00633681e-05
- -3.17379485e-06  5.14163837e-06  5.81875159e-07 -1.69148033e-07
-  8.81237369e-08  9.54159777e-09  6.16043485e-10]
-rms deviation / max(y) = 2.0114e-08
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
+    -0.926445,     -0.926445   -2.0599e-11
+    -0.413254,     -0.413254   7.69779e-11
+     0.495435,      0.495435   5.00882e-10
+     -0.26004,      -0.26004  -8.85454e-10
+    -0.680048,     -0.680048   6.48783e-10
+     0.585408,      0.585408  -9.95742e-09
+     0.138324,      0.138324   1.56674e-07
+     0.296862,      0.296862   1.97918e-08
+     -0.43841,      -0.43841   4.09383e-08
+    -0.937403,     -0.937403   -9.4279e-09
+    -0.800039,     -0.800039  -5.19413e-08
+    -0.638173,     -0.638173  -1.41615e-08
+    0.0731783,     0.0731783  -3.06607e-07
+     0.114682,      0.114682  -5.04899e-08
+    -0.975434,     -0.975434  -5.23253e-09
+     0.135161,      0.135161   4.00093e-09
+     0.542304,      0.542304  -2.68869e-09
+     0.990973,      0.990973   1.33567e-10
+    -0.630897,     -0.630897  -1.65436e-10
+     0.750105,      0.750105   1.44232e-11
+    -0.931477,     -0.931477   1.28367e-11
+rms deviation / max(y) = 6.34548e-12
 </pre></div>
 </div>
-<img alt="_images/52340fdc7595525ee9f94ff585523fbc219dc24c98846004251642fd63cac9ea.png" src="_images/52340fdc7595525ee9f94ff585523fbc219dc24c98846004251642fd63cac9ea.png" />
+<img alt="_images/a1c48425684a3e2f9e564abb850884389ca4e6fa9698d90d6505f5ccd0970f1d.png" src="_images/a1c48425684a3e2f9e564abb850884389ca4e6fa9698d90d6505f5ccd0970f1d.png" />
 </div>
 </div>
 </section>
