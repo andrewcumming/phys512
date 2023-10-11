@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'homework_notes/hw2_common_issues';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Homework 1 solutions" href="../HW1_solutions.html" />
+    <link rel="prev" title="Homework 2 solutions" href="../HW2_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../homework_solutions.html">Homework solutions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../HW2_solutions.html">Homework 2 solutions</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 2: Common Issues</a></li>
 
 
@@ -493,14 +494,14 @@ We say <span class="math notranslate nohighlight">\(f(x) = g(x) + \mathcal{O}(h(
 <div class="math notranslate nohighlight">
 \[f(x)-f_{\mathrm{approx}}(x) = \mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x_i)^2}{2} + D\cdot (x_i - x)^3 + \mathcal{O}(|x-x_i|^4).\]</div>
 <p>As we will integrate our approximated function over the interval <span class="math notranslate nohighlight">\([x_{i-1},x_{i+1}]\)</span>, the difference between the exact integral and our approximation will work out to</p>
-<p>\begin{align}
-Δ I_n &amp;= \int_{x_{i-1}}^{x_{i+1}}  (f(x)-f_{\mathrm{approx}}(x)) \mathrm{d}x
-\&amp;=
-\int_{x_{i-1}}^{x_{i+1}}  \left[\mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x_i)^2}{2} + D\cdot (x_i - x)^3 + \mathcal{O}(|x-x_i|^4)\right] \mathrm{d}x
-\&amp;=
-\mathcal{O}\left(|\Delta x|^2\right)  \frac{(2Δx)^3}{6} + D\cdot 0 + \mathcal{O}(|2Δx|^5)\
-&amp;= \mathcal{O}\left(|\Delta x|^5\right)
-\end{align}</p>
+<div class="math notranslate nohighlight">
+\[Δ I_n = \int_{x_{i-1}}^{x_{i+1}}  (f(x)-f_{\mathrm{approx}}(x)) \mathrm{d}x\]</div>
+<div class="math notranslate nohighlight">
+\[=\int_{x_{i-1}}^{x_{i+1}}  \left[\mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x_i)^2}{2} + D\cdot (x_i - x)^3 + \mathcal{O}(|x-x_i|^4)\right] \mathrm{d}x\]</div>
+<div class="math notranslate nohighlight">
+\[=\mathcal{O}\left(|\Delta x|^2\right)  \frac{(2Δx)^3}{6} + D\cdot 0 + \mathcal{O}(|2Δx|^5)\]</div>
+<div class="math notranslate nohighlight">
+\[= \mathcal{O}\left(|\Delta x|^5\right)\]</div>
 <p>Due to the symmetry of the integrand, the <span class="math notranslate nohighlight">\(D\)</span> term vanished. Note that here <span class="math notranslate nohighlight">\(\mathcal{O}(Δx)\)</span> <em>does not</em> depend on <span class="math notranslate nohighlight">\(x\)</span>, whereas <span class="math notranslate nohighlight">\(\mathcal{O}(|x-x_i|^4)\)</span> does. One of the terms came from the approximation of the derivative and the other came from the Taylor series. We see now that a better numerical approximation for the second derivative would not have been useful, as the largest error term would still be <span class="math notranslate nohighlight">\(\mathcal{O}(|x-x_i|^5)\)</span>.</p>
 <p>In the final step, we summ over all sub-intervals, which corresponds to multiplying our error term by <span class="math notranslate nohighlight">\(N \sim (Δx)^{-1}\)</span> leaving us with an error of <span class="math notranslate nohighlight">\(N \mathcal{O}\left(|\Delta x|^5\right) = \mathcal{O}\left(|\Delta x|^4\right)\)</span>.</p>
 </section>
@@ -984,12 +985,12 @@ performs a nontrivial task. Don’t write your code twice: once in English and o
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../HW1_solutions.html"
+       href="../HW2_solutions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 1 solutions</p>
+        <p class="prev-next-title">Homework 2 solutions</p>
       </div>
     </a>
 </div></div>
