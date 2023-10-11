@@ -50,3 +50,4 @@ parts:
         - file: homework_solutions
           sections:
             - file: HW1_solutions
+            - file: homework_notes/hw2_common_issues
