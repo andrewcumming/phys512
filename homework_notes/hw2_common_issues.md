@@ -1,16 +1,3 @@
----
-jupytext:
-  formats: md:myst
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.10.3
-kernelspec:
-  display_name: Python 3
-  language: python
-  name: python3
----
 # Homework 2: Common Issues
 
 ```{note}
@@ -54,14 +41,13 @@ $$f(x)-f_{\mathrm{approx}}(x) = \mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x
 
 As we will integrate our approximated function over the interval $[x_{i-1},x_{i+1}]$, the difference between the exact integral and our approximation will work out to
 
-\begin{align}
-Δ I_n &= \int_{x_{i-1}}^{x_{i+1}}  (f(x)-f_{\mathrm{approx}}(x)) \mathrm{d}x
-\\&=
-\int_{x_{i-1}}^{x_{i+1}}  \left[\mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x_i)^2}{2} + D\cdot (x_i - x)^3 + \mathcal{O}(|x-x_i|^4)\right] \mathrm{d}x
-\\&=
-\mathcal{O}\left(|\Delta x|^2\right)  \frac{(2Δx)^3}{6} + D\cdot 0 + \mathcal{O}(|2Δx|^5)\\
-&= \mathcal{O}\left(|\Delta x|^5\right)
-\end{align}
+$$Δ I_n = \int_{x_{i-1}}^{x_{i+1}}  (f(x)-f_{\mathrm{approx}}(x)) \mathrm{d}x$$
+
+$$=\int_{x_{i-1}}^{x_{i+1}}  \left[\mathcal{O}\left(|\Delta x|^2\right)  \frac{(x-x_i)^2}{2} + D\cdot (x_i - x)^3 + \mathcal{O}(|x-x_i|^4)\right] \mathrm{d}x$$
+
+$$=\mathcal{O}\left(|\Delta x|^2\right)  \frac{(2Δx)^3}{6} + D\cdot 0 + \mathcal{O}(|2Δx|^5)$$
+
+$$= \mathcal{O}\left(|\Delta x|^5\right)$$
 
 Due to the symmetry of the integrand, the $D$ term vanished. Note that here $\mathcal{O}(Δx)$ *does not* depend on $x$, whereas $\mathcal{O}(|x-x_i|^4)$ does. One of the terms came from the approximation of the derivative and the other came from the Taylor series. We see now that a better numerical approximation for the second derivative would not have been useful, as the largest error term would still be $\mathcal{O}(|x-x_i|^5)$.
 
