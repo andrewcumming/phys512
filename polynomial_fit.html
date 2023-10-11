@@ -413,8 +413,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-polynomials">Orthogonal polynomials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-singular-value-decomposition-svd">Using Singular Value Decomposition (SVD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-polynomials">Orthogonal polynomials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-further-reading">Notes and further reading</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -467,7 +470,6 @@ document.write(`
 <span class="n">lhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@A</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span><span class="nd">@rhs</span>
 
-
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs, Fitted coeffs, Fractional error&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%13g</span><span class="s2"> </span><span class="si">%13g</span><span class="s2"> </span><span class="si">%13g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">/</span><span class="n">a0</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
@@ -486,41 +488,48 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.847225       2113.61      -2495.74
-     0.351173      -84.7273      -242.269
-    0.0199098       -1095.2        -55009
-  -0.00797301       50.6958      -6359.43
-     0.876097       283.091       322.127
-     0.625932      -21.4679      -35.2975
-     0.445977      -145.281      -326.758
-    0.0687116       11.2764       163.111
-     0.574179        66.224       114.337
-     -0.96784      -4.77268       3.93127
-      0.61446      -14.0268      -23.8279
-     0.870543       1.51582      0.741237
-    -0.400564       1.17331      -3.92916
-     0.887962      0.847605    -0.0454491
-    0.0407209    -0.0151552      -1.37217
-    -0.282453     -0.285417     0.0104941
-    -0.147189     -0.151872     0.0318142
-    -0.879397     -0.878629  -0.000873238
-    -0.898982     -0.898658  -0.000360658
-    -0.407894      -0.40793   8.89028e-05
-    -0.361259     -0.361261   5.06057e-06
-rms deviation / max(y) = 0.00141319
+    -0.451768       1785.87      -3954.07
+    -0.418194      -75.1389       178.675
+     0.829022      -924.673      -1116.38
+    -0.727588       43.7392      -61.1154
+     0.392869       239.131       607.679
+   -0.0440136      -19.3896       439.535
+      0.90632      -122.253       -135.89
+    -0.712775       9.07257      -13.7285
+    -0.912705       54.4488      -60.6565
+    -0.626091      -3.90896       5.24343
+     0.810344      -11.4862      -15.1745
+     0.407144      0.934704       1.29575
+    0.0166861       1.29265       76.4686
+    -0.750337     -0.768604     0.0243455
+     0.187828      0.158601     -0.155605
+     0.261998       0.25561    -0.0243839
+    -0.470279     -0.479633      0.019891
+     0.527395      0.528562      0.002212
+    -0.228505     -0.227451   -0.00461516
+    -0.704566     -0.704625   8.28382e-05
+     -0.42438     -0.424408   6.76663e-05
+rms deviation / max(y) = 0.00137298
 </pre></div>
 </div>
-<img alt="_images/0089aa00798afe3c83331c88c39ee22e32eb621a6919b016be7e68b3748d4a5d.png" src="_images/0089aa00798afe3c83331c88c39ee22e32eb621a6919b016be7e68b3748d4a5d.png" />
+<img alt="_images/3a3336fcbe435931487dc75352972602c17f2f15d450dac172c762be1ceaf1f3.png" src="_images/3a3336fcbe435931487dc75352972602c17f2f15d450dac172c762be1ceaf1f3.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
-<section id="using-svd">
-<h2>Using SVD<a class="headerlink" href="#using-svd" title="Permalink to this heading">#</a></h2>
+<section id="using-singular-value-decomposition-svd">
+<h2>Using Singular Value Decomposition (SVD)<a class="headerlink" href="#using-singular-value-decomposition-svd" title="Permalink to this heading">#</a></h2>
 <p>Singular value decomposition (SVD) is extremely useful in these situations where you are dealing with a close-to-singular matrix. The ratio of the largest to smallest singular values is known as the <strong>condition number</strong> of the matrix, and measures how close to singular it is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">U</span><span class="p">,</span> <span class="n">Sdiag</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
+<span class="c1"># plot the singular values</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">),</span><span class="nb">len</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">)),</span><span class="n">Sdiag</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Singular values&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of singular values = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">))</span><span class="o">/</span><span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">Sdiag</span><span class="p">))))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.linalg.cond gives </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
@@ -528,6 +537,7 @@ rms deviation / max(y) = 0.00141319
 </div>
 </div>
 <div class="cell_output docutils container">
+<img alt="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" src="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 1.02088e+09
 np.linalg.cond gives 1.02088e+09
 </pre></div>
@@ -552,7 +562,8 @@ np.linalg.cond gives 1.02088e+09
 <p>The matrix <span class="math notranslate nohighlight">\(\mathbf{VS^{-1}}\mathbf{U^T}\)</span> is called the <strong>pseudo-inverse</strong>. We can use it to map from the data vector <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> to the model parameters <span class="math notranslate nohighlight">\(\mathbf{a}\)</span>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">aSVD</span> <span class="o">=</span> <span class="n">VT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Sdiag</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find the model parameters using the SVD decomposition</span>
+<span class="n">aSVD</span> <span class="o">=</span> <span class="n">VT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Sdiag</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Polynomial coeffs, Fitted coeffs, Fractional error&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
@@ -574,40 +585,80 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.847225,     -0.847225   3.98387e-11
-     0.351173,      0.351173   2.07464e-10
-    0.0199098,     0.0199098     1.397e-08
-  -0.00797301,   -0.00797301   9.43115e-08
-     0.876097,      0.876097  -3.70549e-09
-     0.625932,      0.625932   9.49997e-09
-     0.445977,      0.445977   3.56707e-08
-    0.0687116,     0.0687116  -1.29096e-07
-     0.574179,      0.574179  -4.63895e-08
-     -0.96784,      -0.96784  -1.02693e-08
-      0.61446,       0.61446   4.34023e-08
-     0.870543,      0.870543  -8.79409e-09
-    -0.400564,     -0.400564   4.26364e-08
-     0.887962,      0.887962   2.17818e-09
-    0.0407209,     0.0407209     1.559e-07
-    -0.282453,     -0.282453   2.10432e-09
-    -0.147189,     -0.147189   1.11939e-08
-    -0.879397,     -0.879397   -1.2843e-10
-    -0.898982,     -0.898982   -2.0244e-10
-    -0.407894,     -0.407894   2.58139e-12
-    -0.361259,     -0.361259   3.17659e-11
-rms deviation / max(y) = 3.60486e-12
+    -0.451768,     -0.451768   5.02148e-11
+    -0.418194,     -0.418194  -1.99561e-10
+     0.829022,      0.829022   4.14331e-10
+    -0.727588,     -0.727588   1.79625e-09
+     0.392869,      0.392869   -9.2605e-09
+   -0.0440136,    -0.0440136  -1.69291e-07
+      0.90632,       0.90632   1.59586e-08
+    -0.712775,     -0.712775   1.94049e-08
+    -0.912705,     -0.912705   2.95799e-08
+    -0.626091,     -0.626091  -3.08765e-08
+     0.810344,      0.810344   3.71747e-08
+     0.407144,      0.407144  -2.69732e-08
+    0.0166861,     0.0166861  -1.34279e-06
+    -0.750337,     -0.750337  -6.07721e-09
+     0.187828,      0.187828   4.23065e-08
+     0.261998,      0.261998  -4.51984e-09
+    -0.470279,     -0.470279    3.5702e-09
+     0.527395,      0.527395   2.39569e-10
+    -0.228505,     -0.228505  -1.00597e-09
+    -0.704566,     -0.704566   1.04706e-11
+     -0.42438,      -0.42438   2.98294e-11
+rms deviation / max(y) = 7.46836e-13
 </pre></div>
 </div>
-<img alt="_images/711587101513786c4d8a8248b08ed9bfab585b61bf600e1921216474d7356875.png" src="_images/711587101513786c4d8a8248b08ed9bfab585b61bf600e1921216474d7356875.png" />
+<img alt="_images/653c45f3cf9a4aece47aaf086361b2673394e00017f55efd73bb9b7a3385973b.png" src="_images/653c45f3cf9a4aece47aaf086361b2673394e00017f55efd73bb9b7a3385973b.png" />
 </div>
 </div>
 </section>
 <section id="orthogonal-polynomials">
 <h2>Orthogonal polynomials<a class="headerlink" href="#orthogonal-polynomials" title="Permalink to this heading">#</a></h2>
-<p>SVD does a lot better than straight inversion of the normal equations, but still fails for large enough polynomial order. One way that we can do better is to choose a set of basis functions that are orthogonal in the domain that we are interested in. For example, the Legendre polynomials are orthogonal on the domain <span class="math notranslate nohighlight">\(x=(-1,1)\)</span> (which you can rescale to by rescaling your <span class="math notranslate nohighlight">\(x\)</span> variable).</p>
+<p>SVD does a lot better than straight inversion of the normal equations, but still fails for large enough polynomial order. One way that we can do better is to choose a set of basis functions that are orthogonal in the domain that we are interested in. For example, both the Legendre polynomials and the Chebyshev polynomials are orthogonal on the domain <span class="math notranslate nohighlight">\(x=(-1,1)\)</span> (which you can rescale to by rescaling your <span class="math notranslate nohighlight">\(x\)</span> variable).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the Legendre and Chebyshev polynomials</span>
+
+<span class="k">def</span> <span class="nf">plot_poly</span><span class="p">(</span><span class="n">poly_generator</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">poly</span> <span class="o">=</span> <span class="n">poly_generator</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="n">plot_poly</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">legendre</span><span class="o">.</span><span class="n">Legendre</span><span class="p">,</span> <span class="s1">&#39;Legendre polynomials&#39;</span><span class="p">)</span>
+<span class="n">plot_poly</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">Chebyshev</span><span class="p">,</span> <span class="s1">&#39;Chebyshev polynomials&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" src="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" />
+<img alt="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" src="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" />
+</div>
+</div>
 <blockquote>
-<div><p><strong>Exercise</strong>:  Try changing the basis functions to Legendre polynomials and see how that improves the fit, both for the inversion and SVD methods. How do the results change when you change the number of data points and the order of the polynomial? Check also how the condition number of the design matrix changes as a function of the polynomial degree when you change the polynomials you are using to fit. Hint: You can use <a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.legvander</span></code></a> to generate the design matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for you.</p>
+<div><p><strong>Exercise</strong>:  Try changing the basis functions to Legendre polynomials or Chebyshev polynomials and see how that improves the fit, both for the inversion and SVD methods.</p>
+<p>Things to investigate:</p>
+<ul class="simple">
+<li><p>How do the results change when you change the number of data points, number of basis functions, and the order of the polynomial that you are fitting?</p></li>
+<li><p>How different is the condition number of the design matrix with these new basis functions compared to what we had before (this will depend on the number of basis functions you use)?</p></li>
+<li><p>Try fitting a more complicated function, e.g. <code class="docutils literal notranslate"><span class="pre">np.exp(np.sin(x**3))</span> <span class="pre">+</span> <span class="pre">np.tanh(x)</span></code></p></li>
+</ul>
+<p>Hint: You can use <a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.legvander</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.chebyshev.chebvander.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.chebyshev.chebvander</span></code></a> to generate the design matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for you.</p>
 </div></blockquote>
+<section id="notes-and-further-reading">
+<h3>Notes and further reading<a class="headerlink" href="#notes-and-further-reading" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>If you try fitting a large order polynomial with and without SVD, i.e. a case with very large condition number, you should see that the coefficients returned by SVD are much better behaved. With the straight inversion, successive coefficients often take on large positive and then negative values, to cancel out the contributions from successive basis functions. With SVD on the other hand, these coefficients tend to small values. For more on this, a good place to look is Numerical Recipes, sections 2.6 (on SVD) and 15.4 (for its use in linear least squares).</p></li>
+<li><p>The Chebyshev polynomials have the interesting property that they have maximum or minimum values of <span class="math notranslate nohighlight">\(\pm 1\)</span>, which makes it easy to assess the errors when approximating functions with a finite number of terms in the Chebyshev expansion. For more on this, look at section 5.8 of Numerical Recipes.</p></li>
+</ul>
+</section>
 </section>
 </section>
 
@@ -678,8 +729,11 @@ rms deviation / max(y) = 3.60486e-12
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-svd">Using SVD</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-polynomials">Orthogonal polynomials</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-singular-value-decomposition-svd">Using Singular Value Decomposition (SVD)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthogonal-polynomials">Orthogonal polynomials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-further-reading">Notes and further reading</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
