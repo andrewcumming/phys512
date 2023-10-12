@@ -200,6 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
@@ -457,13 +458,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.40968579 0.82497116 0.00909829]
- [0.64490999 0.80961382 0.86259823]
- [0.83969231 0.80882411 0.30043942]
- [0.88469095 0.39012422 0.4451645 ]]
-[0.64490999 0.80961382 0.86259823]
-0.86259822520398
-0.86259822520398
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.58429648 0.5475817  0.94481337]
+ [0.69340611 0.49173239 0.19830513]
+ [0.89947095 0.24841412 0.09550412]
+ [0.38436889 0.023344   0.56281127]]
+[0.69340611 0.49173239 0.19830513]
+0.1983051250450184
+0.1983051250450184
 </pre></div>
 </div>
 </div>
@@ -476,9 +477,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.40968579, 0.64490999, 0.83969231, 0.88469095],
-       [0.82497116, 0.80961382, 0.80882411, 0.39012422],
-       [0.00909829, 0.86259823, 0.30043942, 0.4451645 ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.58429648, 0.69340611, 0.89947095, 0.38436889],
+       [0.5475817 , 0.49173239, 0.24841412, 0.023344  ],
+       [0.94481337, 0.19830513, 0.09550412, 0.56281127]])
 </pre></div>
 </div>
 </div>
@@ -492,7 +493,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.08692296, 4.85193232, 3.3586588 , 3.0004329 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.51389999, 2.27178627, 1.68281156, 2.11949071])
 </pre></div>
 </div>
 </div>
@@ -538,8 +539,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 1.70320966e-17],
-       [5.16901429e-20, 1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00,  2.74421217e-17],
+       [-2.18986376e-16,  1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -553,8 +554,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.37016254573446333
-0.37016254573446333
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.08050659009572873
+-0.08050659009572873
 </pre></div>
 </div>
 </div>
@@ -582,17 +583,25 @@ document.write(`
 
 <span class="c1"># Visualize matrices as a color map</span>
 <span class="k">def</span> <span class="nf">plot_matrices</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">titles</span><span class="o">=</span><span class="p">[]):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">titles</span><span class="o">==</span><span class="p">[]:</span>
         <span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">AA</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">n</span><span class="o">&gt;</span><span class="mi">4</span><span class="p">:</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="mi">4</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="n">n</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">4</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>        
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="n">nx</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+        <span class="n">jmax</span> <span class="o">=</span> <span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">jmax</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">:</span>
+            <span class="n">jmax</span> <span class="o">=</span> <span class="n">n</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">AA</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="n">j</span><span class="p">:</span><span class="n">jmax</span><span class="p">]):</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">AA</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">titles</span><span class="p">[</span><span class="mi">4</span><span class="o">*</span><span class="n">j</span> <span class="o">+</span> <span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -612,11 +621,11 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/0bc6fc39b04852cf85c8076201da93f04c8754f306a39e45ad8bc8dfe1ee6cc5.png" src="_images/0bc6fc39b04852cf85c8076201da93f04c8754f306a39e45ad8bc8dfe1ee6cc5.png" />
+<img alt="_images/8302896476d1e76991bb8b6fc71aa972623cae1648e75cf904034c367e129320.png" src="_images/8302896476d1e76991bb8b6fc71aa972623cae1648e75cf904034c367e129320.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/657a03ee07ed445d4c897591fe8155315f6e4ae71a568f513c337fc44527b414.png" src="_images/657a03ee07ed445d4c897591fe8155315f6e4ae71a568f513c337fc44527b414.png" />
+<img alt="_images/80cec26d0ddce9b03b937921372533cd39e35d02cbe9cceef6cf162d0fc97e30.png" src="_images/80cec26d0ddce9b03b937921372533cd39e35d02cbe9cceef6cf162d0fc97e30.png" />
 </div>
 </div>
 </section>
@@ -660,19 +669,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [11.33167335  0.03664607  0.87133821  8.17989998  2.01243708  3.41284953
-  7.3261506   6.4294393   4.53796295  5.25905215]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [-0.17066061 10.74414881  1.03842651  1.95412313  3.55422136  4.34378258
+  4.80456974  6.60511355  7.90381947  8.35102413]
 Eigenvector check:
-0 1.7763568394002505e-14
-1 2.366162821232365e-15
-2 1.4016565685892601e-15
-3 7.993605777301127e-15
-4 1.6237011735142914e-15
-5 1.8735013540549517e-15
-6 6.217248937900877e-15
-7 1.7763568394002505e-15
-8 1.5543122344752192e-15
-9 8.881784197001252e-16
+0 1.519617764955683e-15
+1 4.884981308350689e-15
+2 2.7755575615628914e-15
+3 3.1086244689504383e-15
+4 4.0245584642661925e-15
+5 4.6074255521944e-15
+6 4.385380947269368e-15
+7 2.914335439641036e-15
+8 7.993605777301127e-15
+9 1.9984014443252818e-15
 </pre></div>
 </div>
 </div>
@@ -691,11 +700,11 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/adb208bbcc7fee130c48e86803d66f7bf4bec6046c386f6076b0b9e4c1dadf9b.png" src="_images/adb208bbcc7fee130c48e86803d66f7bf4bec6046c386f6076b0b9e4c1dadf9b.png" />
+<img alt="_images/5f9fad43abeccca14f15742720f4461ecde8b5f04230a3dedbb38ec327552629.png" src="_images/5f9fad43abeccca14f15742720f4461ecde8b5f04230a3dedbb38ec327552629.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/28427d51faa2dd762cdb859f50b4f0927eb3462a8a750ae25aafd9027d99232e.png" src="_images/28427d51faa2dd762cdb859f50b4f0927eb3462a8a750ae25aafd9027d99232e.png" />
+<img alt="_images/2ac24a98e5c65c705c09e0b3456f3c5dab29cb53be8aec8369e5629dd35ea610.png" src="_images/2ac24a98e5c65c705c09e0b3456f3c5dab29cb53be8aec8369e5629dd35ea610.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -708,7 +717,7 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/9a7539a3651c76ed0f568e2d3feed5940109fc20c9018d1bc0d36d772118aed9.png" src="_images/9a7539a3651c76ed0f568e2d3feed5940109fc20c9018d1bc0d36d772118aed9.png" />
+<img alt="_images/d51255d3416e2647649462124f81a6a745eb0c5e04700aa71ef72ddb932a90c5.png" src="_images/d51255d3416e2647649462124f81a6a745eb0c5e04700aa71ef72ddb932a90c5.png" />
 </div>
 </div>
 </section>
@@ -748,25 +757,25 @@ Eigenvector check:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [2.00355544 0.57773749 0.38282564]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [2.57463739 0.51644019 0.37217163]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f64799d6761d5662f52b1998dcefbdcc1ff9d5f235ed3bfcbc3becec47d0a4fa.png" src="_images/f64799d6761d5662f52b1998dcefbdcc1ff9d5f235ed3bfcbc3becec47d0a4fa.png" />
+<img alt="_images/567ccf5be592e73313373ea0fbbe66b1c6ccf7dc9762839e1ab5f88ce5cff56c.png" src="_images/567ccf5be592e73313373ea0fbbe66b1c6ccf7dc9762839e1ab5f88ce5cff56c.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/845c7cc6de13d501eaf6ea143123c0acbe3f10981616d8666adf6dca757e1797.png" src="_images/845c7cc6de13d501eaf6ea143123c0acbe3f10981616d8666adf6dca757e1797.png" />
+<img alt="_images/1be346dc9d17f17e1f5f7b8e7ff1a1ff41dbcab4009597074eeb1854494cef94.png" src="_images/1be346dc9d17f17e1f5f7b8e7ff1a1ff41dbcab4009597074eeb1854494cef94.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/47c6f759cb5b5d10aaf492e9abc00ce9bfdf733d0dfa75628b4bff3050c4dc52.png" src="_images/47c6f759cb5b5d10aaf492e9abc00ce9bfdf733d0dfa75628b4bff3050c4dc52.png" />
+<img alt="_images/8786c24352e16d2de633c3ccbbd88e2304cce1037a6f01ad110b479ccf3be506.png" src="_images/8786c24352e16d2de633c3ccbbd88e2304cce1037a6f01ad110b479ccf3be506.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/0e1d31f83b15a4bfb6643e3c11328bb7a3f1f231f50df5b4dac17c7af4af91f0.png" src="_images/0e1d31f83b15a4bfb6643e3c11328bb7a3f1f231f50df5b4dac17c7af4af91f0.png" />
+<img alt="_images/cbe5963d5d15f9be404803cfd7e11b9b693cacb78e68113fe5027f3be13bce02.png" src="_images/cbe5963d5d15f9be404803cfd7e11b9b693cacb78e68113fe5027f3be13bce02.png" />
 </div>
 </div>
 </section>

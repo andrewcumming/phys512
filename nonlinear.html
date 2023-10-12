@@ -200,6 +200,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
@@ -416,6 +417,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-least-squares-fitting">Application to least-squares fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levenberg-marquardt">Levenberg-Marquardt</a></li>
 </ul>
             </nav>
         </div>
@@ -513,6 +515,22 @@ document.write(`
 </ul>
 </div>
 </section>
+<section id="levenberg-marquardt">
+<h2>Levenberg-Marquardt<a class="headerlink" href="#levenberg-marquardt" title="Permalink to this heading">#</a></h2>
+<p>You might have noticed in the exercise that Newton’s method doesn’t always converge. For the parameters given above, if you start at <span class="math notranslate nohighlight">\((a_0,a_1,a_2)=(1,1,1)\)</span> then you should converge on the correct solution pretty quickly, but choosing <span class="math notranslate nohighlight">\((1,1,4)\)</span> as a starting point instead leads to a diverging solution. Levenberg-Marquardt is a modification of Newton’s method that often leads to a more robust solution. The algorithm is:</p>
+<ul class="simple">
+<li><p>Define a parameter <span class="math notranslate nohighlight">\(\lambda\)</span> with a small starting value, e.g. <span class="math notranslate nohighlight">\(\lambda=10^{-3}\)</span>.</p></li>
+<li><p>Solve as with Newton’s method, but multiply the diagonal elements of <span class="math notranslate nohighlight">\(\mathbf{A^T}\mathbf{A}\)</span> by <span class="math notranslate nohighlight">\((1+\lambda)\)</span>. So <code class="docutils literal notranslate"><span class="pre">A.T&#64;A</span></code> becomes <code class="docutils literal notranslate"><span class="pre">A.T&#64;A&#64;(np.identity(len(a))*(1+lambda))</span></code>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\chi^2\)</span> with the new parameters <span class="math notranslate nohighlight">\(\vec{a}_{n+1}\)</span> is greater than with the current set of parameters <span class="math notranslate nohighlight">\(\vec{a}_n\)</span>, then increase <span class="math notranslate nohighlight">\(\lambda\)</span> by a factor of 10, go back to <span class="math notranslate nohighlight">\(\vec{a}_n\)</span> and try again.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\chi^2(\vec{a}_{n+1})\)</span> is smaller than <span class="math notranslate nohighlight">\(\chi^2(\vec{a}_n)\)</span>, then reduce <span class="math notranslate nohighlight">\(\lambda\)</span> by a factor of 10 and accept the step <span class="math notranslate nohighlight">\(\vec{a}_n\rightarrow \vec{a}_{n+1}\)</span>.</p></li>
+</ul>
+<p>The way this works is that if things are going well (<span class="math notranslate nohighlight">\(\chi^2\)</span> is decreasing) then <span class="math notranslate nohighlight">\(\lambda\)</span> stays small and the update is basically the same as Newton’s method. However, if <span class="math notranslate nohighlight">\(\chi^2\)</span> starts increasing, <span class="math notranslate nohighlight">\(\lambda\)</span> grows, making the diagonal of <span class="math notranslate nohighlight">\(\mathbf{A^T}\mathbf{A}\)</span> dominant. The update is then <span class="math notranslate nohighlight">\(\delta\vec{a}\propto -\vec{\nabla}\chi^2\)</span>, in the direction of the gradient of <span class="math notranslate nohighlight">\(\chi^2\)</span>, which is a <em>steepest descent</em> method. The steepest descent method is inefficient when applied by itself, but in combination with Newton’s method like this is a very powerful algorithm for moving towards the minimum.</p>
+<div class="admonition-exercise-lorentzian-fit-part-2 admonition">
+<p class="admonition-title">Exercise: Lorentzian fit part 2</p>
+<p>Update your Lorentzian fitting routine to use Levenberg-Marquardt. Try it out and see whether it fixes the convergence issues you were seeing with Newton’s method.</p>
+<p>Finally, try doing the fit using <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.least_squares</span></code></a> instead.</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -584,6 +602,7 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-least-squares-fitting">Application to least-squares fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#levenberg-marquardt">Levenberg-Marquardt</a></li>
 </ul>
   </nav></div>
 

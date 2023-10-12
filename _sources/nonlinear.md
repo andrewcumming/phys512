@@ -105,3 +105,26 @@ y = y + 0.03 * np.random.normal(size = ndata)
 - Next, modify the `lorentz` function so that it calculates the $\mathbf{A}$ matrix using finite differences rather than analytic derivatives. Check that you get the same answer as before.
 
 ````
+
+## Levenberg-Marquardt
+
+You might have noticed in the exercise that Newton's method doesn't always converge. For the parameters given above, if you start at $(a_0,a_1,a_2)=(1,1,1)$ then you should converge on the correct solution pretty quickly, but choosing $(1,1,4)$ as a starting point instead leads to a diverging solution. Levenberg-Marquardt is a modification of Newton's method that often leads to a more robust solution. The algorithm is:
+
+- Define a parameter $\lambda$ with a small starting value, e.g. $\lambda=10^{-3}$.
+
+- Solve as with Newton's method, but multiply the diagonal elements of $\mathbf{A^T}\mathbf{A}$ by $(1+\lambda)$. So `A.T@A` becomes `A.T@A@(np.identity(len(a))*(1+lambda))`.
+
+- If $\chi^2$ with the new parameters $\vec{a}_{n+1}$ is greater than with the current set of parameters $\vec{a}_n$, then increase $\lambda$ by a factor of 10, go back to $\vec{a}_n$ and try again.
+
+- If $\chi^2(\vec{a}_{n+1})$ is smaller than $\chi^2(\vec{a}_n)$, then reduce $\lambda$ by a factor of 10 and accept the step $\vec{a}_n\rightarrow \vec{a}_{n+1}$.
+
+The way this works is that if things are going well ($\chi^2$ is decreasing) then $\lambda$ stays small and the update is basically the same as Newton's method. However, if $\chi^2$ starts increasing, $\lambda$ grows, making the diagonal of $\mathbf{A^T}\mathbf{A}$ dominant. The update is then $\delta\vec{a}\propto -\vec{\nabla}\chi^2$, in the direction of the gradient of $\chi^2$, which is a *steepest descent* method. The steepest descent method is inefficient when applied by itself, but in combination with Newton's method like this is a very powerful algorithm for moving towards the minimum. 
+
+```{admonition} Exercise: Lorentzian fit part 2
+
+Update your Lorentzian fitting routine to use Levenberg-Marquardt. Try it out and see whether it fixes the convergence issues you were seeing with Newton's method.
+
+Finally, try doing the fit using [`scipy.optimize.least_squares`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) instead. 
+
+``` 
+
