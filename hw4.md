@@ -10,7 +10,7 @@ $$\mathbf{A} = \sum_\alpha s_\alpha \mathbf{u_\alpha} \mathbf{v_\alpha^T},$$ (su
 
 where $s_\alpha$ are the singular values (that make up the diagonal of $\mathbf{S}$), and $\mathbf{u_\alpha}$ and $\mathbf{v_\alpha}$ are the column vectors that make up the matrices $\mathbf{U}$ and $\mathbf{V}$. This shows that the matrix $\mathbf{A}$ can be decomposed into a linear combination of the matrices formed by the outer product of each pair of $\mathbf{u_\alpha}$ and $\mathbf{v_\alpha}$ vectors. (These are rank-1 matrices since they are constructed from a single column and row vector.)
 
-(b) Construct a $4\times 3$ matrix $\mathbf{A}$ filled with random numbers (uniform between 0 and 1) and compute the component matrices $\mathbf{u_\alpha} \mathbf{v_\alpha^T}$. Plot color maps of the component matrices. Compute the sum in equation {eq}`sum` and confirm that it gives you the original matrix.
+(b) Construct a $10\times 6$ matrix $\mathbf{A}$ filled with random numbers (uniform between 0 and 1) and compute the component matrices $\mathbf{u_\alpha} \mathbf{v_\alpha^T}$. Plot color maps of the component matrices. Compute the sum in equation {eq}`sum` and confirm that it gives you the original matrix.
 
 (c) Now consider truncating the sum in equation {eq}`sum`, i.e. take only the $n$ largest singular values in the sum. Calculate the mean error between the reconstructed matrix and the original matrix as a function of $n$. (For a given $n$, the matrix constructed in this way is a rank-$n$ approximation of the matrix $\mathbf{A}$.)
 
