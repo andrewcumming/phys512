@@ -31,4 +31,5 @@ Choose the smallest value of $n$ that in your opinion gives a reasonable reprodu
 
 [Hint: you may find that taking a full Newton step causes problems, for example by trying to jump out of the range $e=0$--$1$. In that case, you can artifically reduce the step, ie. update using $\vec{a}_{n+1} = \vec{a}_n  + \alpha\, \delta\vec{a}$ for some $\alpha < 1$ (I used $\alpha=0.2$).]
 
-(b) In a least-squares fit, the *covariance matrix* $\mathbf{C} = (\mathbf{A^T}\mathbf{A})^{-1}$ gives the errors in the parameters, ie. $C_{ii}$ is the variance in $a_i$, and $C_{ij}$ is the covariance of parameters $a_i$ and $a_j$. Evaluate $\mathbf{C}$ for your best fit and compare with what we found with MCMC.
+(b) In a least-squares fit, the *covariance matrix* $\mathbf{C} = (\mathbf{A^T}\mathbf{A})^{-1}$ gives the errors in the parameters, ie. $C_{ii}$ is the variance in $a_i$, and $C_{ij}$ is the covariance of parameters $a_i$ and $a_j$. Evaluate $\mathbf{C}$ for your best fit and compare with what we found with MCMC. One way to do this is to compute $\mathbf{C}$ from the MCMC samples.
+
