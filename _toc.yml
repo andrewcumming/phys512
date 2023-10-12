@@ -47,6 +47,7 @@ parts:
         - file: hw1
         - file: hw2
         - file: hw3
+        - file: hw4
         - file: project_instructions
         - file: homework_solutions
           sections:
