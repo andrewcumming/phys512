@@ -69,7 +69,7 @@ Other books you could look at are:
 - [Numerical Recipes: The Art of Scientific Computing](http://numerical.recipes/book.html) by Press, Teukolsky, Vetterling and Flannery. The classic book on numerical methods with really good explanations. The downside is that the C/Fortran code comes with a very restrictive license. Available to read online (although with annoying popups unless you purchase a license).
 - [Introductory Computational Physics](https://mcgill.on.worldcat.org/search/detail/569384322?queryString=au%3A%28klein%20godunov%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129) by Klein and Godunov has a nice concise treatment of different topics. 
 
-Course materials for previous versions of this course by Jon Sievers are available on github: [2020](https://github.com/sievers/phys512-2022), [2021](https://github.com/sievers/phys512-2022), and [2022](https://github.com/sievers/phys512-2022).
+Course materials for previous versions of this course by Jon Sievers are available on github: [2020](https://github.com/sievers/phys512-2020), [2021](https://github.com/sievers/phys512-2021), and [2022](https://github.com/sievers/phys512-2022).
 
 There are also other courses on computational physics that have materials online:
 
