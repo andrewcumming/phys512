@@ -12,7 +12,7 @@ where $s_\alpha$ are the singular values (that make up the diagonal of $\mathbf{
 
 (b) Construct a $10\times 6$ matrix $\mathbf{A}$ filled with random numbers (uniform between 0 and 1) and compute the component matrices $\mathbf{u_\alpha} \mathbf{v_\alpha^T}$. Plot color maps of the component matrices. Compute the sum in equation {eq}`sum` and confirm that it gives you the original matrix.
 
-(c) Now consider truncating the sum in equation {eq}`sum`, i.e. take only the $n$ largest singular values in the sum. Calculate the mean error between the reconstructed matrix and the original matrix as a function of $n$. (For a given $n$, the matrix constructed in this way is a rank-$n$ approximation of the matrix $\mathbf{A}$.)
+(c) Now try truncating the sum in equation {eq}`sum`, i.e. take only the $n$ largest singular values in the sum. Calculate the mean error between the reconstructed matrix and the original matrix as a function of $n$. (For a given $n$, the matrix constructed in this way is a rank-$n$ approximation of the matrix $\mathbf{A}$.)
 
 (d) Next try this on an image. You can use your own or otherwise I've provided one here: [github_logo](https://github.com/andrewcumming/phys512/blob/main/github_logo.png). You can load this into a matrix using
 
