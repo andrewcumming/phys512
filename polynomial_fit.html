@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'polynomial_fit';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="next" title="Non-linear least squares" href="nonlinear.html" />
     <link rel="prev" title="Linear least squares" href="linear_least_squares.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -193,6 +193,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -488,31 +489,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-      0.94682       770.322       812.588
-    0.0622643       82.7806        1328.5
-    -0.669384      -399.509       595.831
-     0.189481      -49.0596      -259.915
-    -0.898382        102.24      -114.805
-    -0.233045       21.1431      -91.7254
-    -0.670865      -53.8837       79.3198
-     0.990496      -9.79889      -10.8929
-     0.829703       24.7598       28.8417
-     0.219875       3.82264       16.3855
-     0.598403      -4.76351      -8.96038
-     0.107118     -0.468106      -5.36999
-     0.150171      0.746998       3.97432
-     0.204968      0.223768     0.0917203
-    0.0174396    -0.0122268      -1.70109
-     0.199626      0.208369     0.0437974
-    -0.299813     -0.300636    0.00274519
-    -0.626465     -0.627784    0.00210569
-     0.171016      0.171088   0.000421802
-     0.764151      0.764221   9.12447e-05
-    -0.246484     -0.246476  -3.18963e-05
-rms deviation / max(y) = 0.000879584
+     0.659009      -670.576      -1018.55
+     0.306393      -125.762      -411.458
+    -0.487604       347.813      -714.311
+     0.221752       75.3266       338.688
+    -0.223791      -90.6643        404.13
+    -0.984976       -33.612       33.1247
+    -0.525295       46.1292      -88.8158
+     0.470408        16.953        35.039
+     0.444355      -20.5153      -47.1687
+     0.838189      -4.70365      -6.61169
+     0.487191       5.20241       9.67838
+     0.607156       1.51039       1.48765
+    -0.469238      -1.01135       1.15531
+    -0.964621      -1.00433     0.0411668
+    -0.232253     -0.200229     -0.137881
+    -0.848692     -0.858377     0.0114111
+     0.557617      0.556334   -0.00230074
+     0.376734      0.378545    0.00480521
+    -0.751237     -0.751024  -0.000284114
+    -0.969734      -0.96983   9.87448e-05
+     0.355725      0.355707  -5.00122e-05
+rms deviation / max(y) = 0.000615223
 </pre></div>
 </div>
-<img alt="_images/2f67110f1ddaad14c9dcc2a6adba95ad6da32cebb0f4baf4e7666e0a06a31cd7.png" src="_images/2f67110f1ddaad14c9dcc2a6adba95ad6da32cebb0f4baf4e7666e0a06a31cd7.png" />
+<img alt="_images/d784e3ff0f5cbd267e13f0fb9f4d497fb8e614977215a752025491eaf0df3a1b.png" src="_images/d784e3ff0f5cbd267e13f0fb9f4d497fb8e614977215a752025491eaf0df3a1b.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -585,31 +586,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-      0.94682,       0.94682   1.57658e-11
-    0.0622643,     0.0622643  -8.28812e-11
-    -0.669384,     -0.669384  -2.27383e-10
-     0.189481,      0.189481   4.59246e-09
-    -0.898382,     -0.898382   1.68019e-09
-    -0.233045,     -0.233045   7.99698e-09
-    -0.670865,     -0.670865  -1.40403e-08
-     0.990496,      0.990496   6.09352e-09
-     0.829703,      0.829703  -8.68291e-09
-     0.219875,      0.219875  -3.74087e-08
-     0.598403,      0.598403   2.19932e-08
-     0.107118,      0.107118   2.54133e-08
-     0.150171,      0.150171  -7.09071e-09
-     0.204968,      0.204968  -1.44913e-08
-    0.0174396,     0.0174396    1.8596e-07
-     0.199626,      0.199626   1.75173e-09
-    -0.299813,     -0.299813   2.91586e-09
-    -0.626465,     -0.626465   8.94343e-11
-     0.171016,      0.171016   5.94706e-10
-     0.764151,      0.764151   3.95243e-12
-    -0.246484,     -0.246484   1.42064e-11
-rms deviation / max(y) = 1.27367e-11
+     0.659009,      0.659009  -3.72946e-11
+     0.306393,      0.306393   -6.4582e-11
+    -0.487604,     -0.487604   7.35464e-10
+     0.221752,      0.221752  -1.93843e-09
+    -0.223791,     -0.223791  -1.48199e-08
+    -0.984976,     -0.984976  -2.45675e-09
+    -0.525295,     -0.525295   1.33369e-08
+     0.470408,      0.470408  -1.90748e-08
+     0.444355,      0.444355    4.9522e-08
+     0.838189,      0.838189   3.96133e-09
+     0.487191,      0.487191  -1.84507e-08
+     0.607156,      0.607156  -4.43292e-09
+    -0.469238,     -0.469238  -1.49681e-08
+    -0.964621,     -0.964621   -7.7288e-10
+    -0.232253,     -0.232253   1.82862e-08
+    -0.848692,     -0.848692   6.48579e-10
+     0.557617,      0.557617    1.0248e-09
+     0.376734,      0.376734   3.93414e-11
+    -0.751237,     -0.751237   7.76385e-11
+    -0.969734,     -0.969734   6.84634e-14
+     0.355725,      0.355725  -2.14414e-12
+rms deviation / max(y) = 8.13589e-12
 </pre></div>
 </div>
-<img alt="_images/10b2db9d94abc0cdeec77f9b4319ca619d95884592a6ece81c033fdba024d434.png" src="_images/10b2db9d94abc0cdeec77f9b4319ca619d95884592a6ece81c033fdba024d434.png" />
+<img alt="_images/47162be8f151a98d8a27137d4a09377c408d557790b1933bca2e3f004143e9b6.png" src="_images/47162be8f151a98d8a27137d4a09377c408d557790b1933bca2e3f004143e9b6.png" />
 </div>
 </div>
 </section>
@@ -703,11 +704,11 @@ rms deviation / max(y) = 1.27367e-11
       </div>
     </a>
     <a class="right-next"
-       href="hw1.html"
+       href="nonlinear.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Homework 1</p>
+        <p class="prev-next-title">Non-linear least squares</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

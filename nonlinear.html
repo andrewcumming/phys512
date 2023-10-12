@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Homework 3 &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Non-linear least squares &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'hw3';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'nonlinear';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Project Instructions" href="project_instructions.html" />
-    <link rel="prev" title="Homework 2" href="hw2.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="Polynomial fitting" href="polynomial_fit.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -188,18 +188,18 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving equations</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Non-linear least squares</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
@@ -292,7 +292,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fhw3.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fnonlinear.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/hw3.md" target="_blank"
+      <li><a href="_sources/nonlinear.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -391,7 +391,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -402,11 +404,20 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Homework 3</h1>
+    <h1>Non-linear least squares</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-least-squares-fitting">Application to least-squares fitting</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -416,49 +427,92 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="homework-3">
-<h1>Homework 3<a class="headerlink" href="#homework-3" title="Permalink to this heading">#</a></h1>
-<p>Due on Friday Oct 13 by midnight.</p>
-<p>In this homework, we will look at some applications of Monte Carlo methods.</p>
-<ol class="arabic simple">
-<li><p><strong>Diffusion-limited aggregation</strong></p></li>
-</ol>
-<p>In this question we want to model the growth of a crystal starting with a small solid “seed” that grows as particles from the liquid randomly encounter the seed and stick to it. Once the particle sticks, it becomes part of the solid and can in turn cause liquid particles to stick to it. In this way, the liquid particles freeze onto the growing solid. Because the rate of growth is set by how quickly the liquid particles diffuse and encounter the growing crystal, this process is known as diffusion-limited aggregation.</p>
-<p>(a) First model the liquid particles – consider a collection of <span class="math notranslate nohighlight">\(N=10^4\)</span> particles undergoing Brownian motion, i.e. random walks. The particles do not interact, so we don’t have to worry about collisions between particles, they move independently from one another.</p>
-<p>A simple way to do this is to assume that the particles can only occupy discrete locations (<span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(j\)</span>) on a square <span class="math notranslate nohighlight">\(n\times n\)</span> grid (a good value to choose is <span class="math notranslate nohighlight">\(n=200\)</span>). Start with a random choice of position for each particle and update the positions at each timestep by assuming the particle can either stay where it is or jump to one of the neighbouring 8 squares. (Note that you can do this efficiently by storing the locations of all the particles in a vector and updating all the locations at once in a vector operation. Also, you can assume periodic boundary conditions, so that if a particle moves off the right hand side of the grid it reappears on the left and so on.)</p>
-<p>Implement this and plot the trajectories of your particles. Investigate how the distance moved from the starting location depends on time. Is it what you expect for a random walk?</p>
-<p>(b) Now create a separate <span class="math notranslate nohighlight">\(n\times n\)</span> array that will keep track of which locations are occupied by solid (once particles become solid they stop moving so you just need to keep track of where they are). For the initial condition, put a small collection of solid particles in the center of your grid (the “seed”). Then evolve the liquid particles in time as in part (a). If a liquid particle moves next to a solid particle, then it becomes part of the solid (and is removed from the collection of liquid particles). Evolve your simulation in time until 80% of your particles have solidified.
-Plot the 2D distribution of liquid and solid particles at different times during the simulation (even better, make a movie showing what happens over time).</p>
-<p>(c) Plot the number of solid particles against time. How does <span class="math notranslate nohighlight">\(N_\mathrm{solid}\)</span> change with time? Can you understand this using your results from part (a) on how the liquid particles move?</p>
-<p>(It may also help to plot the number density of liquid particles as a function of radial distance from the centre of the grid and look at how it evolves with time).</p>
-<ol class="arabic simple" start="2">
-<li><p><strong>Ising model</strong></p></li>
-</ol>
-<p>The Ising model is a simple model of a ferromagnetic material in which a lattice of spins interact via nearest-neighbour interactions. In 2D, we have a square lattice with <span class="math notranslate nohighlight">\(n\times n = N\)</span> lattice sites on which the spins sit. Each spin can be either up (<span class="math notranslate nohighlight">\(s=+1\)</span>) or down (<span class="math notranslate nohighlight">\(s=-1\)</span>), and the total energy of the system is</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="non-linear-least-squares">
+<h1>Non-linear least squares<a class="headerlink" href="#non-linear-least-squares" title="Permalink to this heading">#</a></h1>
+<p>Now let’s discuss what happens if we have a non-linear model <span class="math notranslate nohighlight">\(m(x,\vec{a})\)</span> that we want to fit to a set of measurements <span class="math notranslate nohighlight">\(y_i(x_i)\)</span>. We want to minimize</p>
 <div class="math notranslate nohighlight">
-\[E = -\sum_\mathrm{nn} s_i s_j,\]</div>
-<p>where “nn” in the sum indicates that the sum is over nearest-neighbour pairs (with each pair counted once). Any given spin interacts only with the spins that are immediately up, down, left and right from its location. We can see that the energy will be minimized when neighbouring spins are aligned.</p>
-<p>For any given configuration of spins, the total magnetization is</p>
+\[\chi^2 = \sum_{i=1}^N \left[{y_i - m(x_i, \vec{a})\over \sigma_i}  \right]^2.\]</div>
+<p>We’ll first discuss Newton’s method and its application to least-squares, and then a generalization of this method, Levenberg-Marquardt.</p>
+<section id="newton-s-method">
+<h2>Newton’s method<a class="headerlink" href="#newton-s-method" title="Permalink to this heading">#</a></h2>
+<p>The simplest way to see how Newton’s method works is to consider a one-dimensional function <span class="math notranslate nohighlight">\(f(x)\)</span>. We would like to find the value of <span class="math notranslate nohighlight">\(x\)</span> that minimises <span class="math notranslate nohighlight">\(f(x)\)</span>. Given a current guess for the location of the minimum, <span class="math notranslate nohighlight">\(x_n\)</span>, we first write down a quadratic expansion around <span class="math notranslate nohighlight">\(x_n\)</span>:</p>
 <div class="math notranslate nohighlight">
-\[M = \sum_i s_i.\]</div>
-<p>At a temperature <span class="math notranslate nohighlight">\(T\)</span>, the probability that the system is in a configuration with energy <span class="math notranslate nohighlight">\(E\)</span> is given by the Boltzmann distribution</p>
+\[f(x) = f(x_n) + (x-x_n) \left.{df\over dx}\right|_{x_n} + {(x-x_n)^2\over 2} \left.{d^2f\over dx^2}\right|_{x_n}.\]</div>
+<p>We find an updated value for the location of the minimum <span class="math notranslate nohighlight">\(x_{n+1}\)</span> by minimizing this quadratic expansion:</p>
 <div class="math notranslate nohighlight">
-\[\mathrm{Prob}(E) \propto \exp\left(-E/k_b T\right).\hspace{1cm} (*)\]</div>
-<p>To calculate the magnetization at a given temperature, we need to sample the possible configurations from this probability distribution and then we can average over them to find the mean magnetization <span class="math notranslate nohighlight">\(\langle M\rangle\)</span> as a function of temperature. Since the energy <span class="math notranslate nohighlight">\(E\)</span> depends on the values of the <span class="math notranslate nohighlight">\(N\)</span> spins <span class="math notranslate nohighlight">\(\{s_i\}\)</span>, we are dealing with an <span class="math notranslate nohighlight">\(N\)</span> dimensional parameter space (with <span class="math notranslate nohighlight">\(2^N\)</span> possible sample points), and so this an example where Monte Carlo methods are needed to sample from the probability distribution.</p>
-<p>(a) Use the Metropolis-Hastings algorithm to generate a sample of configurations <span class="math notranslate nohighlight">\(\{s_i\}\)</span> from the probability distribution (*). Rather than storing the sequence of configurations, instead calculate <span class="math notranslate nohighlight">\(M\)</span> at each step and store the chain of <span class="math notranslate nohighlight">\(M\)</span> values.</p>
-<p>Some hints:</p>
+\[{df\over dx}=0 \Rightarrow \left.{df\over dx}\right|_{x_n} + (x_{n+1} -x_n) \left.{d^2f\over dx^2}\right|_{x_n}=0\]</div>
+<div class="math notranslate nohighlight" id="equation-newton">
+<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation">#</a></span>\[\Rightarrow x_{n+1} = x_n - \left(\left.{d^2f\over dx^2}\right|_{x_n}\right)^{-1} \left.{df\over dx}\right|_{x_n}.\]</div>
+<p>To the extent the function is locally well-approximated by a quadratic, this update should take us closer to the minimum. Newton’s method is to iteratively apply equation <a class="reference internal" href="#equation-newton">(1)</a> until it converges, for example when the fractional change in <span class="math notranslate nohighlight">\(x\)</span> is smaller than a threshold.</p>
+<p>Following through the same argument in multi-dimensions, the quadratic expansion becomes</p>
+<div class="math notranslate nohighlight">
+\[f(\vec{x}) = f(\vec{x_n}) + (\vec{x}-\vec{x_n})\cdot\vec{\nabla} f(\vec{x_n}) + {1\over 2}(\vec{x}-\vec{x_n})\cdot \mathbf{H} \cdot (\vec{x}-\vec{x_n}),\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> is the <em>Hessian matrix</em></p>
+<div class="math notranslate nohighlight">
+\[(\mathbf{H})_{ij} = {\partial^2 f\over \partial x_i\partial x_j}.\]</div>
+<p>The update becomes</p>
+<div class="math notranslate nohighlight" id="equation-newtonmultid">
+<span class="eqno">(2)<a class="headerlink" href="#equation-newtonmultid" title="Permalink to this equation">#</a></span>\[\vec{x_{n+1}} = \vec{x_n} - \mathbf{H}^{-1}\cdot\vec{\nabla} f(\vec{x_n}).\]</div>
+</section>
+<section id="application-to-least-squares-fitting">
+<h2>Application to least-squares fitting<a class="headerlink" href="#application-to-least-squares-fitting" title="Permalink to this heading">#</a></h2>
+<p>To apply this to least-squares, we first need the gradient of <span class="math notranslate nohighlight">\(\chi^2\)</span> with respect to the parameters, <span class="math notranslate nohighlight">\(\vec{\nabla} \chi^2\)</span>, whose <span class="math notranslate nohighlight">\(k\)</span>-th component is given by</p>
+<div class="math notranslate nohighlight">
+\[{\partial \chi^2\over\partial a_k} = -2 \sum_i \left[{y_i - m(x_i, \vec{a})\over \sigma_i}  \right] {1\over \sigma_i} {\partial m(x_i, \vec{a})\over\partial a_k}.\]</div>
+<p>If we define the matrix</p>
+<div class="math notranslate nohighlight">
+\[A_{ik} \equiv {1\over \sigma_i} {\partial m(x_i, \vec{a})\over\partial a_k}\]</div>
+<p>and the residual vector <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> with <span class="math notranslate nohighlight">\(i\)</span>-th component</p>
+<div class="math notranslate nohighlight">
+\[r_i = {y_i - m(x_i, \vec{a})\over \sigma_i}\]</div>
+<p>then we have</p>
+<div class="math notranslate nohighlight" id="equation-gradchi2">
+<span class="eqno">(3)<a class="headerlink" href="#equation-gradchi2" title="Permalink to this equation">#</a></span>\[{1\over 2} {\partial \chi^2\over\partial a_k} = - \sum_i A_{ik} r_i\]</div>
+<p>or in matrix form</p>
+<div class="math notranslate nohighlight" id="equation-gradchi2vec">
+<span class="eqno">(4)<a class="headerlink" href="#equation-gradchi2vec" title="Permalink to this equation">#</a></span>\[{1\over 2} \vec{\nabla} \chi^2 = - \mathbf{A^T}\mathbf{r}.\]</div>
+<p>We can find the Hessian matrix by taking another derivative of equation <a class="reference internal" href="#equation-gradchi2">(3)</a>, giving</p>
+<div class="math notranslate nohighlight">
+\[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = \sum_i A_{ik}A_{i\ell} + \sum_i r_i {\partial^2 m(x_i)\over \partial a_k \partial a_\ell}.\]</div>
+<p>The second term involving the second derivative of the model is usually dropped with the argument that near the best-fitting solution, <span class="math notranslate nohighlight">\(r_i\)</span> should be small, especially when summed over <span class="math notranslate nohighlight">\(i\)</span> and positive and negative values cancel. Neglecting this term, we get</p>
+<div class="math notranslate nohighlight" id="equation-hessian">
+<span class="eqno">(5)<a class="headerlink" href="#equation-hessian" title="Permalink to this equation">#</a></span>\[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = (\mathbf{A^T}\mathbf{A})_{k\ell}.\]</div>
+<p>Now plugging equations <a class="reference internal" href="#equation-gradchi2vec">(4)</a> and <a class="reference internal" href="#equation-hessian">(5)</a> into the Newton’s method update (eq. <a class="reference internal" href="#equation-newtonmultid">(2)</a>), we find</p>
+<div class="math notranslate nohighlight" id="equation-newtonupdate">
+<span class="eqno">(6)<a class="headerlink" href="#equation-newtonupdate" title="Permalink to this equation">#</a></span>\[\vec{a}_{n+1} = \vec{a}_n - (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.\]</div>
+<p>Starting with an initial guess for the parameters, we can apply this rule iteratively until (hopefully) we converge on the best fit (ie. the set of parameters that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span>).</p>
+<div class="admonition-exercise-lorentzian-fit admonition">
+<p class="admonition-title">Exercise: Lorentzian fit</p>
+<p>Let’s apply this method to fit a set of data points with a Lorentzian</p>
+<div class="math notranslate nohighlight">
+\[ f(x) = {a_0\over a_1 + (x-a_2)^2}.\]</div>
+<p>The following function takes a vector of parameters for the Lorentzian <span class="math notranslate nohighlight">\(\vec{a}=(a_0,a_1,a_2)\)</span> and a set of <span class="math notranslate nohighlight">\(x\)</span> values and returns <span class="math notranslate nohighlight">\(f(x)\)</span> and the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="k">def</span> <span class="nf">lorentz</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Calculates the Lorentz function and analytic derivatives </span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">a</span><span class="p">)])</span>
+        <span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="n">A</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">return</span> <span class="n">f</span><span class="p">,</span> <span class="n">A</span>
+</pre></div>
+</div>
+<p>In this function, we populate the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> with the derivatives of the Lorentzian with respect to each of the parameters. As usual, for simplicity we assume constant errors <span class="math notranslate nohighlight">\(\sigma_i\)</span> so that they cancel out of the equations.</p>
+<p>Now generate a set of measurements including some Gaussian noise:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>   <span class="c1"># &#39;true&#39; parameters of the Lorentzian</span>
+<span class="n">ndata</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># number of measurements </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">ndata</span><span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">lorentz</span><span class="p">(</span><span class="n">a0</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> 
+<span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.03</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">ndata</span><span class="p">)</span>
+</pre></div>
+</div>
 <ul class="simple">
-<li><p>for the proposal step of the Metropolis algorithm, you can choose a spin at random and consider flipping it from up to down or vice versa.</p></li>
-<li><p>when you assess whether or not to accept the proposed change, you can use the change in energy due to the spin flip, which is</p></li>
+<li><p>Implement Newton’s method to fit the data points <span class="math notranslate nohighlight">\(y(x)\)</span> with a Lorentzian function. Start with a guess for the parameters and use equation <a class="reference internal" href="#equation-newtonupdate">(6)</a> to iteratively improve the guess. As a stopping criterion, you could monitor the size of the residual and stop when it falls below a certain value (e.g. <code class="docutils literal notranslate"><span class="pre">np.sqrt(np.mean(r**2))</span></code>). [Depending on your initial guess, you might also get cases where the algorithm does not converge, in which case it will never reach your stopping criterion. One way to look out for these cases is to stop when the error gets larger after an iteration rather than getting smaller.]</p></li>
+<li><p>Once you converge on an answer for the best-fit parameters, plot the corresponding Lorentzian on top of your data points to confirm visually that you are getting a good fit. Also, compare your best-fitting parameters with the input parameters used to generate the measurements.</p></li>
+<li><p>Next, modify the <code class="docutils literal notranslate"><span class="pre">lorentz</span></code> function so that it calculates the <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> matrix using finite differences rather than analytic derivatives. Check that you get the same answer as before.</p></li>
 </ul>
-<div class="math notranslate nohighlight">
-\[\Delta E = 2 s_i \left( s_\mathrm{up} + s_\mathrm{down} + s_\mathrm{left} +s_\mathrm{right} \right)\]</div>
-<p>(where the spins here are the current values before the spin flip).</p>
-<ul class="simple">
-<li><p>you can use periodic boundary conditions for the lattice, and you might find it simpler to store the spins in a 1D array rather than a 2D array.</p></li>
-</ul>
-<p>(b) Make plots of your chains of <span class="math notranslate nohighlight">\(M\)</span> (i.e. plot <span class="math notranslate nohighlight">\(M\)</span> against iteration number) for different temperatures in the range <span class="math notranslate nohighlight">\(k_BT = 1\)</span>–<span class="math notranslate nohighlight">\(4\)</span>. Do you see a “burn-in” phase? You should see a dramatic difference in behavior between low and high temperatures - a phase transition. How do your sequences change as <span class="math notranslate nohighlight">\(T\)</span> changes?</p>
-<p>(c) Plot the mean magnetization <span class="math notranslate nohighlight">\(\langle |M|\rangle\)</span> and the variance <span class="math notranslate nohighlight">\(\mathrm{Var}(M)\)</span> as a function of temperature. A characteristic of second order phase transitions is large fluctuations during the phase transition. Do you see this behaviour?</p>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -493,20 +547,20 @@ Plot the 2D distribution of liquid and solid particles at different times during
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="hw2.html"
+       href="polynomial_fit.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Homework 2</p>
+        <p class="prev-next-title">Polynomial fitting</p>
       </div>
     </a>
     <a class="right-next"
-       href="project_instructions.html"
+       href="hw1.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Project Instructions</p>
+        <p class="prev-next-title">Homework 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -519,6 +573,21 @@ Plot the 2D distribution of liquid and solid particles at different times during
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-method">Newton’s method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-least-squares-fitting">Application to least-squares fitting</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
