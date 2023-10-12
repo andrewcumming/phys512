@@ -36,7 +36,7 @@ parts:
             - file: prob_distributions_solutions_part2
             - file: montecarlo_solutions.ipynb
             - file: metropolis_solutions.ipynb
-    - caption: Solving equations
+    - caption: Solving systems of equations
       chapters:
         - file: matrices
         - file: linear_least_squares
