@@ -21,8 +21,9 @@ from PIL import Image
 img = Image.open('github_logo.png')
 A = np.asarray(img)[:,:,0]   # the last index selects the RG or B component
 ```
-Plot color maps of the component matrices in this case, and the reconstructed images for different ranks $n$.
+Plot color maps of the component matrices in this case, and the reconstructed images for different ranks $n$. 
 
+Choose the smallest value of $n$ that in your opinion gives a reasonable reproduction of the image. How much data do you need to store to be able to reproduce this rank-$n$ approximation of the image? What is the compression factor compared to the original image?
 
 2. **Fitting planetary orbits**
 
