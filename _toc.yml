@@ -44,6 +44,7 @@ parts:
         - file: nonlinear
         - file: solving_solutions
           sections:
+            - file: polynomial_fit_solutions
             - file: nonlinear_fit
     - caption: Homework
       chapters:
