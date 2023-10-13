@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Derivatives exercises &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Orthogonal polynomials &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -63,11 +63,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'derivatives_solutions';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'polynomial_fit_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Interpolation exercises" href="interpolation_solutions.html" />
-    <link rel="prev" title="Solutions to exercises" href="function_solutions.html" />
+    <link rel="next" title="Lorentzian fit" href="nonlinear_fit.html" />
+    <link rel="prev" title="Solutions to exercises" href="solving_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,12 +161,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Derivatives exercises</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
 <li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
 </ul>
@@ -188,14 +188,14 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
 <li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Orthogonal polynomials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
 </ul>
 </li>
@@ -298,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fderivatives_solutions.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fpolynomial_fit_solutions.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -328,7 +328,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/derivatives_solutions.ipynb" target="_blank"
+      <li><a href="_sources/polynomial_fit_solutions.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -397,9 +397,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -410,21 +408,11 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Derivatives exercises</h1>
+    <h1>Orthogonal polynomials</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-derivatives">Automatic derivatives</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -434,98 +422,163 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="derivatives-exercises">
-<h1>Derivatives exercises<a class="headerlink" href="#derivatives-exercises" title="Permalink to this heading">#</a></h1>
-<section id="second-order-finite-differences">
-<h2>Second order finite differences<a class="headerlink" href="#second-order-finite-differences" title="Permalink to this heading">#</a></h2>
-<p>To keep track of the error terms, write out the Taylor expansions up to the 4th order terms:</p>
-<div class="math notranslate nohighlight">
-\[f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2} + {(\Delta x)^3\over 6}{d^3f\over dx^3} + {(\Delta x)^4\over 24}{d^4f\over dx^4}\]</div>
-<div class="math notranslate nohighlight">
-\[f(x-\Delta x) \approx f(x) - \Delta x {df\over dx} + {(\Delta x)^2\over 2}{d^2f\over dx^2}-{(\Delta x)^3\over 6}{d^3f\over dx^3} + {(\Delta x)^4\over 24}{d^4f\over dx^4}\]</div>
-<p>Then add and subtract:</p>
-<div class="math notranslate nohighlight">
-\[f(x+\Delta x) + f(x-\Delta x) \approx 2f(x) + (\Delta x)^2{d^2f\over dx^2}  + {(\Delta x)^4\over 12}{d^4f\over dx^4}\]</div>
-<div class="math notranslate nohighlight">
-\[f(x+\Delta x) - f(x-\Delta x) \approx 2\Delta x {df\over dx} + {(\Delta x)^3\over 3}{d^3f\over dx^3}\]</div>
-<p>Therefore</p>
-<div class="math notranslate nohighlight">
-\[{d^2f\over dx^2}\approx {f(x+\Delta x) + f(x-\Delta x) -2f(x)\over (\Delta x)^2} - {(\Delta x)^2\over 12}{d^4f\over dx^4}\]</div>
-<div class="math notranslate nohighlight">
-\[{df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} - {(\Delta x)^2\over 6}{d^3f\over dx^3}\]</div>
-<p>For comparison, the first order derivative with the error term kept in is</p>
-<div class="math notranslate nohighlight">
-\[{df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} - {\Delta x\over 2}{d^2f\over dx^2}\]</div>
-</section>
-<section id="optimal-step-size">
-<h2>Optimal step size<a class="headerlink" href="#optimal-step-size" title="Permalink to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="orthogonal-polynomials">
+<h1>Orthogonal polynomials<a class="headerlink" href="#orthogonal-polynomials" title="Permalink to this heading">#</a></h1>
+<p>Generate a random polynomial of degree <span class="math notranslate nohighlight">\(k\)</span> and then fit it with either Legendre or Chebyshev polynomials of degree <span class="math notranslate nohighlight">\(k_\mathrm{fit}\)</span>. Because our domain goes from <span class="math notranslate nohighlight">\(x=[-2,2]\)</span> whereas the basis functions are defined on <span class="math notranslate nohighlight">\([-1,1]\)</span>, we need to rescale <span class="math notranslate nohighlight">\(x\)</span> when evaluating the basis functions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first generate some data from a random polynomial</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">20</span>  <span class="c1"># order of polynomial</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># number of data points</span>
 
-<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">kfit</span> <span class="o">=</span> <span class="mi">18</span>  <span class="c1"># number of basis functions for the fit</span>
 
-<span class="n">dx_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">13</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">a0</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">poly</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Polynomial</span><span class="p">(</span><span class="n">a0</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">poly</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">n</span><span class="p">)</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="c1"># Evaluate the derivatives at this value of x</span>
+<span class="c1"># OR try a more complicated function</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">use_svd</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">use_svd</span><span class="p">:</span>
+        <span class="n">U</span><span class="p">,</span> <span class="n">Sdiag</span><span class="p">,</span> <span class="n">VT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">VT</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">Sdiag</span><span class="p">)</span> <span class="o">@</span> <span class="n">U</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">y</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">rhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@y</span>
+        <span class="n">lhs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="nd">@A</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">lhs</span><span class="p">)</span><span class="nd">@rhs</span>
 
-<span class="n">err</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>   <span class="c1"># to store the fractional error from the 1st order difference</span>
-<span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">)</span>  <span class="c1"># same for the second order</span>
+    <span class="k">return</span> <span class="n">a</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">dx</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">):</span>
-    <span class="n">dfdx1</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="n">dx</span>
-    <span class="n">err</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">dfdx1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="c1"># Fit with Chebyshev polynomials</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">chebyshev</span><span class="o">.</span><span class="n">chebvander</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">kfit</span><span class="p">)</span>
 
-    <span class="n">dfdx2</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="n">dx</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">dx</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">dx</span><span class="p">)</span>
-    <span class="n">err2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">dfdx2</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Condition number = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
 
-<span class="c1"># Plot the results</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;First order&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">err2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Second order&quot;</span><span class="p">)</span>
+<span class="n">a_cheb</span> <span class="o">=</span> <span class="n">do_fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Chebyshev coefficients:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_cheb</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a</span><span class="si">%d</span><span class="s2"> </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a_cheb</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">poly_cheb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Chebyshev</span><span class="p">(</span><span class="n">a_cheb</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">poly_cheb</span><span class="p">(</span><span class="n">xx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="mf">1e-2</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="n">err2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">))</span>
+<span class="n">dev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">poly_cheb</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rms deviation / max(y) = </span><span class="si">%.10g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dev</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)),))</span>
 
-<span class="c1"># and the analytic expressions</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="mf">1e-16</span> <span class="o">*</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">dx_vals</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\epsilon f(x)/\Delta x$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dx_vals</span><span class="p">,</span> <span class="n">dx_vals</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$(\Delta x)^2$&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$f(x) = \sin x, \ \ \ x=</span><span class="si">%lg</span><span class="s1">$&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">x</span><span class="p">,))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta x$&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional error in derivative&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1fb170206aaf7cc8096642bd96d3da75fb2a5dc42a381f48316c3a591d038411.png" src="_images/1fb170206aaf7cc8096642bd96d3da75fb2a5dc42a381f48316c3a591d038411.png" />
-</div>
-</div>
-<p>The optimal step size for the 1st order expression is <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\sim 10^{-8}\)</span> and the associated error is also <span class="math notranslate nohighlight">\(\sim \epsilon^{1/2}\)</span>.</p>
-<p>For the second order expression, the finite difference error is <span class="math notranslate nohighlight">\(\propto (\Delta x)^2\)</span> rather than <span class="math notranslate nohighlight">\(\Delta x\)</span>. Following the same argument as for the first order derivative leads to an optimal step size of order <span class="math notranslate nohighlight">\(\epsilon^{1/3}\sim 10^{-16/3}\sim 10^{-5.3}\)</span>, and an error <span class="math notranslate nohighlight">\(\epsilon^{2/3}\sim 10^{-10.6}\)</span>.</p>
-<p>Notice that a higher order derivative allows us to get a better error with a larger step size.</p>
-</section>
-<section id="automatic-derivatives">
-<h2>Automatic derivatives<a class="headerlink" href="#automatic-derivatives" title="Permalink to this heading">#</a></h2>
-<p>Inspecting the code, we can see that the operators that are implemented inside the class return a new instance of Var that is initialized with (1) the value obtained from the operation, and (2) a set of children that give the partial derivatives with respect to the variables involved in the operation.</p>
-<p>The multiplication operator is instructive to look at. For the operation <code class="docutils literal notranslate"><span class="pre">x*y</span></code>, there are two variables <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, so we need to return (1) the operation value <code class="docutils literal notranslate"><span class="pre">x*y</span></code>, (2) the partial derivative with respect to <code class="docutils literal notranslate"><span class="pre">x</span></code>, which is <span class="math notranslate nohighlight">\(\partial(xy)/\partial x = y\)</span>, and (3) the partial derivative with respect to <code class="docutils literal notranslate"><span class="pre">y</span></code>, which is <span class="math notranslate nohighlight">\(\partial(xy)/\partial y = x\)</span>. The corresponding function definition is</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="p">[(</span><span class="n">other</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="p">),</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">other</span><span class="p">)])</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition number = 3.00281
+Chebyshev coefficients:
+a0 1.24939
+a1 1.3663
+a2 0.176774
+a3 -0.00196591
+a4 -0.0258484
+a5 0.607558
+a6 0.149407
+a7 0.622783
+a8 0.0643741
+a9 -0.28448
+a10 0.00928857
+a11 -0.296327
+a12 0.114861
+a13 -0.0143096
+a14 -0.00301711
+a15 0.0464009
+a16 -0.150359
+a17 0.0118609
+a18 -0.081184
+rms deviation / max(y) = 0.01052955567
 </pre></div>
 </div>
-<p>For <span class="math notranslate nohighlight">\(exp(x)\)</span>, there is only one argument to the function so we just have to return one partial derivative <span class="math notranslate nohighlight">\((\partial/\partial x)\exp(x) = \exp(x)\)</span>. So we can add</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">exp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">Var</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="p">[(</span><span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">value</span><span class="p">),</span> <span class="bp">self</span><span class="p">)])</span>
+<img alt="_images/7a7eb921c0208d0c4a13551a679fa94c270111d43e209f6a26902185e4844373.png" src="_images/7a7eb921c0208d0c4a13551a679fa94c270111d43e209f6a26902185e4844373.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fit with Legendre polynomials</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">legendre</span><span class="o">.</span><span class="n">legvander</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span><span class="n">kfit</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Condition number = </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">A</span><span class="p">)))</span>
+
+<span class="n">a_leg</span> <span class="o">=</span> <span class="n">do_fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+      
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Legendre coefficients:&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">a_leg</span><span class="p">)):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a</span><span class="si">%d</span><span class="s2"> </span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">a_leg</span><span class="p">[</span><span class="n">i</span><span class="p">]))</span>
+    
+<span class="n">xx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">poly_leg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polynomial</span><span class="o">.</span><span class="n">Legendre</span><span class="p">(</span><span class="n">a_leg</span><span class="p">)</span>
+<span class="n">yy</span> <span class="o">=</span> <span class="n">poly_leg</span><span class="p">(</span><span class="n">xx</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span><span class="n">yy</span><span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">dev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y</span><span class="o">-</span><span class="n">poly_leg</span><span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rms deviation / max(y) = </span><span class="si">%.10g</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">dev</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)),))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>which we use for example as</p>
-<p><code class="docutils literal notranslate"><span class="pre">f=</span> <span class="pre">x</span> <span class="pre">*</span> <span class="pre">y</span> <span class="pre">+</span> <span class="pre">x.exp()</span></code></p>
-</section>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Condition number = 6.03442
+Legendre coefficients:
+a0 1.18685
+a1 1.25736
+a2 0.22062
+a3 -0.633234
+a4 -0.214353
+a5 0.672949
+a6 0.248942
+a7 1.9391
+a8 0.135166
+a9 -0.353199
+a10 -0.103653
+a11 -0.8796
+a12 0.440113
+a13 -0.128661
+a14 0.285391
+a15 0.139449
+a16 -0.388023
+a17 0.0436596
+a18 -0.307374
+rms deviation / max(y) = 0.01052955567
+</pre></div>
+</div>
+<img alt="_images/7a7eb921c0208d0c4a13551a679fa94c270111d43e209f6a26902185e4844373.png" src="_images/7a7eb921c0208d0c4a13551a679fa94c270111d43e209f6a26902185e4844373.png" />
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -560,7 +613,7 @@ document.write(`
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="function_solutions.html"
+       href="solving_solutions.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
@@ -569,11 +622,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="interpolation_solutions.html"
+       href="nonlinear_fit.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Interpolation exercises</p>
+        <p class="prev-next-title">Lorentzian fit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -586,22 +639,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#second-order-finite-differences">Second order finite differences</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimal-step-size">Optimal step size</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automatic-derivatives">Automatic derivatives</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
