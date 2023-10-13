@@ -42,6 +42,9 @@ parts:
         - file: linear_least_squares
         - file: polynomial_fit
         - file: nonlinear
+        - file: solving_solutions
+          sections:
+            - file: nonlinear_fit
     - caption: Homework
       chapters:
         - file: hw1
