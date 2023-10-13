@@ -481,7 +481,7 @@ document.write(`
 <span class="eqno">(5)<a class="headerlink" href="#equation-hessian" title="Permalink to this equation">#</a></span>\[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = (\mathbf{A^T}\mathbf{A})_{k\ell}.\]</div>
 <p>Now plugging equations <a class="reference internal" href="#equation-gradchi2vec">(4)</a> and <a class="reference internal" href="#equation-hessian">(5)</a> into the Newton’s method update (eq. <a class="reference internal" href="#equation-newtonmultid">(2)</a>), we find</p>
 <div class="math notranslate nohighlight" id="equation-newtonupdate">
-<span class="eqno">(6)<a class="headerlink" href="#equation-newtonupdate" title="Permalink to this equation">#</a></span>\[\vec{a}_{n+1} = \vec{a}_n - (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-newtonupdate" title="Permalink to this equation">#</a></span>\[\vec{a}_{n+1} = \vec{a}_n + (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.\]</div>
 <p>Starting with an initial guess for the parameters, we can apply this rule iteratively until (hopefully) we converge on the best fit (ie. the set of parameters that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span>).</p>
 <div class="admonition-exercise-lorentzian-fit admonition">
 <p class="admonition-title">Exercise: Lorentzian fit</p>
