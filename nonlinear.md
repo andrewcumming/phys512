@@ -64,7 +64,7 @@ $${1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = (\mathbf{A^T
 
 Now plugging equations {eq}`gradchi2vec` and {eq}`hessian` into the Newton's method update (eq. {eq}`newtonmultid`), we find
 
-$$\vec{a}_{n+1} = \vec{a}_n - (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.$$ (newtonupdate)
+$$\vec{a}_{n+1} = \vec{a}_n + (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.$$ (newtonupdate)
 
 Starting with an initial guess for the parameters, we can apply this rule iteratively until (hopefully) we converge on the best fit (ie. the set of parameters that minimizes $\chi^2$).
 
