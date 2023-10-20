@@ -46,6 +46,11 @@ parts:
           sections:
             - file: polynomial_fit_solutions
             - file: nonlinear_fit
+    - caption: Machine Learning
+      chapters:
+        - file: mllecture
+        - file: chatgpt
+        - file: mltensorflow.ipynb
     - caption: Homework
       chapters:
         - file: hw1
