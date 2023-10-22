@@ -140,9 +140,9 @@ where $\mathbf{C}$ is a positive-definite matrix, the update is
 
 $$\mathbf{y}_{n+1} = \mathbf{y}_{n} + h  \mathbf{y}^\prime_{n+1}$$
 
-$$\Rightarrow \mathbf{y}_{n+1} = (1 + \mathbf{C} h)^{-1} \mathbf{y}_{n},$$
+$$\Rightarrow \mathbf{y}_{n+1} = (\mathbf{1} + \mathbf{C} h)^{-1} \mathbf{y}_{n},$$
 
-which is stable for all step sizes $h$. The price for being able to take larger steps is a more complex computation: we have to invert a matrix.
+which is stable for all step sizes $h$. Note that $\mathbf{1}$ here is the identity matrix. The price for being able to take larger steps is a more complex computation: we have to invert a matrix.
 
 **Non-linear equations**: A more complicated situation is when the derivatives are non-linear, 
 
@@ -156,7 +156,7 @@ One way to approach this is to linearize the equations
 
 $$\mathbf{y}_{n+1} = \mathbf{y}_n + h\left[ \mathbf{f} (\mathbf{y}_n) + \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}(\mathbf{y}_{n+1}-\mathbf{y}_n)\right]$$
 
-$$\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[1 - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).$$(newtoneuler)
+$$\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[\mathbf{1} - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).$$(newtoneuler)
 
 This is another example of **Newton's method** that we saw earlier. The matrix $\partial \mathbf{f}/\partial\mathbf{y}$ is the **Jacobian matrix** 
 
