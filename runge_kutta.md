@@ -2,9 +2,9 @@
 
 In an initial value problem, we want to solve a set of ordinary differential equations 
 
-$${dy_i\over dx} = f(x,\{y_i\})$$
+$${d\vec{y}\over dx} = f(x,\vec{y})$$
 
-for the functions $y_i$ given a set of boundary conditions at the starting point $x=x_0$. We then use the information we have about the derivatives $f(x,\{y_i\})$ to step away from $x_0$ and evaluate $y_i$ at a location $x=x_0+h$, where $h$ is the step size (we could also write this as $\Delta x$, but we'll use $h$ here in common with many treatments of ODEs). Note that the derivative $f$ can depend on the position $x$ but also any of the $y_i$'s, ie. we could have a set of *coupled ODEs*. 
+for the functions $\vec{y}$ given a set of boundary conditions at the starting point $x=x_0$. We then use the information we have about the derivatives $f(x,\vec{y})$ to step away from $x_0$ and evaluate $\vec{y}$ at a location $x=x_0+h$, where $h$ is the step size (we could also write this as $\Delta x$, but we'll use $h$ here in common with many treatments of ODEs). Note that the derivative $f$ can depend on the position $x$ but also any of the $y$'s, ie. we could have a set of *coupled ODEs*. 
 
 ## Explicit methods
 
@@ -98,16 +98,93 @@ Note that this is written assuming that the integration starts at $t=0$, but you
 ````
 
 
+## Implicit methods and stiff equations
 
+Explicit methods often have a maximum step size $h$ beyond which the method becomes unstable. A simple example is the equation 
 
+$${dy\over dx} = -cy$$
 
-## Implicit methods
+for some constant $c>0$ which has a solution $e^{-cx}$. The Euler method gives 
+
+$$y(x+h) = y(x) + h\left.{dy\over dx}\right|_{x} = y(x) - ch y(x) = (1- ch) y(x).$$
+
+If we try to take large steps $h>1/c$, the solution will oscillate with $|y|$ becoming larger and larger: this method is *numerically unstable*.  For this particular equation, that's okay, since we would want to take smaller steps anyway to get an accurate solution. But this really matters when there are multiple scales in the solution. We might have a set of equations in which one equation has a large value of c that forces us to take a small $h$ for numerically stability even if the value of the corresponding function $y$ has decayed away and is no longer important. A set of equations like this with multiple scales is a **stiff** set of equations. 
+
+A classic example with a stiff set of equations is radioactive decay. Consider the decay chain 
+
+$$^{224}\mathrm{Ra} \xrightarrow{3.6\ \mathrm{days}} \ ^{220}\mathrm{Rn} \xrightarrow{55\ \mathrm{s}} \ ^{216}\mathrm{Po}  \xrightarrow{0.14\ \mathrm{s}}\  ^{212}\mathrm{Pb}\xrightarrow{10.6\ \mathrm{h}}\  ^{208}\mathrm{Pb}$$
+
+which is used in radiotherapy. The half-lives span the range $\approx 0.1$--$3\times 10^5$ seconds, or a factor of $3\times 10^6$. With an explicit method, we would be forced to take a timestep $<0.1\ \mathrm{s}$ to resolve the fastest decay time, and so would need millions of timesteps to follow the entire chain. 
+
+**Implicit methods** allow us to get around this constraint: we can take large steps in a stable way and focus on the large scales that we are interested in.
+In an implicit method, we write the update in terms of the gradient evaluated with the future values of the variables rather than the current values, ie. we use $f(x+h, y(x+h))$ rather than $f(x, y(x))$:
+
+$$y(x+h) = y(x) + h \left.{dy\over dx}\right|_{x+h} $$ (backeuler)
+
+which gives 
+
+$$y(x+h) = y(x) - chy(x+h) \Rightarrow y(x+h) = {y(x) \over 1+ ch}$$
+
+This behaves well in the limit of large $h$ since then $y(x+h)\rightarrow 0$, which is the correct solution for large $x$. Implicit methods usually have this behavior: for large steps we lose accuracy, but evolve to the correct equilibrium solution. 
+
 
 ### Backward Euler
 
-### Newton's method for finding roots
+Equation {eq}`backeuler` is known as the **backward Euler** method (as opposed to the explicit *forward Euler* method that we saw earlier). This can be generalized to sets of linear and non-linear equations:
+
+**Linear equations**: For a general set of linear equations with constant coefficients,
+
+$${d\mathbf{y}\over dx} = \mathbf{y}^\prime =  - \mathbf{C} \mathbf{y},$$
+
+where $\mathbf{C}$ is a positive-definite matrix, the update is 
+
+$$\mathbf{y}_{n+1} = \mathbf{y}_{n} + h  \mathbf{y}^\prime_{n+1}$$
+
+$$\Rightarrow \mathbf{y}_{n+1} = (1 + \mathbf{C} h)^{-1} \mathbf{y}_{n},$$
+
+which is stable for all step sizes $h$. The price for being able to take larger steps is a more complex computation: we have to invert a matrix.
+
+**Non-linear equations**: A more complicated situation is when the derivatives are non-linear, 
+
+$$\mathbf{y}^\prime =  \mathbf{f}(\mathbf{y}),$$ 
+
+where we must now solve the implicit equation
+
+$$\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).$$(nonlineareuler)
+
+One way to approach this is to linearize the equations
+
+$$\mathbf{y}_{n+1} = \mathbf{y}_n + h\left[ \mathbf{f} (\mathbf{y}_n) + \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}(\mathbf{y}_{n+1}-\mathbf{y}_n)\right]$$
+
+$$\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[1 - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).$$(newtoneuler)
+
+This is another example of **Newton's method** that we saw earlier. The matrix $\partial \mathbf{f}/\partial\mathbf{y}$ is the **Jacobian matrix** 
+
+$$(\mathbf{J})_{ij} = \left( {\partial \mathbf{f}\over\partial\mathbf{y}}\right)_{ij} = {\partial\over \partial y_j}{\partial f_i\over \partial x}.$$
+
+Sometimes equation {eq}`newtoneuler` will converge in one step, but more than one iteration may be required to get an accurate answer, i.e. you can apply equation {eq}`newtoneuler` multiple times. You can check after the Newton step to see whether equation {eq}`nonlineareuler` is satisfied.
+
+```{admonition} Exercise: implicit methods
+
+Write a code to integrate the set of equations
+
+$$u^\prime = 998u + 1998 v$$
+$$v^\prime = -999u - 1999v$$
+
+from $x=0$ to larger values of $x$, with boundary conditions $u(0)=1$ and $v(0)=0$. This example is from the Numerical Recipes book where they show that the analytic solution is $(u,v) = (2e^{-x} - e^{-1000} x, -e^{-x} + e^{-1000 x})$. 
+
+Use both an explicit and implicit method with fixed step size $h$ and compare the results from the two methods for different choices of $h$. 
+
+
+```
 
 ## Integrating ODEs using Scipy
 
+You can use [scipy.integrate.solve_ivp](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html) to solve initial value problems. It has a choice of different  explicit and implicit methods that you can use, and has an adaptive step size that you can control by specifying the absolute or relative tolerance (error) for the integration. 
 
+```{admonition} Exercise
+
+Repeat the exercises above but now using [scipy.integrate.solve_ivp](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html).
+
+```
 
