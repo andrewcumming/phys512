@@ -1,0 +1,1444 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Example : Higgs Boson &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'mltensorflow';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="ChatGPT ‘Real-Life Example’" href="chatgpt.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fmltensorflow.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/mltensorflow.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example : Higgs Boson</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#based-on-tensorflow-documentation">Based on Tensorflow Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-the-functions">Importing the Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-higgs-dataset">The Higgs Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batches-epochs">Batches &amp; Epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-data">Sorting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-procedure-hyperparameter-tuning-and-schedulers">Training procedure - Hyperparameter tuning and schedulers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-fitting">Training and Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-set-up">Final Set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tiny-model">Tiny model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-model">Small model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-model">Medium model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-model">Large model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-training-and-validation-losses">Plot the training and validation losses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-to-prevent-overfitting">Strategies to prevent overfitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dropout">Dropout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-l2-dropout">Combining L2 + dropout</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="example-higgs-boson">
+<h1>Example : Higgs Boson<a class="headerlink" href="#example-higgs-boson" title="Permalink to this heading">#</a></h1>
+<section id="based-on-tensorflow-documentation">
+<h2>Based on Tensorflow Documentation<a class="headerlink" href="#based-on-tensorflow-documentation" title="Permalink to this heading">#</a></h2>
+<p>In this example I will be helping to walk through a <strong>practical example</strong> and highlight the structure of a Tensorflow neural network. We will also be discussing L1, L2 and dropout as methods of improving the weights on your system. This is really a first step and there’s a lot more to explore in the documentation as well as public repos.</p>
+</section>
+<section id="importing-the-functions">
+<h2>Importing the Functions<a class="headerlink" href="#importing-the-functions" title="Permalink to this heading">#</a></h2>
+<p>This import will using “tfdocs” for a little bit of plotting. You can install this with the block below.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">tf</span><span class="o">=</span><span class="s1">&#39;tensorflow_docs&#39;</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">tensorflow_docs</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;module&quot;</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="s2">&quot; is installed&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;module &quot;</span><span class="p">,</span><span class="n">tf</span><span class="p">,</span><span class="s2">&quot; is not installed&quot;</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="s1">&#39;pip install git+https://github.com/tensorflow/docs&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>module tensorflow_docs  is installed
+</pre></div>
+</div>
+</div>
+</div>
+<p>For Tensorflow, there is a subpackage called <em>keras</em> which handles the constructions of neural networks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Machine Learning Imports</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">layers</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">regularizers</span>
+
+
+<span class="c1">#Plotting Imports</span>
+<span class="kn">import</span> <span class="nn">tensorflow_docs</span> <span class="k">as</span> <span class="nn">tfdocs</span>
+<span class="kn">import</span> <span class="nn">tensorflow_docs.modeling</span>
+<span class="kn">import</span> <span class="nn">tensorflow_docs.plots</span>
+<span class="kn">from</span>  <span class="nn">IPython</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+
+<span class="c1">#Array manipulation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1">#File manipulation</span>
+<span class="kn">import</span> <span class="nn">pathlib</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="n">logdir</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">tempfile</span><span class="o">.</span><span class="n">mkdtemp</span><span class="p">())</span><span class="o">/</span><span class="s2">&quot;tensorboard_logs&quot;</span> <span class="c1">#Setting up the log ouput</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">logdir</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="the-higgs-dataset">
+<h2>The Higgs Dataset<a class="headerlink" href="#the-higgs-dataset" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Data set of higgs sims from: <a class="reference external" href="https://arxiv.org/pdf/1402.4735.pdf">https://arxiv.org/pdf/1402.4735.pdf</a></p></li>
+<li><p>These are a set of momentum measurements for particles of a set decay channel.</p></li>
+<li><p>The exact details are not tremendously important sufficen to say there is a background and a signal and both have been labeled in the simulation stage</p></li>
+<li><p>We can plot some of these features below (they have been mostly normalized)</p></li>
+</ul>
+<p>We will be using a dataset provided by the software but if you want more datasets to experiment with then you can always looks at <a class="reference external" href="https://www.kaggle.com/datasets">https://www.kaggle.com/datasets</a> which provides some excellent datasets. See <a class="reference external" href="https://www.kaggle.com/datasets/pablomonleon/montreal-bike-lanes/code">https://www.kaggle.com/datasets/pablomonleon/montreal-bike-lanes/code</a> for a cool example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">get_file</span><span class="p">(</span><span class="s1">&#39;HIGGS.csv.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;http://mlphysics.ics.uci.edu/data/higgs/HIGGS.csv.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here you will see how we import the data into the software. In this case our dataset is in a terrible format, a large compressed CSV file. This dataset also contains 28 features that we will be working with that we import here using an inbuilt routine. It’s often easier to manipulate your data into a format where it’s easier for the default routines to import it then trying to modify the routines.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">FEATURES</span> <span class="o">=</span> <span class="mi">28</span> 
+<span class="n">ds</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">CsvDataset</span><span class="p">(</span><span class="n">gz</span><span class="p">,[</span><span class="nb">float</span><span class="p">(),]</span><span class="o">*</span><span class="p">(</span><span class="n">FEATURES</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="n">compression_type</span><span class="o">=</span><span class="s2">&quot;GZIP&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="batches-epochs">
+<h2>Batches &amp; Epochs<a class="headerlink" href="#batches-epochs" title="Permalink to this heading">#</a></h2>
+<p>You will often break your data into smaller chunks called batches. These bataches are the number of training samples the network will move through before updating. This is different than epochs which is the total number of passes through the entire dataset the system takes.</p>
+<p>In this next little chunk we will use the batch function to selct a subset of the data.  We will then plot the data sorted into the two labels which determine whether something is signal or background</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pack_row</span><span class="p">(</span><span class="o">*</span><span class="n">row</span><span class="p">):</span>
+  <span class="n">label</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">features</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">features</span><span class="p">,</span> <span class="n">label</span>
+
+<span class="n">packed_ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">pack_row</span><span class="p">)</span><span class="o">.</span><span class="n">unbatch</span><span class="p">()</span> <span class="c1">#</span>
+<span class="k">for</span> <span class="n">features</span><span class="p">,</span><span class="n">label</span> <span class="ow">in</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">):</span><span class="c1">#for i in range(FEATURES):</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">label</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">),</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">101</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="o">~</span><span class="n">label</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">),</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(),</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">101</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/6d233923f012af246d17e70c9363294d6704337609ee30ef4a926b6d1adc7500.png" src="_images/6d233923f012af246d17e70c9363294d6704337609ee30ef4a926b6d1adc7500.png" />
+</div>
+</div>
+</section>
+<section id="sorting-the-data">
+<h2>Sorting the Data<a class="headerlink" href="#sorting-the-data" title="Permalink to this heading">#</a></h2>
+<p>This data did not come in folder instead it came as a large csv, so we need to select the label and feature names. Here you can also see us sub divide the data into training and validation categories. Training data we will use to optimize the data and validation we will use to test. This should help us avoid issues of <em>overfitting</em>. You can also see us shuffle and batch the training data.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">N_VALIDATION</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e3</span><span class="p">)</span>
+<span class="n">N_TRAIN</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e4</span><span class="p">)</span>
+<span class="n">BUFFER_SIZE</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1e5</span><span class="p">)</span>
+<span class="n">BATCH_SIZE</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">STEPS_PER_EPOCH</span> <span class="o">=</span> <span class="n">N_TRAIN</span><span class="o">//</span><span class="n">BATCH_SIZE</span>
+
+<span class="n">validate_ds</span> <span class="o">=</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">N_VALIDATION</span><span class="p">)</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">packed_ds</span><span class="o">.</span><span class="n">skip</span><span class="p">(</span><span class="n">N_VALIDATION</span><span class="p">)</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">N_TRAIN</span><span class="p">)</span><span class="o">.</span><span class="n">cache</span><span class="p">()</span>
+
+
+<span class="n">validate_ds</span> <span class="o">=</span> <span class="n">validate_ds</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+<span class="n">train_ds</span> <span class="o">=</span> <span class="n">train_ds</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">BUFFER_SIZE</span><span class="p">)</span><span class="o">.</span><span class="n">repeat</span><span class="p">()</span><span class="o">.</span><span class="n">batch</span><span class="p">(</span><span class="n">BATCH_SIZE</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training-procedure-hyperparameter-tuning-and-schedulers">
+<h2>Training procedure - Hyperparameter tuning and schedulers<a class="headerlink" href="#training-procedure-hyperparameter-tuning-and-schedulers" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>During training there are many parameters you can tune that shouldn’t affect your final result but might affect the speed of the training or the ability to converge. These are called <em>hyperparameter</em>.</p></li>
+<li><p>We also have a scheduler that will modify how we move through the dataset as we iterate through multiple passes. In this case we are using an inverse time delaym. It basically is saying that as we get closer to the answer it’s better to take less dramatic changes to the weights.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lr_schedule</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">schedules</span><span class="o">.</span><span class="n">InverseTimeDecay</span><span class="p">(</span>
+  <span class="mf">0.001</span><span class="p">,</span>
+  <span class="n">decay_steps</span><span class="o">=</span><span class="n">STEPS_PER_EPOCH</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span>
+  <span class="n">decay_rate</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+  <span class="n">staircase</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="training-and-fitting">
+<h2>Training and Fitting<a class="headerlink" href="#training-and-fitting" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We will merge fitting and compiling in the same function. There are several options that we set prior to fitting to improve the visuals.</p></li>
+<li><p>We will use cross entropy and the adam optimizer <a class="reference external" href="https://arxiv.org/pdf/1412.6980.pdf">https://arxiv.org/pdf/1412.6980.pdf</a></p></li>
+<li><p>We will also set-up a progress report so that we can track the system as it goes through the optimization.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_optimizer</span><span class="p">():</span>
+  <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">Adam</span><span class="p">(</span><span class="n">lr_schedule</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_callbacks</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+  <span class="k">return</span> <span class="p">[</span>
+    <span class="c1">#tfdocs.modeling.EpochDots(), #progress report</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">200</span><span class="p">),</span> <span class="c1">#stop when not changing</span>
+    <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">TensorBoard</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="n">name</span><span class="p">),</span> <span class="c1">#some display functionaility</span>
+  <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-set-up">
+<h2>Final Set-up<a class="headerlink" href="#final-set-up" title="Permalink to this heading">#</a></h2>
+<p>Here we are setting up the fit and also setting a history return so that as the system optimizes we can look back at the system to see how it evolved.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compile_and_fit</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_epochs</span><span class="o">=</span><span class="mi">10000</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">optimizer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">get_optimizer</span><span class="p">()</span>
+  <span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">optimizer</span><span class="p">,</span>
+                <span class="n">loss</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span><span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="n">metrics</span><span class="o">=</span><span class="p">[</span>
+                  <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">losses</span><span class="o">.</span><span class="n">BinaryCrossentropy</span><span class="p">(</span>
+                      <span class="n">from_logits</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">),</span>
+                  <span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+
+  <span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+
+  <span class="n">history</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span>
+    <span class="n">train_ds</span><span class="p">,</span>
+    <span class="n">steps_per_epoch</span> <span class="o">=</span> <span class="n">STEPS_PER_EPOCH</span><span class="p">,</span>
+    <span class="n">epochs</span><span class="o">=</span><span class="n">max_epochs</span><span class="p">,</span>
+    <span class="n">validation_data</span><span class="o">=</span><span class="n">validate_ds</span><span class="p">,</span>
+    <span class="n">callbacks</span><span class="o">=</span><span class="n">get_callbacks</span><span class="p">(</span><span class="n">name</span><span class="p">),</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">history</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="tiny-model">
+<h3>Tiny model<a class="headerlink" href="#tiny-model" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>We can set up different models of incresing complexity in order to model the data. This just needs to be a series of dense layers as the data is already properly formated.</p></li>
+<li><p>Our idea is basically here we will start with a very simple neural network and increase the number of layers.</p></li>
+<li><p>All of these will have the same activation function and will take input from our features.</p></li>
+<li><p>We will then plot the validation and training Binary cross entropy (loss) over time.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tiny_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">size_histories</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">tiny_model</span><span class="p">,</span> <span class="s1">&#39;sizes/Tiny&#39;</span><span class="p">)</span>
+<span class="n">plotter</span> <span class="o">=</span> <span class="n">tfdocs</span><span class="o">.</span><span class="n">plots</span><span class="o">.</span><span class="n">HistoryPlotter</span><span class="p">(</span><span class="n">metric</span> <span class="o">=</span> <span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span> <span class="n">smoothing_std</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">size_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_4&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_8 (Dense)              (None, 16)                464       
+_________________________________________________________________
+dense_9 (Dense)              (None, 1)                 17        
+=================================================================
+Total params: 481
+Trainable params: 481
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:26:26.124144: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:26:26.124187: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:26:26.125175: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:26:27.509624: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:26:27.509925: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:26:27.520187: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:26:27.522603: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:26:27.526007: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27
+
+2023-10-19 11:26:27.528403: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.trace.json.gz
+2023-10-19 11:26:27.529967: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27
+
+2023-10-19 11:26:27.530083: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.memory_profile.json.gz
+2023-10-19 11:26:27.530325: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Tiny/train/plugins/profile/2023_10_19_11_26_27/ubuntu.kernel_stats.pb
+
+2023-10-19 11:26:37.451120: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:26:46.544411: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:26:48.502213: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:27:01.680107: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:27:28.228114: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:27:48.328090: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:23.393641: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:28.260122: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:29.840116: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:30.904111: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:31.600128: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:35.298627: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:28:43.304112: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:29:13.356118: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:00.234567: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:03.391901: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:03.555544: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:07.894122: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:09.403334: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:31.184116: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:37.096116: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:30:51.269402: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:04.098435: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:05.608163: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:06.907966: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:14.260109: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:14.398578: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:31:23.007289: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="_images/8047c4dda5aea7f0ef70aae4d6ac64d88aa027e7728a5e36e4dd2ee8416f6ce9.png" src="_images/8047c4dda5aea7f0ef70aae4d6ac64d88aa027e7728a5e36e4dd2ee8416f6ce9.png" />
+</div>
+</div>
+</section>
+<section id="small-model">
+<h3>Small model<a class="headerlink" href="#small-model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">small_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="c1"># `input_shape` is only required here so that `.summary` works.</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Small&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">small_model</span><span class="p">,</span> <span class="s1">&#39;sizes/Small&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_5&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_10 (Dense)             (None, 16)                464       
+_________________________________________________________________
+dense_11 (Dense)             (None, 16)                272       
+_________________________________________________________________
+dense_12 (Dense)             (None, 1)                 17        
+=================================================================
+Total params: 753
+Trainable params: 753
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:31:48.674858: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:31:48.674912: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:31:48.675855: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:31:49.123312: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:31:49.123370: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:31:49.145146: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:31:49.147612: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:31:49.152011: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49
+
+2023-10-19 11:31:49.154785: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.trace.json.gz
+2023-10-19 11:31:49.156852: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49
+
+2023-10-19 11:31:49.156982: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.memory_profile.json.gz
+2023-10-19 11:31:49.157204: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Small/train/plugins/profile/2023_10_19_11_31_49/ubuntu.kernel_stats.pb
+
+2023-10-19 11:32:09.185779: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:13.703358: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:22.544898: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:33.473541: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:34.366395: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:34.869916: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:35.070724: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:43.839261: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:54.890808: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:56.279366: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:57.658011: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:32:58.771402: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+2023-10-19 11:33:13.306051: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="medium-model">
+<h3>Medium model<a class="headerlink" href="#medium-model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">medium_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Medium&#39;</span><span class="p">]</span>  <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">medium_model</span><span class="p">,</span> <span class="s2">&quot;sizes/Medium&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_6&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_13 (Dense)             (None, 64)                1856      
+_________________________________________________________________
+dense_14 (Dense)             (None, 64)                4160      
+_________________________________________________________________
+dense_15 (Dense)             (None, 64)                4160      
+_________________________________________________________________
+dense_16 (Dense)             (None, 1)                 65        
+=================================================================
+Total params: 10,241
+Trainable params: 10,241
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:33:16.920665: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:33:16.920699: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:33:16.920928: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:33:17.608513: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:33:17.608543: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:33:17.624156: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:33:17.626795: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:33:17.631340: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17
+
+2023-10-19 11:33:17.634212: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.trace.json.gz
+2023-10-19 11:33:17.636866: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17
+
+2023-10-19 11:33:17.637005: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.memory_profile.json.gz
+2023-10-19 11:33:17.637226: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/Medium/train/plugins/profile/2023_10_19_11_33_17/ubuntu.kernel_stats.pb
+
+2023-10-19 11:33:48.875759: W tensorflow/core/data/root_dataset.cc:167] Optimization loop failed: Cancelled: Operation was cancelled
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="large-model">
+<h3>Large model<a class="headerlink" href="#large-model" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">large_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+<span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;large&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">large_model</span><span class="p">,</span> <span class="s2">&quot;sizes/large&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_7&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_17 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dense_18 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_19 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_20 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_21 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:33:54.065781: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:33:54.065834: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:33:54.065948: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:33:54.636464: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:33:54.636496: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:33:54.673133: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:33:54.676188: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:33:54.680930: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54
+
+2023-10-19 11:33:54.683939: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.trace.json.gz
+2023-10-19 11:33:54.686062: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54
+
+2023-10-19 11:33:54.686200: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.memory_profile.json.gz
+2023-10-19 11:33:54.686442: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/sizes/large/train/plugins/profile/2023_10_19_11_33_54/ubuntu.kernel_stats.pb
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-the-training-and-validation-losses">
+<h3>Plot the training and validation losses<a class="headerlink" href="#plot-the-training-and-validation-losses" title="Permalink to this heading">#</a></h3>
+<ul class="simple">
+<li><p>What’s going on in this plot?</p></li>
+<li><p>We have the 4 basic models plotted here after they’ve fully run through the epochs.</p></li>
+<li><p>We see a difference between validation and training, why?</p></li>
+<li><p>We see a difference between the different sizes of models at early and late training why?</p></li>
+<li><p>Which model performs the best, is this suprising?</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">size_histories</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">())])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Epochs [Log Scale]&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 0, &#39;Epochs [Log Scale]&#39;)
+</pre></div>
+</div>
+<img alt="_images/38f63d5be9ce9c4aa560858a7ae72671eb427e1c4a706b21842c0fddde9de2e1.png" src="_images/38f63d5be9ce9c4aa560858a7ae72671eb427e1c4a706b21842c0fddde9de2e1.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="strategies-to-prevent-overfitting">
+<h2>Strategies to prevent overfitting<a class="headerlink" href="#strategies-to-prevent-overfitting" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>We will compare everything to the simple model. So let’s save that.</p></li>
+<li><p>We can try two things weight regularization, and dropout.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;regularizers/Tiny&#39;</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;sizes/Tiny&#39;</span><span class="p">,</span> <span class="n">logdir</span><span class="o">/</span><span class="s1">&#39;regularizers/Tiny&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;/tmp/tmps1qkh5c_/tensorboard_logs/regularizers/Tiny&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">regularizer_histories</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">size_histories</span><span class="p">[</span><span class="s1">&#39;Tiny&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="weights">
+<h2>Weights<a class="headerlink" href="#weights" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>L2 or L1? These are penalties to the weights based on how large the weights are (large weights normally mean overfitting)</p></li>
+<li><p>We can penalized based on the absolute value or the square of the value.</p></li>
+<li><p>L1 -&gt; loss = l1 * reduce_sum(abs(x)) : Laso Regression</p></li>
+<li><p>L2 -&gt; loss = l2 * reduce_sum(square(x)) : Ridge Regression</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">l2_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">),</span>
+                 <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span>
+                 <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.001</span><span class="p">)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;l2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">l2_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/l2&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_9&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_27 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dense_28 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_29 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_30 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dense_31 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:36:45.439735: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:36:45.439775: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:36:45.439891: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:36:45.997353: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:36:45.997383: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:36:46.024696: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:36:46.027228: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:36:46.030986: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46
+
+2023-10-19 11:36:46.033589: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.trace.json.gz
+2023-10-19 11:36:46.035422: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46
+
+2023-10-19 11:36:46.035535: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.memory_profile.json.gz
+2023-10-19 11:36:46.035726: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/l2/train/plugins/profile/2023_10_19_11_36_46/ubuntu.kernel_stats.pb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="_images/fd1c97eeba22c542c33f17f0743c422616c2710e658893d2cea74f0fdcc0f5a9.png" src="_images/fd1c97eeba22c542c33f17f0743c422616c2710e658893d2cea74f0fdcc0f5a9.png" />
+</div>
+</div>
+</section>
+<section id="dropout">
+<h2>Dropout<a class="headerlink" href="#dropout" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Dropout is very effective way of removing overfitting</p></li>
+<li><p>Developed in Canada!</p></li>
+<li><p>Usually 0.2 -&gt; 0.5 (fraction of total features set to zero)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dropout_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;dropout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">dropout_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/dropout&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_10&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_32 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_33 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_34 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_35 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 512)               0         
+_________________________________________________________________
+dense_36 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:41:25.355953: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:41:25.355987: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:41:25.356894: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:41:25.855508: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:41:25.855535: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:41:25.886954: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:41:25.889331: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:41:25.893370: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25
+
+2023-10-19 11:41:25.895975: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.trace.json.gz
+2023-10-19 11:41:25.898009: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25
+
+2023-10-19 11:41:25.898156: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.memory_profile.json.gz
+2023-10-19 11:41:25.898382: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/dropout/train/plugins/profile/2023_10_19_11_41_25/ubuntu.kernel_stats.pb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="_images/22587d4a1193fabfe87bcb2865f9c9e4a7501e2e747c512a28005c3d500fed46.png" src="_images/22587d4a1193fabfe87bcb2865f9c9e4a7501e2e747c512a28005c3d500fed46.png" />
+</div>
+</div>
+</section>
+<section id="combining-l2-dropout">
+<h2>Combining L2 + dropout<a class="headerlink" href="#combining-l2-dropout" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Now let’s put it all together and we will lower the power of the L2 regularization.</p></li>
+<li><p>This is a final version of a well balanced and trained model which we could now use to identify types of particles.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">combined_model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">Sequential</span><span class="p">([</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="n">FEATURES</span><span class="p">,)),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="n">kernel_regularizer</span><span class="o">=</span><span class="n">regularizers</span><span class="o">.</span><span class="n">l2</span><span class="p">(</span><span class="mf">0.0001</span><span class="p">),</span>
+                 <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;elu&#39;</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.5</span><span class="p">),</span>
+    <span class="n">layers</span><span class="o">.</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">])</span>
+
+<span class="n">regularizer_histories</span><span class="p">[</span><span class="s1">&#39;combined&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">compile_and_fit</span><span class="p">(</span><span class="n">combined_model</span><span class="p">,</span> <span class="s2">&quot;regularizers/combined&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;sequential_12&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+dense_42 (Dense)             (None, 512)               14848     
+_________________________________________________________________
+dropout_12 (Dropout)         (None, 512)               0         
+_________________________________________________________________
+dense_43 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_13 (Dropout)         (None, 512)               0         
+_________________________________________________________________
+dense_44 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_14 (Dropout)         (None, 512)               0         
+_________________________________________________________________
+dense_45 (Dense)             (None, 512)               262656    
+_________________________________________________________________
+dropout_15 (Dropout)         (None, 512)               0         
+_________________________________________________________________
+dense_46 (Dense)             (None, 1)                 513       
+=================================================================
+Total params: 803,329
+Trainable params: 803,329
+Non-trainable params: 0
+_________________________________________________________________
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-10-19 11:58:40.831801: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:58:40.831845: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:58:40.834243: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:58:41.548398: I tensorflow/core/profiler/lib/profiler_session.cc:131] Profiler session initializing.
+2023-10-19 11:58:41.548436: I tensorflow/core/profiler/lib/profiler_session.cc:146] Profiler session started.
+2023-10-19 11:58:41.594674: I tensorflow/core/profiler/lib/profiler_session.cc:66] Profiler session collecting data.
+2023-10-19 11:58:41.597493: I tensorflow/core/profiler/lib/profiler_session.cc:164] Profiler session tear down.
+2023-10-19 11:58:41.602430: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41
+
+2023-10-19 11:58:41.605721: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for trace.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.trace.json.gz
+2023-10-19 11:58:41.608735: I tensorflow/core/profiler/rpc/client/save_profile.cc:136] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41
+
+2023-10-19 11:58:41.608902: I tensorflow/core/profiler/rpc/client/save_profile.cc:142] Dumped gzipped tool data for memory_profile.json.gz to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.memory_profile.json.gz
+2023-10-19 11:58:41.609205: I tensorflow/core/profiler/rpc/client/capture_profile.cc:251] Creating directory: /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41
+Dumped tool data for xplane.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.xplane.pb
+Dumped tool data for overview_page.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.overview_page.pb
+Dumped tool data for input_pipeline.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.input_pipeline.pb
+Dumped tool data for tensorflow_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.tensorflow_stats.pb
+Dumped tool data for kernel_stats.pb to /tmp/tmps1qkh5c_/tensorboard_logs/regularizers/combined/train/plugins/profile/2023_10_19_11_58_41/ubuntu.kernel_stats.pb
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">regularizer_histories</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.5, 0.7)
+</pre></div>
+</div>
+<img alt="_images/dab742ba94601ce680878c26bd4be0937b1592876f8ebdae17eedc9a8534b36d.png" src="_images/dab742ba94601ce680878c26bd4be0937b1592876f8ebdae17eedc9a8534b36d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MIT License</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2017 François Chollet</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a</span>
+<span class="c1"># copy of this software and associated documentation files (the &quot;Software&quot;),</span>
+<span class="c1"># to deal in the Software without restriction, including without limitation</span>
+<span class="c1"># the rights to use, copy, modify, merge, publish, distribute, sublicense,</span>
+<span class="c1"># and/or sell copies of the Software, and to permit persons to whom the</span>
+<span class="c1"># Software is furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in</span>
+<span class="c1"># all copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL</span>
+<span class="c1"># THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING</span>
+<span class="c1"># FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER</span>
+<span class="c1"># DEALINGS IN THE SOFTWARE.</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chatgpt.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ChatGPT ‘Real-Life Example’</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hw1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#based-on-tensorflow-documentation">Based on Tensorflow Documentation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-the-functions">Importing the Functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-higgs-dataset">The Higgs Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batches-epochs">Batches &amp; Epochs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sorting-the-data">Sorting the Data</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-procedure-hyperparameter-tuning-and-schedulers">Training procedure - Hyperparameter tuning and schedulers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#training-and-fitting">Training and Fitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#final-set-up">Final Set-up</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tiny-model">Tiny model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#small-model">Small model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#medium-model">Medium model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#large-model">Large model</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-training-and-validation-losses">Plot the training and validation losses</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#strategies-to-prevent-overfitting">Strategies to prevent overfitting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights">Weights</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dropout">Dropout</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-l2-dropout">Combining L2 + dropout</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
