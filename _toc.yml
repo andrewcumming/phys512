@@ -46,6 +46,11 @@ parts:
           sections:
             - file: polynomial_fit_solutions
             - file: nonlinear_fit
+    - caption: Machine Learning
+      chapters:
+        - file: mllecture
+        - file: chatgpt
+        - file: mltensorflow.ipynb
     - caption: Ordinary differential equations
       chapters:
         - file: runge_kutta
@@ -63,4 +68,4 @@ parts:
             - file: HW2_solutions
             - file: homework_notes/hw2_common_issues
             - file: HW3_solutions
-            
+

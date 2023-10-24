@@ -12,6 +12,8 @@ only_build_toc_files: yes
 # was set to force
 execute:
   execute_notebooks: auto
+  exclude_patterns:
+      - 'ml*'
 
 # Define the name of the latex output file for PDF builds
 #latex:
