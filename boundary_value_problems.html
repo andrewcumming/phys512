@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Boundary value problems &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'boundary_value_problems';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="Initial value problems" href="runge_kutta.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mltensorflow.html">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary differential equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="runge_kutta.html">Initial value problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Boundary value problems</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fboundary_value_problems.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/boundary_value_problems.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Boundary value problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shooting-method">Shooting method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-method">Relaxation method</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="boundary-value-problems">
+<h1>Boundary value problems<a class="headerlink" href="#boundary-value-problems" title="Permalink to this heading">#</a></h1>
+<p>Another class of ODE problems are boundary-value problems in which we need to satisfy boundary conditions at different locations. The example we’ll use is a wave on a string, which is governed by the equation</p>
+<div class="math notranslate nohighlight">
+\[\rho(x) {d^2 \xi\over dt^2} - T{\partial^2 \xi\over\partial x^2} = 0,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\xi\)</span> is the vertical displacement (assumed small), <span class="math notranslate nohighlight">\(T\)</span> is the tension (assumed constant), and <span class="math notranslate nohighlight">\(\rho(x)\)</span> is the mass per unit length, which here we take to depend on the coordinate <span class="math notranslate nohighlight">\(x\)</span> along the string. If the string is fixed at both ends, we have a boundary value problem in which <span class="math notranslate nohighlight">\(\xi=0\)</span> at both <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=L\)</span>.</p>
+<p>For a normal mode of the string <span class="math notranslate nohighlight">\(\xi\propto e^{i\omega t}\)</span>, the governing equation reduces to the ODE</p>
+<div class="math notranslate nohighlight">
+\[{d^2\xi\over d x^2} = -{\omega^2 \rho(x)\over T} \xi.\]</div>
+<p>There are two different techniques we can use to solve this: <em>shooting</em> or <em>relaxation</em>.</p>
+<section id="shooting-method">
+<h2>Shooting method<a class="headerlink" href="#shooting-method" title="Permalink to this heading">#</a></h2>
+<p>In the shooting method, the idea is to start on one side, integrate across to the other boundary and then check whether the boundary condition is satisfied there. If not, we need to adjust either the conditions at the starting point or a parameter in the equations (here we’ll be adjusting the mode frequency <span class="math notranslate nohighlight">\(\omega\)</span>) and try again. By iterating, you can converge on the correct value of the parameter which gives both boundary conditions satisfied.</p>
+<p>Since we have a second order differential equation, the first thing to do is to rewrite the equation as two first order ODEs,</p>
+<div class="math notranslate nohighlight">
+\[{df\over dx} = g\]</div>
+<div class="math notranslate nohighlight">
+\[{dg\over dx} = -{\omega^2 \rho(x)\over T} f.\]</div>
+<p>At the left boundary, <span class="math notranslate nohighlight">\(x=0\)</span>, we have <span class="math notranslate nohighlight">\(f=0\)</span> as one of our boundary conditions. We also need a starting value of <span class="math notranslate nohighlight">\(g\)</span> and we need to choose a value for <span class="math notranslate nohighlight">\(\omega\)</span>. This particular problem is linear, so the solution <span class="math notranslate nohighlight">\(f\)</span> can be rescaled and still satisfy the equations. This means that the choice of <span class="math notranslate nohighlight">\(g\)</span> just acts as an overall scaling for the solution: we can set <span class="math notranslate nohighlight">\(g=1\)</span> for example (or any other value). The parameter that we need to tune to be able to match the boundary condition at <span class="math notranslate nohighlight">\(x=L\)</span> (we need <span class="math notranslate nohighlight">\(f=0\)</span> at <span class="math notranslate nohighlight">\(x=L\)</span>) is the mode frequency <span class="math notranslate nohighlight">\(\omega\)</span>. This is the <strong>eigenvalue</strong> of the problem: only for particular choices of <span class="math notranslate nohighlight">\(\omega\)</span> will we find solutions that satisfy both of our boundary conditions.</p>
+<p>So the procedure is:</p>
+<ol class="arabic simple">
+<li><p>Choose an initial guess for <span class="math notranslate nohighlight">\(\omega\)</span> and start at <span class="math notranslate nohighlight">\(x=0\)</span> with <span class="math notranslate nohighlight">\(f=0\)</span> and <span class="math notranslate nohighlight">\(g=1\)</span>.</p></li>
+<li><p>Integrate the coupled ODEs across to <span class="math notranslate nohighlight">\(x=L\)</span>.</p></li>
+<li><p>Check whether <span class="math notranslate nohighlight">\(f=0\)</span> at <span class="math notranslate nohighlight">\(x=L\)</span> and if not, adjust <span class="math notranslate nohighlight">\(\omega\)</span> and try again.</p></li>
+<li><p>Repeat until the boundary condition at <span class="math notranslate nohighlight">\(x=L\)</span> is satisfied to some target accuracy or until the value of <span class="math notranslate nohighlight">\(\omega\)</span> stops changing to some target accuracy.</p></li>
+</ol>
+<div class="admonition-exercise-waves-on-a-string admonition">
+<p class="admonition-title">Exercise: waves on a string</p>
+<p>Implement the shooting method to find the first 6 eigenmodes and eigenfrequencies of the string. Start with a constant density string and check that you get the expected solution. Then try a density <span class="math notranslate nohighlight">\(\rho = 1 + 10 (x/L)^2\)</span>, so that the string is much heavier at one end compared to the other.</p>
+<p>You can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.solve_ivp</span></code></a> to do the integration, and a root finder such as <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.brentq.html#scipy.optimize.brentq"><code class="docutils literal notranslate"><span class="pre">scipy.optimize.brentq</span></code></a> to find the value of <span class="math notranslate nohighlight">\(\omega\)</span> that zeros the right hand boundary condition.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_integration</span><span class="p">(</span><span class="n">omega</span><span class="p">):</span>
+    <span class="c1"># Returns f(x=L) given the trial frequency omega </span>
+    <span class="n">result</span> <span class="o">=</span> <span class="o">&lt;</span> <span class="n">do</span> <span class="n">integration</span> <span class="k">for</span> <span class="n">this</span> <span class="n">value</span> <span class="n">of</span> <span class="n">omega</span> <span class="o">&gt;</span>
+    <span class="k">return</span> <span class="o">&lt;</span> <span class="n">value</span> <span class="n">of</span> <span class="n">f</span> <span class="n">at</span> <span class="n">x</span><span class="o">=</span><span class="n">L</span> <span class="o">&gt;</span>
+
+<span class="c1"># Search for the root between frequencies om1 and om2</span>
+<span class="n">omega</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">optimize</span><span class="o">.</span><span class="n">brentq</span><span class="p">(</span><span class="n">do_integration</span><span class="p">,</span> <span class="n">om1</span><span class="p">,</span> <span class="n">om2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="relaxation-method">
+<h2>Relaxation method<a class="headerlink" href="#relaxation-method" title="Permalink to this heading">#</a></h2>
+<p>Relaxation methods take a different approach: guess the solution <span class="math notranslate nohighlight">\(f(x)\)</span> and iteratively refine the solution until it satisfies the differential equation.</p>
+<p>For this method, we can work with the second order equation</p>
+<div class="math notranslate nohighlight">
+\[{\partial^2 f\over\partial x^2} = -{\omega^2 \rho(x)\over T} f.\]</div>
+<p>Set <span class="math notranslate nohighlight">\(T=1\)</span> for simplicity and finite-difference this on a grid in <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[{f_{i+1}-2f_i+f_{i-1}\over (\Delta x)^2} = - \omega^2\rho_i f_i,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\rho_i\)</span> is the density at <span class="math notranslate nohighlight">\(x=x_i\)</span>. Now write this with a zero on the right hand side:</p>
+<div class="math notranslate nohighlight" id="equation-gdef">
+<span class="eqno">(10)<a class="headerlink" href="#equation-gdef" title="Permalink to this equation">#</a></span>\[G_i \equiv f_{i+1} - \left[2 - (\Delta x)^2\omega^2\rho_i)\right] f_i+f_{i-1} = 0.\]</div>
+<p>We need to find the <span class="math notranslate nohighlight">\(N\)</span> values of <span class="math notranslate nohighlight">\(f_i\)</span> that zero the <span class="math notranslate nohighlight">\(N\)</span> functions <span class="math notranslate nohighlight">\(G_i\)</span> (where <span class="math notranslate nohighlight">\(N\)</span> is the number of grid points). We just have to be careful at the boundaries: since we need <span class="math notranslate nohighlight">\(f\)</span> to vanish at the boundaries, the appropriate values of <span class="math notranslate nohighlight">\(G\)</span> there are</p>
+<div class="math notranslate nohighlight">
+\[G_1 = f_1 = 0 \hspace{1cm} G_N = f_N=0,\]</div>
+<p>and <span class="math notranslate nohighlight">\(G_i\)</span> is given by <a class="reference internal" href="#equation-gdef">(10)</a> for <span class="math notranslate nohighlight">\(i=2\)</span> to <span class="math notranslate nohighlight">\(N-1\)</span>.</p>
+<p>We can find the root using Newton’s method. Given a current guess <span class="math notranslate nohighlight">\(f^n_i\)</span> and the corresponding <span class="math notranslate nohighlight">\(G^n_i\)</span>’s (<span class="math notranslate nohighlight">\(n\)</span> labels the iteration), we make a first order Taylor expansion and set it to zero to estimate the values <span class="math notranslate nohighlight">\(f^{n+1}_i\)</span> that will zero the <span class="math notranslate nohighlight">\(G_i\)</span>’s:</p>
+<div class="math notranslate nohighlight">
+\[G^{n+1}_i = G^n_i + {\partial G^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.\]</div>
+<p>Defining the Jacobian matrix <span class="math notranslate nohighlight">\(J_{ij} = \partial G_i/\partial f_j\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow f_j^{n+1} = f_j^n + (J^{-1})_{ji} G^n_i \]</div>
+<div class="admonition-exercise-waves-on-a-string-with-relaxation admonition">
+<p class="admonition-title">Exercise: waves on a string with relaxation</p>
+<p>Take one of the eigenfrequencies that you found in the previous exercise, and use the relaxation method to find the eigenfunction corresponding to that frequency.</p>
+<p>Do you get good agreement with the eigenfunctions from the shooting method? How many grid points do you need to get a good solution? Does the starting guess make a difference?</p>
+<p>You can calculate the Jacobian either by implementing the analytic Jacobian (you will see that the matrix is of tridiagonal form so fairly easy to calculate) or using finite differences.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="runge_kutta.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Initial value problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hw1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#shooting-method">Shooting method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-method">Relaxation method</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
