@@ -57,7 +57,7 @@ $$f_2 = f(x+h/2, y_2)$$
 3. Now use $f_2$ to step across the entire interval and evaluate the derivative there:
 
 $$y_3 = y(x) + h f_2$$
-$$f_3 = f(x+h/2, y_3)$$
+$$f_3 = f(x+h, y_3)$$
 
 4. Finally, the value of $y$ at $x+h$ is given by
 
