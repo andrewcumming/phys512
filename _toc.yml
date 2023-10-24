@@ -46,6 +46,10 @@ parts:
           sections:
             - file: polynomial_fit_solutions
             - file: nonlinear_fit
+    - caption: Ordinary differential equations
+      chapters:
+        - file: runge_kutta
+        - file: boundary_value_problems
     - caption: Homework
       chapters:
         - file: hw1
