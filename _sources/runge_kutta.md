@@ -45,7 +45,8 @@ The procedure is similar to the midpoint method, but with an extra step:
 
 1. Step to the halfway point and evaluate the derivative there:
 
-$$y_1 = y(x) + {h\over 2}f(x,y)$$
+$$f_0 = f(x,y)$$
+$$y_1 = y(x) + {h\over 2}f_0$$
 $$f_1 = f(x+h/2, y_1)$$
 
 2. Now repeat, but this time use $f_1$ to step to the halfway point and re-evaluate the derivative:
@@ -60,7 +61,7 @@ $$f_3 = f(x+h/2, y_3)$$
 
 4. Finally, the value of $y$ at $x+h$ is given by
 
-$$y(x+h) = y(x) + {h\over 6}\left(f_1 + 2f_2 + 2f_3 +f_4\right).$$
+$$y(x+h) = y(x) + {h\over 6}\left(f_0 + 2f_1 + 2f_2 +f_3\right).$$
 
 This formula might remind you of Simpson's rule (which similarly also has a combination of terms that cancel the third order error terms).
 

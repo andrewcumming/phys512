@@ -500,7 +500,9 @@ document.write(`
 <li><p>Step to the halfway point and evaluate the derivative there:</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[y_1 = y(x) + {h\over 2}f(x,y)\]</div>
+\[f_0 = f(x,y)\]</div>
+<div class="math notranslate nohighlight">
+\[y_1 = y(x) + {h\over 2}f_0\]</div>
 <div class="math notranslate nohighlight">
 \[f_1 = f(x+h/2, y_1)\]</div>
 <ol class="arabic simple" start="2">
@@ -521,7 +523,7 @@ document.write(`
 <li><p>Finally, the value of <span class="math notranslate nohighlight">\(y\)</span> at <span class="math notranslate nohighlight">\(x+h\)</span> is given by</p></li>
 </ol>
 <div class="math notranslate nohighlight">
-\[y(x+h) = y(x) + {h\over 6}\left(f_1 + 2f_2 + 2f_3 +f_4\right).\]</div>
+\[y(x+h) = y(x) + {h\over 6}\left(f_0 + 2f_1 + 2f_2 +f_3\right).\]</div>
 <p>This formula might remind you of Simpson’s rule (which similarly also has a combination of terms that cancel the third order error terms).</p>
 <div class="admonition-exercise-runge-kutta-orbit-integrations admonition">
 <p class="admonition-title">Exercise: Runge-Kutta orbit integrations</p>
