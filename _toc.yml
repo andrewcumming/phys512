@@ -61,6 +61,7 @@ parts:
         - file: hw2
         - file: hw3
         - file: hw4
+        - file: hw5
         - file: project_instructions
         - file: homework_solutions
           sections:
