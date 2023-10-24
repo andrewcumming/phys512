@@ -91,7 +91,7 @@ Hint: try to write your integrator in as general a way as possible and take adva
     x = np.zeros((nsteps, len(x0)))
     x[0] = x0
     for i in range(1,nsteps):    
-        f = derivs(i*dt, x[i-1])
+        f = derivs((i-1)*dt, x[i-1])
         x[i] = x[i-1] + f*dt
     return x
 ```
