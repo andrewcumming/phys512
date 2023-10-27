@@ -2,7 +2,7 @@
 
 Another class of ODE problems are boundary-value problems in which we need to satisfy boundary conditions at different locations. The example we'll use is a wave on a string, which is governed by the equation 
 
-$$\rho(x) {d^2 \xi\over dt^2} - T{\partial^2 \xi\over\partial x^2} = 0,$$
+$$\rho(x) {\partial^2 \xi\over \partial t^2} - T{\partial^2 \xi\over\partial x^2} = 0,$$
 
 where $\xi$ is the vertical displacement (assumed small), $T$ is the tension (assumed constant), and $\rho(x)$ is the mass per unit length, which here we take to depend on the coordinate $x$ along the string. If the string is fixed at both ends, we have a boundary value problem in which $\xi=0$ at both $x=0$ and $x=L$.
 
@@ -64,7 +64,7 @@ Relaxation methods take a different approach: guess the solution $f(x)$ and iter
 
 For this method, we can work with the second order equation
 
-$${\partial^2 f\over\partial x^2} = -{\omega^2 \rho(x)\over T} f.$$
+$${d^2 f\over d x^2} = -{\omega^2 \rho(x)\over T} f.$$
 
 
 Set $T=1$ for simplicity and finite-difference this on a grid in $x$:
