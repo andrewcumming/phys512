@@ -88,9 +88,12 @@ $$G^{n+1}_i = G^n_i + {\partial G^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.$$
 
 Defining the Jacobian matrix $J_{ij} = \partial G_i/\partial f_j$, 
 
+the new values $f^{n+1}_j$ are given by 
 $$G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0$$
 
-$$\Rightarrow f_j^{n+1} = f_j^n + (J^{-1})_{ji} G^n_i $$
+or 
+
+$$f_j^{n+1} = f_j^n - (J^{-1})_{ji} G^n_i.$$
 
 ```{admonition} Exercise: waves on a string with relaxation
 
