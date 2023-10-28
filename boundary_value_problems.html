@@ -513,12 +513,13 @@ document.write(`
 <p>We can find the root using Newton’s method. Given a current guess <span class="math notranslate nohighlight">\(f^n_i\)</span> and the corresponding <span class="math notranslate nohighlight">\(G^n_i\)</span>’s (<span class="math notranslate nohighlight">\(n\)</span> labels the iteration), we make a first order Taylor expansion and set it to zero to estimate the values <span class="math notranslate nohighlight">\(f^{n+1}_i\)</span> that will zero the <span class="math notranslate nohighlight">\(G_i\)</span>’s:</p>
 <div class="math notranslate nohighlight">
 \[G^{n+1}_i = G^n_i + {\partial G^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.\]</div>
-<p>Defining the Jacobian matrix <span class="math notranslate nohighlight">\(J_{ij} = \partial G_i/\partial f_j\)</span>,</p>
-<p>the new values <span class="math notranslate nohighlight">\(f^{n+1}_j\)</span> are given by
-$<span class="math notranslate nohighlight">\(G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0\)</span>$</p>
+<p>Defining the Jacobian matrix <span class="math notranslate nohighlight">\(J_{ij} = \partial G_i/\partial f_j\)</span>, the new values <span class="math notranslate nohighlight">\(f^{n+1}_j\)</span> are given by</p>
+<div class="math notranslate nohighlight">
+\[G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0\]</div>
 <p>or</p>
 <div class="math notranslate nohighlight">
 \[f_j^{n+1} = f_j^n - (J^{-1})_{ji} G^n_i.\]</div>
+<p>If the initial guess is good enough, this should converge on the correct solution.</p>
 <div class="admonition-exercise-waves-on-a-string-with-relaxation admonition">
 <p class="admonition-title">Exercise: waves on a string with relaxation</p>
 <p>Take one of the eigenfrequencies that you found in the previous exercise, and use the relaxation method to find the eigenfunction corresponding to that frequency.</p>
