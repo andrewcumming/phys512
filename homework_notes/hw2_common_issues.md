@@ -1,8 +1,6 @@
 # Homework 2: Common Issues
 
-```{note}
-This section was written by Valentin Boettcher, the TA who graded homework 2.
-```
+By [Valentin Boettcher](https://github.com/vale981)
 
 First of all: You all did a great job. Almost all codes I received were ran without modification (except for the missing `hw2_data.txt`, see below). My feedback on myCourses may sound overly negative. This is because I mostly documented the reasons for deducting points due to time constraints. Furthermore, some suggestions below may seem a little pedantic. This is certainly not a software-engineering course. See my suggestions more as general tips and not as strict requirements.
 

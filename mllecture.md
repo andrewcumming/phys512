@@ -1,5 +1,7 @@
 # Machine Learning
 
+By [Matthew Lundy](https://github.com/matthew-w-lundy)
+
 ## Introduction
 
 When it comes to machine learning we are dealing with a very broad and active field so it's often difficult to fully encompass all that falls under this umbrella. First off, it's important to discuss what we mean by certain terms. I often find that core concepts in [Machine Learning](https://en.wikipedia.org/wiki/Machine_learning) (ML) are familiar to folks, or easy to understand but people just have issues with the terminology. This is going to be a mix of the core concepts that cause ML to work as well as well as some introduction to the theory. This work relies heavily on [Mitchell](http://www.cs.cmu.edu/~tom/files/MachineLearningTomMitchell.pdf) (2017) as a key reference. We will try to summarise the state of the field and provide brief introduction to neural networks.
