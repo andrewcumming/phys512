@@ -86,14 +86,15 @@ We can find the root using Newton's method. Given a current guess $f^n_i$ and th
 
 $$G^{n+1}_i = G^n_i + {\partial G^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.$$
 
-Defining the Jacobian matrix $J_{ij} = \partial G_i/\partial f_j$, 
+Defining the Jacobian matrix $J_{ij} = \partial G_i/\partial f_j$, the new values $f^{n+1}_j$ are given by 
 
-the new values $f^{n+1}_j$ are given by 
 $$G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0$$
 
 or 
 
 $$f_j^{n+1} = f_j^n - (J^{-1})_{ji} G^n_i.$$
+
+If the initial guess is good enough, this should converge on the correct solution.
 
 ```{admonition} Exercise: waves on a string with relaxation
 
