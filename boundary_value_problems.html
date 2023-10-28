@@ -213,6 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Boundary value problems</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
 </ul>
 </li>
 </ul>
@@ -455,7 +456,7 @@ document.write(`
 <h1>Boundary value problems<a class="headerlink" href="#boundary-value-problems" title="Permalink to this heading">#</a></h1>
 <p>Another class of ODE problems are boundary-value problems in which we need to satisfy boundary conditions at different locations. The example we’ll use is a wave on a string, which is governed by the equation</p>
 <div class="math notranslate nohighlight">
-\[\rho(x) {d^2 \xi\over dt^2} - T{\partial^2 \xi\over\partial x^2} = 0,\]</div>
+\[\rho(x) {\partial^2 \xi\over \partial t^2} - T{\partial^2 \xi\over\partial x^2} = 0,\]</div>
 <p>where <span class="math notranslate nohighlight">\(\xi\)</span> is the vertical displacement (assumed small), <span class="math notranslate nohighlight">\(T\)</span> is the tension (assumed constant), and <span class="math notranslate nohighlight">\(\rho(x)\)</span> is the mass per unit length, which here we take to depend on the coordinate <span class="math notranslate nohighlight">\(x\)</span> along the string. If the string is fixed at both ends, we have a boundary value problem in which <span class="math notranslate nohighlight">\(\xi=0\)</span> at both <span class="math notranslate nohighlight">\(x=0\)</span> and <span class="math notranslate nohighlight">\(x=L\)</span>.</p>
 <p>For a normal mode of the string <span class="math notranslate nohighlight">\(\xi\propto e^{i\omega t}\)</span>, the governing equation reduces to the ODE</p>
 <div class="math notranslate nohighlight">
@@ -498,7 +499,7 @@ document.write(`
 <p>Relaxation methods take a different approach: guess the solution <span class="math notranslate nohighlight">\(f(x)\)</span> and iteratively refine the solution until it satisfies the differential equation.</p>
 <p>For this method, we can work with the second order equation</p>
 <div class="math notranslate nohighlight">
-\[{\partial^2 f\over\partial x^2} = -{\omega^2 \rho(x)\over T} f.\]</div>
+\[{d^2 f\over d x^2} = -{\omega^2 \rho(x)\over T} f.\]</div>
 <p>Set <span class="math notranslate nohighlight">\(T=1\)</span> for simplicity and finite-difference this on a grid in <span class="math notranslate nohighlight">\(x\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[{f_{i+1}-2f_i+f_{i-1}\over (\Delta x)^2} = - \omega^2\rho_i f_i,\]</div>
@@ -513,10 +514,11 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[G^{n+1}_i = G^n_i + {\partial G^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.\]</div>
 <p>Defining the Jacobian matrix <span class="math notranslate nohighlight">\(J_{ij} = \partial G_i/\partial f_j\)</span>,</p>
+<p>the new values <span class="math notranslate nohighlight">\(f^{n+1}_j\)</span> are given by
+$<span class="math notranslate nohighlight">\(G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0\)</span>$</p>
+<p>or</p>
 <div class="math notranslate nohighlight">
-\[G^{n+1}_i = G^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0\]</div>
-<div class="math notranslate nohighlight">
-\[\Rightarrow f_j^{n+1} = f_j^n + (J^{-1})_{ji} G^n_i \]</div>
+\[f_j^{n+1} = f_j^n - (J^{-1})_{ji} G^n_i.\]</div>
 <div class="admonition-exercise-waves-on-a-string-with-relaxation admonition">
 <p class="admonition-title">Exercise: waves on a string with relaxation</p>
 <p>Take one of the eigenfrequencies that you found in the previous exercise, and use the relaxation method to find the eigenfunction corresponding to that frequency.</p>
