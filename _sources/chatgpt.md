@@ -1,5 +1,7 @@
 # ChatGPT 'Real-Life Example'
 
+By [Matthew Lundy](https://github.com/matthew-w-lundy)
+
 #### You:
 I have a list of links to files I need to download in a text file where each link is seperated by a new line. I want to download all of these files in python and then create a numpy array containing a list of these files. 
 
