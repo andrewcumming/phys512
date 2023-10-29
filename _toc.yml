@@ -55,6 +55,7 @@ parts:
       chapters:
         - file: runge_kutta
         - file: boundary_value_problems
+        - file: symplectic
         - file: ode_solutions
           sections:
             - file: runge_kutta_solutions
