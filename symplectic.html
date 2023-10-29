@@ -442,6 +442,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-cromer-and-leapfrog-applied-to-orbits">Euler-Cromer and Leapfrog applied to orbits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion">Simple harmonic motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
             </nav>
         </div>
@@ -715,7 +716,7 @@ After integrating backwards, (x,y,vx,vy) = (-1.92764e-11,1,1,1.92697e-11)
 <div class="math notranslate nohighlight">
 \[\begin{split}\mathbf{J} = \begin{pmatrix} \partial x_{n+1}/\partial x_n &amp; \partial x_{n+1}/\partial v_n \\ \partial v_{n+1}/\partial x_n &amp; \partial v_{n+1}/\partial v_n \end{pmatrix},\end{split}\]</div>
 <p>i.e. it is the Jacobian associated with the transformation of variables <span class="math notranslate nohighlight">\((x_n,v_n)\rightarrow (x_{n+1},v_{n+1})\)</span>.</p>
-<p>A <strong>symplectic</strong> integrator is one that preserves the phase space volume <span class="math notranslate nohighlight">\(dxdp\)</span>, which implies that <span class="math notranslate nohighlight">\(\det \mathbf{A}=1\)</span>. We can see that the Jacobian for Euler-Cromer has this property.</p>
+<p>A <strong>symplectic</strong> integrator is one that preserves the phase space volume <span class="math notranslate nohighlight">\(dxdp\)</span> (<a class="reference external" href="https://en.wikipedia.org/wiki/Liouville's_theorem_(Hamiltonian)">Liouville’s theorem</a>), which implies that <span class="math notranslate nohighlight">\(\det \mathbf{J}=1\)</span> (recall that when making a change of coordinates, the volume element <a class="reference external" href="https://en.wikipedia.org/wiki/Volume_element">transforms</a> <span class="math notranslate nohighlight">\(dV\rightarrow (\det{J}) dV\)</span>).   We can see that the Jacobian for Euler-Cromer has this property.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check this using &quot;SymPy&quot; which does symbolic calculations</span>
@@ -742,8 +743,15 @@ Determinant =  1
 <p>(a) Calculate the Jacobian matrices for the Euler and Leapfrog methods. Calculate <span class="math notranslate nohighlight">\(\det\mathbf{J}\)</span> in each case.</p>
 <p>(b) Now use the Jacobians for the Euler, Euler-Cromer, and Leapfrog methods to determine whether these methods are time-reversible, i.e. if you take a step <span class="math notranslate nohighlight">\(h\)</span> followed by a step <span class="math notranslate nohighlight">\(-h\)</span>, do you get back to where you started?</p>
 <p>(c) Using the Jacobian and its transpose, calculate how the energy <span class="math notranslate nohighlight">\(E = (x^2 + v^2)/2\)</span> changes when taking a step <span class="math notranslate nohighlight">\(h\)</span>.</p>
-<p>Hint: you can use <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> to help you with the matrix algebra. For example given a matrix <code class="docutils literal notranslate"><span class="pre">J</span></code> you can do <code class="docutils literal notranslate"><span class="pre">J.inv()</span></code> to get the symbolic expression for the inverse.</p>
+<p>Note: this is a symbolic rather than numerical exercise! You can use <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> to help you with the matrix algebra. For example given a matrix <code class="docutils literal notranslate"><span class="pre">J</span></code> you can do <code class="docutils literal notranslate"><span class="pre">J.inv()</span></code> to get the symbolic expression for the inverse or <code class="docutils literal notranslate"><span class="pre">J.T</span></code> for the transpose.</p>
 </div>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>An overview of symplectic integration with some interesting example applications is given by <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/1990Nonli...3..231C/abstract">Channell and Scovel 1990</a></p></li>
+<li><p>The <a class="reference external" href="https://rebound.readthedocs.io/en/latest/">REBOUND code</a> has implementation of many different symplectic integrators for orbital dynamics.</p></li>
+</ul>
 </section>
 </section>
 
@@ -816,6 +824,7 @@ Determinant =  1
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-cromer-and-leapfrog-applied-to-orbits">Euler-Cromer and Leapfrog applied to orbits</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion">Simple harmonic motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
   </nav></div>
 
