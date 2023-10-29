@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Symplectic integrators &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'symplectic';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solutions to exercises" href="ode_solutions.html" />
+    <link rel="prev" title="Boundary value problems" href="boundary_value_problems.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mltensorflow.html">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Ordinary differential equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="runge_kutta.html">Initial value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Symplectic integrators</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fsymplectic.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/symplectic.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Symplectic integrators</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-cromer-and-leapfrog-applied-to-orbits">Euler-Cromer and Leapfrog applied to orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion">Simple harmonic motion</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="symplectic-integrators">
+<h1>Symplectic integrators<a class="headerlink" href="#symplectic-integrators" title="Permalink to this heading">#</a></h1>
+<p>Symplectic integrators are an important class of methods that can be used for dynamical systems where we want to respect the symmetries of the Hamiltonian and corresponding conserved quantities. For example, for the case of a body moving in a central <span class="math notranslate nohighlight">\(1/r\)</span> potential, we know that energy and angular momentum are conserved, and so we want our numerical method to also obey these conservation laws as closely as possible. Other applications of these methods are in molecular dynamics simulations and Hamiltonian monte carlo methods.</p>
+<section id="euler-cromer-and-leapfrog-applied-to-orbits">
+<h2>Euler-Cromer and Leapfrog applied to orbits<a class="headerlink" href="#euler-cromer-and-leapfrog-applied-to-orbits" title="Permalink to this heading">#</a></h2>
+<p>In <a class="reference external" href="https://andrewcumming.github.io/phys512/hw1.html">homework 1</a> you integrated a circular orbit using the <strong>semi-implicit Euler</strong> method</p>
+<div class="math notranslate nohighlight">
+\[v_{n+1} = v_n + a_n \Delta t\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n + v_{n+1} \Delta t\]</div>
+<p>where the key idea is to use the updated velocity <span class="math notranslate nohighlight">\(v_{n+1}\)</span> to do the position update rather than using the current velocity <span class="math notranslate nohighlight">\(v_n\)</span>. (Note that the acceleration <span class="math notranslate nohighlight">\(a_n\)</span> means the acceleration evaluated at position <span class="math notranslate nohighlight">\(x_n\)</span>.) This method is an example of a <strong>symplectic</strong> integrator. The goal today is to investigate the properties of these kinds of integrators.</p>
+<p>The semi-implicit Euler method (also known as <strong>Euler-Cromer</strong>) is a first order method. A widely-used second order symplectic method is the <strong>Leapfrog method</strong> (also known as the <strong>velocity Verlet</strong> method) which when written in <em>kick-drift-kick</em> form is</p>
+<div class="math notranslate nohighlight">
+\[v_{n+1/2} = v_n + a_n {\Delta t\over 2}\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n + v_{n+1/2} \Delta t\]</div>
+<div class="math notranslate nohighlight">
+\[v_{n+1} = v_{n+1/2} + a_{n+1} {\Delta t\over 2}.\]</div>
+<p>This time we use the velocity updated by half a time-step to update the position, and then the updated position and corresponding acceleration to update the velocity by another half time-step to its final value.</p>
+<p>Let’s do an orbit integration comparing these methods with the Euler and midpoint methods that we looked at for initial value problems. Written out as position and velocity updates, these are</p>
+<p><em>Euler</em></p>
+<div class="math notranslate nohighlight">
+\[v_{n+1} = v_n + a_n \Delta t\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n + v_n \Delta t\]</div>
+<p><em>Midpoint</em></p>
+<div class="math notranslate nohighlight">
+\[v_{n+1/2} = v_n + a_n {\Delta t\over 2}\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1/2} = x_n + v_n {\Delta t\over 2}\]</div>
+<div class="math notranslate nohighlight">
+\[v_{n+1} = v_n + a_{n+1/2} {\Delta t}\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n + v_{n+1/2} {\Delta t}\]</div>
+<p>In particular, we are interested in:</p>
+<ul class="simple">
+<li><p>how accurate is the method?</p></li>
+<li><p>how well are energy and angular momentum conserved?</p></li>
+<li><p>is the method time-reversible? (Do we get back to where we started if we go backwards?)</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First define the various integrators</span>
+<span class="c1"># they all take an initial position vector x0 and velocity vector v0</span>
+<span class="c1"># and return x(t), y(t), vx(t), vy(t)</span>
+
+<span class="k">def</span> <span class="nf">derivs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+    <span class="n">vxdot</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">rr</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">vydot</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">rr</span><span class="o">**</span><span class="mi">3</span>
+    <span class="n">xdot</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">ydot</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">xdot</span><span class="p">,</span><span class="n">ydot</span><span class="p">,</span><span class="n">vxdot</span><span class="p">,</span><span class="n">vydot</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">midpoint</span><span class="p">(</span><span class="n">nsteps</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">:]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>    
+        <span class="n">f</span> <span class="o">=</span> <span class="n">derivs</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">f1</span> <span class="o">=</span> <span class="n">derivs</span><span class="p">((</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span> <span class="o">+</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f</span><span class="o">*</span><span class="n">dt</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">f1</span><span class="o">*</span><span class="n">dt</span>        
+    <span class="k">return</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">3</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">euler</span><span class="p">(</span><span class="n">nsteps</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>    
+
+<span class="k">def</span> <span class="nf">leapfrog</span><span class="p">(</span><span class="n">nsteps</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">v12</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v12</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v12</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">euler_cromer</span><span class="p">(</span><span class="n">nsteps</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">v0</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">v0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nsteps</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">r</span><span class="o">**</span><span class="mi">3</span>
+        <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">a</span> <span class="o">*</span> <span class="n">dt</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">dt</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">v</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>    
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nsteps</span> <span class="o">=</span> <span class="mi">100</span>   <span class="c1"># number of steps per orbit</span>
+<span class="n">norbits</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># number of orbits to integrate</span>
+
+<span class="n">integrators</span> <span class="o">=</span> <span class="p">(</span><span class="n">euler</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">euler_cromer</span><span class="p">,</span> <span class="n">leapfrog</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">integrator</span> <span class="ow">in</span> <span class="n">integrators</span><span class="p">:</span>
+
+    <span class="n">dt</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">nsteps</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nsteps</span><span class="o">*</span><span class="n">norbits</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span>
+    <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">integrator</span><span class="p">(</span><span class="n">nsteps</span><span class="o">*</span><span class="n">norbits</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">xx</span><span class="o">*</span><span class="n">vy</span> <span class="o">-</span> <span class="n">yy</span><span class="o">*</span><span class="n">vx</span>
+
+    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">yy</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">yy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">integrator</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
+
+    <span class="c1"># now integrate back in time</span>
+    <span class="n">xx2</span><span class="p">,</span> <span class="n">yy2</span><span class="p">,</span> <span class="n">vx2</span><span class="p">,</span> <span class="n">vy2</span> <span class="o">=</span> <span class="n">integrator</span><span class="p">(</span><span class="n">nsteps</span><span class="o">*</span><span class="n">norbits</span><span class="p">,</span> <span class="o">-</span><span class="n">dt</span><span class="p">,</span> <span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">yy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="p">(</span><span class="n">vx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">vy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx2</span><span class="p">,</span> <span class="n">yy2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">xx2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">yy2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">E</span><span class="o">+</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Energy&#39;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Angular momentum&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">J</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;final location (x,y) = (</span><span class="si">%lg</span><span class="s1">,</span><span class="si">%lg</span><span class="s1">), time/2pi=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">yy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;final E+0.5=</span><span class="si">%lg</span><span class="s1">, max E+0.5=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">E</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="p">,</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">E</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;After integrating backwards, (x,y,vx,vy) = (</span><span class="si">%lg</span><span class="s1">,</span><span class="si">%lg</span><span class="s1">,</span><span class="si">%lg</span><span class="s1">,</span><span class="si">%lg</span><span class="s1">)&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">xx2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">yy2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">vx2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">vy2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/13285bd5b0687591ed5604cec9e34744f19677cd8f23f1376340df6246c2d2c7.png" src="_images/13285bd5b0687591ed5604cec9e34744f19677cd8f23f1376340df6246c2d2c7.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final location (x,y) = (0.23627,-6.2566), time/2pi=100
+final E+0.5=0.426872, max E+0.5=0.426872
+After integrating backwards, (x,y,vx,vy) = (-9.88094,5.26677,0.197053,0.171193)
+</pre></div>
+</div>
+<img alt="_images/6d15e80526003adc1c277b0f6320e3f994a2ee163befa0dcedad4f40a90f58f0.png" src="_images/6d15e80526003adc1c277b0f6320e3f994a2ee163befa0dcedad4f40a90f58f0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final location (x,y) = (0.565292,-0.848388), time/2pi=100
+final E+0.5=0.00899911, max E+0.5=0.00899911
+After integrating backwards, (x,y,vx,vy) = (-0.0194033,-1.03824,-0.979594,0.0186551)
+</pre></div>
+</div>
+<img alt="_images/0861f7139d35459bb64768b09d5e84413a1d4a565bfe7d74087905c5f313388e.png" src="_images/0861f7139d35459bb64768b09d5e84413a1d4a565bfe7d74087905c5f313388e.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final location (x,y) = (-1.01773,-0.154278), time/2pi=100
+final E+0.5=0.00051406, max E+0.5=0.00197583
+After integrating backwards, (x,y,vx,vy) = (0.99635,0.100612,0.0172223,-1.00192)
+</pre></div>
+</div>
+<img alt="_images/1af3e4da581f87ed0dda4f654b0fa81597056d2815022d49a4bef0061d73fbf2.png" src="_images/1af3e4da581f87ed0dda4f654b0fa81597056d2815022d49a4bef0061d73fbf2.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>final location (x,y) = (-0.734968,0.678133), time/2pi=100
+final E+0.5=2.10374e-08, max E+0.5=1.93672e-06
+After integrating backwards, (x,y,vx,vy) = (-1.92764e-11,1,1,1.92697e-11)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">integrators</span> <span class="o">=</span> <span class="p">(</span><span class="n">euler</span><span class="p">,</span> <span class="n">euler_cromer</span><span class="p">,</span> <span class="n">midpoint</span><span class="p">,</span> <span class="n">leapfrog</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">integrator</span> <span class="ow">in</span> <span class="n">integrators</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Calculating </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">integrator</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,))</span>
+    
+    <span class="n">n_vec</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">E_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">n_vec</span><span class="p">)</span>
+    <span class="n">x_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">n_vec</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">nsteps</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">n_vec</span><span class="p">):</span>    
+        <span class="n">dt</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">nsteps</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">vx</span><span class="p">,</span> <span class="n">vy</span> <span class="o">=</span> <span class="n">integrator</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">vx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">vy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c1">#E_vec[i] = abs(E[-1]+0.5)</span>
+        <span class="n">E_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">E</span><span class="o">+</span><span class="mf">0.5</span><span class="p">))</span>
+        <span class="n">x_vec</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xx</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">yy</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1">#print(n_vec[i], E_vec[i], x_vec[i])</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="n">E_vec</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="n">integrator</span><span class="o">.</span><span class="vm">__name__</span><span class="o">+</span><span class="s1">&#39; E&#39;</span><span class="p">)</span>
+    <span class="c1">#plt.plot(n_vec, x_vec, &quot;--&quot;, label = integrator.__name__+ &#39; r&#39;)</span>
+
+<span class="n">n_vec</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">3.7</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_vec</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$1/N$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_vec</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$1/N^2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_vec</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$1/N^3$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">n_vec</span><span class="o">**</span><span class="mi">4</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$1/N^4$&#39;</span><span class="p">)</span>
+<span class="n">n_vec</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span><span class="mf">5.5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">n_vec</span><span class="p">,</span> <span class="mf">1e-17</span><span class="o">*</span><span class="n">n_vec</span><span class="o">**</span><span class="mf">0.5</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$N^{1/2}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$N$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;Energy error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating leapfrog
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating midpoint
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating euler_cromer
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Calculating euler
+</pre></div>
+</div>
+<img alt="_images/4bf5fea9cc30f62380af8ee4e1ce7954a49fd2b51c5526a341c6603177b39d06.png" src="_images/4bf5fea9cc30f62380af8ee4e1ce7954a49fd2b51c5526a341c6603177b39d06.png" />
+</div>
+</div>
+</section>
+<section id="simple-harmonic-motion">
+<h2>Simple harmonic motion<a class="headerlink" href="#simple-harmonic-motion" title="Permalink to this heading">#</a></h2>
+<p>To investigate the properties of these integrators in more detail, consider a 1D simple harmonic oscillator (mass on a spring) where we can write the acceleration as <span class="math notranslate nohighlight">\(a_n = - x_n\)</span>. (Let’s set the mass and spring constant to 1 for simplicity).</p>
+<p>The Euler-Cromer update is then</p>
+<div class="math notranslate nohighlight">
+\[v_{n+1} = v_n + h a_n = v_n - h x_n\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n+1} = x_n + h v_{n+1},\]</div>
+<p>where we’ve also gone back to our previous notation and written the integration step as <span class="math notranslate nohighlight">\(h\)</span> instead of <span class="math notranslate nohighlight">\(\Delta t\)</span> (it’s easier to write).</p>
+<p>We can write this update as a matrix operation</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{pmatrix}x_{n+1} \\ v_{n+1}  \end{pmatrix} = 
+\begin{pmatrix} 1 &amp; h \\ 0 &amp; 1 \end{pmatrix}
+\begin{pmatrix} 1 &amp; 0 \\ -h &amp; 1 \end{pmatrix}\begin{pmatrix}x_n \\ v_n  \end{pmatrix}
+=
+\begin{pmatrix} 1-h^2 &amp; h \\ -h &amp; 1 \end{pmatrix} \begin{pmatrix}x_n \\ v_n  \end{pmatrix} = \mathbf{J} \cdot \begin{pmatrix}x_n \\ v_n  \end{pmatrix}\end{split}\]</div>
+<p>so that <span class="math notranslate nohighlight">\(\mathbf{J}\)</span> is the matrix that takes the current <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(v\)</span> and updates them to the next timestep.  Another way to write this matrix is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{J} = \begin{pmatrix} \partial x_{n+1}/\partial x_n &amp; \partial x_{n+1}/\partial v_n \\ \partial v_{n+1}/\partial x_n &amp; \partial v_{n+1}/\partial v_n \end{pmatrix},\end{split}\]</div>
+<p>i.e. it is the Jacobian associated with the transformation of variables <span class="math notranslate nohighlight">\((x_n,v_n)\rightarrow (x_{n+1},v_{n+1})\)</span>.</p>
+<p>A <strong>symplectic</strong> integrator is one that preserves the phase space volume <span class="math notranslate nohighlight">\(dxdp\)</span>, which implies that <span class="math notranslate nohighlight">\(\det \mathbf{A}=1\)</span>. We can see that the Jacobian for Euler-Cromer has this property.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check this using &quot;SymPy&quot; which does symbolic calculations</span>
+<span class="c1"># you may need to &#39;pip install sympy&#39;</span>
+<span class="kn">import</span> <span class="nn">sympy.matrices</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">matrices</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="n">h</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">sympy</span><span class="o">.</span><span class="n">matrices</span><span class="o">.</span><span class="n">Matrix</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="o">-</span><span class="n">h</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
+<span class="n">J</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">b</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">J</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Determinant = &#39;</span><span class="p">,</span> <span class="n">J</span><span class="o">.</span><span class="n">det</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix([[1 - h**2, h], [-h, 1]])
+Determinant =  1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercise-symplectic-integrators admonition">
+<p class="admonition-title">Exercise: symplectic integrators</p>
+<p>(a) Calculate the Jacobian matrices for the Euler and Leapfrog methods. Calculate <span class="math notranslate nohighlight">\(\det\mathbf{J}\)</span> in each case.</p>
+<p>(b) Now use the Jacobians for the Euler, Euler-Cromer, and Leapfrog methods to determine whether these methods are time-reversible, i.e. if you take a step <span class="math notranslate nohighlight">\(h\)</span> followed by a step <span class="math notranslate nohighlight">\(-h\)</span>, do you get back to where you started?</p>
+<p>(c) Using the Jacobian and its transpose, calculate how the energy <span class="math notranslate nohighlight">\(E = (x^2 + v^2)/2\)</span> changes when taking a step <span class="math notranslate nohighlight">\(h\)</span>.</p>
+<p>Hint: you can use <a class="reference external" href="https://www.sympy.org/en/index.html">SymPy</a> to help you with the matrix algebra. For example given a matrix <code class="docutils literal notranslate"><span class="pre">J</span></code> you can do <code class="docutils literal notranslate"><span class="pre">J.inv()</span></code> to get the symbolic expression for the inverse.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="boundary_value_problems.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Boundary value problems</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ode_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions to exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-cromer-and-leapfrog-applied-to-orbits">Euler-Cromer and Leapfrog applied to orbits</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simple-harmonic-motion">Simple harmonic motion</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
