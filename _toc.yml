@@ -74,4 +74,5 @@ parts:
             - file: HW2_solutions
             - file: homework_notes/hw2_common_issues
             - file: HW3_solutions
+            - file: HW4_solutions
 
