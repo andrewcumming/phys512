@@ -66,8 +66,7 @@ For this method, we can work with the second order equation
 
 $${d^2 f\over d x^2} = -{\omega^2 \rho(x)\over T} f.$$
 
-
-Set $T=1$ for simplicity and finite-difference this on a grid in $x$:
+Let's assume that we know the frequency $\omega$ and want to solve for the eigenfunction $f(x)$. Set $T=1$ for simplicity and finite-difference the equation on a grid in $x$:
 
 $${f_{i+1}-2f_i+f_{i-1}\over (\Delta x)^2} = - \omega^2\rho_i f_i,$$
 
