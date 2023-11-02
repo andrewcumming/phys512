@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
 </ul>
 </li>
 </ul>
@@ -557,22 +558,22 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/cb493b0dafd4dcf47fc334206fc1259830494609d178df502e5e714b4cacb8aa.png" src="_images/cb493b0dafd4dcf47fc334206fc1259830494609d178df502e5e714b4cacb8aa.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [4.51527268 1.17002964 0.97014973 0.67479835 0.49048494 0.46775161]
+<img alt="_images/0f02d6f6355695d37c9a922d58700b5ac0200de349d784d20f208e98f2d3af35.png" src="_images/0f02d6f6355695d37c9a922d58700b5ac0200de349d784d20f208e98f2d3af35.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [3.98414956 1.33609053 0.98934119 0.8857245  0.78242859 0.5178842 ]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/fac76cdaaf4abd5ee7bcfae9e775edb85990887aee1ed76a349f11bbc611fe3b.png" src="_images/fac76cdaaf4abd5ee7bcfae9e775edb85990887aee1ed76a349f11bbc611fe3b.png" />
+<img alt="_images/b5172f444bb44604d5d4ce6b63227bb36466d3e37661e2ba1bac2fd53dfef378.png" src="_images/b5172f444bb44604d5d4ce6b63227bb36466d3e37661e2ba1bac2fd53dfef378.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/dac5593b5fd5cb76da21add498d1296d36a48dd1e5649e83f756382bd21b9afe.png" src="_images/dac5593b5fd5cb76da21add498d1296d36a48dd1e5649e83f756382bd21b9afe.png" />
+<img alt="_images/a1506837b5759299f4a76815a3684af5ca9103350376067a80d53ef82644cf26.png" src="_images/a1506837b5759299f4a76815a3684af5ca9103350376067a80d53ef82644cf26.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1eea2b704c41551fbddd8783e396a8fa265d40ec7524a525418726d066a49a0a.png" src="_images/1eea2b704c41551fbddd8783e396a8fa265d40ec7524a525418726d066a49a0a.png" />
+<img alt="_images/5864c69c6c4c110b62316efed5bd5ddee9aeaae02a4151ade7291f49b0768207.png" src="_images/5864c69c6c4c110b62316efed5bd5ddee9aeaae02a4151ade7291f49b0768207.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -997,7 +998,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39729
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.40017
 </pre></div>
 </div>
 </div>
@@ -1017,7 +1018,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d9f3a97e864b3de2525ec0ac08e38448f0df4751823817af373e52dc2ae38717.png" src="_images/d9f3a97e864b3de2525ec0ac08e38448f0df4751823817af373e52dc2ae38717.png" />
+<img alt="_images/4070ef1796dfa085231b5331610e6781a8ff09549f0a82e9a7c172e7603099cf.png" src="_images/4070ef1796dfa085231b5331610e6781a8ff09549f0a82e9a7c172e7603099cf.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1033,11 +1034,11 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   parameter         MCMC           LS     MCMC var       LS var    frac diff
-      $M/MJ$      4.85783      4.84971  0.000848524  0.000848462  3.66335e-05
-         $e$     0.365678     0.365386  2.93888e-05  2.87864e-05    0.0103557
-    $\omega$     0.257281     0.256843   0.00041304  0.000377849    0.0444955
-       $t_P$      1353.48      1353.37      17.7772      16.2268    0.0455949
-       $v_0$     -28.4426     -28.4066     0.183487     0.183562 -0.000205128
+      $M/MJ$       4.8588      4.84971  0.000836286  0.000848462  -0.00722706
+         $e$     0.365325     0.365386  2.92777e-05  2.87864e-05   0.00846251
+    $\omega$     0.258265     0.256843  0.000368039  0.000377849   -0.0131516
+       $t_P$      1353.67      1353.37      15.7235      16.2268   -0.0157525
+       $v_0$     -28.4319     -28.4066      0.18518     0.183562    0.0043881
 </pre></div>
 </div>
 </div>
@@ -1061,17 +1062,17 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
  [-1.316e-02 -2.972e-03  7.299e-02  1.623e+01  6.866e-02]
  [-4.161e-03 -3.427e-04  4.870e-04  6.866e-02  1.836e-01]] 
 
- [[ 8.485e-04 -5.947e-05 -4.851e-05 -1.263e-02 -4.170e-03]
- [-5.947e-05  2.939e-05 -1.126e-05 -3.691e-03 -3.533e-04]
- [-4.851e-05 -1.126e-05  4.130e-04  8.035e-02  5.355e-04]
- [-1.263e-02 -3.691e-03  8.035e-02  1.778e+01  7.676e-02]
- [-4.170e-03 -3.533e-04  5.355e-04  7.676e-02  1.835e-01]]
+ [[ 8.363e-04 -6.213e-05 -6.829e-05 -1.649e-02 -4.345e-03]
+ [-6.213e-05  2.928e-05 -3.507e-06 -1.956e-03 -3.208e-04]
+ [-6.829e-05 -3.507e-06  3.680e-04  7.073e-02  6.314e-04]
+ [-1.649e-02 -1.956e-03  7.073e-02  1.572e+01  9.518e-02]
+ [-4.345e-03 -3.208e-04  6.314e-04  9.518e-02  1.852e-01]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/981d2f0f56eeefd6f72fe9987efbd7e622293a993262bbcb069498246b4476e4.png" src="_images/981d2f0f56eeefd6f72fe9987efbd7e622293a993262bbcb069498246b4476e4.png" />
+<img alt="_images/c1b4e2e2d057ed1a44585ee9bd67686935ce302ba19c9e1807075357888af853.png" src="_images/c1b4e2e2d057ed1a44585ee9bd67686935ce302ba19c9e1807075357888af853.png" />
 </div>
 </div>
 </section>

@@ -227,6 +227,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
 </ul>
 </li>
 </ul>
@@ -528,31 +529,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-   -0.0954347      -1136.95       11912.3
-     -0.12988       122.175      -941.675
-     0.122583       589.308       4806.42
-     0.147384      -72.7046      -494.301
-    -0.832927          -153        182.69
-   -0.0270703       31.6598      -1170.54
-    -0.453683       77.9803      -172.883
-      0.84908       -15.184      -18.8828
-    -0.604267       -35.773       58.2007
-    -0.526262       4.87285      -10.2594
-    -0.752169       6.98751      -10.2898
-    -0.127738      -1.01768       6.96695
-      0.37131     -0.403193      -2.08587
-     -0.75561     -0.712504    -0.0570483
-    -0.657947     -0.658794    0.00128863
-     0.825575      0.834432     0.0107281
-     0.229091      0.238232     0.0399042
-   -0.0588387      -0.06044     0.0272151
-   -0.0690923    -0.0700927     0.0144791
-      0.88978      0.889863   9.23861e-05
-     0.339344      0.339377   9.64814e-05
-rms deviation / max(y) = 0.000884622
+     0.644784      -1807.48      -2804.24
+    -0.694327      -60.8542       86.6449
+     -0.66242       935.818      -1413.73
+     0.504616        36.332       70.9993
+   0.00547143       -241.23      -44090.1
+     0.558566      -15.0114      -27.8749
+     0.840179       125.364       148.211
+    -0.718686       7.19348      -11.0092
+    -0.877744      -56.9353       63.8655
+     0.933664      -1.77855      -2.90491
+     0.298309       12.8303       42.0101
+    -0.832974     -0.346604     -0.583896
+    -0.726045      -2.06982       1.85081
+     0.917088      0.876823    -0.0439045
+    -0.714694     -0.659033    -0.0778808
+     0.387737      0.388063    0.00084101
+      0.79345      0.799862    0.00808175
+     0.103104      0.103319    0.00208999
+      0.87416      0.873339    -0.0009394
+    -0.516311      -0.51632   1.82793e-05
+     0.252086      0.252087   3.19643e-06
+rms deviation / max(y) = 0.00149791
 </pre></div>
 </div>
-<img alt="_images/54f55dbe93833a39e62780c225ddbf8cc07c3d1fe7a6631cfdb40ff99df31e32.png" src="_images/54f55dbe93833a39e62780c225ddbf8cc07c3d1fe7a6631cfdb40ff99df31e32.png" />
+<img alt="_images/6b1fbf3d0d5d1aff7feefaa4c0af0b3efa64b495f6f4c188d75e83b8f146cd80.png" src="_images/6b1fbf3d0d5d1aff7feefaa4c0af0b3efa64b495f6f4c188d75e83b8f146cd80.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -625,31 +626,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-   -0.0954347,    -0.0954347  -1.04984e-10
-     -0.12988,      -0.12988  -1.06193e-10
-     0.122583,      0.122583   5.00361e-10
-     0.147384,      0.147384   4.18171e-09
-    -0.832927,     -0.832927  -2.63417e-10
-   -0.0270703,    -0.0270703   4.19414e-08
-    -0.453683,     -0.453683  -9.99426e-10
-      0.84908,       0.84908   3.05743e-09
-    -0.604267,     -0.604267   2.09497e-09
-    -0.526262,     -0.526262   8.52189e-09
-    -0.752169,     -0.752169   6.87941e-09
-    -0.127738,     -0.127738  -1.02764e-08
-      0.37131,       0.37131   1.15915e-08
-     -0.75561,      -0.75561   6.60377e-11
-    -0.657947,     -0.657947   2.06603e-09
-     0.825575,      0.825575    3.0292e-10
-     0.229091,      0.229091   9.04985e-10
-   -0.0588387,    -0.0588387   4.95736e-10
-   -0.0690923,    -0.0690923   7.62309e-10
-      0.88978,       0.88978   2.10371e-13
-     0.339344,      0.339344   1.08881e-11
-rms deviation / max(y) = 2.01909e-12
+     0.644784,      0.644784  -1.19593e-11
+    -0.694327,     -0.694327  -4.46733e-11
+     -0.66242,      -0.66242   3.50591e-10
+     0.504616,      0.504616   2.61664e-10
+   0.00547143,    0.00547143  -8.85757e-08
+     0.558566,      0.558566  -2.37982e-09
+     0.840179,      0.840179  -2.97199e-09
+    -0.718686,     -0.718686    1.0386e-08
+    -0.877744,     -0.877744   8.28455e-11
+     0.933664,      0.933664  -2.54198e-09
+     0.298309,      0.298309  -1.71419e-08
+    -0.832974,     -0.832974  -4.61252e-10
+    -0.726045,     -0.726045   1.10315e-08
+     0.917088,      0.917088   3.18823e-11
+    -0.714694,     -0.714694   1.00797e-09
+     0.387737,      0.387737   -4.4433e-10
+      0.79345,       0.79345   -5.0567e-10
+     0.103104,      0.103104   7.87293e-11
+      0.87416,       0.87416   9.80361e-11
+    -0.516311,     -0.516311  -2.15374e-12
+     0.252086,      0.252086   9.64595e-12
+rms deviation / max(y) = 1.52729e-11
 </pre></div>
 </div>
-<img alt="_images/216763b132d031555884ef3af5c2a3a9367c43286e252258d20b922f42a07f60.png" src="_images/216763b132d031555884ef3af5c2a3a9367c43286e252258d20b922f42a07f60.png" />
+<img alt="_images/864e04ca0320e214c0fab8854afa53de855d9988fd81f9e33bd36f2902da1eca.png" src="_images/864e04ca0320e214c0fab8854afa53de855d9988fd81f9e33bd36f2902da1eca.png" />
 </div>
 </div>
 </section>
