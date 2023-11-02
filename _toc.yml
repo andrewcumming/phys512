@@ -51,7 +51,7 @@ parts:
         - file: mllecture
         - file: chatgpt
         - file: mltensorflow.ipynb
-    - caption: Ordinary differential equations
+    - caption: Differential equations
       chapters:
         - file: runge_kutta
         - file: boundary_value_problems
