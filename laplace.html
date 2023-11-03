@@ -456,6 +456,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-jacobi-and-gauss-seidel">Relaxation: Jacobi and Gauss-Seidel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multigrid-method">Multigrid method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
             </nav>
         </div>
@@ -557,6 +558,7 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$V$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
 
+<span class="c1"># The diffusion time across the grid is ~n^2 so scale the number of iterations accordingly</span>
 <span class="n">V_jacobi</span><span class="p">,</span> <span class="n">deltaV_jacobi</span> <span class="o">=</span> <span class="n">laplace</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">bc</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">,</span> <span class="n">V</span><span class="p">)</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">V_jacobi</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">),:],</span> <span class="s1">&#39;k&#39;</span><span class="p">)</span>
@@ -568,25 +570,34 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="n">n</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">deltaV_jacobi</span><span class="p">),</span><span class="nb">max</span><span class="p">(</span><span class="n">deltaV_jacobi</span><span class="p">)],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s1">&#39;$(n/2)^2$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">deltaV_jacobi</span><span class="p">)),</span> <span class="n">deltaV_jacobi</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;max $\Delta V$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Iteration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" src="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.88788 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 3.26286 seconds
 </pre></div>
 </div>
 <img alt="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" src="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" />
 <img alt="_images/f017fb1748dbe28bf253e743c4ddff2fa618142a8fc29d0f51e1bad04a5fcfc5.png" src="_images/f017fb1748dbe28bf253e743c4ddff2fa618142a8fc29d0f51e1bad04a5fcfc5.png" />
-<img alt="_images/6c8c9609fe98e87341cbb5af703f448f38044623cfeba90f5f3a27375aa73473.png" src="_images/6c8c9609fe98e87341cbb5af703f448f38044623cfeba90f5f3a27375aa73473.png" />
+<img alt="_images/be2baec23f2ed68d06ed67b90f97cc89d3c6336ec0c972a79f68a25116e733b9.png" src="_images/be2baec23f2ed68d06ed67b90f97cc89d3c6336ec0c972a79f68a25116e733b9.png" />
 </div>
 </div>
+<p>Notes</p>
+<ul class="simple">
+<li><p>information propagates into the domain from the boundaries (at the center and the edges) where we specify the value of the potential</p></li>
+<li><p>we can think of the successive iterations as evolving the system in time, in which case we are solving a diffusion equation (<span class="math notranslate nohighlight">\(\partial/\partial t\propto \nabla^2\)</span>). In a diffusion problem, the distance travelled is <span class="math notranslate nohighlight">\(\propto \sqrt{t}\)</span>, or turning this around the time taken to travel a distance <span class="math notranslate nohighlight">\(L\)</span> is <span class="math notranslate nohighlight">\(t\propto L^2\)</span>. In our case, we need the information from the boundaries to propagate across the grid, so we need to do a number of iterations <span class="math notranslate nohighlight">\(\approx n^2\)</span> to get a converged solution.</p></li>
+<li><p>You can see the diffusion time across the grid appearing in the last plot where the solution converges rapidly after we’ve done <span class="math notranslate nohighlight">\(\sim n^2\)</span> iterations. (The vertical dashed line corresponds the diffusion time across half the box, ie. to number of iterations equal to <span class="math notranslate nohighlight">\((n/2)^2\)</span>).</p></li>
+<li><p>if you run the code for a fixed number of iterations, you will find that the runtime scales <span class="math notranslate nohighlight">\(\propto n^2\)</span>. However because the time taken to diffuse across the grid also scales <span class="math notranslate nohighlight">\(\propto n^2\)</span>, the overall runtime increases <span class="math notranslate nohighlight">\(\propto n^4\)</span>! So this is a really slow method for large problems.</p></li>
+</ul>
 <p>If you want to have some fun, try changing the boundary conditions, e.g. a plane-parallel capacitor:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -610,6 +621,7 @@ document.write(`
 </section>
 <section id="multigrid-method">
 <h2>Multigrid method<a class="headerlink" href="#multigrid-method" title="Permalink to this heading">#</a></h2>
+<p>One way to try to speed up this kind of relaxation scheme is to use a set of grids with different resolutions. On a coarse grid with large spacing, the information from the boundaries can diffuse quickly across the whole grid. This information can then be passed down to successively finer spaced grids where the small scale structure is filled in. These methods are known as <strong>multigrid</strong>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Visualize matrices as a color map</span>
@@ -637,6 +649,7 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We’re going to borrow two functions from last year’s course by Jon Sievers. These take in a matrix and return a matrix with either half the size (<code class="docutils literal notranslate"><span class="pre">deres</span></code>) or twice the size (<code class="docutils literal notranslate"><span class="pre">upres</span></code>). There are many ways to do this (typically you would use some kind of interpolation depending on the problem), here we downscale by replacing each set of 4 pixels by a single pixel with the maximum value of the 4, and we upscale by copying each pixel 4 times.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># A simple way to decrease or increase the number of grid points by a factor of 2</span>
@@ -662,7 +675,12 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">256</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Let&#39;s run a quick test of these functions</span>
+
+<span class="c1"># Start with the initial condition from the Laplace problem above </span>
+<span class="c1"># and deres a number of times</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">256</span>
 <span class="n">mask</span><span class="p">,</span> <span class="n">bc</span> <span class="o">=</span> <span class="n">set_bcs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
 <span class="n">masks</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="mi">5</span>
@@ -690,7 +708,9 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Solve Laplace&#39;s equation with a multigrid method</span>
+
+<span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
 <span class="n">mask</span><span class="p">,</span> <span class="n">bc</span> <span class="o">=</span> <span class="n">set_bcs</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
@@ -716,8 +736,10 @@ document.write(`
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n = </span><span class="si">%d</span><span class="s1">, Delta V = </span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n0</span><span class="p">,</span> <span class="n">deltaV</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],))</span>
     <span class="n">Vs</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">upres</span><span class="p">(</span><span class="n">Vs</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 
+<span class="c1"># Run the final grid for 2*n*n interations so that we can see how it converges</span>
+<span class="c1"># now that the solution has been preconditioned</span>
 <span class="n">n0</span> <span class="o">=</span> <span class="n">bcs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">nn</span> <span class="o">=</span> <span class="mi">100</span> <span class="c1">#n0*n0//10</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">n0</span><span class="o">*</span><span class="n">n0</span>
 <span class="n">Vs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">deltaV</span> <span class="o">=</span> <span class="n">laplace</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">bcs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">nn</span><span class="p">,</span> <span class="n">Vs</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">make_plot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n = </span><span class="si">%d</span><span class="s1">, Delta V = </span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">n0</span><span class="p">,</span> <span class="n">deltaV</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],))</span>
 
@@ -751,15 +773,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.00232291 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.0022881 seconds
 n = 16, Delta V = 0.000255252
-100 iterations took 0.00275302 seconds
+100 iterations took 0.00284815 seconds
 n = 32, Delta V = 0.00054352
-100 iterations took 0.00410914 seconds
+100 iterations took 0.00418997 seconds
 n = 64, Delta V = 0.000653078
-100 iterations took 0.00921011 seconds
-n = 128, Delta V = 0.000455885
-Total time taken = 0.019238 seconds
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 3.45194 seconds
+n = 128, Delta V = 5.16809e-14
+Total time taken = 3.46226 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -769,18 +793,26 @@ Total time taken = 0.019238 seconds
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/00dcd3bced67de73e8fd4050b5246e46bf22f5ee36e889c1e1b052cfe47bd33d.png" src="_images/00dcd3bced67de73e8fd4050b5246e46bf22f5ee36e889c1e1b052cfe47bd33d.png" />
+<img alt="_images/abc1cb1dcdea10ef7fd5492678d8495814efce4b3aee8e355ff6b9ed03fa1ce1.png" src="_images/abc1cb1dcdea10ef7fd5492678d8495814efce4b3aee8e355ff6b9ed03fa1ce1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 800x400 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/e6bde835b8b4834f46bc85963aa4f1c748c7ba3ea3dde19acfbde201598c3440.png" src="_images/e6bde835b8b4834f46bc85963aa4f1c748c7ba3ea3dde19acfbde201598c3440.png" />
-<img alt="_images/75675f6ec78373122f309d150b71ad85c457fc841422635e8890cab8cde2d870.png" src="_images/75675f6ec78373122f309d150b71ad85c457fc841422635e8890cab8cde2d870.png" />
-<img alt="_images/5efc292176a124c5e52adbe5b6249666995f34c795121dfe2d85e3350f5c11ac.png" src="_images/5efc292176a124c5e52adbe5b6249666995f34c795121dfe2d85e3350f5c11ac.png" />
+<img alt="_images/12d96cb51edf2431ab45c465688d440df1b266fd2557ef8540d51ec9c2a2d1b0.png" src="_images/12d96cb51edf2431ab45c465688d440df1b266fd2557ef8540d51ec9c2a2d1b0.png" />
+<img alt="_images/832784f836d5b6f2b2d86e75a752ccd4fc1ca769339aa8568768e3e1095927ec.png" src="_images/832784f836d5b6f2b2d86e75a752ccd4fc1ca769339aa8568768e3e1095927ec.png" />
+<img alt="_images/b0bb57ae8aae9752034db19af3cce6d1c1575b3006c8908200dce729730c0b83.png" src="_images/b0bb57ae8aae9752034db19af3cce6d1c1575b3006c8908200dce729730c0b83.png" />
 </div>
 </div>
+<p>The last plot shows that this method converges much more quickly. In particular, we can now get a much more reasonable low-accuracy solution in the first part of the curve (number of iterations &lt;&lt; n^2). Whereas previously these solutions were completely wrong because the diffusion from the boundaries had travelled only a small distance, now the coarse grids have taken care of the global diffusion and so the overall solution is much more accurate.</p>
+<p>The general idea of using some approximate scheme to improve the initial guess for a relaxation method is known as <strong>preconditioning</strong>, and is used in many codes. Here, we can think of the sequence of low resolution grids as a preconditioner for the final relaxation at full resolution.</p>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Good places to look for more detailed discussion of multigrid methods are Numerical Recipes 19.6 and in <a class="reference external" href="https://zingale.github.io/computational_astrophysics/elliptic_multigrid/multigrid/multigrid.html">Mike Zingale’s course</a> at Stonybrook.</p></li>
+</ul>
 </section>
 </section>
 
@@ -849,6 +881,7 @@ Total time taken = 0.019238 seconds
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#relaxation-jacobi-and-gauss-seidel">Relaxation: Jacobi and Gauss-Seidel</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#multigrid-method">Multigrid method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
   </nav></div>
 
