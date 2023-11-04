@@ -504,6 +504,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_bcs</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="c1"># Create a mask to set the boundary points</span>
+    <span class="c1"># (following https://github.com/sievers/phys512-2022/tree/master/pdes )</span>
     <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">],</span><span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;bool&#39;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
     <span class="n">xsqr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
@@ -583,7 +584,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" src="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.62167 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.61894 seconds
 </pre></div>
 </div>
 <img alt="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" src="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" />
@@ -773,17 +774,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.00209117 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.00211787 seconds
 n = 16, Delta V = 0.000255252
-100 iterations took 0.00243998 seconds
+100 iterations took 0.00246882 seconds
 n = 32, Delta V = 0.00054352
-100 iterations took 0.0033412 seconds
+100 iterations took 0.00370407 seconds
 n = 64, Delta V = 0.000653078
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.94693 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.28073 seconds
 n = 128, Delta V = 5.16809e-14
-Total time taken = 2.95587 seconds
+Total time taken = 2.28984 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
