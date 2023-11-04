@@ -525,9 +525,9 @@ document.write(`
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
         <span class="n">Vnew</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> 
                        <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
-        <span class="n">deltaV</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Vnew</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]</span><span class="o">-</span><span class="n">V</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="kc">False</span><span class="p">]))</span>
+        <span class="n">Vnew</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">bc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+        <span class="n">deltaV</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Vnew</span><span class="o">-</span><span class="n">V</span><span class="p">))</span>
         <span class="n">V</span> <span class="o">=</span> <span class="n">Vnew</span>
-        <span class="n">V</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">bc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">1000</span> == 0 and make_plot:
             <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">,:])</span>
@@ -583,7 +583,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <img alt="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" src="_images/401d510124ee3747f1ce67dfd9157dc2ec0e4f21391797a775878e95432993b7.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 3.26286 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.62167 seconds
 </pre></div>
 </div>
 <img alt="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" src="_images/ed59e8278ee76dd10d8b9cc13d43dcf23851327280725e8d5c1cebc6a806ade8.png" />
@@ -773,17 +773,17 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.0022881 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 iterations took 0.00209117 seconds
 n = 16, Delta V = 0.000255252
-100 iterations took 0.00284815 seconds
+100 iterations took 0.00243998 seconds
 n = 32, Delta V = 0.00054352
-100 iterations took 0.00418997 seconds
+100 iterations took 0.0033412 seconds
 n = 64, Delta V = 0.000653078
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 3.45194 seconds
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>32768 iterations took 2.94693 seconds
 n = 128, Delta V = 5.16809e-14
-Total time taken = 3.46226 seconds
+Total time taken = 2.95587 seconds
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
