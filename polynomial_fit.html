@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -79,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -148,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -259,6 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
 </ul>
 </li>
 </ul>
@@ -416,10 +406,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -427,7 +417,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -529,31 +519,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.127214       1859.19      -14615.7
-    -0.279886       -133.75       476.873
-   -0.0203284      -963.028       47372.5
-     -0.83501       78.6943      -95.2436
-     0.482172       248.532       514.443
-     0.663812       -33.953      -52.1485
-     0.231713      -127.735      -552.264
-      0.64749       18.1827       27.0818
-    -0.640054       56.7951      -89.7348
-    -0.232326      -6.14453       25.4479
-    -0.946236      -13.6286       13.4029
-     0.588862       1.58406       1.69003
-     0.484857       1.74757       2.60431
-     0.540417      0.488092    -0.0968243
-    -0.457274     -0.457951    0.00148168
-     -0.64162     -0.649463     0.0122229
-     0.282704      0.267601    -0.0534229
-    -0.628591     -0.627144   -0.00230195
-    -0.936692     -0.935171    -0.0016242
-    -0.804282     -0.804359   9.51455e-05
-    -0.300538     -0.300598   0.000201445
-rms deviation / max(y) = 0.00111032
+    -0.201449       2460.29        -12214
+     0.159178       16.6964       103.891
+    -0.668101      -1276.64       1909.85
+     0.581448      -9.35638      -17.0915
+    -0.610329        329.79      -541.348
+    -0.813849       3.48646      -5.28392
+     0.741633      -169.543      -229.608
+    -0.907494      -3.06371       2.37601
+    -0.960718       75.2961      -79.3749
+    -0.119064       0.61479       -6.1635
+      0.17997      -16.6257      -93.3804
+     0.967282      0.836612      -0.13509
+     0.072812       1.78798       23.5562
+     0.837752      0.848202     0.0124739
+    -0.237374      -0.25852      0.089082
+     0.635475      0.635402  -0.000115837
+     0.961158      0.944987    -0.0168247
+     0.770147      0.770089  -7.45627e-05
+     0.685356      0.687244    0.00275491
+    -0.143926     -0.143923  -1.82383e-05
+    -0.945108     -0.945164   5.92264e-05
+rms deviation / max(y) = 0.00194397
 </pre></div>
 </div>
-<img alt="_images/2588ed84bf69c87997f0f4d73a383556655cd7baee3e93f8abc4be3b734b1e3b.png" src="_images/2588ed84bf69c87997f0f4d73a383556655cd7baee3e93f8abc4be3b734b1e3b.png" />
+<img alt="_images/436c89a20e26328a900e44fb0607d1f17637ab6a22ae27f4dd8805d769ea8add.png" src="_images/436c89a20e26328a900e44fb0607d1f17637ab6a22ae27f4dd8805d769ea8add.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -578,7 +568,7 @@ rms deviation / max(y) = 0.00111032
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9846c5dac5743752375edf571f26f6a6e6143bd9b3292aa151ebab75b795bb39.png" src="_images/9846c5dac5743752375edf571f26f6a6e6143bd9b3292aa151ebab75b795bb39.png" />
+<img alt="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" src="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 1.02088e+09
 np.linalg.cond gives 1.02088e+09
 </pre></div>
@@ -626,31 +616,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.127214,     -0.127214   1.63086e-10
-    -0.279886,     -0.279886  -1.50592e-11
-   -0.0203284,    -0.0203284  -8.42962e-09
-     -0.83501,      -0.83501   1.05802e-09
-     0.482172,      0.482172  -4.32459e-09
-     0.663812,      0.663812   5.27764e-09
-     0.231713,      0.231713   3.87425e-08
-      0.64749,       0.64749  -1.07785e-08
-    -0.640054,     -0.640054   1.61472e-08
-    -0.232326,     -0.232326  -4.17559e-08
-    -0.946236,     -0.946236  -2.54132e-08
-     0.588862,      0.588862  -8.61899e-09
-     0.484857,      0.484857   -2.9255e-08
-     0.540417,      0.540417    4.1323e-09
-    -0.457274,     -0.457274  -8.80055e-09
-     -0.64162,      -0.64162    7.0161e-10
-     0.282704,      0.282704   -3.1169e-09
-    -0.628591,     -0.628591  -8.22124e-11
-    -0.936692,     -0.936692  -9.81506e-11
-    -0.804282,     -0.804282   2.63903e-12
-    -0.300538,     -0.300538   2.85452e-11
-rms deviation / max(y) = 2.33282e-12
+    -0.201449,     -0.201449   1.59416e-11
+     0.159178,      0.159178   6.80484e-10
+    -0.668101,     -0.668101   8.01536e-11
+     0.581448,      0.581448  -3.13011e-10
+    -0.610329,     -0.610329   2.30168e-10
+    -0.813849,     -0.813849  -4.46285e-09
+     0.741633,      0.741633  -1.09673e-10
+    -0.907494,     -0.907494   6.18158e-10
+    -0.960718,     -0.960718   5.65358e-09
+    -0.119064,     -0.119064  -9.00102e-08
+      0.17997,       0.17997   -3.0735e-08
+     0.967282,      0.967282  -5.46838e-09
+     0.072812,      0.072812  -3.37541e-08
+     0.837752,      0.837752  -3.97171e-10
+    -0.237374,     -0.237374   1.07993e-09
+     0.635475,      0.635475  -9.77109e-10
+     0.961158,      0.961158  -1.20901e-11
+     0.770147,      0.770147   3.49694e-11
+     0.685356,      0.685356   3.99181e-11
+    -0.143926,     -0.143926   1.66079e-11
+    -0.945108,     -0.945108   3.46444e-12
+rms deviation / max(y) = 8.62346e-12
 </pre></div>
 </div>
-<img alt="_images/527c57e773e0c81166375daeb8297ca984eb17c0c08a7c46484270e3c9953642.png" src="_images/527c57e773e0c81166375daeb8297ca984eb17c0c08a7c46484270e3c9953642.png" />
+<img alt="_images/1964a476fbce398e628056e71d45a13bc448f66d13579668d06aae321fbb551b.png" src="_images/1964a476fbce398e628056e71d45a13bc448f66d13579668d06aae321fbb551b.png" />
 </div>
 </div>
 </section>
@@ -679,8 +669,8 @@ rms deviation / max(y) = 2.33282e-12
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b09ef544dd77adb1e392804fa5237e55c80d562577603e9bd07d6bba50955e9f.png" src="_images/b09ef544dd77adb1e392804fa5237e55c80d562577603e9bd07d6bba50955e9f.png" />
-<img alt="_images/2eb4d4205bd48f5339ba1039d4c06d1556946884efa6613f9bcca2534be5a544.png" src="_images/2eb4d4205bd48f5339ba1039d4c06d1556946884efa6613f9bcca2534be5a544.png" />
+<img alt="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" src="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" />
+<img alt="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" src="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" />
 </div>
 </div>
 <blockquote>
@@ -728,10 +718,11 @@ rms deviation / max(y) = 2.33282e-12
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="linear_least_squares.html"
@@ -751,7 +742,10 @@ rms deviation / max(y) = 2.33282e-12
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -818,8 +812,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
