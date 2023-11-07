@@ -213,6 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -227,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw6.html">Homework 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
@@ -519,31 +521,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.201449       2460.29        -12214
-     0.159178       16.6964       103.891
-    -0.668101      -1276.64       1909.85
-     0.581448      -9.35638      -17.0915
-    -0.610329        329.79      -541.348
-    -0.813849       3.48646      -5.28392
-     0.741633      -169.543      -229.608
-    -0.907494      -3.06371       2.37601
-    -0.960718       75.2961      -79.3749
-    -0.119064       0.61479       -6.1635
-      0.17997      -16.6257      -93.3804
-     0.967282      0.836612      -0.13509
-     0.072812       1.78798       23.5562
-     0.837752      0.848202     0.0124739
-    -0.237374      -0.25852      0.089082
-     0.635475      0.635402  -0.000115837
-     0.961158      0.944987    -0.0168247
-     0.770147      0.770089  -7.45627e-05
-     0.685356      0.687244    0.00275491
-    -0.143926     -0.143923  -1.82383e-05
-    -0.945108     -0.945164   5.92264e-05
-rms deviation / max(y) = 0.00194397
+     0.963182       -3998.6      -4152.45
+     0.289635      -50.0691       -173.87
+     0.158966       2072.44         13036
+     0.165712       30.1681       181.051
+      0.45743      -534.052      -1168.51
+    -0.407007      -13.4364       32.0127
+     0.450452       275.712       611.078
+    0.0657338       6.71859       101.209
+     0.527904      -122.527      -233.101
+    -0.492758      -2.82208       4.72711
+    -0.747125       25.8032      -35.5366
+    -0.976009      -0.52408     -0.463038
+    -0.078669      -2.40533       29.5753
+    -0.656679     -0.707737     0.0777524
+     0.672135      0.558286     -0.169384
+     0.990191       0.99461     0.0044632
+    -0.136655    -0.0774634     -0.433145
+       0.3283      0.327942   -0.00109269
+     0.949186      0.941953   -0.00762011
+    -0.510473      -0.51045  -4.44389e-05
+     0.896707      0.897012   0.000339999
+rms deviation / max(y) = 0.00183391
 </pre></div>
 </div>
-<img alt="_images/436c89a20e26328a900e44fb0607d1f17637ab6a22ae27f4dd8805d769ea8add.png" src="_images/436c89a20e26328a900e44fb0607d1f17637ab6a22ae27f4dd8805d769ea8add.png" />
+<img alt="_images/ccfb1af2d246ef3f72cd00d1026f859b150abab7533a6b1cef650853f0b1309c.png" src="_images/ccfb1af2d246ef3f72cd00d1026f859b150abab7533a6b1cef650853f0b1309c.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -616,31 +618,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.201449,     -0.201449   1.59416e-11
-     0.159178,      0.159178   6.80484e-10
-    -0.668101,     -0.668101   8.01536e-11
-     0.581448,      0.581448  -3.13011e-10
-    -0.610329,     -0.610329   2.30168e-10
-    -0.813849,     -0.813849  -4.46285e-09
-     0.741633,      0.741633  -1.09673e-10
-    -0.907494,     -0.907494   6.18158e-10
-    -0.960718,     -0.960718   5.65358e-09
-    -0.119064,     -0.119064  -9.00102e-08
-      0.17997,       0.17997   -3.0735e-08
-     0.967282,      0.967282  -5.46838e-09
-     0.072812,      0.072812  -3.37541e-08
-     0.837752,      0.837752  -3.97171e-10
-    -0.237374,     -0.237374   1.07993e-09
-     0.635475,      0.635475  -9.77109e-10
-     0.961158,      0.961158  -1.20901e-11
-     0.770147,      0.770147   3.49694e-11
-     0.685356,      0.685356   3.99181e-11
-    -0.143926,     -0.143926   1.66079e-11
-    -0.945108,     -0.945108   3.46444e-12
-rms deviation / max(y) = 8.62346e-12
+     0.963182,      0.963182  -7.22189e-12
+     0.289635,      0.289635  -5.36913e-10
+     0.158966,      0.158966   3.04165e-09
+     0.165712,      0.165712   1.08833e-08
+      0.45743,       0.45743  -1.54218e-09
+    -0.407007,     -0.407007    1.6427e-08
+     0.450452,      0.450452   2.21417e-08
+    0.0657338,     0.0657338   1.69427e-07
+     0.527904,      0.527904  -3.82229e-08
+    -0.492758,     -0.492758   3.17871e-08
+    -0.747125,     -0.747125  -7.61386e-09
+    -0.976009,     -0.976009   -6.7003e-09
+    -0.078669,     -0.078669   1.24104e-07
+    -0.656679,     -0.656679   5.40913e-09
+     0.672135,      0.672135   9.61656e-09
+     0.990191,      0.990191   1.35866e-09
+    -0.136655,     -0.136655    7.2509e-09
+       0.3283,        0.3283   -3.5181e-10
+     0.949186,      0.949186   1.06978e-10
+    -0.510473,     -0.510473    -5.509e-12
+     0.896707,      0.896707  -9.88136e-12
+rms deviation / max(y) = 3.13058e-12
 </pre></div>
 </div>
-<img alt="_images/1964a476fbce398e628056e71d45a13bc448f66d13579668d06aae321fbb551b.png" src="_images/1964a476fbce398e628056e71d45a13bc448f66d13579668d06aae321fbb551b.png" />
+<img alt="_images/ba18d2d167793802be5a0e33e4bdcd3fda6b121ceb28fbd4aa625eb5745df596.png" src="_images/ba18d2d167793802be5a0e33e4bdcd3fda6b121ceb28fbd4aa625eb5745df596.png" />
 </div>
 </div>
 </section>

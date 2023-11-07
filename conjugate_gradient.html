@@ -1,0 +1,751 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Sparse matrices &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'conjugate_gradient';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Solutions to exercises" href="ode_solutions.html" />
+    <link rel="prev" title="Poisson’s equation" href="laplace.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mltensorflow.html">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential equations</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="runge_kutta.html">Initial value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sparse matrices</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw6.html">Homework 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fconjugate_gradient.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/conjugate_gradient.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sparse matrices</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-gradient-method">Conjugate gradient method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-laplace-s-equation">Application to Laplace’s equation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sparse-matrices">
+<h1>Sparse matrices<a class="headerlink" href="#sparse-matrices" title="Permalink to this heading">#</a></h1>
+<p>A sparse matrix is a matrix which has only a small fraction of non-zero elements. We noted already that in the example of the 1D wave equation the matrix is tridiagonal, so we need to store only the <span class="math notranslate nohighlight">\(N + 2(N-1)=3N-2\)</span> elements in the three diagonals, the other elements are zero. This happens because the second order finite-differencing that we used relates the function at grid cell <span class="math notranslate nohighlight">\(i\)</span>, <span class="math notranslate nohighlight">\(f_i\)</span>, only to its nearest neighbours <span class="math notranslate nohighlight">\(f_{i+1}\)</span> and <span class="math notranslate nohighlight">\(f_{i-1}\)</span>.</p>
+<p>For Laplace’s equation on a 2D grid, we have the difference equation</p>
+<div class="math notranslate nohighlight">
+\[V_{i,j} = {1\over 4}\left(V_{i+1,j}+V_{i-1,j} + V_{i,j+1}+V_{i,j-1}\right),\]</div>
+<p>so again if we were to write this as a matrix equation the matrix involved would be sparse. One way to do this is to reduce the 2D grid of values to a 1D vector, for example by defining the index <span class="math notranslate nohighlight">\(k = i + j\times N\)</span> where <span class="math notranslate nohighlight">\(NxN\)</span> is the size of the grid. The difference equation is then</p>
+<div class="math notranslate nohighlight">
+\[V_k = {1\over 4}\left(V_{k-N} + V_{k-1} + V_{k+1} + V_{k+N}\right),\]</div>
+<p>which we could write as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} \cdot \mathbf{V} = 0\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{V}\)</span> is the vector of function values of length <span class="math notranslate nohighlight">\(N^2\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is a <span class="math notranslate nohighlight">\(N^2\times N^2\)</span> matrix. In this case, the matrix is a <em>banded matrix</em> - it has five non-zero diagonals (the main diagonal and the diagonals at distance <span class="math notranslate nohighlight">\(k=\pm 1\)</span> and <span class="math notranslate nohighlight">\(k=\pm N\)</span> away from the main diagonal).</p>
+<p>You can see that these matrices can become large very quickly - even for a modest 2D problem with <span class="math notranslate nohighlight">\(N=100\)</span>, we are dealing with a <span class="math notranslate nohighlight">\(10^4\times 10^4\)</span> matrix, or <span class="math notranslate nohighlight">\(10^8\)</span> (mostly zero) matrix elements.</p>
+<p>Fortunately, there are techniques available for dealing with sparse matrices. As we will see these can sidestep the need to store the matrix itself (even in reduced, banded form). An important example is the <strong>conjugate gradient method</strong>. We’ll go through some of the theory behind this method first and then apply it to solving Laplace’s equation.</p>
+<section id="conjugate-gradient-method">
+<h2>Conjugate gradient method<a class="headerlink" href="#conjugate-gradient-method" title="Permalink to this heading">#</a></h2>
+<p>The <strong>conjugate gradient method</strong> is an iterative way to solve the equation <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> when you have a sparse matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>. The matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> needs to be symmetric and positive-definite, ie. <span class="math notranslate nohighlight">\(\mathbf{x}^T\mathbf{A}\mathbf{x}\)</span> is positive for any vector <span class="math notranslate nohighlight">\(\mathbf{x}\)</span>. We start with an initial guess for the solution and iteratively improves the guess, each time applying a correction that is conjugate to previous corrections.</p>
+<div class="admonition-conjugate-vectors admonition">
+<p class="admonition-title">Conjugate vectors</p>
+<p>Conjugate vectors <span class="math notranslate nohighlight">\(\{\mathbf{p_i}\}\)</span> of a matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> satisfy the orthogonality relation</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p_i}^T\mathbf{A}\mathbf{p_j} \propto \delta_{ij}.\]</div>
+<p>In terms of the these vectors, the solution to <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> can be written as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x} = \sum_i \alpha_i \mathbf{p_i}.\]</div>
+<p>The coefficients <span class="math notranslate nohighlight">\(\alpha_i\)</span> can be obtained from</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}\mathbf{x}=\mathbf{b}\Rightarrow \sum_i \alpha_i \mathbf{A}\mathbf{p_i} = \mathbf{b}\Rightarrow \sum_i \alpha_i \mathbf{p_j}^T\mathbf{A}\mathbf{p_i} = \mathbf{p_j}^T\mathbf{b}\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \alpha_j = {\mathbf{p_j}^T\mathbf{b}\over \mathbf{p_j}^T\mathbf{A}\mathbf{p_j}}\]</div>
+</div>
+<p>Here’s how it works: start with a guess for the solution, <span class="math notranslate nohighlight">\(\mathbf{x_0}\)</span>. We take the first conjugate vector to be the <strong>residual</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p_0}=\mathbf{r_0} = \mathbf{b}-\mathbf{A}\mathbf{x_0}.\]</div>
+<p>If we think of solving <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span> as minimizing the function</p>
+<div class="math notranslate nohighlight">
+\[f = {1\over 2}\mathbf{x}^T\mathbf{A}\mathbf{x} - \mathbf{x}^T\mathbf{b}\]</div>
+<p>which has</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{\nabla} f = \mathbf{A}\mathbf{x} - \mathbf{b},\]</div>
+<p>then this makes sense because it is equivalent to choosing <span class="math notranslate nohighlight">\(\mathbf{p_0}=-\mathbf{\nabla} f(\mathbf{x_0})\)</span>, ie. in the direction of the downhill gradient at <span class="math notranslate nohighlight">\(\mathbf{x_0}\)</span>. We update our guess by moving in this direction</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x_1} = \mathbf{x_0} + \alpha_0 \mathbf{p_0}\]</div>
+<p>by an amount that minimizes <span class="math notranslate nohighlight">\(f(\mathbf{x_1}) = f( \mathbf{x_0} + \alpha_0 \mathbf{p_0})\)</span>. You can show that (differentiate with respect to <span class="math notranslate nohighlight">\(\alpha_0\)</span> and set to zero) this corresponds to</p>
+<div class="math notranslate nohighlight">
+\[\alpha_0 = {\mathbf{p_0}^T\mathbf{r_0}\over \mathbf{p_0}^T\mathbf{A}\mathbf{p_0}}.\]</div>
+<p>The new residual is</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{r_1} = \mathbf{b}-\mathbf{A}\mathbf{x_1}=\mathbf{r_0} - \alpha_0 \mathbf{A}\mathbf{p_0},\]</div>
+<p>which is orthogonal to <span class="math notranslate nohighlight">\(\mathbf{r_0}\)</span> (since we moved to the point where <span class="math notranslate nohighlight">\(f\)</span> is minimized in the direction of <span class="math notranslate nohighlight">\(\mathbf{r_0}\)</span>, so the gradient of <span class="math notranslate nohighlight">\(f\)</span> is now in an orthogonal direction).</p>
+<p>For the next step, rather than moving fully in the direction of <span class="math notranslate nohighlight">\(\mathbf{r_1}\)</span>, we first subtract off the component in the <span class="math notranslate nohighlight">\(\mathbf{p_0}\)</span> direction, so that we end up moving in a direction that is conjugate to <span class="math notranslate nohighlight">\(\mathbf{p_0}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p_1} = \mathbf{r_1} - {\mathbf{p_0}^T\mathbf{A}\mathbf{r_1}\over \mathbf{p_0}^T\mathbf{A}\mathbf{p_0}}\mathbf{p_0}.\]</div>
+<p>The next solution is <span class="math notranslate nohighlight">\(\mathbf{x_2} = \mathbf{x_1} + \alpha_1 \mathbf{p_1}\)</span> with residual <span class="math notranslate nohighlight">\(\mathbf{r_2} = \mathbf{r_1} - \alpha_1 \mathbf{A}\mathbf{p_1}\)</span> where</p>
+<div class="math notranslate nohighlight">
+\[\alpha_1 = {\mathbf{p_1}^T\mathbf{r_1}\over \mathbf{p_1}^T\mathbf{A}\mathbf{p_1}}.\]</div>
+<p>This continues to future iterations with</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p_k} = \mathbf{r_k} - \sum_{i&lt;k} {\mathbf{p_i}^T\mathbf{A}\mathbf{r_k}\over \mathbf{p_i}^T\mathbf{A}\mathbf{p_i}}\mathbf{p_i},\]</div>
+<p>i.e. we take the part of <span class="math notranslate nohighlight">\(\mathbf{r_k}\)</span> that is conjugate to all the previous <span class="math notranslate nohighlight">\(\mathbf{p_i}\)</span>’s. The next iteration is then</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x_{k+1}} = \mathbf{x_k} + \alpha_k \mathbf{p_k}, \hspace{1cm} \mathbf{r_{k+1}} = \mathbf{r_k} - \alpha_k \mathbf{A}\mathbf{p_k}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\alpha_k = {\mathbf{p_k}^T\mathbf{r_k}\over \mathbf{p_k}^T\mathbf{A}\mathbf{p_k}}.\]</div>
+<p>This method will converge in <span class="math notranslate nohighlight">\(N\)</span> iterations (for an <span class="math notranslate nohighlight">\(N\times N\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span>), i.e.
+once we’ve minimized <span class="math notranslate nohighlight">\(f\)</span> in all <span class="math notranslate nohighlight">\(N\)</span> conjugate directions, but often a much smaller number of iterations is enough if the solution is dominated by the few largest components for example.</p>
+<p>The only thing that we need to put this into practice is a more efficient way to calculate <span class="math notranslate nohighlight">\(\mathbf{p_{k+1}}\)</span>. It turns out that we don’t need to store all the previous directions: it can be shown that to calculate <span class="math notranslate nohighlight">\(\mathbf{p_{k+1}}\)</span> we just need the previous vector <span class="math notranslate nohighlight">\(\mathbf{p_k}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{p_{k+1}} = \mathbf{r_{k+1}} + \beta_k \mathbf{p_k}\]</div>
+<p>where</p>
+<div class="math notranslate nohighlight">
+\[\beta_k = {\mathbf{r_{k+1}^T r_{k+1}}\over \mathbf{r_k^T r_k} }.\]</div>
+<p>Also, when calculating <span class="math notranslate nohighlight">\(\alpha\)</span> we can use the orthogonality properties of <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{p}\)</span> to replace the numerator <span class="math notranslate nohighlight">\(\mathbf{p_k}^T\mathbf{r_k}\)</span> by <span class="math notranslate nohighlight">\(\mathbf{r_k}^T\mathbf{r_k}\)</span>.</p>
+<p>Here is a function that implements this:  (based on the <a class="reference external" href="https://github.com/sievers/phys512-2022/tree/master/pdes">examples</a> from last year’s course)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conjgrad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">niter</span> <span class="o">=</span> <span class="mi">20</span><span class="p">):</span>
+    <span class="c1"># Find a solution to Ax=b</span>
+
+    <span class="c1"># If there is no initial guess, create one</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="o">*</span><span class="n">b</span>
+
+    <span class="c1"># Calculate first residual r_0 and set p_0 equal to it</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">b</span> <span class="o">-</span> <span class="n">A</span><span class="nd">@x</span>
+    <span class="n">p</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># Keep track of the size of the residual and</span>
+    <span class="c1"># exit early if it gets small enough</span>
+    <span class="n">rr</span> <span class="o">=</span> <span class="n">r</span><span class="nd">@r</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">niter</span><span class="p">):</span>
+        <span class="n">Ap</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@p</span>
+        <span class="n">pAp</span> <span class="o">=</span> <span class="n">p</span><span class="nd">@Ap</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">rr</span> <span class="o">/</span> <span class="n">pAp</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">p</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="n">alpha</span><span class="o">*</span><span class="n">Ap</span>
+
+        <span class="n">rr_new</span> <span class="o">=</span> <span class="n">r</span><span class="nd">@r</span>
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">rr_new</span> <span class="o">/</span> <span class="n">rr</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">beta</span><span class="o">*</span><span class="n">p</span>
+
+        <span class="n">rr</span> <span class="o">=</span> <span class="n">rr_new</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Iteration </span><span class="si">%d</span><span class="s1">: pAp = </span><span class="si">%lg</span><span class="s1">, residual=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">pAp</span><span class="p">,</span> <span class="n">rr</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercise-try-out-the-conjugate-gradient-method admonition">
+<p class="admonition-title">Exercise: try out the conjugate gradient method</p>
+<p>Try this out!</p>
+<p>To generate a positive definite matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> you can use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@A</span><span class="o">.</span><span class="n">T</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>where the last step makes the matrix diagonally-dominated.</p>
+<p>Choose <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> also as a vector of random numbers.</p>
+<p>Apply the conjugate gradient method using the function above and check how well the solution it gives you satisfies the equation.</p>
+</div>
+</section>
+<section id="application-to-laplace-s-equation">
+<h2>Application to Laplace’s equation<a class="headerlink" href="#application-to-laplace-s-equation" title="Permalink to this heading">#</a></h2>
+<p>The remarkable thing about the conjugate gradient method above is that the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> only appears when it is multiplying a vector. This means that we don’t have to store a representation of the matrix itself, we just need to provide a function that multiplies a given vector by the matrix. This encourages us to think physically about what our sparse matrix is doing. In the Laplace problem, the matrix is taking the average of the neighbours for example. We can code that up in a few lines without having to store the <span class="math notranslate nohighlight">\(N^2\times N^2\)</span> matrix!</p>
+<p>In the case of Laplace’s equation, we have (as written above)</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A} \cdot \mathbf{V} = 0\]</div>
+<p>where the matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> computes the difference between <span class="math notranslate nohighlight">\(V\)</span> at a given point and the average of its neighbours. It’s helpful to separate out the contribution from averaging the interior points and averaging the boundary conditions. The boundary condition term can be moved onto the right hand side and becomes our <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> vector in <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>.</p>
+<p>Here’s how this would work in code. First, the operation <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}\)</span> is carried out setting <span class="math notranslate nohighlight">\(V=0\)</span> on the boundary points, so this represents the averaging with no information coming in from the boundaries:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Ax</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">mask</span><span class="p">):</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="n">V</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="n">V</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Vnew</span> <span class="o">=</span> <span class="n">V</span> <span class="o">-</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> 
+                       <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">V</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">Vnew</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">Vnew</span> <span class="o">=</span> <span class="n">Vnew</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Vnew</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(we are using the same setup as before for the Laplace problem where <code class="docutils literal notranslate"><span class="pre">mask</span></code> is the mask that sets the boundary points). Then we set up the <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> vector to contain the boundary information, ie. the contribution to the average that comes from the boundaries:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">+</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">bc</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(again we assume that as before the boundary conditions have been set in the array <code class="docutils literal notranslate"><span class="pre">bc</span></code>).</p>
+<div class="admonition-exercise-conjugate-gradient-for-laplace-s-equation admonition">
+<p class="admonition-title">Exercise: conjugate gradient for Laplace’s equation</p>
+<p>Implement the conjugate gradient method for the Laplace problem we looked at last time. You can use the same <code class="docutils literal notranslate"><span class="pre">set_bcs</span></code> function to set up the boundary conditions and boundary mask.</p>
+<p>Then define <code class="docutils literal notranslate"><span class="pre">b</span></code> as above and use the conjugate gradient method with the <code class="docutils literal notranslate"><span class="pre">Ax</span></code> function above to evolve the initial guess for the potential until it converges.</p>
+<p>Plot the maximum change in the values of <span class="math notranslate nohighlight">\(V\)</span> from one iteration to the next against the number of iterations, and compare with what we had last time from the relaxation method. You should see that conjugate gradient converges in <span class="math notranslate nohighlight">\(\sim N\)</span> steps rather than <span class="math notranslate nohighlight">\(\sim N^2\)</span>.</p>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="laplace.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Poisson’s equation</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="ode_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Solutions to exercises</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conjugate-gradient-method">Conjugate gradient method</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-laplace-s-equation">Application to Laplace’s equation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

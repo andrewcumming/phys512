@@ -213,6 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -227,6 +228,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw6.html">Homework 6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
@@ -549,22 +551,22 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c29bd3f758d6442ebfb080ba62ba211130a37b580d9f7885118ae7997b47a1cc.png" src="_images/c29bd3f758d6442ebfb080ba62ba211130a37b580d9f7885118ae7997b47a1cc.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [3.97426073 1.28931979 1.16716087 0.86023138 0.71091865 0.35655233]
+<img alt="_images/423c194b6c07f7c541e251348a9850bef23ed1a3f2f210a8afa63a1c9e99761c.png" src="_images/423c194b6c07f7c541e251348a9850bef23ed1a3f2f210a8afa63a1c9e99761c.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [4.44158637 1.30048526 1.07839351 0.5901026  0.52581052 0.22347844]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/6628f054f28823ac4c2285b8bc160d5716cfb221726859053cfc0578659c59e5.png" src="_images/6628f054f28823ac4c2285b8bc160d5716cfb221726859053cfc0578659c59e5.png" />
+<img alt="_images/27933223356e812280d452707683d6637381902c705e4d143da03cfcb9c6cd0d.png" src="_images/27933223356e812280d452707683d6637381902c705e4d143da03cfcb9c6cd0d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/9e795be7814f5ded1d77d384aa55d0d3c29d2846089ae2cf3f07a433c71c1385.png" src="_images/9e795be7814f5ded1d77d384aa55d0d3c29d2846089ae2cf3f07a433c71c1385.png" />
+<img alt="_images/693bb2f74141980e294ef6eec96d9e6e8580beec6bf3bb165e2d8ceb897d9945.png" src="_images/693bb2f74141980e294ef6eec96d9e6e8580beec6bf3bb165e2d8ceb897d9945.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/0345b9d33259301eecb6eeee7777874a3a1d0abaadeb857566f9296c57add494.png" src="_images/0345b9d33259301eecb6eeee7777874a3a1d0abaadeb857566f9296c57add494.png" />
+<img alt="_images/3a701e7ecf30a047a09bce68f183463d97796c0d5e63d4b6f016891acdf136e5.png" src="_images/3a701e7ecf30a047a09bce68f183463d97796c0d5e63d4b6f016891acdf136e5.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -989,7 +991,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39794
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39856
 </pre></div>
 </div>
 </div>
@@ -1009,7 +1011,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a7b6af907028862b7b6537f40f82901e5df471657ec4d13312cd562ab7e0ef0a.png" src="_images/a7b6af907028862b7b6537f40f82901e5df471657ec4d13312cd562ab7e0ef0a.png" />
+<img alt="_images/9f7790101c7245f4cf70b543adf5631ff74ce6688852c58840cd8f382037b94d.png" src="_images/9f7790101c7245f4cf70b543adf5631ff74ce6688852c58840cd8f382037b94d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1025,11 +1027,11 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   parameter         MCMC           LS     MCMC var       LS var    frac diff
-      $M/MJ$      4.85671      4.84971  0.000790711  0.000848462   -0.0352318
-         $e$     0.365854     0.365386   2.8821e-05  2.87864e-05  0.000600769
-    $\omega$     0.257879     0.256843  0.000360101  0.000377849   -0.0240501
-       $t_P$      1353.57      1353.37      15.0808      16.2268    -0.036603
-       $v_0$     -28.4402     -28.4066     0.172241     0.183562   -0.0318175
+      $M/MJ$      4.85745      4.84971  0.000851492  0.000848462   0.00178289
+         $e$     0.365498     0.365386  3.15728e-05  2.87864e-05     0.046164
+    $\omega$     0.258457     0.256843  0.000392636  0.000377849    0.0191919
+       $t_P$      1353.73      1353.37      16.9326      16.2268     0.021287
+       $v_0$     -28.4314     -28.4066     0.176723     0.183562   -0.0189831
 </pre></div>
 </div>
 </div>
@@ -1053,17 +1055,17 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
  [-1.316e-02 -2.972e-03  7.299e-02  1.623e+01  6.866e-02]
  [-4.161e-03 -3.427e-04  4.870e-04  6.866e-02  1.836e-01]] 
 
- [[ 7.907e-04 -5.662e-05 -3.291e-05 -9.754e-03 -3.420e-03]
- [-5.662e-05  2.882e-05 -8.913e-06 -2.930e-03 -4.270e-04]
- [-3.291e-05 -8.913e-06  3.601e-04  6.838e-02  4.669e-04]
- [-9.754e-03 -2.930e-03  6.838e-02  1.508e+01  7.008e-02]
- [-3.420e-03 -4.270e-04  4.669e-04  7.008e-02  1.722e-01]]
+ [[ 8.515e-04 -6.634e-05 -8.190e-05 -2.000e-02 -3.837e-03]
+ [-6.634e-05  3.157e-05 -5.706e-06 -2.452e-03 -3.620e-04]
+ [-8.190e-05 -5.706e-06  3.926e-04  7.616e-02  4.941e-04]
+ [-2.000e-02 -2.452e-03  7.616e-02  1.693e+01  7.572e-02]
+ [-3.837e-03 -3.620e-04  4.941e-04  7.572e-02  1.767e-01]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/5e754851d9877f5bdc1cc404173d32fe86a19f63504a168b8ca82197ceb21700.png" src="_images/5e754851d9877f5bdc1cc404173d32fe86a19f63504a168b8ca82197ceb21700.png" />
+<img alt="_images/ce122daa15c8c2f348448ef420d5671be86d9c680783d6dd4835346467053460.png" src="_images/ce122daa15c8c2f348448ef420d5671be86d9c680783d6dd4835346467053460.png" />
 </div>
 </div>
 </section>
