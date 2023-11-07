@@ -63,6 +63,7 @@ parts:
             - file: runge_kutta_solutions
             - file: bvps.ipynb
             - file: symplectic_solutions
+            - file: conjugate_gradient_solutions
     - caption: Homework
       chapters:
         - file: hw1
