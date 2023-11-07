@@ -57,6 +57,7 @@ parts:
         - file: boundary_value_problems
         - file: symplectic
         - file: laplace
+        - file: conjugate_gradient
         - file: ode_solutions
           sections:
             - file: runge_kutta_solutions
