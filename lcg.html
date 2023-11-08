@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -79,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -148,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -225,6 +214,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Instability and boundary conditions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -420,10 +410,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -431,7 +421,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -550,39 +540,39 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/3bd141e1194180e4286e4ac5d29a3002b330f57c6d57b41e4edf0c67d23f9283.png" src="_images/3bd141e1194180e4286e4ac5d29a3002b330f57c6d57b41e4edf0c67d23f9283.png" />
+<img alt="_images/8c6483bf430edb249aa43dd5a27623abc023d1fbaaabc916a2c4f475795bfeae.png" src="_images/8c6483bf430edb249aa43dd5a27623abc023d1fbaaabc916a2c4f475795bfeae.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/fa0db8fdbee7b7fd0b16c4bef03ee5cd5e9c0987fe95030453a107e7da22ec18.png" src="_images/fa0db8fdbee7b7fd0b16c4bef03ee5cd5e9c0987fe95030453a107e7da22ec18.png" />
+<img alt="_images/3c93658d891e49a11be7124b97e82dfbd63c5947c4ecff89b19aa15f3f9f702b.png" src="_images/3c93658d891e49a11be7124b97e82dfbd63c5947c4ecff89b19aa15f3f9f702b.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/4b8fde37a81dbe06e47414400da9f48afb174b5e311c20ed89ca5e2c22613647.png" src="_images/4b8fde37a81dbe06e47414400da9f48afb174b5e311c20ed89ca5e2c22613647.png" />
+<img alt="_images/bca6e9be1b0f06ab2c8f4c82368b158bbca9e25077eb765b83ac622255d1eeec.png" src="_images/bca6e9be1b0f06ab2c8f4c82368b158bbca9e25077eb765b83ac622255d1eeec.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c046435afaf4260aedf82c5c9982ed4e452eef200f607d457bf5d7227cb0d53b.png" src="_images/c046435afaf4260aedf82c5c9982ed4e452eef200f607d457bf5d7227cb0d53b.png" />
+<img alt="_images/d34908f995fd14ec4246400cc6b9919387cd852d78922958f55ff91b14b93fa4.png" src="_images/d34908f995fd14ec4246400cc6b9919387cd852d78922958f55ff91b14b93fa4.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/878cdcb94fd34cbb9c91dfa2d81eb331b5d4ca974ade570e1767d4aad1ce9eb8.png" src="_images/878cdcb94fd34cbb9c91dfa2d81eb331b5d4ca974ade570e1767d4aad1ce9eb8.png" />
+<img alt="_images/7f818b9ceba15fea18fc2d0d560617d507da86c49599c2a61debfc274aa067be.png" src="_images/7f818b9ceba15fea18fc2d0d560617d507da86c49599c2a61debfc274aa067be.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/d3f4af79752d26f02bbecfbef4753aa1072f14215711812c1566282a671f7ef6.png" src="_images/d3f4af79752d26f02bbecfbef4753aa1072f14215711812c1566282a671f7ef6.png" />
+<img alt="_images/1889f175d6051f156f52390313bac4462e5d3633015fe96c3cce9ac216b29b36.png" src="_images/1889f175d6051f156f52390313bac4462e5d3633015fe96c3cce9ac216b29b36.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/40186df3ddbd5c7f66bbff3200393d987dec62d10a7c98d6d2f805945504ded9.png" src="_images/40186df3ddbd5c7f66bbff3200393d987dec62d10a7c98d6d2f805945504ded9.png" />
+<img alt="_images/a0fa6ed70a5a12791b7ece7552fe5853890bca59d88d01bf3571269f0418959d.png" src="_images/a0fa6ed70a5a12791b7ece7552fe5853890bca59d88d01bf3571269f0418959d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f40bcd7f75f1a11f7d5b76d3bd670ef03ea73543abba3298dbac83f9266f15bc.png" src="_images/f40bcd7f75f1a11f7d5b76d3bd670ef03ea73543abba3298dbac83f9266f15bc.png" />
+<img alt="_images/590ee7cf272875893c92a2bf11cdd80455649fe9a0cd4d865f0d476494960926.png" src="_images/590ee7cf272875893c92a2bf11cdd80455649fe9a0cd4d865f0d476494960926.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/efef523ffdf7b381556e4c2a83df017e882bd865164cd654ec1ba77deb9837da.png" src="_images/efef523ffdf7b381556e4c2a83df017e882bd865164cd654ec1ba77deb9837da.png" />
+<img alt="_images/5dc9442cf42b2ee56304145bb5f7f3c5438d7a8d91b8371d3c94d926534bba63.png" src="_images/5dc9442cf42b2ee56304145bb5f7f3c5438d7a8d91b8371d3c94d926534bba63.png" />
 </div>
 </div>
 <p>Notes:</p>
@@ -627,10 +617,11 @@ document.write(`
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="random.html"
@@ -650,7 +641,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -699,8 +693,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,0 +1,43 @@
+Traceback (most recent call last):
+  File "/opt/homebrew/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/homebrew/lib/python3.11/site-packages/nbclient/client.py", line 1265, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 166, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.11/3.11.4_1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/base_events.py", line 653, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/nbclient/client.py", line 703, in async_execute
+    await self.async_execute_cell(
+  File "/opt/homebrew/lib/python3.11/site-packages/nbclient/client.py", line 1021, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/homebrew/lib/python3.11/site-packages/nbclient/client.py", line 915, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Check this using "SymPy" which does symbolic calculations
+# you may need to 'pip install sympy'
+import sympy.matrices
+h = sympy.Symbol('h')
+a = sympy.matrices.Matrix([[1,h],[0,1]])
+b = sympy.matrices.Matrix([[1,0],[-h,1]])
+J = a*b
+print(J)
+print('Determinant = ', J.det())
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
+Cell [0;32mIn[5], line 3[0m
+[1;32m      1[0m [38;5;66;03m# Check this using "SymPy" which does symbolic calculations[39;00m
+[1;32m      2[0m [38;5;66;03m# you may need to 'pip install sympy'[39;00m
+[0;32m----> 3[0m [38;5;28;01mimport[39;00m [38;5;21;01msympy[39;00m[38;5;21;01m.[39;00m[38;5;21;01mmatrices[39;00m
+[1;32m      4[0m h [38;5;241m=[39m sympy[38;5;241m.[39mSymbol([38;5;124m'[39m[38;5;124mh[39m[38;5;124m'[39m)
+[1;32m      5[0m a [38;5;241m=[39m sympy[38;5;241m.[39mmatrices[38;5;241m.[39mMatrix([[[38;5;241m1[39m,h],[[38;5;241m0[39m,[38;5;241m1[39m]])
+
+[0;31mModuleNotFoundError[0m: No module named 'sympy'
+ModuleNotFoundError: No module named 'sympy'
+
