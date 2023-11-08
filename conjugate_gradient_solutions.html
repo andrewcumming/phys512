@@ -524,43 +524,41 @@ document.write(`
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@A</span><span class="o">.</span><span class="n">T</span>
 <span class="c1"># Adding a diagonal component reduces the range of singular values, converges faster</span>
-<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mf">0.01</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span>
 
-<span class="n">Adiag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matrix condition number =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">Adiag</span> <span class="o">@</span> <span class="n">A</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matrix condition number =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">cond</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">conjgrad</span><span class="p">(</span><span class="n">Adiag</span><span class="nd">@A</span><span class="p">,</span> <span class="n">Adiag</span><span class="nd">@b</span><span class="p">,</span> <span class="n">niter</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">conjgrad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">niter</span> <span class="o">=</span> <span class="mi">20</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Max error = &#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">b</span><span class="o">-</span><span class="n">A</span><span class="nd">@x</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 25125.008535401907
-Iteration 0: pAp = 0.0486035, residual=1.04044
-Iteration 1: pAp = 38.9112, residual=0.107957
-Iteration 2: pAp = 3.42991, residual=0.130255
-Iteration 3: pAp = 0.0125374, residual=0.479823
-Iteration 4: pAp = 160.887, residual=0.0688366
-Iteration 5: pAp = 0.00385251, residual=1.60358
-Iteration 6: pAp = 689.202, residual=0.10627
-Iteration 7: pAp = 5.80708, residual=0.0633289
-Iteration 8: pAp = 0.00646324, residual=1.15205
-Iteration 9: pAp = 239.086, residual=0.0412269
-Iteration 10: pAp = 0.0822692, residual=0.154229
-Iteration 11: pAp = 0.130481, residual=0.0532471
-Iteration 12: pAp = 1.45323, residual=0.0346334
-Iteration 13: pAp = 0.000587818, residual=0.0947765
-Iteration 14: pAp = 6.18557, residual=0.0208956
-Iteration 15: pAp = 0.000272332, residual=0.445819
-Iteration 16: pAp = 86.0702, residual=0.0158178
-Iteration 17: pAp = 0.0417289, residual=0.0286027
-Iteration 18: pAp = 0.00128663, residual=0.146135
-Iteration 19: pAp = 14.2648, residual=0.0099162
-Max error =  0.41672616004418683
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 250.8213416437664
+Iteration 0: pAp = 1.08438e+06, residual=3.29455
+Iteration 1: pAp = 1.25482e+06, residual=3.54506
+Iteration 2: pAp = 31492.7, residual=0.167835
+Iteration 3: pAp = 32.4909, residual=0.0116028
+Iteration 4: pAp = 0.156471, residual=0.000814032
+Iteration 5: pAp = 0.000767089, residual=5.92106e-05
+Iteration 6: pAp = 4.25428e-06, residual=0.000179281
+Iteration 7: pAp = 0.0076986, residual=4.10088e-06
+Iteration 8: pAp = 1.94832e-08, residual=2.92939e-07
+Iteration 9: pAp = 9.92011e-11, residual=2.04485e-08
+Iteration 10: pAp = 4.83044e-13, residual=1.45044e-09
+Iteration 11: pAp = 2.44011e-15, residual=3.37271e-10
+Iteration 12: pAp = 2.59955e-14, residual=1.04937e-10
+Iteration 13: pAp = 1.39484e-17, residual=7.21336e-12
+Iteration 14: pAp = 6.0242e-20, residual=5.12927e-13
+Iteration 15: pAp = 3.05197e-22, residual=3.57612e-14
+Iteration 16: pAp = 1.48327e-24, residual=2.46547e-15
+Iteration 17: pAp = 1.00179e-26, residual=1.65901e-14
+Iteration 18: pAp = 4.83553e-23, residual=1.75988e-16
+Iteration 19: pAp = 3.60066e-29, residual=1.28965e-17
+Max error =  1.2878587085651816e-14
 </pre></div>
 </div>
 </div>
