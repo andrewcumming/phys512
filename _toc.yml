@@ -58,6 +58,7 @@ parts:
         - file: symplectic
         - file: laplace
         - file: conjugate_gradient
+        - file: numerical_instability
         - file: ode_solutions
           sections:
             - file: runge_kutta_solutions
