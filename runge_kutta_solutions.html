@@ -223,7 +223,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Instability and boundary conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Boundary conditions and numerical stability</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -565,10 +565,10 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 10, err1 = 2.59535, err2 = -0.997537, err4 = 0.174884
 nsteps = 100, err1 = -1.61962, err2 = -0.0155004, err4 = 3.17648e-06
 nsteps = 1000, err1 = -0.358534, err2 = -0.000145888, err4 = 2.33419e-10
-nsteps = 10000, err1 = -0.0371289, err2 = -1.44817e-06, err4 = 7.6971e-14
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scipy gives  0.0001564960035684848  with 140 evaluations
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 10000, err1 = -0.0371289, err2 = -1.44817e-06, err4 = 7.6971e-14
+scipy gives  0.0001564960035684848  with 140 evaluations
 </pre></div>
 </div>
 <img alt="_images/dc9e0e2627c264e24c16e41a3303ad70c26de3f0027bf2f1de80e6016101993b.png" src="_images/dc9e0e2627c264e24c16e41a3303ad70c26de3f0027bf2f1de80e6016101993b.png" />

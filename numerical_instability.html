@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Instability and boundary conditions &#8212; PHYS 512 Computational Physics with Applications</title>
+    <title>Boundary conditions and numerical stability &#8212; PHYS 512 Computational Physics with Applications</title>
   
   
   
@@ -225,7 +225,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Instability and boundary conditions</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Boundary conditions and numerical stability</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -449,7 +449,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Instability and boundary conditions</h1>
+    <h1>Boundary conditions and numerical stability</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -460,6 +460,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-stability">Numerical stability</a></li>
 </ul>
             </nav>
         </div>
@@ -471,8 +472,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="instability-and-boundary-conditions">
-<h1>Instability and boundary conditions<a class="headerlink" href="#instability-and-boundary-conditions" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="boundary-conditions-and-numerical-stability">
+<h1>Boundary conditions and numerical stability<a class="headerlink" href="#boundary-conditions-and-numerical-stability" title="Permalink to this heading">#</a></h1>
 <p>Let’s take a closer look at the problem from <a class="reference external" href="https://andrewcumming.github.io/phys512/hw5.html">Homework 5</a> where we solved the thermal diffusion equation</p>
 <div class="math notranslate nohighlight">
 \[{\partial T\over \partial t} = {\partial^2 T\over \partial x^2}.\]</div>
@@ -622,7 +623,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: MacOSX
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x105853290&gt;
 </pre></div>
 </div>
 <img alt="_images/4247e6d29eb5d0cc548896032d278b5351eb6e7a14de4fea0436d75b62320053.png" src="_images/4247e6d29eb5d0cc548896032d278b5351eb6e7a14de4fea0436d75b62320053.png" />
@@ -631,6 +632,42 @@ document.write(`
 <div class="admonition-exercise-boundary-conditions admonition">
 <p class="admonition-title">Exercise: boundary conditions</p>
 <p>Solve the problem above but modified so that the boundary condition at <span class="math notranslate nohighlight">\(x=0\)</span> is insulating (<span class="math notranslate nohighlight">\(dT/dx=0\)</span>) rather than fixed temperature.</p>
+</div>
+</section>
+<section id="numerical-stability">
+<h2>Numerical stability<a class="headerlink" href="#numerical-stability" title="Permalink to this heading">#</a></h2>
+<p>We mentioned the idea of numerical stability when we talked about explicit vs implicit methods for initial value problems. An explicit update is generally stable only for a small timestep, whereas the implicit method above for example is stable for arbitrarily large time steps. Furthermore, you can see from the update equation <a class="reference internal" href="#equation-update">(12)</a> that large timesteps force the solution to steady state (<span class="math notranslate nohighlight">\(\partial^2 T/\partial x^2=0\)</span>). Short wavelengths are not followed accurately with large timesteps, but adopt their steady-state solution. This makes physical sense - on timescales long compared to the local diffusion time, we expect the system to go to steady-state.</p>
+<p>We can assess the stability of a numerical scheme using <strong>von Neumann stability analysis</strong>. For example, the explicit Euler method for the diffusion equation above gives</p>
+<div class="math notranslate nohighlight" id="equation-explicit">
+<span class="eqno">(13)<a class="headerlink" href="#equation-explicit" title="Permalink to this equation">#</a></span>\[T^{n+1}_j = \alpha T^n_{j-1} + (1-2\alpha) T^n_j +\alpha T^n_{j+1}.\]</div>
+<p>(I’ve switched the index from <span class="math notranslate nohighlight">\(i\)</span> to <span class="math notranslate nohighlight">\(j\)</span> because we will soon be using <span class="math notranslate nohighlight">\(i\)</span> as square root of minus one).</p>
+<p>To check the stability of the method, we now look for a solution</p>
+<div class="math notranslate nohighlight">
+\[T^n_j = \xi^n e^{ikx} = \xi^n e^{ik(j\Delta x)}.\]</div>
+<p>The idea is that if <span class="math notranslate nohighlight">\(|\xi|&gt;1\)</span> for any wavevector <span class="math notranslate nohighlight">\(k\)</span> then the scheme is unstable because <span class="math notranslate nohighlight">\(T_j\)</span> will grow exponentially with time.</p>
+<p>Substituting this solution into equation <a class="reference internal" href="#equation-explicit">(13)</a> gives</p>
+<div class="math notranslate nohighlight">
+\[e^{ikj\Delta x}\xi^{n+1} = \alpha e^{ik(j-1)\Delta x}\xi^n +(1-2\alpha) e^{ikj\Delta x}\xi^n + \alpha e^{ik(j+1)\Delta x}\xi^n\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \xi = \alpha e^{-ik\Delta x} + (1-2\alpha) + \alpha e^{ik\Delta x}\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \xi = 1 - 2\alpha \left(1-\cos(k\Delta x)\right)\]</div>
+<div class="math notranslate nohighlight">
+\[\Rightarrow \xi = 1 - 4\alpha \sin^2\left({k\Delta x\over 2}\right)\]</div>
+<p>We need <span class="math notranslate nohighlight">\(2\alpha &lt; 1\)</span> in order to keep <span class="math notranslate nohighlight">\(|\xi|&lt;1\)</span> (or <span class="math notranslate nohighlight">\(-1\leq \xi\leq 1\)</span>), i.e.</p>
+<div class="math notranslate nohighlight">
+\[\alpha = {\Delta t\over (\Delta x)^2}&lt; 1/2\]</div>
+<p>for stability.</p>
+<p>For values of <span class="math notranslate nohighlight">\(\alpha &gt; 1/2\)</span>, the largest value of <span class="math notranslate nohighlight">\(|\xi|\)</span> corresponds to <span class="math notranslate nohighlight">\(\sin^2 (k\Delta x/2)=1\)</span> or <span class="math notranslate nohighlight">\(k\Delta x/2 = \pi/2\)</span>. The wavelength is</p>
+<div class="math notranslate nohighlight">
+\[\lambda = {2\pi\over k} = 2\Delta x.\]</div>
+<div class="admonition-stability-analysis admonition">
+<p class="admonition-title">Stability analysis</p>
+<p>Check the stability of the implicit Euler method and show that all wavelengths are stable no matter what the timestep.</p>
+</div>
+<div class="admonition-exercise-unstable-solutions admonition">
+<p class="admonition-title">Exercise: unstable solutions</p>
+<p>Change the code above to use an explicit update rather than implicit. Run it for <span class="math notranslate nohighlight">\(\alpha&gt;1/2\)</span>. Does the unstable solution look the way you expect given our stability analysis?</p>
 </div>
 </section>
 </section>
@@ -699,6 +736,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#boundary-conditions">Boundary conditions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-stability">Numerical stability</a></li>
 </ul>
   </nav></div>
 
