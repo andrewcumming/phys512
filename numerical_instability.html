@@ -555,12 +555,12 @@ document.write(`
 <span class="n">AA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
 
 <span class="c1"># and the b vector (boundaries)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">bvec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="n">bvec</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nsteps</span><span class="p">):</span>
 
-    <span class="n">T</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AA</span><span class="p">,</span> <span class="n">T</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AA</span><span class="p">,</span> <span class="n">T</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">bvec</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -624,7 +624,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x107bdb290&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x105813290&gt;
 </pre></div>
 </div>
 <img alt="_images/4247e6d29eb5d0cc548896032d278b5351eb6e7a14de4fea0436d75b62320053.png" src="_images/4247e6d29eb5d0cc548896032d278b5351eb6e7a14de4fea0436d75b62320053.png" />
@@ -658,8 +658,8 @@ document.write(`
 <p>We need <span class="math notranslate nohighlight">\(2\alpha &lt; 1\)</span> in order to keep <span class="math notranslate nohighlight">\(|\xi|&lt;1\)</span> (or <span class="math notranslate nohighlight">\(-1\leq \xi\leq 1\)</span>), i.e.</p>
 <div class="math notranslate nohighlight">
 \[\alpha = {\Delta t\over (\Delta x)^2}&lt; 1/2\]</div>
-<p>for stability.</p>
-<p>For values of <span class="math notranslate nohighlight">\(\alpha &gt; 1/2\)</span>, the largest value of <span class="math notranslate nohighlight">\(|\xi|\)</span> corresponds to <span class="math notranslate nohighlight">\(\sin^2 (k\Delta x/2)=1\)</span> or <span class="math notranslate nohighlight">\(k\Delta x/2 = \pi/2\)</span>. The wavelength is</p>
+<p>for stability. Note that this has a physical interpretation - we need the timestep to be shorter than the diffusion time across a grid cell for the method to be stable.</p>
+<p>For values of <span class="math notranslate nohighlight">\(\alpha &gt; 1/2\)</span>, the largest value of <span class="math notranslate nohighlight">\(|\xi|\)</span> corresponds to <span class="math notranslate nohighlight">\(\sin^2 (k\Delta x/2)=1\)</span> or <span class="math notranslate nohighlight">\(k\Delta x/2 = \pi/2\)</span>. The wavelength of this most-unstable mode is</p>
 <div class="math notranslate nohighlight">
 \[\lambda = {2\pi\over k} = 2\Delta x.\]</div>
 <div class="admonition-stability-analysis admonition">
