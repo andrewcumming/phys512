@@ -59,6 +59,7 @@ parts:
         - file: laplace
         - file: conjugate_gradient
         - file: numerical_instability
+        - file: diffusion
         - file: ode_solutions
           sections:
             - file: runge_kutta_solutions
