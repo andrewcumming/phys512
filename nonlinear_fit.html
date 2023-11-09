@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Boundary conditions and numerical stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffusion.html">Diffusion in multi-dimensions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
@@ -546,12 +547,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 1.82144, a=(1, 1, 1)
-chisq = 0.36491, a=(1.24684, 1.80119, 0.697544)
-chisq = 0.0843857, a=(1.32495, 2.2575, 0.332765)
-chisq = 0.0724698, a=(1.19839, 1.97669, 0.236902)
-chisq = 0.0724337, a=(1.20182, 1.98415, 0.242555)
-a-a0 = [ 0.00182051 -0.01584627 -0.05744491]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 1.59098, a=(1, 1, 1)
+chisq = 0.300171, a=(1.18658, 1.69377, 0.713511)
+chisq = 0.0837418, a=(1.24123, 2.0456, 0.401037)
+chisq = 0.0756807, a=(1.15443, 1.85561, 0.324082)
+chisq = 0.0756678, a=(1.16014, 1.86758, 0.325699)
+a-a0 = [-0.03986029 -0.13241579  0.02569862]
 </pre></div>
 </div>
 </div>
@@ -569,7 +570,7 @@ a-a0 = [ 0.00182051 -0.01584627 -0.05744491]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c072adb374d16d7f452bc6fcd69b9bcbe4aca87dc64b7710b003ced7a125bdf0.png" src="_images/c072adb374d16d7f452bc6fcd69b9bcbe4aca87dc64b7710b003ced7a125bdf0.png" />
+<img alt="_images/bb736ccb33d8f110547f735306f079fd3719f46c43f2f73a41fbbf0cc985410e.png" src="_images/bb736ccb33d8f110547f735306f079fd3719f46c43f2f73a41fbbf0cc985410e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -597,10 +598,10 @@ a-a0 = [ 0.00182051 -0.01584627 -0.05744491]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best-fit parameters are:  [1.20170445 1.98388993 0.24259276]  chisq =  0.07243370428099798
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best-fit parameters are:  [1.15980266 1.86686594 0.32574276]  chisq =  0.07566775783373156
 </pre></div>
 </div>
-<img alt="_images/d0747284860672920238f8c46c8ff4b9c12a80d73c03528100996d6ae63b93d6.png" src="_images/d0747284860672920238f8c46c8ff4b9c12a80d73c03528100996d6ae63b93d6.png" />
+<img alt="_images/66db1644e639f475f9a0075945ed9c3edc3a51df40763535e2b1743a8b6df5bd.png" src="_images/66db1644e639f475f9a0075945ed9c3edc3a51df40763535e2b1743a8b6df5bd.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -657,34 +658,34 @@ a-a0 = [ 0.00182051 -0.01584627 -0.05744491]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 4.37938, a=(1.07272, 2.17074, 3.85583), lam = 0.001
-chisq = 2.60622, a=(2.42776, 7.41256, 3.18442), lam = 0.0001
-chisq = 1.25036, a=(5.99712, 23.4924, 0.333454), lam = 1e-05
-chisq = 3864.43, a=(-5.92112, -39.8192, -0.0610073), lam = 1e-06
-chisq = 3913.3, a=(-5.92101, -39.8187, -0.0610037), lam = 1e-05
-chisq = 4458.64, a=(-5.91994, -39.813, -0.0609682), lam = 0.0001
-chisq = 44756, a=(-5.90922, -39.756, -0.0606136), lam = 0.001
-chisq = 262.757, a=(-5.80313, -39.1924, -0.0571021), lam = 0.01
-chisq = 118.351, a=(-4.83765, -34.0637, -0.0251476), lam = 0.1
-chisq = 5.11288, a=(0.0379929, -8.16344, 0.136223), lam = 1
-chisq = 1.06564, a=(4.91364, 17.7368, 0.297593), lam = 10
-chisq = 378240, a=(0.672845, -3.56281, 0.170078), lam = 1
-chisq = 0.904253, a=(4.14259, 13.8642, 0.274409), lam = 10
-chisq = 144.669, a=(1.01672, -1.00748, 0.19178), lam = 1
-chisq = 0.765114, a=(3.57425, 11.1602, 0.259385), lam = 10
-chisq = 17.1138, a=(1.20936, 0.469491, 0.20612), lam = 1
-chisq = 0.646616, a=(3.14427, 9.21645, 0.249701), lam = 10
-chisq = 1.02398, a=(1.31763, 1.34034, 0.215748), lam = 1
-chisq = 0.546733, a=(2.81215, 7.78443, 0.243528), lam = 10
-chisq = 0.241671, a=(1.37658, 1.85619, 0.222293), lam = 1
-chisq = 0.0751495, a=(1.2172, 1.95143, 0.237099), lam = 0.1
-chisq = 0.0724351, a=(1.20202, 1.98308, 0.242364), lam = 0.01
-chisq = 0.0724337, a=(1.20171, 1.9839, 0.242592), lam = 0.001
-a-a0 = [ 0.00171178 -0.01609594 -0.05740806]
-Best-fit parameters are:  [1.20171178 1.98390406 0.24259194]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 4.33431, a=(1.03, 2.09418, 3.84901), lam = 0.001
+chisq = 2.63286, a=(2.31427, 7.04339, 3.18808), lam = 0.0001
+chisq = 1.32145, a=(5.76984, 22.3612, 0.407355), lam = 1e-05
+chisq = 173.65, a=(-5.95264, -39.3964, 0.164709), lam = 1e-06
+chisq = 173.512, a=(-5.95253, -39.3958, 0.164711), lam = 1e-05
+chisq = 172.162, a=(-5.95148, -39.3903, 0.164733), lam = 0.0001
+chisq = 161.448, a=(-5.94094, -39.3347, 0.164951), lam = 0.001
+chisq = 296.429, a=(-5.83659, -38.785, 0.167111), lam = 0.01
+chisq = 184.153, a=(-4.88697, -33.7821, 0.186767), lam = 0.1
+chisq = 4.07679, a=(-0.0914061, -8.5176, 0.286032), lam = 1
+chisq = 1.12469, a=(4.70416, 16.7469, 0.385296), lam = 10
+chisq = 25.0358, a=(0.550036, -3.88515, 0.299195), lam = 1
+chisq = 0.952085, a=(3.94886, 12.9956, 0.369641), lam = 10
+chisq = 106.364, a=(0.899487, -1.31193, 0.307327), lam = 1
+chisq = 0.802915, a=(3.39443, 10.3942, 0.358311), lam = 10
+chisq = 90.5841, a=(1.09745, 0.178429, 0.312719), lam = 1
+chisq = 0.6758, a=(2.9768, 8.53682, 0.350022), lam = 10
+chisq = 1.66657, a=(1.21084, 1.06087, 0.316426), lam = 1
+chisq = 0.568781, a=(2.65572, 7.17756, 0.343913), lam = 10
+chisq = 0.323086, a=(1.27465, 1.58738, 0.319015), lam = 1
+chisq = 0.0832794, a=(1.16964, 1.78826, 0.323527), lam = 0.1
+chisq = 0.0756815, a=(1.16157, 1.86613, 0.325601), lam = 0.01
+chisq = 0.0756678, a=(1.15983, 1.86691, 0.325739), lam = 0.001
+a-a0 = [-0.04017203 -0.13308577  0.02573879]
+Best-fit parameters are:  [1.15982797 1.86691423 0.32573879]
 </pre></div>
 </div>
-<img alt="_images/5bd000f983312b37b9ba46114bb54d51efe4cda48e4230b9457376765c062288.png" src="_images/5bd000f983312b37b9ba46114bb54d51efe4cda48e4230b9457376765c062288.png" />
+<img alt="_images/d56f7ecac3eb65b68d71a808988577b2d45f6a5147309f6be5f7e352d95f0b2c.png" src="_images/d56f7ecac3eb65b68d71a808988577b2d45f6a5147309f6be5f7e352d95f0b2c.png" />
 </div>
 </div>
 </section>
