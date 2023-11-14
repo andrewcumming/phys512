@@ -67,6 +67,7 @@ parts:
             - file: symplectic_solutions
             - file: conjugate_gradient_solutions
             - file: numerical_instability_solutions
+            - file: adi
     - caption: Homework
       chapters:
         - file: hw1
