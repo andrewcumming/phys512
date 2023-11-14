@@ -66,6 +66,7 @@ parts:
             - file: bvps.ipynb
             - file: symplectic_solutions
             - file: conjugate_gradient_solutions
+            - file: numerical_instability_solutions
     - caption: Homework
       chapters:
         - file: hw1
