@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -79,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -148,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -236,6 +225,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="current nav bd-sidenav">
@@ -424,10 +417,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -435,7 +428,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -511,7 +504,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0cde63dc416abfcd0926dc2709f5e26fe2afe45c44df187bf002f7e71c3138b1.png" src="_images/0cde63dc416abfcd0926dc2709f5e26fe2afe45c44df187bf002f7e71c3138b1.png" />
+<img alt="_images/947134b49fba9af4f4b3557386fd234938975f8121e5c0cfb7577aec79475e31.png" src="_images/947134b49fba9af4f4b3557386fd234938975f8121e5c0cfb7577aec79475e31.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>I, err= 1.482974344768713 5.408343442349687e-14
 </pre></div>
 </div>
@@ -528,7 +521,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/0cde63dc416abfcd0926dc2709f5e26fe2afe45c44df187bf002f7e71c3138b1.png" src="_images/0cde63dc416abfcd0926dc2709f5e26fe2afe45c44df187bf002f7e71c3138b1.png" />
+<img alt="_images/947134b49fba9af4f4b3557386fd234938975f8121e5c0cfb7577aec79475e31.png" src="_images/947134b49fba9af4f4b3557386fd234938975f8121e5c0cfb7577aec79475e31.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -608,7 +601,7 @@ N^2 = 21^2 =  441
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2622b0cdcf6a3683cbc2414767a69271117368eb39b65ccdb7182dfeb7d91f3e.png" src="_images/2622b0cdcf6a3683cbc2414767a69271117368eb39b65ccdb7182dfeb7d91f3e.png" />
+<img alt="_images/45ad62d0870a68d141a4097da5e58415ec28f192867fe5fa8b5ddf5d570cff3e.png" src="_images/45ad62d0870a68d141a4097da5e58415ec28f192867fe5fa8b5ddf5d570cff3e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -634,7 +627,7 @@ N^2 = 21^2 =  441
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/015bf48264bbb2e93fb8dcd17025ae5b04179f4508c8577529ca29bd7b0ffce4.png" src="_images/015bf48264bbb2e93fb8dcd17025ae5b04179f4508c8577529ca29bd7b0ffce4.png" />
+<img alt="_images/a0a9829212115ca5e651e6bd1b6dc7f0c70d50d58ed315b3dcd9c850b8e26c4e.png" src="_images/a0a9829212115ca5e651e6bd1b6dc7f0c70d50d58ed315b3dcd9c850b8e26c4e.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Degenerate limit is valid for n/n_Q&gt;41.18 and mu/kT &gt; 8.9899
 Degenerate limit is valid for n/n_Q&lt;0.127874 and mu/kT &lt; -2.72727
 </pre></div>
@@ -683,8 +676,8 @@ Degenerate limit is valid for n/n_Q&lt;0.127874 and mu/kT &lt; -2.72727
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction =  0.2409208
-Time taken =  0.12148213386535645
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction =  0.2406466
+Time taken =  0.09656500816345215
 Number of velocities generated =  1000000
 </pre></div>
 </div>
@@ -708,7 +701,7 @@ Number of velocities generated =  1000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/503b17e72a1bdefeb1b110dc817b4d83dfa6847169593716fc7758c1698a6b2a.png" src="_images/503b17e72a1bdefeb1b110dc817b4d83dfa6847169593716fc7758c1698a6b2a.png" />
+<img alt="_images/7abac5fae104957c93723d791ef0f50e68e0d06374c9135ce19889c4795a675d.png" src="_images/7abac5fae104957c93723d791ef0f50e68e0d06374c9135ce19889c4795a675d.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -737,7 +730,7 @@ Number of velocities generated =  1000000
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/bc7610849f9ba4dd333111755b37d15d0192fda2829e6101766321d01fa2314b.png" src="_images/bc7610849f9ba4dd333111755b37d15d0192fda2829e6101766321d01fa2314b.png" />
+<img alt="_images/0aad139934b5128e29ab06ec89d7d9a515dbc71aa8306cf3e59570ec24b33c09.png" src="_images/0aad139934b5128e29ab06ec89d7d9a515dbc71aa8306cf3e59570ec24b33c09.png" />
 </div>
 </div>
 </section>
@@ -768,10 +761,11 @@ Number of velocities generated =  1000000
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="HW1_solutions.html"
@@ -791,7 +785,10 @@ Number of velocities generated =  1000000
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -856,8 +853,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

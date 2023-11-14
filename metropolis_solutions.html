@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -79,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -148,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -236,6 +225,10 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -424,10 +417,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -435,7 +428,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -561,12 +554,12 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.3596
 </pre></div>
 </div>
-<img alt="_images/904f44bea36b4de902c43172ea057f207cc6b7f2635c4ab22cb6ef62a04c3a18.png" src="_images/904f44bea36b4de902c43172ea057f207cc6b7f2635c4ab22cb6ef62a04c3a18.png" />
-<img alt="_images/87dd6532ddb15cebe175739fc423d2f5f484988880bdb62a5c554d0ce97b4979.png" src="_images/87dd6532ddb15cebe175739fc423d2f5f484988880bdb62a5c554d0ce97b4979.png" />
+<img alt="_images/181e81ba6a6e8953b6374bcb2867b891c93b1f1e9772ea3204eb10ef1ce233ea.png" src="_images/181e81ba6a6e8953b6374bcb2867b891c93b1f1e9772ea3204eb10ef1ce233ea.png" />
+<img alt="_images/f4c19779a64f5d870b89e7a9a52c50007b1970a0e3d3f12a169095410bde3c6d.png" src="_images/f4c19779a64f5d870b89e7a9a52c50007b1970a0e3d3f12a169095410bde3c6d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/7f7047e828be823d5537bcd6cecb0f2fa984aa50c330d5d8b81ae4368f841a39.png" src="_images/7f7047e828be823d5537bcd6cecb0f2fa984aa50c330d5d8b81ae4368f841a39.png" />
+<img alt="_images/86b63c876657955d2c8ee91245076cbb49122667abbfbe7d59c0ccfb0cef61c8.png" src="_images/86b63c876657955d2c8ee91245076cbb49122667abbfbe7d59c0ccfb0cef61c8.png" />
 </div>
 </div>
 <p>Notes:</p>
@@ -651,9 +644,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/5e18c7ef9e41de191cd9085f7bb58e59f5bc23c50fd5fdc95648c346306e94b7.png" src="_images/5e18c7ef9e41de191cd9085f7bb58e59f5bc23c50fd5fdc95648c346306e94b7.png" />
-<img alt="_images/55e9fd3e537d5b063c014db2eafe75d7e408e9cccc08010f32af89af57523d03.png" src="_images/55e9fd3e537d5b063c014db2eafe75d7e408e9cccc08010f32af89af57523d03.png" />
-<img alt="_images/cd37d3c8e9bf10cd94dcfd274c1978d3e315943cc98c3bde36c648990f728227.png" src="_images/cd37d3c8e9bf10cd94dcfd274c1978d3e315943cc98c3bde36c648990f728227.png" />
+<img alt="_images/e29b869e7b01cac0b9cd972c2e5122a7f4cdb334be6f59a13eed0e8a9ff9ea5b.png" src="_images/e29b869e7b01cac0b9cd972c2e5122a7f4cdb334be6f59a13eed0e8a9ff9ea5b.png" />
+<img alt="_images/7e80e05012615c0d5b94df86b2fec4ef251d62aa0cb0f4f549833951078de551.png" src="_images/7e80e05012615c0d5b94df86b2fec4ef251d62aa0cb0f4f549833951078de551.png" />
+<img alt="_images/2ef7b63dc38d35320933af4441ce5f416132f910e4ce018db9853f33717c5b94.png" src="_images/2ef7b63dc38d35320933af4441ce5f416132f910e4ce018db9853f33717c5b94.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -701,7 +694,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39639
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39911
 </pre></div>
 </div>
 </div>
@@ -741,9 +734,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dbaa272ebad12b1ecefa8827f6a54aa74f5c9a5b927b926b67fb452d81551062.png" src="_images/dbaa272ebad12b1ecefa8827f6a54aa74f5c9a5b927b926b67fb452d81551062.png" />
-<img alt="_images/2e4091f9cd3a76d0e3ea5e0d4a17908175765b7d2ef761f8f4810376167fbb3d.png" src="_images/2e4091f9cd3a76d0e3ea5e0d4a17908175765b7d2ef761f8f4810376167fbb3d.png" />
-<img alt="_images/47ec49997cc2dad8c230a02378fb5dc88d8f415a6e0c8c0c51ce340dfac1bedf.png" src="_images/47ec49997cc2dad8c230a02378fb5dc88d8f415a6e0c8c0c51ce340dfac1bedf.png" />
+<img alt="_images/ec7f9908c4134db2dc0ebc295d9133b905ba5c60321a1a22c62f7a1f3171f664.png" src="_images/ec7f9908c4134db2dc0ebc295d9133b905ba5c60321a1a22c62f7a1f3171f664.png" />
+<img alt="_images/c0658d63b6065a993e4f89f72a91c4c58a4f414ddac9060b342a3d340601d084.png" src="_images/c0658d63b6065a993e4f89f72a91c4c58a4f414ddac9060b342a3d340601d084.png" />
+<img alt="_images/e7959f9edd40794e33c2e4047bb3b1cde21f939eb8009c0c22e01991a558cab3.png" src="_images/e7959f9edd40794e33c2e4047bb3b1cde21f939eb8009c0c22e01991a558cab3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -758,18 +751,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># https://corner.readthedocs.io/en/latest/</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="kn">import</span> <span class="nn">corner</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">figure</span> <span class="o">=</span> <span class="n">corner</span><span class="o">.</span><span class="n">corner</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> 
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;$M/M_J$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$e$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$\omega$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$t_P$&#39;</span><span class="p">,</span> <span class="sa">r</span><span class="s1">&#39;$v_0$&#39;</span><span class="p">],</span> 
-<span class="g g-Whitespace">      </span><span class="mi">6</span>         <span class="n">show_titles</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;corner&#39;
-</pre></div>
-</div>
+<img alt="_images/c2dadf9040474e7ed44e7a827ffab3ef27ff892920df28ba85ac24122c7c202a.png" src="_images/c2dadf9040474e7ed44e7a827ffab3ef27ff892920df28ba85ac24122c7c202a.png" />
 </div>
 </div>
 </section>
@@ -800,10 +782,11 @@ document.write(`
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="montecarlo_solutions.html"
@@ -823,7 +806,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -887,8 +873,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
