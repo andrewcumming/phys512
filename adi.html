@@ -475,14 +475,22 @@ document.write(`
 </div>
 </div>
 </div>
+<p>Implementing this method is a bit tricky. The code ends up being very simple, but it takes a bit of thinking to figure out the various matrix multiplications.</p>
 <p>Let’s look at the first step:</p>
 <div class="math notranslate nohighlight">
 \[T^{n+1/2}_{i,j} =  T^n_{i,j} + {\alpha\over 2}\left(T^{n+1/2}_{i-1,j} -2T^{n+1/2}_{i,j} + T^{n+1/2}_{i+1,j} + T^n_{i,j-1} -2T^n_{i,j} + T^n_{i,j+1}\right)\]</div>
 <div class="math notranslate nohighlight">
-\[\Rightarrow T^{n+1/2}_{i,j} - {\alpha\over 2}\left(T^{n+1/2}_{i-1,j} -2T^{n+1/2}_{i,j} + T^{n+1/2}_{i+1,j}\right) =  T^n_{i,j} + {\alpha\over 2}\left(T^n_{i,j-1} -2T^n_{i,j} + T^n_{i,j+1}\right)\]</div>
+\[\Rightarrow - {\alpha\over 2}T^{n+1/2}_{i-1,j} + T^{n+1/2}_{i,j}(1+\alpha) - {\alpha\over 2}T^{n+1/2}_{i+1,j} =  {\alpha\over 2} T^n_{i,j-1}  + (1-\alpha) T^n_{i,j} + {\alpha\over 2}T^n_{i,j+1}.\]</div>
+<p>This describes implicit diffusion in the <span class="math notranslate nohighlight">\(x\)</span>-direction and explicit diffusion in the <span class="math notranslate nohighlight">\(y\)</span>-direction. If we focus on the left-hand side and write</p>
 <div class="math notranslate nohighlight">
-\[\Rightarrow - {\alpha\over 2}T^{n+1/2}_{i-1,j} + T^{n+1/2}_{i,j}(1+\alpha) - {\alpha\over 2}T^{n+1/2}_{i+1,j} =  {\alpha\over 2} T^n_{i,j-1}  + (1-\alpha) T^n_{i,j} + {\alpha\over 2}T^n_{i,j+1}\]</div>
-<p>On the right-hand side, we take row <span class="math notranslate nohighlight">\(i\)</span> of the matrix and apply the 1D diffusion operator to it. This is then used as the right-hand side in an implicit 1D diffusion solve that gives column <span class="math notranslate nohighlight">\(j\)</span> of <span class="math notranslate nohighlight">\(T^{n+1/2}\)</span>. So we don’t need to write out the full matrix representing the 2D operator. Instead we can cycle through the columns/rows of <span class="math notranslate nohighlight">\(\mathbf{T}\)</span> and operate on those with our usual 1D matrix.</p>
+\[- {\alpha\over 2}T^{n+1/2}_{i-1,j} + T^{n+1/2}_{i,j}(1+\alpha) - {\alpha\over 2}T^{n+1/2}_{i+1,j} =  B_{i,j}\]</div>
+<p>then we see that this actually describes <span class="math notranslate nohighlight">\(N\)</span> problems of the form <span class="math notranslate nohighlight">\(\mathbf{A}\mathbf{x}=\mathbf{b}\)</span>, where <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is the usual 1D diffusion operator (<span class="math notranslate nohighlight">\(N\times N\)</span> matrix), <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is column <span class="math notranslate nohighlight">\(j\)</span> of <span class="math notranslate nohighlight">\(\mathbf{T}^{n+1}\)</span> and the right-hand side vector is column <span class="math notranslate nohighlight">\(j\)</span> of the matrix <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>. There are <span class="math notranslate nohighlight">\(N\)</span> equations to solve here because we have an equation for each column <span class="math notranslate nohighlight">\(j\)</span>.</p>
+<p>The right-hand side matrix is given by</p>
+<div class="math notranslate nohighlight">
+\[B_{i,j} =  {\alpha\over 2} T^n_{i,j-1}  + (1-\alpha) T^n_{i,j} + {\alpha\over 2}T^n_{i,j+1},\]</div>
+<p>again a set of <span class="math notranslate nohighlight">\(N\)</span> equations, one for each row <span class="math notranslate nohighlight">\(i\)</span>. We can therefore calculate <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> row by row by operating the 1D diffusion matrix on each row.</p>
+<p>So, we see that we need to do two sweeps of the matrix: first sweep over the rows to calculate <span class="math notranslate nohighlight">\(\mathbf{B}\)</span>, and then sweep over the columns, solving the implicit equation for each column.
+The second step of the ADI method is the same as the first except operating on the transpose of the matrix, so if we can implement the first step we just need to carry it out again to complete the full timestep.</p>
 <p>The exercise as written was to solve the heat equation with fixed temperature boundaries, but to make things simpler (and to lead into our next section on Fourier transforms) consider instead a problem with <span class="math notranslate nohighlight">\(T=0\)</span> on all the boundaries, and instead we’ll evolve a Gaussian temperature perturbation. You might recall that the Green’s function for the diffusion equation is</p>
 <div class="math notranslate nohighlight">
 \[T(x, y, t) = {1\over 4\pi t} \exp\left(-{x^2+y^2\over 4t}\right)\]</div>
@@ -543,16 +551,21 @@ document.write(`
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="n">Tnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 
-<span class="c1"># We take twice as many steps because each step involves two passes through the matrix</span>
-<span class="c1"># (for the alternating directions)</span>
+<span class="c1"># We take twice as many steps here because we are doing half-timesteps</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">nsteps</span><span class="p">):</span>
 
+    <span class="c1"># Compute the right-hand side matrix row by row</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-        <span class="n">TR</span> <span class="o">=</span> <span class="n">AR</span> <span class="o">@</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span>
-        <span class="n">Tnew</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AL</span><span class="p">,</span> <span class="n">TR</span><span class="p">)</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">AR</span> <span class="o">@</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span>
 
-    <span class="n">T</span> <span class="o">=</span> <span class="n">Tnew</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="c1"># and now solve column by column for the new T</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">Tnew</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AL</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># take the transpose to swap directions for the next half-step</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Tnew</span><span class="o">.</span><span class="n">T</span>
     
     <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> == 1:
         <span class="n">ti</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
@@ -586,11 +599,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x105ddb550&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x103443550&gt;
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T range =  2.7756419297411804e-09 13.347482336770343
-delta range =  -0.00026729235363278053 0.0009687580085419478
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T range =  2.775641929741181e-09 13.347482336770343
+delta range =  -0.00026729235363271396 0.0009687580085419478
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1280x960 with 0 Axes&gt;
