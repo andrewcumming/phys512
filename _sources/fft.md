@@ -36,9 +36,15 @@ With the DFT tools available in numpy we can apply the same approach to find a n
 
 Use DFTs to solve the 2D diffusion of a Gaussian temperature profile, i.e. find $T(x,y)$ as a function of time. Follow the algorithm above:
 
-- take the 2D Fourier transform of your initial condition (temperature defined on a grid in $x$ and $y$)
-- at any given time $t$ apply the appropriate decay factor to each mode
+- take the 2D Fourier transform of your initial condition (temperature defined on a grid in $x$ and $y$), which you can take to be the Green's function
+
+$$T(x, y, t) = {1\over 4\pi t} \exp\left(-{x^2+y^2\over 4t}\right)$$  
+
+evaluated at the initial time.
+- at any given future time $t$ apply the appropriate decay factor to each mode
 - do the inverse transform to get back to the temperature field in real space
+
+You can also set your initial condition in Fourier space at $t=0$ because $T(x,t)$ is then a delta-function which has a simple representation in Fourier space.
 
 Check your answer by comparing with the analytic solution. 
 

@@ -487,10 +487,16 @@ If you’ve solved the diffusion equation analytically before, you likely did it
 <p class="admonition-title">Exercise: 2D diffusion with Fourier methods</p>
 <p>Use DFTs to solve the 2D diffusion of a Gaussian temperature profile, i.e. find <span class="math notranslate nohighlight">\(T(x,y)\)</span> as a function of time. Follow the algorithm above:</p>
 <ul class="simple">
-<li><p>take the 2D Fourier transform of your initial condition (temperature defined on a grid in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>)</p></li>
-<li><p>at any given time <span class="math notranslate nohighlight">\(t\)</span> apply the appropriate decay factor to each mode</p></li>
+<li><p>take the 2D Fourier transform of your initial condition (temperature defined on a grid in <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>), which you can take to be the Green’s function</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[T(x, y, t) = {1\over 4\pi t} \exp\left(-{x^2+y^2\over 4t}\right)\]</div>
+<p>evaluated at the initial time.</p>
+<ul class="simple">
+<li><p>at any given future time <span class="math notranslate nohighlight">\(t\)</span> apply the appropriate decay factor to each mode</p></li>
 <li><p>do the inverse transform to get back to the temperature field in real space</p></li>
 </ul>
+<p>You can also set your initial condition in Fourier space at <span class="math notranslate nohighlight">\(t=0\)</span> because <span class="math notranslate nohighlight">\(T(x,t)\)</span> is then a delta-function which has a simple representation in Fourier space.</p>
 <p>Check your answer by comparing with the analytic solution.</p>
 <p>The idea of this exercise is to become familiar with the DFT. Here are some questions you could ask - does the Fourier transform look as you expect (you can plot a color map of <span class="math notranslate nohighlight">\(\tilde{T}(k_x, k_y)\)</span>)? What are the values of <span class="math notranslate nohighlight">\(k_x\)</span> and <span class="math notranslate nohighlight">\(k_y\)</span> that are used to evaluate the Fourier transform? If you take the transform and then inverse transform, do you get back to where you started?</p>
 <p>Useful functions:</p>
