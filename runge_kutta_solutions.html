@@ -231,6 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
 <li class="toctree-l2"><a class="reference internal" href="conjugate_gradient_solutions.html">Conjugate gradient solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numerical_instability_solutions.html">Boundary conditions and numerical stability solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
 </ul>
 </li>
 </ul>
@@ -568,9 +569,7 @@ document.write(`
 nsteps = 100, err1 = -1.61962, err2 = -0.0155004, err4 = 3.17648e-06
 nsteps = 1000, err1 = -0.358534, err2 = -0.000145888, err4 = 2.33419e-10
 nsteps = 10000, err1 = -0.0371289, err2 = -1.44817e-06, err4 = 7.6971e-14
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scipy gives  0.0001564960035684848  with 140 evaluations
+scipy gives  0.0001564960035684848  with 140 evaluations
 </pre></div>
 </div>
 <img alt="_images/dc9e0e2627c264e24c16e41a3303ad70c26de3f0027bf2f1de80e6016101993b.png" src="_images/dc9e0e2627c264e24c16e41a3303ad70c26de3f0027bf2f1de80e6016101993b.png" />
@@ -617,9 +616,7 @@ nsteps = 31, err4 = 0.000602067
 nsteps = 100, err4 = 3.17648e-06
 nsteps = 316, err4 = 2.53835e-08
 nsteps = 1000, err4 = 2.33419e-10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 3162, err4 = 2.36498e-12
+nsteps = 3162, err4 = 2.36498e-12
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 10000, err4 = 7.6971e-14

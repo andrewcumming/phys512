@@ -231,6 +231,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Conjugate gradient solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numerical_instability_solutions.html">Boundary conditions and numerical stability solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
 </ul>
 </li>
 </ul>
@@ -539,28 +540,28 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 251.35818795871074
-Iteration 0: pAp = 1.19285e+06, residual=17.6937
-Iteration 1: pAp = 7.70428e+07, residual=2.50658
-Iteration 2: pAp = 7420.37, residual=0.188893
-Iteration 3: pAp = 41.3472, residual=0.012823
-Iteration 4: pAp = 0.191565, residual=0.00096205
-Iteration 5: pAp = 0.00107575, residual=7.06913e-05
-Iteration 6: pAp = 0.000122748, residual=0.000209689
-Iteration 7: pAp = 0.000520008, residual=4.70549e-06
-Iteration 8: pAp = 2.54597e-08, residual=3.17583e-07
-Iteration 9: pAp = 1.17043e-10, residual=2.39489e-08
-Iteration 10: pAp = 6.70087e-13, residual=1.69486e-09
-Iteration 11: pAp = 3.66693e-15, residual=7.21045e-09
-Iteration 12: pAp = 1.18579e-11, residual=1.20596e-10
-Iteration 13: pAp = 1.69157e-17, residual=8.7156e-12
-Iteration 14: pAp = 8.79569e-20, residual=6.11374e-13
-Iteration 15: pAp = 4.31425e-22, residual=4.38315e-14
-Iteration 16: pAp = 2.23426e-24, residual=1.97999e-14
-Iteration 17: pAp = 9.62296e-23, residual=3.00097e-15
-Iteration 18: pAp = 1.06089e-26, residual=2.13192e-16
-Iteration 19: pAp = 5.26154e-29, residual=1.47039e-17
-Max error =  1.3322676295501878e-14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 251.56274362294363
+Iteration 0: pAp = 1.10055e+06, residual=29.6465
+Iteration 1: pAp = 2.1883e+08, residual=2.40913
+Iteration 2: pAp = 6784.34, residual=0.169383
+Iteration 3: pAp = 33.1051, residual=0.0122377
+Iteration 4: pAp = 0.174484, residual=0.000842624
+Iteration 5: pAp = 0.000822005, residual=7.68732e-05
+Iteration 6: pAp = 0.000576593, residual=9.60001e-05
+Iteration 7: pAp = 2.74628e-05, residual=4.2419e-06
+Iteration 8: pAp = 2.09915e-08, residual=3.15394e-07
+Iteration 9: pAp = 1.14777e-10, residual=2.21705e-08
+Iteration 10: pAp = 5.68971e-13, residual=1.6038e-09
+Iteration 11: pAp = 3.80751e-15, residual=9.47753e-09
+Iteration 12: pAp = 1.79233e-11, residual=1.16748e-10
+Iteration 13: pAp = 1.5827e-17, residual=8.67687e-12
+Iteration 14: pAp = 8.78603e-20, residual=6.08918e-13
+Iteration 15: pAp = 4.29219e-22, residual=4.30529e-14
+Iteration 16: pAp = 2.15249e-24, residual=2.55481e-14
+Iteration 17: pAp = 1.61545e-22, residual=3.09859e-15
+Iteration 18: pAp = 1.12794e-26, residual=2.21004e-16
+Iteration 19: pAp = 5.68489e-29, residual=1.5665e-17
+Max error =  1.855460229904793e-14
 </pre></div>
 </div>
 </div>
