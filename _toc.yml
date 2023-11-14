@@ -68,6 +68,9 @@ parts:
             - file: conjugate_gradient_solutions
             - file: numerical_instability_solutions
             - file: adi
+    - caption: Spectral methods
+      chapters:
+        - file: fft
     - caption: Homework
       chapters:
         - file: hw1
