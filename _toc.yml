@@ -71,6 +71,9 @@ parts:
     - caption: Spectral methods
       chapters:
         - file: fft
+        - file: spectral_solutions
+          sections:
+            - file: fft_solutions
     - caption: Homework
       chapters:
         - file: hw1
