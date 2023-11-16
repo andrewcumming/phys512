@@ -511,6 +511,37 @@ If you’ve solved the diffusion equation analytically before, you likely did it
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html">numpy.fft.ifft2</a> - compute the inverse transform</p></li>
 </ul>
 </div>
+<div class="admonition-exercise-1d-dfts admonition">
+<p class="admonition-title">Exercise: 1D DFTs</p>
+<p>Here are some things you can do to become more familiar with DFTs:</p>
+<ol class="arabic simple">
+<li><p>Make a grid in <span class="math notranslate nohighlight">\(x\)</span> with <span class="math notranslate nohighlight">\(n\)</span> points and a spacing <span class="math notranslate nohighlight">\(\Delta x=1\)</span> that goes from <span class="math notranslate nohighlight">\(x=0\)</span> to <span class="math notranslate nohighlight">\(x=n-1\)</span>. Plot the DFT of <span class="math notranslate nohighlight">\(f(x)=\sin(kx)\)</span> and <span class="math notranslate nohighlight">\(f(x)=\cos(kx)\)</span> where <span class="math notranslate nohighlight">\(k=2\pi (m/n)\)</span> for some integer <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+</ol>
+<ul class="simple">
+<li><p>What happens as you change <span class="math notranslate nohighlight">\(m\)</span>?</p></li>
+<li><p>What differences do you see between <span class="math notranslate nohighlight">\(\cos\)</span> and <span class="math notranslate nohighlight">\(\sin\)</span>?</p></li>
+<li><p>Compare the results for <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(m+n\)</span>.</p></li>
+<li><p>Try non-integer <span class="math notranslate nohighlight">\(m\)</span>.</p></li>
+<li><p>Check that <span class="math notranslate nohighlight">\(F(k)=F^\star(-k)\)</span> for real <span class="math notranslate nohighlight">\(f(x)\)</span>.</p></li>
+<li><p>Confirm that <a class="reference external" href="https://en.wikipedia.org/wiki/Parseval's_identity">Parseval’s identity</a> holds for the DFT.</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Manipulating <span class="math notranslate nohighlight">\(f(x)\)</span> in Fourier space:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Take the complex cojugate of <span class="math notranslate nohighlight">\(F(k)\)</span> and transform back to real space. What does that do to <span class="math notranslate nohighlight">\(f(x)\)</span>? (You need an <span class="math notranslate nohighlight">\(f(x)\)</span> that is not symmetric about the center of your grid, ie. has an odd component).</p></li>
+<li><p>Multiply <span class="math notranslate nohighlight">\(F(k)\)</span> by <span class="math notranslate nohighlight">\(e^{-ik y}\)</span> for some distance <span class="math notranslate nohighlight">\(y\)</span> and transform back to real space. What does that do to <span class="math notranslate nohighlight">\(f(x)\)</span>? (You can use <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">complex(0,1)</span></code> for the square root of minus 1.)</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Write a function to calculate the convolution of two functions <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> using the fact that the Fourier transform of the convolution is equal to the product of the Fourier transforms of the two functions (<a class="reference external" href="https://en.wikipedia.org/wiki/Convolution_theorem">convolution theorem</a>). Try it with a Gaussian and a top hat for example.</p></li>
+<li><p>Set <span class="math notranslate nohighlight">\(f(x)\)</span> equal to <span class="math notranslate nohighlight">\(n\)</span> samples from a Gaussian distribution.</p></li>
+</ol>
+<ul class="simple">
+<li><p>Plot the power spectrum <span class="math notranslate nohighlight">\(|F(k)|^2\)</span> as a function of (positive) <span class="math notranslate nohighlight">\(k\)</span>. Does it look like white noise?</p></li>
+<li><p>Next, divide <span class="math notranslate nohighlight">\(F(k)\)</span> by <span class="math notranslate nohighlight">\(ik\)</span> and again plot the power spectrum on a log-log plot. Take the inverse transform to get the modified function <span class="math notranslate nohighlight">\(g(x)\)</span> and plot <span class="math notranslate nohighlight">\(g(x)\)</span> against <span class="math notranslate nohighlight">\(x\)</span>.</p></li>
+<li><p>Take the first half of the <span class="math notranslate nohighlight">\(g(x)\)</span> values as <span class="math notranslate nohighlight">\(x\)</span> and the second half as <span class="math notranslate nohighlight">\(y\)</span> and plot the <span class="math notranslate nohighlight">\((x,y)\)</span> points. What do you see?</p></li>
+</ul>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
