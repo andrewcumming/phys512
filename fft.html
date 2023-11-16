@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'fft';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Solutions to exercises" href="spectral_solutions.html" />
+    <link rel="next" title="Advection-diffusion" href="advect_diffuse.html" />
     <link rel="prev" title="Alternating-direction implicit" href="adi.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -229,6 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Discrete Fourier transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 </ul>
@@ -530,7 +531,7 @@ If you’ve solved the diffusion equation analytically before, you likely did it
 </ol>
 <ul class="simple">
 <li><p>Take the complex cojugate of <span class="math notranslate nohighlight">\(F(k)\)</span> and transform back to real space. What does that do to <span class="math notranslate nohighlight">\(f(x)\)</span>? (You need an <span class="math notranslate nohighlight">\(f(x)\)</span> that is not symmetric about the center of your grid, ie. has an odd component).</p></li>
-<li><p>Multiply <span class="math notranslate nohighlight">\(F(k)\)</span> by <span class="math notranslate nohighlight">\(e^{-ik y}\)</span> for some distance <span class="math notranslate nohighlight">\(y\)</span> and transform back to real space. What does that do to <span class="math notranslate nohighlight">\(f(x)\)</span>? (You can use <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">complex(0,1)</span></code> for the square root of minus 1.)</p></li>
+<li><p>Multiply <span class="math notranslate nohighlight">\(F(k)\)</span> by <span class="math notranslate nohighlight">\(e^{-ik y}\)</span> for some constant <span class="math notranslate nohighlight">\(y\)</span> and transform back to real space. What does that do to <span class="math notranslate nohighlight">\(f(x)\)</span>? (You can use <code class="docutils literal notranslate"><span class="pre">j</span> <span class="pre">=</span> <span class="pre">complex(0,1)</span></code> for the square root of minus 1.)</p></li>
 </ul>
 <ol class="arabic simple" start="3">
 <li><p>Write a function to calculate the convolution of two functions <span class="math notranslate nohighlight">\(f(x)\)</span> and <span class="math notranslate nohighlight">\(g(x)\)</span> using the fact that the Fourier transform of the convolution is equal to the product of the Fourier transforms of the two functions (<a class="reference external" href="https://en.wikipedia.org/wiki/Convolution_theorem">convolution theorem</a>). Try it with a Gaussian and a top hat for example.</p></li>
@@ -585,11 +586,11 @@ If you’ve solved the diffusion equation analytically before, you likely did it
       </div>
     </a>
     <a class="right-next"
-       href="spectral_solutions.html"
+       href="advect_diffuse.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Solutions to exercises</p>
+        <p class="prev-next-title">Advection-diffusion</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
