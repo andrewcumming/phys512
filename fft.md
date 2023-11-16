@@ -75,7 +75,7 @@ Here are some things you can do to become more familiar with DFTs:
 
 - Take the complex cojugate of $F(k)$ and transform back to real space. What does that do to $f(x)$? (You need an $f(x)$ that is not symmetric about the center of your grid, ie. has an odd component).
 
-- Multiply $F(k)$ by $e^{-ik y}$ for some distance $y$ and transform back to real space. What does that do to $f(x)$? (You can use `j = complex(0,1)` for the square root of minus 1.)
+- Multiply $F(k)$ by $e^{-ik y}$ for some constant $y$ and transform back to real space. What does that do to $f(x)$? (You can use `j = complex(0,1)` for the square root of minus 1.)
 
 3. Write a function to calculate the convolution of two functions $f(x)$ and $g(x)$ using the fact that the Fourier transform of the convolution is equal to the product of the Fourier transforms of the two functions ([convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem)). Try it with a Gaussian and a top hat for example.
 
