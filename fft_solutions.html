@@ -494,7 +494,7 @@ document.write(`
 <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">)</span>
-<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="c1"># initial time</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.001</span> <span class="c1"># initial time</span>
 <span class="n">T</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">t0</span><span class="p">)</span>
 
 <span class="c1"># Find the 2D FFT of the temperature field</span>
@@ -542,7 +542,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/35366984c8c9433a5a0f9816e16b41df9a19129e8a3a9609ca3e592c0d0d0ba1.png" src="_images/35366984c8c9433a5a0f9816e16b41df9a19129e8a3a9609ca3e592c0d0d0ba1.png" />
+<img alt="_images/66cfc89e7e3092a9eec893ab01e6cff846e29e37dbfd7ed962f3cc1475ea364e.png" src="_images/66cfc89e7e3092a9eec893ab01e6cff846e29e37dbfd7ed962f3cc1475ea364e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -554,7 +554,7 @@ document.write(`
 
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">kx</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">kx</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="mi">2</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="mi">3</span><span class="o">/</span><span class="n">n</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">-</span> <span class="mi">1</span><span class="o">/</span><span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -570,7 +570,7 @@ document.write(`
  -0.234375 -0.21875  -0.203125 -0.1875   -0.171875 -0.15625  -0.140625
  -0.125    -0.109375 -0.09375  -0.078125 -0.0625   -0.046875 -0.03125
  -0.015625]
-0.015625 0.03125 0.046875
+0.015625 0.03125 0.046875 0.484375
 </pre></div>
 </div>
 </div>
@@ -580,7 +580,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now construct the delta function at t=0 (flat in k-space)</span>
 <span class="c1"># and evolve it to t0</span>
 <span class="n">Tkanal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-<span class="n">tevol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">kxx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">kyy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t0</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">kxx</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">dx</span>
+<span class="n">kyy</span> <span class="o">*=</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">dx</span>
+<span class="n">tevol</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">kxx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">kyy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">t0</span><span class="p">)</span>
 <span class="n">Tkanal</span> <span class="o">=</span> <span class="n">Tkanal</span> <span class="o">*</span> <span class="n">tevol</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
@@ -614,18 +616,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/930c28df189080dd481d8db6a73cea7a7fc38621f37164e81065ba71c57c1679.png" src="_images/930c28df189080dd481d8db6a73cea7a7fc38621f37164e81065ba71c57c1679.png" />
+<img alt="_images/80f1dc8d4dcf5d49a65de10228e0d57d2e3e40f508a55f9479380654ff5118a8.png" src="_images/80f1dc8d4dcf5d49a65de10228e0d57d2e3e40f508a55f9479380654ff5118a8.png" />
 </div>
 </div>
 <p>Notes:</p>
 <ul class="simple">
 <li><p>the DFT is returned as an array of complex variables (see <a class="reference external" href="https://numpy.org/doc/stable/user/basics.types.html">numpy datatypes</a>). Useful functions are <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.real.html">numpy.real</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.imag.html">numpy.imag</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.angle.html">numpy.angle</a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.absolute.html#numpy.absolute">numpy.abs</a> to get the real and imaginary parts, the argument and absolute value/modulus of the complex number</p></li>
 <li><p>the ordering of the <span class="math notranslate nohighlight">\(k\)</span> vectors is <span class="math notranslate nohighlight">\(k=0\)</span> first, then the positive <span class="math notranslate nohighlight">\(k\)</span> vectors from small to large, followed by the negative <span class="math notranslate nohighlight">\(k\)</span> vectors from most negative back up towards <span class="math notranslate nohighlight">\(k=0\)</span>. For plotting above, we used <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.fft.fftshift.html">numpy.fft.fftshift</a> to shift the <span class="math notranslate nohighlight">\(k=0\)</span> mode into the centre.</p></li>
-<li><p>the values of <span class="math notranslate nohighlight">\(k\)</span> ordered from most negative to most positive are</p></li>
+<li><p>the values of <span class="math notranslate nohighlight">\(k\)</span> ordered from most negative to most positive are given by</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[-{1\over 2}, -{1\over 2}+{1\over N}, \dots, 0, {1\over N}, {2\over N}, \dots, {1\over 2}-{1\over N}\]</div>
-<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of grid points.</p>
+\[{k\over (2\pi/\Delta x)} =  -{1\over 2}, -{1\over 2}+{1\over N}, \dots, 0, {1\over N}, {2\over N}, \dots, {1\over 2}-{1\over N}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of grid points. The resolution in <span class="math notranslate nohighlight">\(k\)</span>-space is <span class="math notranslate nohighlight">\(2\pi/(N\Delta x)\)</span>, i.e. the width of the domain sets the smallest <span class="math notranslate nohighlight">\(k\)</span> difference that we can resolve. The largest <span class="math notranslate nohighlight">\(k\)</span> value is <span class="math notranslate nohighlight">\(\pi/\Delta x\)</span> which corresponds to a wavelength <span class="math notranslate nohighlight">\(\lambda = 2\Delta x\)</span> (this is the Nyquist frequency but written in spatial coordinates rather than time).</p>
 </section>
 
     <script type="text/x-thebe-config">
