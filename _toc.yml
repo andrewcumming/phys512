@@ -74,6 +74,7 @@ parts:
         - file: spectral_solutions
           sections:
             - file: fft_solutions
+            - file: fft_1d_solutions
     - caption: Homework
       chapters:
         - file: hw1
