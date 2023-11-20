@@ -87,5 +87,6 @@ Here are some things you can do to become more familiar with DFTs:
 
 ```
 
+## Further reading
 
-
+- A couple of interesting papers on red noise: [Flicker noises in astronomy and elsewhere](https://ui.adsabs.harvard.edu/abs/1978ComAp...7..103P/abstract), [1/f laws found in non-human music](https://ui.adsabs.harvard.edu/abs/2023NatSR..13.1324J/abstract)
