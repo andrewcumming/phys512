@@ -71,6 +71,7 @@ parts:
     - caption: Spectral methods
       chapters:
         - file: fft
+        - file: advect_diffuse
         - file: spectral_solutions
           sections:
             - file: fft_solutions
