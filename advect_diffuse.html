@@ -490,6 +490,20 @@ document.write(`
 <p>for some constant <span class="math notranslate nohighlight">\(\alpha\)</span> (for the explicit method you will need to choose <span class="math notranslate nohighlight">\(\alpha\)</span> small enough to keep the method stable).</p>
 <p>For <span class="math notranslate nohighlight">\(f_0(x)\)</span>, try using a Gaussian, sine wave, or top hat and see how it changes the result.</p>
 </div>
+<div class="admonition-exercise-advection-diffusion-with-finite-difference admonition">
+<p class="admonition-title">Exercise: advection-diffusion with finite-difference</p>
+<p>Repeat the previous exercise, but now using finite differences. For the advection part, here are some schemes you can use:</p>
+<p><strong>Lax-Friedrich</strong></p>
+<div class="math notranslate nohighlight">
+\[f^{n+1}_i = {f^n_{i-1} + f^n_{i+1}\over 2} - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)\]</div>
+<p><strong>Lax-Wendroff</strong></p>
+<div class="math notranslate nohighlight">
+\[f^{n+1}_i = f^n_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)  + {1\over 2}\left({v\Delta t\over\Delta x}\right)^2\left(f^n_{i+1} -2 f^n_i + f^n_{i-1}\right)\]</div>
+<p><strong>Leapfrog</strong></p>
+<div class="math notranslate nohighlight">
+\[f^{n+1}_i = f^{n-1}_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)\]</div>
+<p>You can use <strong>operator splitting</strong> to advance in time: apply the advection update and diffusion update alternately to your solution.</p>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

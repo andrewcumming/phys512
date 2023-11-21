@@ -34,3 +34,25 @@ for some constant $\alpha$ (for the explicit method you will need to choose $\al
  
 For $f_0(x)$, try using a Gaussian, sine wave, or top hat and see how it changes the result.
 ```
+
+```{admonition} Exercise: advection-diffusion with finite-difference
+
+Repeat the previous exercise, but now using finite differences. For the advection part, here are some schemes you can use:
+
+**Lax-Friedrich**
+
+$$f^{n+1}_i = {f^n_{i-1} + f^n_{i+1}\over 2} - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)$$
+
+**Lax-Wendroff**
+
+$$f^{n+1}_i = f^n_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)  + {1\over 2}\left({v\Delta t\over\Delta x}\right)^2\left(f^n_{i+1} -2 f^n_i + f^n_{i-1}\right)$$
+
+**Leapfrog**
+
+$$f^{n+1}_i = f^{n-1}_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)$$
+
+You can use **operator splitting** to advance in time: apply the advection update and diffusion update alternately to your solution.
+```
+
+
+
