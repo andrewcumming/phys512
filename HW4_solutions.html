@@ -233,6 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
 </ul>
 </li>
 </ul>
@@ -566,22 +567,22 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c610652c571ebbb374c2b6acaf9670673ccdb230c69ea0937d629a2a89b5505c.png" src="_images/c610652c571ebbb374c2b6acaf9670673ccdb230c69ea0937d629a2a89b5505c.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [4.07292297 1.22701527 0.85447759 0.7371338  0.67638582 0.46511856]
+<img alt="_images/49b126fe12966136736e1fd2b3b4e2d3991ffb29423a454c0608af4979efa8b0.png" src="_images/49b126fe12966136736e1fd2b3b4e2d3991ffb29423a454c0608af4979efa8b0.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [4.34964911 1.0076712  0.92261723 0.6658207  0.53918524 0.32012079]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/82566e4b33360acab3dff48a39bd38cb06ff322024a86b3f1afc528c7b6367a2.png" src="_images/82566e4b33360acab3dff48a39bd38cb06ff322024a86b3f1afc528c7b6367a2.png" />
+<img alt="_images/649d2ea4eddbebe366dcafd74828e15a006bc680382cb852001b0f90ad2d797c.png" src="_images/649d2ea4eddbebe366dcafd74828e15a006bc680382cb852001b0f90ad2d797c.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/e80e0564181a38f855b9ebe8aed7ee9a9778d2ba41e1dcf4ae49c550d138873a.png" src="_images/e80e0564181a38f855b9ebe8aed7ee9a9778d2ba41e1dcf4ae49c550d138873a.png" />
+<img alt="_images/272b1fffd54cf7972bbf33570a0a84d4ab5efc0d97ba26871d82326a7217a6c8.png" src="_images/272b1fffd54cf7972bbf33570a0a84d4ab5efc0d97ba26871d82326a7217a6c8.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/9a635e7760149250ec90cd12209ffbb6c17560a5d65dc1699fd93bb97a4f2998.png" src="_images/9a635e7760149250ec90cd12209ffbb6c17560a5d65dc1699fd93bb97a4f2998.png" />
+<img alt="_images/a96b1094f3052ea6c07f934c4a9fb79bb58b7e9372b019a82bbf3ee14df3faea.png" src="_images/a96b1094f3052ea6c07f934c4a9fb79bb58b7e9372b019a82bbf3ee14df3faea.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1006,7 +1007,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39755
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39928
 </pre></div>
 </div>
 </div>
@@ -1026,7 +1027,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/dca55dd4766a39759bc46cf32702d096932ef1e8be3e6cc15f34f8ccfb3e272a.png" src="_images/dca55dd4766a39759bc46cf32702d096932ef1e8be3e6cc15f34f8ccfb3e272a.png" />
+<img alt="_images/5509a3459b458a748e2de9b53244af2fb087ba8e427bc3f105e876f618dec7ee.png" src="_images/5509a3459b458a748e2de9b53244af2fb087ba8e427bc3f105e876f618dec7ee.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1042,11 +1043,11 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   parameter         MCMC           LS     MCMC var       LS var    frac diff
-      $M/MJ$      4.85932      4.84971  0.000803772  0.000848462   -0.0270481
-         $e$     0.365504     0.365386  2.83809e-05  2.87864e-05  -0.00709319
-    $\omega$     0.255671     0.256843  0.000370159  0.000377849   -0.0102808
-       $t_P$      1353.14      1353.37      15.6993      16.2268    -0.016521
-       $v_0$     -28.4408     -28.4066     0.187991     0.183562    0.0119188
+      $M/MJ$      4.85961      4.84971  0.000907726  0.000848462    0.0337459
+         $e$      0.36562     0.365386   3.3396e-05  2.87864e-05    0.0741309
+    $\omega$     0.257149     0.256843   0.00038873  0.000377849    0.0141936
+       $t_P$      1353.42      1353.37      16.3354      16.2268   0.00333509
+       $v_0$     -28.4615     -28.4066     0.172172     0.183562   -0.0320193
 </pre></div>
 </div>
 </div>
@@ -1070,17 +1071,17 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
  [-1.316e-02 -2.972e-03  7.299e-02  1.623e+01  6.866e-02]
  [-4.161e-03 -3.427e-04  4.870e-04  6.866e-02  1.836e-01]] 
 
- [[ 8.038e-04 -5.666e-05 -2.872e-05 -8.414e-03 -4.032e-03]
- [-5.666e-05  2.838e-05 -9.615e-06 -3.344e-03 -3.902e-04]
- [-2.872e-05 -9.615e-06  3.702e-04  7.092e-02  1.749e-04]
- [-8.414e-03 -3.344e-03  7.092e-02  1.570e+01  9.632e-03]
- [-4.032e-03 -3.902e-04  1.749e-04  9.632e-03  1.880e-01]]
+ [[ 9.077e-04 -7.357e-05 -5.270e-05 -1.330e-02 -4.057e-03]
+ [-7.357e-05  3.340e-05 -5.651e-06 -2.604e-03 -3.356e-04]
+ [-5.270e-05 -5.651e-06  3.887e-04  7.434e-02  4.206e-04]
+ [-1.330e-02 -2.604e-03  7.434e-02  1.634e+01  5.787e-02]
+ [-4.057e-03 -3.356e-04  4.206e-04  5.787e-02  1.722e-01]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/0e162beaff7d9a80ef29aa4d386697707f19a05f1cddf940861f3de5877b947a.png" src="_images/0e162beaff7d9a80ef29aa4d386697707f19a05f1cddf940861f3de5877b947a.png" />
+<img alt="_images/1f1b97c39d47a8d21a4518de3fc9e1a1de3025eaf79ed83ecb84b015dbc7f3e1.png" src="_images/1f1b97c39d47a8d21a4518de3fc9e1a1de3025eaf79ed83ecb84b015dbc7f3e1.png" />
 </div>
 </div>
 </section>

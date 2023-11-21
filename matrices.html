@@ -233,6 +233,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
 </ul>
 </li>
 </ul>
@@ -504,13 +505,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.97788728 0.27746651 0.85266664]
- [0.44553276 0.90371079 0.55789319]
- [0.28718706 0.55213837 0.04378104]
- [0.40743904 0.98305526 0.68810751]]
-[0.44553276 0.90371079 0.55789319]
-0.5578931934197162
-0.5578931934197162
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.67148725 0.86145718 0.21114475]
+ [0.00575468 0.88733631 0.35292898]
+ [0.61144099 0.14862571 0.57262561]
+ [0.27126461 0.91584067 0.96613067]]
+[0.00575468 0.88733631 0.35292898]
+0.35292898206578494
+0.35292898206578494
 </pre></div>
 </div>
 </div>
@@ -523,9 +524,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.97788728, 0.44553276, 0.28718706, 0.40743904],
-       [0.27746651, 0.90371079, 0.55213837, 0.98305526],
-       [0.85266664, 0.55789319, 0.04378104, 0.68810751]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.67148725, 0.00575468, 0.61144099, 0.27126461],
+       [0.86145718, 0.88733631, 0.14862571, 0.91584067],
+       [0.21114475, 0.35292898, 0.57262561, 0.96613067]])
 </pre></div>
 </div>
 </div>
@@ -539,7 +540,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.09082019, 3.92663392, 1.52280693, 4.43787209])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([3.02783586, 2.83921425, 2.62656924, 5.00133796])
 </pre></div>
 </div>
 </div>
@@ -585,8 +586,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 3.12936807e-17],
-       [1.49907646e-17, 1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00,  6.01922240e-16],
+       [-6.75430034e-17,  1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -600,8 +601,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.6553834685021156
--0.6553834685021156
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.2232690020275431
+-0.22326900202754307
 </pre></div>
 </div>
 </div>
@@ -667,11 +668,11 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/5902aee3bf241673d89052fee7782f39169fbe01bcfd486d04bd01dbb91c597d.png" src="_images/5902aee3bf241673d89052fee7782f39169fbe01bcfd486d04bd01dbb91c597d.png" />
+<img alt="_images/369ca8a496be384f0ff350fc8ed9d8592bbce9af8214da7e44db1154499406b9.png" src="_images/369ca8a496be384f0ff350fc8ed9d8592bbce9af8214da7e44db1154499406b9.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/a3231bc4c8d5584a9953a893a1176361721536e397b0bdbd05234b4a623a27cd.png" src="_images/a3231bc4c8d5584a9953a893a1176361721536e397b0bdbd05234b4a623a27cd.png" />
+<img alt="_images/71a23fd017444d42619dc003b50ed918e4f8bd9459379c9768e96ba18cd2dd91.png" src="_images/71a23fd017444d42619dc003b50ed918e4f8bd9459379c9768e96ba18cd2dd91.png" />
 </div>
 </div>
 </section>
@@ -715,19 +716,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [10.65748583  0.10839005  0.91081757  8.56086335  2.02769075  2.80452979
-  7.33675756  4.37575037  6.05477133  5.52590937]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [10.97430799 -0.17054272  8.55933398  7.95964338  1.39006693  1.87275827
+  6.28759742  5.45875131  3.56510843  4.25361677]
 Eigenvector check:
-0 5.551115123125783e-15
-1 1.6227253915590545e-15
-2 1.2212453270876722e-15
-3 2.1094237467877974e-15
-4 2.6645352591003757e-15
-5 2.7200464103316335e-15
-6 1.6653345369377348e-15
-7 2.55351295663786e-15
-8 2.6645352591003757e-15
-9 1.887379141862766e-15
+0 1.3100631690576847e-14
+1 2.4728483150049385e-15
+2 8.881784197001252e-15
+3 6.217248937900877e-15
+4 2.220446049250313e-15
+5 1.9984014443252818e-15
+6 1.7832957333041577e-15
+7 5.440092820663267e-15
+8 3.885780586188048e-15
+9 1.5543122344752192e-15
 </pre></div>
 </div>
 </div>
@@ -746,11 +747,11 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/d58838ca5675ef616dbd83a76a9b3914a10e99843d45bde404ae6e7dccf5dd7c.png" src="_images/d58838ca5675ef616dbd83a76a9b3914a10e99843d45bde404ae6e7dccf5dd7c.png" />
+<img alt="_images/ff3bed0d13a09082f9d94738db5514e06607f99ac91bce422072a5b84e1700db.png" src="_images/ff3bed0d13a09082f9d94738db5514e06607f99ac91bce422072a5b84e1700db.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f32208bd1a679187d268ce1c00c4c70b8164b648518e4ff041490ba22e294a55.png" src="_images/f32208bd1a679187d268ce1c00c4c70b8164b648518e4ff041490ba22e294a55.png" />
+<img alt="_images/15c11d3688c28d58cbeb9d56c7efd4345293f79f20bcf7ba1fad27c59822534f.png" src="_images/15c11d3688c28d58cbeb9d56c7efd4345293f79f20bcf7ba1fad27c59822534f.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -763,7 +764,7 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/eac4504c5aa15ab4c06ee6ff440bfccc7b811d14b2cb8f390d23b1d4718a604f.png" src="_images/eac4504c5aa15ab4c06ee6ff440bfccc7b811d14b2cb8f390d23b1d4718a604f.png" />
+<img alt="_images/cb407ff9438ba6ba370061250b460482ed2892b7bc177ea85d2cbd1955bd9f15.png" src="_images/cb407ff9438ba6ba370061250b460482ed2892b7bc177ea85d2cbd1955bd9f15.png" />
 </div>
 </div>
 </section>
@@ -803,25 +804,25 @@ Eigenvector check:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [2.1125226  0.74641163 0.19365486]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [1.7623252  0.63188506 0.14470747]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/36ffeee824c08201d8eafc92db70a14c7cbeac905e22d3252b3c2234bd2c0c9d.png" src="_images/36ffeee824c08201d8eafc92db70a14c7cbeac905e22d3252b3c2234bd2c0c9d.png" />
+<img alt="_images/afd8ecd1c6335248f1c225e5b36e69942a74c934fe7a19b5243a918e22012646.png" src="_images/afd8ecd1c6335248f1c225e5b36e69942a74c934fe7a19b5243a918e22012646.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/fb07b619f4a84115688055571e4735cf541f7a21220375d2d062c1f07f226e9e.png" src="_images/fb07b619f4a84115688055571e4735cf541f7a21220375d2d062c1f07f226e9e.png" />
+<img alt="_images/ad80c508f39250fc97cc49681dcbf2fca5f569e5d88ba2157cf0b3cc69ef53df.png" src="_images/ad80c508f39250fc97cc49681dcbf2fca5f569e5d88ba2157cf0b3cc69ef53df.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/abdf90655f77477bf1e359d2e92b19d9236cb4ac0840294e0d1af0cccc01d709.png" src="_images/abdf90655f77477bf1e359d2e92b19d9236cb4ac0840294e0d1af0cccc01d709.png" />
+<img alt="_images/a285f4954a940def4d2c3e6cb6626d3b6d72b7f857c2414c5c12a84b33ce9b57.png" src="_images/a285f4954a940def4d2c3e6cb6626d3b6d72b7f857c2414c5c12a84b33ce9b57.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/43f99f3f11cb803112e54c00fb6891490c6332cdfe44123b2db88ed104626d23.png" src="_images/43f99f3f11cb803112e54c00fb6891490c6332cdfe44123b2db88ed104626d23.png" />
+<img alt="_images/5f38ba3e5008014194b98a71e686f7e6e384c01cff11629ef3ffb52a63fe8b34.png" src="_images/5f38ba3e5008014194b98a71e686f7e6e384c01cff11629ef3ffb52a63fe8b34.png" />
 </div>
 </div>
 </section>
