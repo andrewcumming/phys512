@@ -229,6 +229,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
@@ -535,31 +536,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-     0.359166       3096.34       8619.91
-    -0.677713       27.8646      -42.1156
-     -0.80945       -1605.1       1981.95
-    -0.798173      -17.8254       21.3328
-    0.0850829       414.166       4866.79
-      0.65647       8.00833       11.1991
-    -0.446269      -213.983       478.493
-     0.288142      -3.40083      -12.8026
-    -0.484778       95.3489      -197.686
-     0.531664       1.76502       2.31981
-     0.663646       -20.472      -31.8478
-     0.642672      0.440281      -0.31492
-     0.905044       3.02934       2.34717
-     0.729869      0.737589     0.0105774
-    -0.811239     -0.840199     0.0356987
-    -0.431446     -0.429095    -0.0054495
-   -0.0288214    -0.0547365      0.899162
-     0.125619      0.125212   -0.00323785
-     -0.38591      -0.38343   -0.00642767
-     0.190389       0.19041   0.000108005
-    -0.774735     -0.774817   0.000105626
-rms deviation / max(y) = 0.00190782
+   -0.0179244      -811.485       45271.7
+      0.69329       109.336       156.707
+     0.936329       421.639       449.311
+    -0.936697      -65.6835       69.1225
+      -0.2414      -109.056       450.766
+    -0.437563        27.729      -64.3716
+    -0.210922       55.8887      -265.973
+     -0.19947      -14.4557       71.4707
+    0.0886894      -25.0689       -283.66
+    -0.403986       4.40924      -11.9144
+    -0.282895       5.27785      -19.6566
+    -0.274209      -1.07584       2.92343
+     0.568935   -0.00582929      -1.01025
+     0.169724      0.210542      0.240499
+     0.574998      0.589654     0.0254887
+      0.85786      0.864228    0.00742344
+     0.205301      0.210356     0.0246206
+     0.303556        0.3024   -0.00380771
+    -0.620895     -0.621444   0.000884344
+     0.673962      0.674028   9.73106e-05
+     0.367691      0.367707   4.34097e-05
+rms deviation / max(y) = 0.000775062
 </pre></div>
 </div>
-<img alt="_images/894e8c60de20b98d913e45ec07016c6f6d0cd2dc47dbbb7e378db7446ad2ec9e.png" src="_images/894e8c60de20b98d913e45ec07016c6f6d0cd2dc47dbbb7e378db7446ad2ec9e.png" />
+<img alt="_images/7e726c3f709aa291f38682403c5fedb98e5b84fb6fb3a83e2364621c8c94d0b4.png" src="_images/7e726c3f709aa291f38682403c5fedb98e5b84fb6fb3a83e2364621c8c94d0b4.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -632,31 +633,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-     0.359166,      0.359166  -9.10766e-12
-    -0.677713,     -0.677713  -1.17601e-10
-     -0.80945,      -0.80945  -3.95644e-10
-    -0.798173,     -0.798173   2.46631e-10
-    0.0850829,     0.0850829  -4.40071e-08
-      0.65647,       0.65647   3.91646e-09
-    -0.446269,     -0.446269  -1.10756e-08
-     0.288142,      0.288142  -1.37377e-08
-    -0.484778,     -0.484778   5.59323e-08
-     0.531664,      0.531664   2.99437e-08
-     0.663646,      0.663646   1.38547e-08
-     0.642672,      0.642672  -3.26594e-09
-     0.905044,      0.905044  -1.67254e-08
-     0.729869,      0.729869   3.61283e-09
-    -0.811239,     -0.811239  -6.96695e-09
-    -0.431446,     -0.431446  -1.19636e-09
-   -0.0288214,    -0.0288214   4.48488e-08
-     0.125619,      0.125619   1.34153e-09
-     -0.38591,      -0.38591  -5.43379e-10
-     0.190389,      0.190389  -6.65123e-12
-    -0.774735,     -0.774735   1.23046e-11
-rms deviation / max(y) = 1.30886e-11
+   -0.0179244,    -0.0179244   -1.4968e-09
+      0.69329,       0.69329  -1.17004e-10
+     0.936329,      0.936329  -6.13735e-11
+    -0.936697,     -0.936697   -1.0231e-09
+      -0.2414,       -0.2414  -4.75668e-09
+    -0.437563,     -0.437563   1.44399e-08
+    -0.210922,     -0.210922   2.00704e-08
+     -0.19947,      -0.19947  -5.15284e-08
+    0.0886894,     0.0886894   9.47951e-08
+    -0.403986,     -0.403986    3.2348e-08
+    -0.282895,     -0.282895   2.37203e-08
+    -0.274209,     -0.274209  -2.46997e-08
+     0.568935,      0.568935   1.54168e-08
+     0.169724,      0.169724  -1.77257e-08
+     0.574998,      0.574998  -4.22392e-09
+      0.85786,       0.85786   7.36588e-10
+     0.205301,      0.205301   4.16685e-09
+     0.303556,      0.303556  -2.60818e-10
+    -0.620895,     -0.620895   1.36643e-10
+     0.673962,      0.673962   4.83847e-12
+     0.367691,      0.367691   1.69542e-11
+rms deviation / max(y) = 1.00984e-11
 </pre></div>
 </div>
-<img alt="_images/c54328a479b8b26e567cc2e8ceff5ccd73da3b635d6788ad385fa96ad9de2880.png" src="_images/c54328a479b8b26e567cc2e8ceff5ccd73da3b635d6788ad385fa96ad9de2880.png" />
+<img alt="_images/199f3efd74032025726f3b7fe0d4bd7bcb4bf239a61a93d6ed073600efac9b6c.png" src="_images/199f3efd74032025726f3b7fe0d4bd7bcb4bf239a61a93d6ed073600efac9b6c.png" />
 </div>
 </div>
 </section>
