@@ -230,10 +230,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">More on the 1D DFT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
 </ul>
 </li>
 </ul>
@@ -595,7 +598,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parseval check: 3.18341790878128 3.18341790878128 0.0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x1252cb310&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x13b482310&gt;]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -674,7 +677,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x144e905d0&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x14a54a8d0&gt;]
 </pre></div>
 </div>
 <img alt="_images/e265481336910fdf8963850debb1760ec51564741d23ebbc0de2cd3d34423cec.png" src="_images/e265481336910fdf8963850debb1760ec51564741d23ebbc0de2cd3d34423cec.png" />
@@ -760,8 +763,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e029f81f41f38e72f1be755da34190ec0be3cd294fc59e19177cce93422d8b76.png" src="_images/e029f81f41f38e72f1be755da34190ec0be3cd294fc59e19177cce93422d8b76.png" />
-<img alt="_images/a80bcd1ad28d812e141219905af7b8d23eb3abb10364e8f31096f3ecb2948bcc.png" src="_images/a80bcd1ad28d812e141219905af7b8d23eb3abb10364e8f31096f3ecb2948bcc.png" />
+<img alt="_images/ede480e0d6e6c3ecb6cbd52b4cda4e655d5f3a084e5b2dac69ccea8d1df7d074.png" src="_images/ede480e0d6e6c3ecb6cbd52b4cda4e655d5f3a084e5b2dac69ccea8d1df7d074.png" />
+<img alt="_images/dd03dad1c4168864a5290af9eb8a928af5dfdaf5510b5676d6b8c89f6f11d238.png" src="_images/dd03dad1c4168864a5290af9eb8a928af5dfdaf5510b5676d6b8c89f6f11d238.png" />
 </div>
 </div>
 <p>In this question, we generate a sample of red noise which has a power spectrum <span class="math notranslate nohighlight">\(1/k^2\)</span> by taking the Fourier transform of white noise (flat power spectrum) and dividing the Fourier transorm by <span class="math notranslate nohighlight">\(ik\)</span>. This is equivalent to integrating the white noise, since</p>

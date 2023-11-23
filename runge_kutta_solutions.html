@@ -228,10 +228,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
 </ul>
 </li>
 </ul>
@@ -568,10 +571,10 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 10, err1 = 2.59535, err2 = -0.997537, err4 = 0.174884
 nsteps = 100, err1 = -1.61962, err2 = -0.0155004, err4 = 3.17648e-06
 nsteps = 1000, err1 = -0.358534, err2 = -0.000145888, err4 = 2.33419e-10
+nsteps = 10000, err1 = -0.0371289, err2 = -1.44817e-06, err4 = 7.6971e-14
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nsteps = 10000, err1 = -0.0371289, err2 = -1.44817e-06, err4 = 7.6971e-14
-scipy gives  0.0001564960035684848  with 140 evaluations
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>scipy gives  0.0001564960035684848  with 140 evaluations
 </pre></div>
 </div>
 <img alt="_images/f4f9acc7d19cde184f4e93e00de5bfff1df4fb3bdd114c1abf9dbc1c5e030aca.png" src="_images/f4f9acc7d19cde184f4e93e00de5bfff1df4fb3bdd114c1abf9dbc1c5e030aca.png" />

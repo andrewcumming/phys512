@@ -230,10 +230,13 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
 <li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
 </ul>
 </li>
 </ul>
@@ -537,31 +540,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.134203      -3645.68       27164.5
-     0.805058        90.759       111.736
-     0.804096       1889.64       2349.02
-    -0.737132       -54.366       72.7535
-   -0.0975448      -487.375       4995.42
-    -0.955012       22.4546      -24.5124
-    -0.413121       250.883      -608.286
-     0.651002      -11.2584       -18.294
-    -0.280214      -113.188       402.934
-     0.445953       4.50492       9.10179
-    -0.135661       24.8369      -184.081
-     0.161139      -0.55062      -4.41705
-     0.220133      -2.26789      -11.3023
-   -0.0707913     -0.018812     -0.734261
-     0.219214      0.249961       0.14026
-     0.680017      0.681921    0.00279977
-     0.416609      0.440238     0.0567155
-     0.895738      0.895133  -0.000676328
-     0.532813      0.530073   -0.00514235
-     0.394476      0.394506   7.41822e-05
-     0.872426      0.872512   9.89442e-05
-rms deviation / max(y) = 0.00162145
+     0.393053      -2414.27      -6143.36
+    -0.254027       96.2873      -380.044
+   -0.0940032       1251.11      -13310.2
+    -0.385902      -57.9356        149.13
+     0.577807      -322.334      -558.859
+     0.186703        25.227       134.118
+     0.851804       167.479       195.616
+     0.750213      -11.8767      -16.8311
+     0.649563      -74.2821      -115.357
+     0.170782       4.38489       24.6753
+     0.901041       17.5813       18.5122
+      0.77745      0.103354      -0.86706
+    -0.650317      -2.40319       2.69541
+     0.951725      0.971375     0.0206463
+     0.420461      0.475335      0.130509
+     0.237786      0.247442     0.0406089
+     0.176596      0.189406     0.0725405
+     0.890307      0.888681   -0.00182663
+     0.161858      0.160559   -0.00802977
+     0.453157      0.453235   0.000171614
+     0.631641      0.631667   4.09154e-05
+rms deviation / max(y) = 0.00140764
 </pre></div>
 </div>
-<img alt="_images/c45639aba49d96f92a1b70d706966866430a74c5e27c7fcc90576263cb841ea9.png" src="_images/c45639aba49d96f92a1b70d706966866430a74c5e27c7fcc90576263cb841ea9.png" />
+<img alt="_images/9bbac90919b63f39dcce970ef5093d0ddfc8d2bc40d9090be153de0f6da2029a.png" src="_images/9bbac90919b63f39dcce970ef5093d0ddfc8d2bc40d9090be153de0f6da2029a.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -634,31 +637,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.134203,     -0.134203  -2.01502e-10
-     0.805058,      0.805058  -7.56459e-11
-     0.804096,      0.804096  -7.29752e-11
-    -0.737132,     -0.737132  -4.65475e-10
-   -0.0975448,    -0.0975448  -1.78743e-09
-    -0.955012,     -0.955012   7.37192e-09
-    -0.413121,     -0.413121   1.30438e-08
-     0.651002,      0.651002   1.42327e-08
-    -0.280214,     -0.280214  -6.90886e-08
-     0.445953,      0.445953  -6.87439e-09
-    -0.135661,     -0.135661   3.04403e-08
-     0.161139,      0.161139   1.18685e-09
-     0.220133,      0.220133   6.62768e-08
-   -0.0707913,    -0.0707913  -1.24494e-08
-     0.219214,      0.219214  -1.70838e-08
-     0.680017,      0.680017   3.30324e-10
-     0.416609,      0.416609   2.38234e-09
-     0.895738,      0.895738  -1.50566e-11
-     0.532813,      0.532813  -9.63528e-11
-     0.394476,      0.394476   -1.1265e-11
-     0.872426,      0.872426   8.50001e-12
-rms deviation / max(y) = 8.87678e-12
+     0.393053,      0.393053   9.92797e-11
+    -0.254027,     -0.254027   5.73063e-10
+   -0.0940032,    -0.0940032   2.96621e-09
+    -0.385902,     -0.385902   -2.9853e-09
+     0.577807,      0.577807   6.74027e-09
+     0.186703,      0.186703  -5.58324e-08
+     0.851804,      0.851804  -2.03092e-08
+     0.750213,      0.750213   2.32773e-08
+     0.649563,      0.649564   5.31165e-08
+     0.170782,      0.170782  -1.07052e-07
+     0.901041,      0.901041  -3.59299e-08
+      0.77745,       0.77745   1.41705e-08
+    -0.650317,     -0.650317   -3.7624e-08
+     0.951725,      0.951725  -2.87824e-09
+     0.420461,      0.420461  -2.06266e-08
+     0.237786,      0.237786   4.50543e-09
+     0.176596,      0.176596   1.24699e-08
+     0.890307,      0.890307   -1.4874e-10
+     0.161858,      0.161858    -1.468e-09
+     0.453157,      0.453157   1.37787e-11
+     0.631641,      0.631641   1.95538e-11
+rms deviation / max(y) = 6.04128e-12
 </pre></div>
 </div>
-<img alt="_images/799a7078a525a7eb4a060d118c0697fabd0bce32d61116501f026ae55955854f.png" src="_images/799a7078a525a7eb4a060d118c0697fabd0bce32d61116501f026ae55955854f.png" />
+<img alt="_images/197e296739dc88d25f64c60e3b574e2af483b72af1e4d3c6be2539e7565516ca.png" src="_images/197e296739dc88d25f64c60e3b574e2af483b72af1e4d3c6be2539e7565516ca.png" />
 </div>
 </div>
 </section>
