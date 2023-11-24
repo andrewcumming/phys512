@@ -490,8 +490,7 @@ document.write(`
 <p>Adding this to the diffusion part we had last time, we get</p>
 <div class="math notranslate nohighlight">
 \[{dg(k)\over dt} = - Dk^2 g(k) - {1\over 2\pi} \int dk^\prime g(k^\prime) g(k-k^\prime) i (k-k^\prime).\]</div>
-<p>When we implement this using the discrete Fourier transform, we have to be careful to include only the modes that we have available to us.</p>
-<p>There is a nice implementation of this here:</p>
+<p>When we implement this using the discrete Fourier transform, we have to be careful to include only the modes that we have available to us (within the Nyquist frequency). There is a nice implementation of this here:</p>
 <p><a class="reference external" href="https://kth-nek5000.github.io/kthNekBook/_notebooks/burgers.html">https://kth-nek5000.github.io/kthNekBook/_notebooks/burgers.html</a></p>
 <p>which uses the shifted version of the FFT to simplify the calculation, which I’ve implemented below:</p>
 <div class="cell docutils container">
@@ -556,35 +555,134 @@ document.write(`
 </div>
 </div>
 </div>
+<p>We can repeat this but using a convolution to evaluate the non-linear term:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">convolution</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">g</span><span class="p">):</span>
+    <span class="n">ft</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="n">gt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">ft</span><span class="o">*</span><span class="n">gt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">do_integration_convolve</span><span class="p">(</span><span class="n">f_init</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">make_plot</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+    
+    <span class="k">if</span> <span class="n">make_plot</span><span class="p">:</span>
+        <span class="o">%</span><span class="k">matplotlib</span>
+
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">f_init</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fftfreq</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    
+    <span class="n">nsteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+    <span class="n">dt</span> <span class="o">=</span> <span class="n">T</span><span class="o">/</span><span class="n">nsteps</span>  <span class="c1"># make sure we end at the required time t=T</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nsteps</span><span class="p">):</span>
+        
+        <span class="c1"># do the non-linear term with a convolution</span>
+        <span class="n">dg</span> <span class="o">=</span> <span class="o">-</span><span class="n">convolution</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span><span class="o">*</span><span class="n">g</span><span class="p">)</span>
+        
+        <span class="c1"># can also include a constant advection velocity if we want</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">dg</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">k</span> <span class="o">*</span> <span class="n">V</span> <span class="o">*</span> <span class="n">g</span>
+        
+        <span class="c1"># diffusion term</span>
+        <span class="n">dg</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">D</span><span class="o">*</span><span class="n">k</span><span class="o">*</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="n">dx</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">g</span>
+        
+        <span class="n">g</span> <span class="o">=</span> <span class="n">g</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="n">dg</span>
+        
+        <span class="k">if</span> <span class="n">make_plot</span><span class="p">:</span>
+            <span class="k">if</span> <span class="kc">True</span><span class="p">:</span> <span class="c1">#(i % (nsteps//(10*T)) == 0) or (i == (nsteps-1)):</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f_init</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;t=</span><span class="si">%.3lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">((</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">T</span><span class="o">/</span><span class="n">nsteps</span><span class="p">))</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">make_plot</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="o">%</span><span class="k">matplotlib</span> inline
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">g</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_grid</span><span class="p">(</span><span class="n">do_integration</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">title</span><span class="p">):</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">131</span><span class="p">)</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.01</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">do_integration</span><span class="p">(</span><span class="n">f_init</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;T=</span><span class="si">%lg</span><span class="s1">, D=</span><span class="si">%.1e</span><span class="s1">, dt=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">dt</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_init</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">132</span><span class="p">)</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">0.01</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">do_integration</span><span class="p">(</span><span class="n">f_init</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;T=</span><span class="si">%lg</span><span class="s1">, D=</span><span class="si">%.1e</span><span class="s1">, dt=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">dt</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_init</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">133</span><span class="p">)</span>
+    <span class="n">D</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">0.001</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="n">do_integration</span><span class="p">(</span><span class="n">f_init</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;T=</span><span class="si">%lg</span><span class="s1">, D=</span><span class="si">%.1e</span><span class="s1">, dt=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">dt</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_init</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set up the grid</span>
-<span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">101</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">dt</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.01</span>
 <span class="n">f_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">f</span> <span class="o">=</span> <span class="n">do_integration</span><span class="p">(</span><span class="n">f_init</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">dx</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">make_plot</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;D=</span><span class="si">%lg</span><span class="s1">, dt=</span><span class="si">%lg</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="n">dt</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f_init</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>     
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">do_integration</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;Direct evaluation of non-linear term&#39;</span><span class="p">)</span>
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">do_integration</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Direct evaluation of non-linear term&#39;</span><span class="p">)</span>
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">do_integration_convolve</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s1">&#39;With convolution&#39;</span><span class="p">)</span>
+<span class="n">plot_grid</span><span class="p">(</span><span class="n">do_integration_convolve</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;With convolution&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x107ed3190&gt;
-</pre></div>
-</div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/matplotlib/cbook/__init__.py:1335: ComplexWarning: Casting complex values to real discards the imaginary part
   return np.asarray(x, float)
-2023-11-23 11:48:57.426 Python[36275:2596607] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
 </pre></div>
 </div>
-<img alt="_images/ebb2b03a2b9df1374f184c4a7e1fcf9dbd790cffa4917f198bb85437427b75de.png" src="_images/ebb2b03a2b9df1374f184c4a7e1fcf9dbd790cffa4917f198bb85437427b75de.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/ecf0eaba38f393b76825c8d0493c2ad9ef0bd681d6144d83120f3bc2040af942.png" src="_images/ecf0eaba38f393b76825c8d0493c2ad9ef0bd681d6144d83120f3bc2040af942.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/43e1f7738127edc34516d6523617cbe7a4f0ee123749b9ee4f4bbe3d2237962c.png" src="_images/43e1f7738127edc34516d6523617cbe7a4f0ee123749b9ee4f4bbe3d2237962c.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/f8b5ec991ac7f0c752392df57ba62bd1996388a84c581a13ea5cf480ae7f0214.png" src="_images/f8b5ec991ac7f0c752392df57ba62bd1996388a84c581a13ea5cf480ae7f0214.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/d76c4b870c079f7428527edd319a9786de6148099c5f1cc457ec3e7652c04152.png" src="_images/d76c4b870c079f7428527edd319a9786de6148099c5f1cc457ec3e7652c04152.png" />
 </div>
 </div>
 </section>
