@@ -49,5 +49,21 @@ Hints:
 
 - you might also find it helpful to set the coefficients to zero if they become too small, e.g. set $a_i=0$ if $a_i$ drops below $10^{-10}$. This helps to avoid accumulation of roundoff errors. 
 
+- the Green's function in this case where we have zero boundary conditions can be constructed by adding mirror images outside the domain on the left and right: (same ideas as the method of images in electrostatics!)
+
+```
+def greens_unbounded(x, x0, t, D):
+    # Green's function for the diffusion equation
+    return np.exp(-(x-x0)**2/(4*D*t)) / np.sqrt(4*np.pi*D*t)
+
+def greens_bounded(x, x0, t, D):
+    # Green's function for the diffusion equation with zero boundary conditions at x=-1,+1
+    f = gaussian(x, x0, t, D)
+    f -= gaussian(x, -1-(1+x0), t, D)
+    f -= gaussian(x, 1+(1-x0), t, D)
+    return f
+```
+
+
 
 
