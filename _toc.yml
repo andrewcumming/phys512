@@ -98,4 +98,5 @@ parts:
             - file: HW3_solutions
             - file: HW4_solutions
             - file: HW5_solutions
+            - file: HW6_solutions
 
