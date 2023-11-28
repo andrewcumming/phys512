@@ -230,6 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
@@ -270,7 +271,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW6_solutions.html">Homework 6 solutions</a></li>
-
 </ul>
 </li>
 </ul>
@@ -546,28 +546,28 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 250.9448655134765
-Iteration 0: pAp = 1.17904e+06, residual=27.8617
-Iteration 1: pAp = 1.92753e+08, residual=2.40934
-Iteration 2: pAp = 6734.65, residual=0.171546
-Iteration 3: pAp = 34.1119, residual=0.0122795
-Iteration 4: pAp = 0.174659, residual=0.000866972
-Iteration 5: pAp = 0.000874307, residual=6.56011e-05
-Iteration 6: pAp = 8.61866e-05, residual=0.000216232
-Iteration 7: pAp = 0.000677249, residual=4.36079e-06
-Iteration 8: pAp = 2.20243e-08, residual=3.04237e-07
-Iteration 9: pAp = 1.07819e-10, residual=2.16417e-08
-Iteration 10: pAp = 5.43489e-13, residual=1.62353e-09
-Iteration 11: pAp = 3.07769e-15, residual=2.16774e-09
-Iteration 12: pAp = 1.166e-12, residual=1.17146e-10
-Iteration 13: pAp = 1.60049e-17, residual=8.58991e-12
-Iteration 14: pAp = 8.57059e-20, residual=6.1575e-13
-Iteration 15: pAp = 4.42938e-22, residual=4.26612e-14
-Iteration 16: pAp = 2.11166e-24, residual=3.12051e-15
-Iteration 17: pAp = 1.53547e-26, residual=2.01999e-14
-Iteration 18: pAp = 7.52562e-23, residual=2.24119e-16
-Iteration 19: pAp = 5.84102e-29, residual=1.60182e-17
-Max error =  1.4377388168895777e-14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 251.3542337201007
+Iteration 0: pAp = 1.40985e+06, residual=187.771
+Iteration 1: pAp = 7.36948e+09, residual=2.43594
+Iteration 2: pAp = 6896.13, residual=0.179187
+Iteration 3: pAp = 37.3394, residual=0.0128486
+Iteration 4: pAp = 0.19086, residual=0.000917927
+Iteration 5: pAp = 0.000974045, residual=0.000612076
+Iteration 6: pAp = 0.0930364, residual=6.1341e-05
+Iteration 7: pAp = 4.40188e-06, residual=4.165e-06
+Iteration 8: pAp = 1.98736e-08, residual=2.84142e-07
+Iteration 9: pAp = 9.31677e-11, residual=1.96502e-08
+Iteration 10: pAp = 4.46901e-13, residual=2.16715e-09
+Iteration 11: pAp = 6.49793e-13, residual=1.9502e-09
+Iteration 12: pAp = 8.03841e-15, residual=9.92531e-11
+Iteration 13: pAp = 1.13237e-17, residual=6.87859e-12
+Iteration 14: pAp = 5.46769e-20, residual=4.62473e-13
+Iteration 15: pAp = 2.45732e-22, residual=3.28162e-14
+Iteration 16: pAp = 8.41186e-24, residual=1.69096e-13
+Iteration 17: pAp = 1.0666e-21, residual=2.30554e-15
+Iteration 18: pAp = 6.16355e-27, residual=1.6915e-16
+Iteration 19: pAp = 3.32535e-29, residual=1.19018e-17
+Max error =  1.759703494030873e-14
 </pre></div>
 </div>
 </div>
@@ -727,7 +727,9 @@ Max error =  1.4377388168895777e-14
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 511: pAp = 9.59754e-08, residual=0.000430214
-Iteration 613: pAp = 4.20298e-09, residual=8.51102e-05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 613: pAp = 4.20298e-09, residual=8.51102e-05
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 715: pAp = 1.85836e-10, residual=1.84348e-05
@@ -737,7 +739,9 @@ Iteration 613: pAp = 4.20298e-09, residual=8.51102e-05
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 919: pAp = 9.69988e-13, residual=1.32976e-06
-Iteration 1021: pAp = 1.58396e-14, residual=1.64154e-07
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1021: pAp = 1.58396e-14, residual=1.64154e-07
 Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
 </pre></div>
 </div>

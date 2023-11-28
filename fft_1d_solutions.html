@@ -232,6 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">More on the 1D DFT</a></li>
@@ -272,7 +273,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW6_solutions.html">Homework 6 solutions</a></li>
-
 </ul>
 </li>
 </ul>
@@ -601,7 +601,7 @@ document.write(`
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Parseval check: 3.18341790878128 3.18341790878128 0.0
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x126061f90&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x121bc9ed0&gt;]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
@@ -680,7 +680,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x136909110&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x167758e10&gt;]
 </pre></div>
 </div>
 <img alt="_images/e265481336910fdf8963850debb1760ec51564741d23ebbc0de2cd3d34423cec.png" src="_images/e265481336910fdf8963850debb1760ec51564741d23ebbc0de2cd3d34423cec.png" />
@@ -766,8 +766,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/82ce7afe260c187f804607ef6d7d571c27f1da523817fe103060b0f0546c9447.png" src="_images/82ce7afe260c187f804607ef6d7d571c27f1da523817fe103060b0f0546c9447.png" />
-<img alt="_images/2440501653c30b99624b69236a149b263cdcada186ad065a3dfba1f4e5cad72c.png" src="_images/2440501653c30b99624b69236a149b263cdcada186ad065a3dfba1f4e5cad72c.png" />
+<img alt="_images/4f9ff611be3e44508c2e5620b1c79cd163e238e850a318bf18ac478324a7210c.png" src="_images/4f9ff611be3e44508c2e5620b1c79cd163e238e850a318bf18ac478324a7210c.png" />
+<img alt="_images/f397b92d40e0507e7d6d2f2ad022934c4f70c291ef7047c220321e5fbe9be45d.png" src="_images/f397b92d40e0507e7d6d2f2ad022934c4f70c291ef7047c220321e5fbe9be45d.png" />
 </div>
 </div>
 <p>In this question, we generate a sample of red noise which has a power spectrum <span class="math notranslate nohighlight">\(1/k^2\)</span> by taking the Fourier transform of white noise (flat power spectrum) and dividing the Fourier transorm by <span class="math notranslate nohighlight">\(ik\)</span>. This is equivalent to integrating the white noise, since</p>
