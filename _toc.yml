@@ -74,6 +74,7 @@ parts:
         - file: advect_diffuse
         - file: numerical_diffusion
         - file: burgers
+        - file: signal_processing
         - file: spectral_solutions
           sections:
             - file: fft_solutions
