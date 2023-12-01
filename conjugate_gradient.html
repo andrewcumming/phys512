@@ -606,6 +606,7 @@ once we’ve minimized <span class="math notranslate nohighlight">\(f\)</span> i
 <p>where the last step makes the matrix diagonally-dominated.</p>
 <p>Choose <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> also as a vector of random numbers.</p>
 <p>Apply the conjugate gradient method using the function above and check how well the solution it gives you satisfies the equation.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/conjugate_gradient_solutions.html#try-out-the-conjugate-gradient-method">[Solution]</a></p>
 </div>
 </section>
 <section id="application-to-laplace-s-equation">
@@ -644,6 +645,7 @@ once we’ve minimized <span class="math notranslate nohighlight">\(f\)</span> i
 <p>Implement the conjugate gradient method for the Laplace problem we looked at last time. You can use the same <code class="docutils literal notranslate"><span class="pre">set_bcs</span></code> function to set up the boundary conditions and boundary mask.</p>
 <p>Then define <code class="docutils literal notranslate"><span class="pre">b</span></code> as above and use the conjugate gradient method with the <code class="docutils literal notranslate"><span class="pre">Ax</span></code> function above to evolve the initial guess for the potential until it converges.</p>
 <p>Plot the maximum change in the values of <span class="math notranslate nohighlight">\(V\)</span> from one iteration to the next against the number of iterations, and compare with what we had last time from the relaxation method. You should see that conjugate gradient converges in <span class="math notranslate nohighlight">\(\sim N\)</span> steps rather than <span class="math notranslate nohighlight">\(\sim N^2\)</span>.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/conjugate_gradient_solutions.html#application-to-laplace-s-equation">[Solution]</a></p>
 </div>
 </section>
 </section>

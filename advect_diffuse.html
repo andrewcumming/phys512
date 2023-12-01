@@ -496,6 +496,7 @@ document.write(`
 \[\Delta t = \alpha\ \mathrm{min}\left({\Delta x\over v}, {\Delta x^2\over D}\right)\]</div>
 <p>for some constant <span class="math notranslate nohighlight">\(\alpha\)</span> (for the explicit method you will need to choose <span class="math notranslate nohighlight">\(\alpha\)</span> small enough to keep the method stable).</p>
 <p>For <span class="math notranslate nohighlight">\(f_0(x)\)</span>, try using a Gaussian, sine wave, or top hat and see how it changes the result.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/adv_diff_fourier.html#advection-diffusion-with-fourier">[Solution]</a></p>
 </div>
 <div class="admonition-exercise-advection-diffusion-with-finite-difference admonition">
 <p class="admonition-title">Exercise: advection-diffusion with finite-difference</p>
@@ -510,6 +511,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[f^{n+1}_i = f^{n-1}_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)\]</div>
 <p>You can use <strong>operator splitting</strong> to advance in time: apply the advection update and diffusion update alternately to your solution.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/adv_diff_finite_difference.html#advection-diffusion-with-finite-differences">[Solution]</a></p>
 </div>
 </section>
 

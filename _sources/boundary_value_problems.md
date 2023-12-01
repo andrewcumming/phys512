@@ -53,6 +53,9 @@ def do_integration(omega):
 # Search for the root between frequencies om1 and om2
 omega = scipy.optimize.brentq(do_integration, om1, om2)
 ```
+
+[[Solution]](https://andrewcumming.github.io/phys512/bvps.html#shooting-method)
+
 ````
 
  
@@ -102,6 +105,8 @@ Take one of the eigenfrequencies that you found in the previous exercise, and us
 Do you get good agreement with the eigenfunctions from the shooting method? How many grid points do you need to get a good solution? Does the starting guess make a difference?
 
 You can calculate the Jacobian either by implementing the analytic Jacobian (you will see that the matrix is of tridiagonal form so fairly easy to calculate) or using finite differences.
+
+[[Solution]](https://andrewcumming.github.io/phys512/bvps.html#relaxation-method)
 
 ```
 

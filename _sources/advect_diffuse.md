@@ -33,6 +33,9 @@ $$\Delta t = \alpha\ \mathrm{min}\left({\Delta x\over v}, {\Delta x^2\over D}\ri
 for some constant $\alpha$ (for the explicit method you will need to choose $\alpha$ small enough to keep the method stable).
  
 For $f_0(x)$, try using a Gaussian, sine wave, or top hat and see how it changes the result.
+
+[[Solution]](https://andrewcumming.github.io/phys512/adv_diff_fourier.html#advection-diffusion-with-fourier)
+
 ```
 
 ```{admonition} Exercise: advection-diffusion with finite-difference
@@ -52,6 +55,8 @@ $$f^{n+1}_i = f^n_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\righ
 $$f^{n+1}_i = f^{n-1}_i - {v\Delta t\over 2\Delta x}\left(f^n_{i+1} - f^n_{i-1}\right)$$
 
 You can use **operator splitting** to advance in time: apply the advection update and diffusion update alternately to your solution.
+
+[[Solution]](https://andrewcumming.github.io/phys512/adv_diff_finite_difference.html#advection-diffusion-with-finite-differences)
 ```
 
 

@@ -632,10 +632,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x103fa33b0&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x10365f3b0&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-01 15:19:02.798 Python[4560:176740] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-01 15:53:52.766 Python[5197:210266] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
 </pre></div>
 </div>
 <img alt="_images/18625720e346e94eed1511377fb9889de3d8f59573c01e9b2932db68a13a096c.png" src="_images/18625720e346e94eed1511377fb9889de3d8f59573c01e9b2932db68a13a096c.png" />
@@ -644,6 +644,7 @@ document.write(`
 <div class="admonition-exercise-boundary-conditions admonition">
 <p class="admonition-title">Exercise: boundary conditions</p>
 <p>Solve the problem above but modified so that the boundary condition at <span class="math notranslate nohighlight">\(x=0\)</span> is insulating (<span class="math notranslate nohighlight">\(dT/dx=0\)</span>) rather than fixed temperature.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/numerical_instability_solutions.html#insulating-boundary">[Solution]</a></p>
 </div>
 </section>
 <section id="numerical-stability">
@@ -676,10 +677,12 @@ document.write(`
 <div class="admonition-stability-analysis admonition">
 <p class="admonition-title">Stability analysis</p>
 <p>Check the stability of the implicit Euler method and show that all wavelengths are stable no matter what the timestep.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/numerical_instability_solutions.html#numerical-stability">[Solution]</a></p>
 </div>
 <div class="admonition-exercise-unstable-solutions admonition">
 <p class="admonition-title">Exercise: unstable solutions</p>
 <p>Change the code above to use an explicit update rather than implicit. Run it for <span class="math notranslate nohighlight">\(\alpha&gt;1/2\)</span>. Does the unstable solution look the way you expect given our stability analysis?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/numerical_instability_solutions.html#numerical-stability">[Solution]</a></p>
 </div>
 </section>
 </section>
