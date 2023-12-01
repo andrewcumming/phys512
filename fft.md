@@ -57,6 +57,8 @@ Useful functions:
 - [numpy.fft.fftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html) - an easy way to get a list of the $k_x$ or $k_y$ values
 - [numpy.fft.ifft2](https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html) - compute the inverse transform
 
+[[Solution]](https://andrewcumming.github.io/phys512/fft_solutions.html#discrete-fourier-transform)
+
 ```
 
 ```{admonition} Exercise: 1D DFTs
@@ -84,6 +86,8 @@ Here are some things you can do to become more familiar with DFTs:
 - Plot the power spectrum $|F(k)|^2$ as a function of (positive) $k$. Does it look like white noise? 
 - Next, divide $F(k)$ by $ik$ and again plot the power spectrum on a log-log plot. Take the inverse transform to get the modified function $g(x)$ and plot $g(x)$ against $x$.
 - Take the first half of the $g(x)$ values as $x$ and the second half as $y$ and plot the $(x,y)$ points. What do you see?
+
+[[Solution]](https://andrewcumming.github.io/phys512/fft_1d_solutions.html#more-on-the-1d-dft)
 
 ```
 

@@ -96,6 +96,10 @@ Hint: try to write your integrator in as general a way as possible and take adva
     return x
 ```
 Note that this is written assuming that the integration starts at $t=0$, but you could easily generalize that. We have also allowed for a possible $t$ dependence of the derivative, although in this orbit problem, the derivatives do not depend explictly on time.
+
+[[Solution]](https://andrewcumming.github.io/phys512/runge_kutta_solutions.html#runge-kutta-orbit-integrations)
+
+
 ````
 
 
@@ -176,6 +180,7 @@ from $x=0$ to larger values of $x$, with boundary conditions $u(0)=1$ and $v(0)=
 
 Use both an explicit and implicit method with fixed step size $h$ and compare the results from the two methods for different choices of $h$. 
 
+[[Solution]](https://andrewcumming.github.io/phys512/runge_kutta_solutions.html#implicit-methods)
 
 ```
 
