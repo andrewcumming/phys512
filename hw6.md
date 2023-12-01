@@ -2,7 +2,7 @@
 
 Due on Tuesday Nov 21 by midnight.
 
-1. **Pseudo-Hamiltonian for the simple harmonic oscillator**
+1. **Pseudo-Hamiltonian for the simple harmonic oscillator** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW6_solutions.html#harmonic-oscillator-hamiltonian)
 
 This question builds on the in-class [exercise](https://andrewcumming.github.io/phys512/symplectic_solutions.html) that we did on symplectic integrators.
 
@@ -17,7 +17,7 @@ is conserved when using the leapfrog method. (As in the in-class exercise, I've 
 (c) Use your code from part (b) to calculate the scaling of the energy error with the number of steps per oscillation cycle for integrations of (1) a whole oscillation and (2) half an oscillation. Discuss whether the scalings you find agree with the analytic results for the leapfrog method.
 
 
-2. **Eigenvalue problem for the wave on a string**
+2. **Eigenvalue problem for the wave on a string** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW6_solutions.html#eigenvalue-problem-for-the-wave-on-a-string)
 
 (a) Show that the difference equations for a wave on a string can be written in the form
 
@@ -33,7 +33,7 @@ Plot the first 8 eigenfunctions $f(x)$ and compare the frequencies with our resu
 Do this for both a constant density string and a string with density $\propto 1+10x^2$. 
 
 
-3. **Leapfrogging an electromagnetic wave**
+3. **Leapfrogging an electromagnetic wave** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW6_solutions.html#electromagnetic-wave)
 
 You have probably seen the reflection and transmission coefficients for electromagnetic waves when they propagate across a boundary:
 

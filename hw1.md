@@ -3,7 +3,7 @@
 Due on Tuesday September 19 by midnight.
 
 
-1. **Roundoff error in long term integrations of planetary orbits**
+1. **Roundoff error in long term integrations of planetary orbits**  &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW1_solutions.html#long-term-planetary-orbits)
 
 Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. Modelling the growth of the error over $N$ operations as a random walk gives *Brouwer's law* which states that the total error after $N$ steps will be $\approx \sqrt{N} \epsilon$ (where $\epsilon \sim 10^{-16}$ for double precision floats).
 
@@ -29,7 +29,7 @@ Plot the fractional change in energy over the orbit $\Delta E/E=(E_\mathrm{final
 
 
 
-2. **Interpolation and thermodynamics**
+2. **Interpolation and thermodynamics** &nbsp;&nbsp; [[Solution]](https://andrewcumming.github.io/phys512/HW1_solutions.html#interpolation-and-thermodynamics)
 
 Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We'll investigate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth's atmosphere. The pressure and entropy per particle of an ideal gas are given by 
 

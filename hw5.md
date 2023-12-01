@@ -2,7 +2,7 @@
 
 Due on Friday Nov 3 by midnight.
 
-1. **An adaptive Runge-Kutta integrator**
+1. **An adaptive Runge-Kutta integrator** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW5_solutions.html#adaptive-runge-kutta-integration-of-orbits)
 
 In the exercise on [integrating planetary orbits](https://andrewcumming.github.io/phys512/runge_kutta.html#runge-kutta), we looked at a circular orbit. The same equations apply for eccentric orbits as well, if you choose different initial conditions. For example, you can set an initial distance $r=1+e$ where $e$ is the eccentricity, and a perpendicular velocity $v = \sqrt{(2/r)-1}$ (from energy conservation). Because an object on an eccentric orbit spends different amounts of time in different parts of the orbit, integrating with a constant time-step is not very efficient, particularly for large eccentricities.
 
@@ -18,7 +18,7 @@ To choose the step size you can do the following:
 
 Plot the orbit to make sure you are indeed getting an ellipse and that the orbit goes back to its starting point after a time $2\pi$. Compare the number of steps you need to take to get an accuracy of $10^{-6}$ for a full $e=0.9$ orbit with adaptive step size and with constant step size.
 
-2. **Method of lines**
+2. **Method of lines** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW5_solutions.html#method-of-lines)
 
 The *method of lines* is a way to do time-evolution of partial differential equations. For example, consider the thermal diffusion equation
 

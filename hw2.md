@@ -3,6 +3,7 @@
 Due on Friday Sep 29 by midnight.
 
 1. **Integration errors**
+&nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW2_solutions.html#integration-error)
 
 In the class exercises on integration, we knew the function we were integrating, so we could calculate the error in our numerical integrations by comparing with the analytic answer for the integral. However, in real situations where you have a tabulated function to integrate without knowing the underlying analytic function, how do we estimate the error? One method is to see how much the numerical integral changes when you change the number of points. For example, if you have $N$ function evaluations with spacing $\Delta x$, you can calculate the integral using all $N$ points, and then again using approximately half the points to increase the spacing to $2\Delta x$. Comparing the values of the two integrals gives an estimate of the error. You'll work through this idea in this question.
 
@@ -27,7 +28,7 @@ Do this for both the trapezoidal and Simpson's rules. Discuss whether the answer
 (e) *Optional*: An extension of this question is to use this idea to write an adaptive integrator that takes a function $f(x)$ and iteratively increases the number of integration points until a specified precision is reached.
 
 
-2. **Chemical potential of a Fermi gas** 
+2. **Chemical potential of a Fermi gas** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW2_solutions.html#chemical-potential-of-a-fermi-gas)
 
 In statistical mechanics, the chemical potential $\mu$ of a gas of $N$ non-interacting fermions in a volume $V$ is given by the integral
 
@@ -43,7 +44,7 @@ $n_Q=(m k_BT/2\pi\hbar^2)^{3/2}$. [You may find it helpful to simplify the integ
 (c) Compare your results with the analytic limits of non-degenerate $\mu = k_BT \ln (n/2n_Q)$ and degenerate $\mu=E_F$ fermions (where $E_F = p_F^2/2m$ with $p_F=\hbar(3\pi^2 n)^{1/3}$ is the Fermi energy). Determine the region of parameter space where each of these limits is accurate to 1\%. 
 
 
-3. **Sampling the Maxwell-Boltzmann distribution**
+3. **Sampling the Maxwell-Boltzmann distribution** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW2_solutions.html#sampling-the-maxwell-boltzmann-distribution)
 
 (a) Write a function `MaxwellBoltzmann(N)` that returns a numpy array containing `N` samples of velocity from a 3D Maxwell-Boltzmann distribution. Your function (1) should be based on [`numpy.random.Generator.uniform`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.Generator.uniform.html) or equivalent that samples a uniform probability distribution, and (2) should not use any for loops. You should be able to generate a million samples in less than a second of runtime. In your answer, explain your algorithm.
 
