@@ -474,7 +474,7 @@ document.write(`
 <h1>Homework 1<a class="headerlink" href="#homework-1" title="Permalink to this heading">#</a></h1>
 <p>Due on Tuesday September 19 by midnight.</p>
 <ol class="arabic simple">
-<li><p><strong>Roundoff error in long term integrations of planetary orbits</strong></p></li>
+<li><p><strong>Roundoff error in long term integrations of planetary orbits</strong>    <a class="reference external" href="https://andrewcumming.github.io/phys512/HW1_solutions.html#long-term-planetary-orbits">[Solution]</a></p></li>
 </ol>
 <p>Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. Modelling the growth of the error over <span class="math notranslate nohighlight">\(N\)</span> operations as a random walk gives <em>Brouwer’s law</em> which states that the total error after <span class="math notranslate nohighlight">\(N\)</span> steps will be <span class="math notranslate nohighlight">\(\approx \sqrt{N} \epsilon\)</span> (where <span class="math notranslate nohighlight">\(\epsilon \sim 10^{-16}\)</span> for double precision floats).</p>
 <p>A classic example of this is when integrating planetary orbits. One method for doing this is the <em>semi-implicit Euler method</em>, which involves updating the velocity and position of the planet from timestep <span class="math notranslate nohighlight">\(n\)</span> to timestep <span class="math notranslate nohighlight">\(n+1\)</span> according to</p>
@@ -491,7 +491,7 @@ Start with a timestep of <span class="math notranslate nohighlight">\(0.1\)</spa
 <p>(c) <em>Optional</em>: Using <span class="math notranslate nohighlight">\(v_n\)</span> instead of <span class="math notranslate nohighlight">\(v_{n+1}\)</span> in the formula for the position update gives the less accurate <em>explicit Euler method</em>. Try it in your code – if you plot the orbit you will see that this method does much worse. How does <span class="math notranslate nohighlight">\(\Delta E/E\)</span> and its scaling with <span class="math notranslate nohighlight">\(\Delta t\)</span> compare with the semi-implicit Euler method?
 [If you want to see an example of a <em>more</em> accurate (higher order) method, look at <a class="reference external" href="https://ui.adsabs.harvard.edu/abs/2015MNRAS.446.1424R/abstract">Rein and Spiegel 2015</a>, which implements a 15th order integrator! Compare your results here with their Figure 1 for example.]</p>
 <ol class="arabic simple" start="2">
-<li><p><strong>Interpolation and thermodynamics</strong></p></li>
+<li><p><strong>Interpolation and thermodynamics</strong>    <a class="reference external" href="https://andrewcumming.github.io/phys512/HW1_solutions.html#interpolation-and-thermodynamics">[Solution]</a></p></li>
 </ol>
 <p>Interpolation can be tricky in thermodynamics, where there are particular requirements on derivatives that need to be satisfied. We’ll investigate that in this question by looking at an ideal gas in a range of temperatures and densities appropriate for Earth’s atmosphere. The pressure and entropy per particle of an ideal gas are given by</p>
 <div class="math notranslate nohighlight">

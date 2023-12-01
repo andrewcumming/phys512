@@ -2,7 +2,7 @@
 
 Due on Tuesday Oct 24 by midnight.
 
-1. **More on SVD**
+1. **More on SVD** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW4_solutions.html#more-on-svd)
 
 (a) For the singular value decomposition of a matrix $\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V^T}$, show that $\mathbf{A}$ can also be written as
 
@@ -25,7 +25,7 @@ Plot color maps of the component matrices in this case, and the reconstructed im
 
 Choose the smallest value of $n$ that in your opinion gives a reasonable reproduction of the image. How much data do you need to store to be able to reproduce this rank-$n$ approximation of the image? What is the compression factor compared to the original image?
 
-2. **Fitting planetary orbits**
+2. **Fitting planetary orbits** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW4_solutions.html#fitting-planetary-orbits)
 
 (a) Repeat the [exoplanet orbit fitting](https://andrewcumming.github.io/phys512/metropolis_solutions.html#exoplanet-orbit) exercise that we did using MCMC but instead using Levenberg-Marquardt to find the best fitting parameters for the planet. As before, keep the period fixed and find the best-fitting values of the other 5 parameters. Compare your answers with what we found using MCMC.
 

@@ -474,7 +474,7 @@ document.write(`
 <h1>Homework 4<a class="headerlink" href="#homework-4" title="Permalink to this heading">#</a></h1>
 <p>Due on Tuesday Oct 24 by midnight.</p>
 <ol class="arabic simple">
-<li><p><strong>More on SVD</strong></p></li>
+<li><p><strong>More on SVD</strong>   <a class="reference external" href="https://andrewcumming.github.io/phys512/HW4_solutions.html#more-on-svd">[Solution]</a></p></li>
 </ol>
 <p>(a) For the singular value decomposition of a matrix <span class="math notranslate nohighlight">\(\mathbf{A} = \mathbf{U}\mathbf{S}\mathbf{V^T}\)</span>, show that <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> can also be written as</p>
 <div class="math notranslate nohighlight" id="equation-sum">
@@ -491,7 +491,7 @@ document.write(`
 <p>Plot color maps of the component matrices in this case, and the reconstructed images for different ranks <span class="math notranslate nohighlight">\(n\)</span>.</p>
 <p>Choose the smallest value of <span class="math notranslate nohighlight">\(n\)</span> that in your opinion gives a reasonable reproduction of the image. How much data do you need to store to be able to reproduce this rank-<span class="math notranslate nohighlight">\(n\)</span> approximation of the image? What is the compression factor compared to the original image?</p>
 <ol class="arabic simple" start="2">
-<li><p><strong>Fitting planetary orbits</strong></p></li>
+<li><p><strong>Fitting planetary orbits</strong>   <a class="reference external" href="https://andrewcumming.github.io/phys512/HW4_solutions.html#fitting-planetary-orbits">[Solution]</a></p></li>
 </ol>
 <p>(a) Repeat the <a class="reference external" href="https://andrewcumming.github.io/phys512/metropolis_solutions.html#exoplanet-orbit">exoplanet orbit fitting</a> exercise that we did using MCMC but instead using Levenberg-Marquardt to find the best fitting parameters for the planet. As before, keep the period fixed and find the best-fitting values of the other 5 parameters. Compare your answers with what we found using MCMC.</p>
 <p>[Hint: you may find that taking a full Newton step causes problems, for example by trying to jump out of the range <span class="math notranslate nohighlight">\(e=0\)</span>–<span class="math notranslate nohighlight">\(1\)</span>. In that case, you can artifically reduce the step, ie. update using <span class="math notranslate nohighlight">\(\vec{a}_{n+1} = \vec{a}_n  + \alpha\, \delta\vec{a}\)</span> for some <span class="math notranslate nohighlight">\(\alpha &lt; 1\)</span> (I used <span class="math notranslate nohighlight">\(\alpha=0.2\)</span>).]</p>
