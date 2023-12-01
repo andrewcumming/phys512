@@ -502,6 +502,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[{d^2f\over dx^2} \approx {f(x+\Delta x) -2 f(x) + f(x-\Delta x)\over (\Delta x)^2} + \mathcal{O}(\Delta x)^2.\]</div>
 <p>Note that these are both second order accurate. In this case, the first derivative is using a <em>centered difference</em>.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/derivatives_solutions.html#second-order-finite-differences">[Solution]</a></p>
 </div>
 </section>
 <section id="optimal-step-size">
@@ -519,6 +520,7 @@ document.write(`
 <p>Choose a function <span class="math notranslate nohighlight">\(f(x)\)</span> that has a derivative that you can calculate analytically (to check your answer). Then compute the first order (forward difference) numerical derivative for different values of <span class="math notranslate nohighlight">\(\Delta x\)</span>. Plot a log-log plot showing the absolute value of the error against the step size. Do you see the expected scaling of the error with step size <span class="math notranslate nohighlight">\(\Delta x\)</span>?</p>
 <p>Next try using a second order derivative (centered difference). Add this to your plot and compare with your previous results. How does the error scale with <span class="math notranslate nohighlight">\(\Delta x\)</span> now? Can you explain what you see?</p>
 <p>Do your results depend on where you calculate the derivative (which value of <span class="math notranslate nohighlight">\(x\)</span>)? For the first order derivative, do you see the dependence on <span class="math notranslate nohighlight">\(f^{\prime\prime}\)</span> predicted by our estimate above?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/derivatives_solutions.html#optimal-step-size">[Solution]</a></p>
 </div>
 <p>SciPy has a routine to calculate derivatives based on centered differences to a specified order – see <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html"><code class="docutils literal notranslate"><span class="pre">scipy.misc.derivative</span></code></a> (Note that this routine is deprecated and will be removed at some point, the documentation for this function has some suggested replacements). You could try using this routine with different orders in your code from the exercise above and see how it compares.</p>
 </section>
@@ -585,6 +587,7 @@ The idea is that when a function is evaluated, we keep track of every basic oper
 <div class="math notranslate nohighlight">
 \[f(x) = \exp\left(\sin(x)\right)\]</div>
 <p>for different values of <span class="math notranslate nohighlight">\(x\)</span>. Compare your answer with the analytic expression and with the finite difference gradient.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/derivatives_solutions.html#automatic-derivatives">[Solution]</a></p>
 </div>
 <p><strong>Further reading</strong></p>
 <ul class="simple">

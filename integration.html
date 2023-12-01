@@ -534,6 +534,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[{1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.\]</div>
 <p>Does the result surprise you? What happened?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/integration_solutions.html#newton-cotes">[Solution]</a></p>
 </div>
 <div class="admonition-follow-up-exercise admonition">
 <p class="admonition-title">Follow up exercise:</p>
@@ -573,6 +574,7 @@ to get the locations and weights for different choices of <span class="math notr
 <li><p>to generate a polynomial with degree <code class="docutils literal notranslate"><span class="pre">N</span></code> and random coefficients between -10 and +10 (for example) you can use
 <code class="docutils literal notranslate"><span class="pre">np.polynomial.Polynomial(np.random.randint(-10,high=10,size=N+1))</span></code></p></li>
 </ul>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/integration_solutions.html#gaussian-quadrature">[Solution]</a></p>
 </div>
 <p>Gaussian quadratures can be applied more generally to integrals of the form</p>
 <div class="math notranslate nohighlight">
@@ -589,6 +591,7 @@ to get the locations and weights for different choices of <span class="math notr
 <p class="admonition-title">Exercise: Gauss-Hermite</p>
 <p>Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of <span class="math notranslate nohighlight">\(e^{-x^2}\)</span>.</p>
 <p>Hint: If you want to use <code class="docutils literal notranslate"><span class="pre">scipy.integrate.quad</span></code> again to get the value of the integral as a comparison, note that you can give it limits of <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span> using <code class="docutils literal notranslate"><span class="pre">-np.inf</span></code> and <code class="docutils literal notranslate"><span class="pre">np.inf</span></code>.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/integration_solutions.html#gaussian-quadrature">[Solution]</a></p>
 </div>
 <p>Other examples are</p>
 <ul class="simple">
@@ -605,6 +608,7 @@ to get the locations and weights for different choices of <span class="math notr
 <p>For each method, check the numerical error comparing to the analytic result. How many points do you need to get to <span class="math notranslate nohighlight">\(0.1\)</span>% accuracy?</p>
 <p>For Simpson’s rule you can use your own implementation from above or you could try <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html"><code class="docutils literal notranslate"><span class="pre">scipy.integrate.simpson</span></code></a>.</p>
 <p>For Gaussian quadrature, try both Gauss-Hermite and Gauss-Laguerre. Which one is best?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/integration_solutions.html#maxwell-boltzmann-distribution">[Solution]</a></p>
 </div>
 </section>
 <section id="further-reading">

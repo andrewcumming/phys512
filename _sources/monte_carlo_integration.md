@@ -25,6 +25,8 @@ In each case, take the number of samples to be $N=10^4$ and repeat the integrati
 
 Repeat for different $N$ values. How does the error in your value for the integral scale with $N$?
 
+[[Solution]](https://andrewcumming.github.io/phys512/montecarlo_solutions.html)
+
 ```
 
 The previous exercise shows that the integration error is $\propto N^{-1/2}$. This may not look that attractive -- for one-dimensional integrals, Simpson's rule gives a much smaller error $\propto N^{-4}$. However, Monte Carlo integration wins for high-dimensional integrals. If we sample a function $N$ times in $d$ dimensions, the number of samples per dimension is $N^{1/d}$, so the Simpson's rule accuracy for any particular direction becomes $N^{-4/d}$. This is known as the **curse of dimensionality**. For multi-dimensional integrals, you can get a better error with Monte Carlo integration, and it is also simpler to code up.

@@ -543,31 +543,31 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.641211      -3057.63       4767.52
-     0.424295       17.0366       39.1528
-     0.148938       1584.61       10638.4
-     0.987544      -8.85925      -9.97099
-     0.698972      -408.672      -585.676
-    -0.356658       3.94237      -12.0536
-     -0.41207       210.644      -512.186
-     0.306251       -1.8509      -7.04372
-     0.723323      -93.9472      -130.883
-     0.885933       1.57267       0.77516
-     -0.33628       20.5576      -62.1323
-     0.707906      0.623438     -0.119321
-     0.908257      -1.22684      -2.35077
-     -0.01327    -0.0227218      0.712268
-    -0.263687     -0.241279    -0.0849817
-    -0.404368     -0.399681    -0.0115907
-    -0.439539     -0.416519    -0.0523737
-    -0.312911     -0.313565    0.00209104
-    0.0751383     0.0723937    -0.0365279
-     0.232692      0.232727   0.000150251
-      0.88678      0.886867   9.86032e-05
-rms deviation / max(y) = 0.00196938
+     0.621354       2555.19       4111.29
+     0.105164       120.826       1147.93
+     0.965953      -1322.75      -1370.37
+     0.652899      -71.2773      -110.171
+      0.16849       341.755       2027.35
+     0.150983       31.3944       206.933
+    -0.296958      -176.201       592.355
+     0.764564      -15.0359       -20.666
+    -0.131308        78.528      -599.043
+    0.0212753       5.36163       251.012
+    -0.817909      -17.8595       20.8356
+     0.858862    -0.0456408      -1.05314
+     0.643818       2.17748       2.38213
+     0.561701      0.609989     0.0859665
+    0.0551699      0.111841       1.02721
+   -0.0690352    -0.0624895    -0.0948157
+     0.278925       0.24569     -0.119152
+   -0.0670637    -0.0683196     0.0187282
+    -0.747671     -0.743482   -0.00560251
+     0.908917      0.908983   7.25838e-05
+    -0.558871     -0.559042   0.000306697
+rms deviation / max(y) = 0.00132126
 </pre></div>
 </div>
-<img alt="_images/ca16aa5dd67213551784da45956c293dc17363d0860ccbc5b483a3b94c4f9365.png" src="_images/ca16aa5dd67213551784da45956c293dc17363d0860ccbc5b483a3b94c4f9365.png" />
+<img alt="_images/50033f56b4cecc90ae8d3c74243ebc6fcf013ce09e1c77f110614625fbd2eba9.png" src="_images/50033f56b4cecc90ae8d3c74243ebc6fcf013ce09e1c77f110614625fbd2eba9.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
@@ -640,31 +640,31 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    -0.641211,     -0.641211  -1.73162e-11
-     0.424295,      0.424295  -1.68005e-10
-     0.148938,      0.148938  -2.83093e-10
-     0.987544,      0.987544   3.06292e-10
-     0.698972,      0.698972    6.2694e-10
-    -0.356658,     -0.356658   1.11294e-08
-     -0.41207,      -0.41207   1.73446e-08
-     0.306251,      0.306251  -8.84419e-09
-     0.723323,      0.723323   8.81409e-09
-     0.885933,      0.885933  -1.27477e-08
-     -0.33628,      -0.33628   3.44438e-08
-     0.707906,      0.707906  -3.40678e-09
-     0.908257,      0.908257   1.72932e-08
-     -0.01327,      -0.01327   2.29756e-07
-    -0.263687,     -0.263687   8.49433e-09
-    -0.404368,     -0.404368   2.94933e-10
-    -0.439539,     -0.439539  -2.82564e-09
-    -0.312911,     -0.312911  -5.64523e-11
-    0.0751383,     0.0751383  -5.33144e-10
-     0.232692,      0.232692   6.83429e-12
-      0.88678,       0.88678   8.34715e-12
-rms deviation / max(y) = 2.18677e-11
+     0.621354,      0.621354    2.7164e-11
+     0.105164,      0.105164   9.86457e-10
+     0.965953,      0.965953  -2.65284e-10
+     0.652899,      0.652899   1.01785e-09
+      0.16849,       0.16849  -4.31739e-09
+     0.150983,      0.150983  -1.70012e-09
+    -0.296958,     -0.296958  -5.62184e-08
+     0.764564,      0.764564  -9.38249e-09
+    -0.131308,     -0.131308   8.15006e-08
+    0.0212753,     0.0212753   5.65283e-07
+    -0.817909,     -0.817909  -4.81583e-09
+     0.858862,      0.858862    -1.115e-09
+     0.643818,      0.643818  -5.70623e-10
+     0.561701,      0.561701   7.48345e-09
+    0.0551699,     0.0551699   1.60982e-08
+   -0.0690352,    -0.0690352   1.27864e-08
+     0.278925,      0.278925   1.00447e-09
+   -0.0670637,    -0.0670637  -8.89348e-10
+    -0.747671,     -0.747671  -1.40811e-10
+     0.908917,      0.908917  -8.42429e-12
+    -0.558871,     -0.558871   4.23254e-12
+rms deviation / max(y) = 1.00025e-11
 </pre></div>
 </div>
-<img alt="_images/e100415465961dcc9798e2d5f5fc5e40e9e1acdd9f7527e9053f9951cf835899.png" src="_images/e100415465961dcc9798e2d5f5fc5e40e9e1acdd9f7527e9053f9951cf835899.png" />
+<img alt="_images/b4d58633ac8646eb6206f464545ecf0d739fa4524d2f2883e6eec4071310cc6a.png" src="_images/b4d58633ac8646eb6206f464545ecf0d739fa4524d2f2883e6eec4071310cc6a.png" />
 </div>
 </div>
 </section>
@@ -707,6 +707,7 @@ rms deviation / max(y) = 2.18677e-11
 </ul>
 <p>Hint: You can use <a class="reference external" href="https://numpy.org/devdocs/reference/generated/numpy.polynomial.legendre.legvander.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.legendre.legvander</span></code></a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.chebyshev.chebvander.html"><code class="docutils literal notranslate"><span class="pre">numpy.polynomial.chebyshev.chebvander</span></code></a> to generate the design matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> for you.</p>
 </div></blockquote>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/polynomial_fit_solutions.html#orthogonal-polynomials">[Solution]</a></p>
 <section id="notes-and-further-reading">
 <h3>Notes and further reading<a class="headerlink" href="#notes-and-further-reading" title="Permalink to this heading">#</a></h3>
 <ul class="simple">

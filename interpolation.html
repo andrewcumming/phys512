@@ -497,6 +497,7 @@ document.write(`
 <div class="admonition-exercise-linear-interpolation admonition">
 <p class="admonition-title">Exercise: linear interpolation</p>
 <p>Choose a function (e.g. <span class="math notranslate nohighlight">\(\sin(x)\)</span> between <span class="math notranslate nohighlight">\(0\)</span> and <span class="math notranslate nohighlight">\(2\pi\)</span> or a Gaussian) and investigate how the error made in linear-interpolation depends on the number of points. You can use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.interp.html"><code class="docutils literal notranslate"><span class="pre">numpy.interp</span></code></a> to carry out the linear interpolation. Plot your function, the sampled points, and the interpolated function on the same plot. How quickly does the error decrease with the number of sampled points? How do you explain the scaling that you see?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises">[Solution]</a></p>
 </div>
 </section>
 <section id="cubic-interpolation-and-splines">
@@ -526,6 +527,7 @@ document.write(`
 <p class="admonition-title">Exercise: cubic interpolation</p>
 <p>Add this to your code from the previous exercise and compare with the results for linear interpolation. Do you see a different scaling with the number of points?</p>
 <p>Use the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.deriv.html#numpy.polynomial.polynomial.Polynomial.deriv"><code class="docutils literal notranslate"><span class="pre">deriv()</span></code></a> method associated with the polynomial to plot the first and second derivatives of the interpolating function (as a function of <span class="math notranslate nohighlight">\(x\)</span>). Does the behavior of the derivatives make sense? What happens at the boundary between each interval <span class="math notranslate nohighlight">\(x_i&lt;x&lt;x_{i+1}\)</span>?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises">[Solution]</a></p>
 </div>
 <p>You should find in the previous exercise that the cubic polynomial gives a much more accurate interpolation compare to linear. <strong>Cubic splines</strong> (usually referred to just as “<strong>splines</strong>”, although splines can be constructed for higher orders than cubic) extend this by</p>
 <ul class="simple">
@@ -541,6 +543,7 @@ document.write(`
 <p class="admonition-title">Exercise: splines</p>
 <p>Add a spline fit to your code and compare with the linear and cubic polynomial fits. In particular, how does the spline fit differ from the cubic polynomial fit in terms of accuracy and the first and second derivatives?</p>
 <p>Look at the documentation and try changing what happens at the boundaries by setting different <code class="docutils literal notranslate"><span class="pre">bc_type</span></code> values. Natural splines are not the default behavior for <code class="docutils literal notranslate"><span class="pre">scipy.interpolate.CubicSpline</span></code> – what is it?</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises">[Solution]</a></p>
 </div>
 <div class="admonition-exercise-higher-order-fits-oscillations-and-noise admonition">
 <p class="admonition-title">Exercise: higher order fits, oscillations, and noise</p>
@@ -554,6 +557,7 @@ document.write(`
 <li><p>Add some Gaussian noise to the data points (you can use <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html"><code class="docutils literal notranslate"><span class="pre">np.random.normal</span></code></a> to do this).</p></li>
 </ul>
 <p>You should see that the higher order fits, and even the spline/cubic fits, are susceptible to oscillations. Even a small amount of noise can lead to bad behavior of the Lagrange polynomial compared to the splines/linear fits.</p>
+<p><a class="reference external" href="https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises">[Solution]</a></p>
 </div>
 </section>
 <section id="bilinear-interpolation">

@@ -13,6 +13,7 @@ $${df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} + \mathcal{O}(\Delta
 This is a *first order* derivative since the error in this approximation scales $\propto \Delta x$.  Because we use the value of the function at $x+\Delta x$ it is known as a *forward difference*. We could also write a similar expression but using the value of the function at $x-\Delta x$; this would be a *backward difference*.
 
 ```{admonition} Exercise: second order finite differences
+
 By also considering the Taylor expansion of $f(x-\Delta x)$ show that (hint: add and subtract the two expressions)
 
 $${df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} + \mathcal{O}(\Delta x)^2$$
@@ -22,7 +23,11 @@ and
 $${d^2f\over dx^2} \approx {f(x+\Delta x) -2 f(x) + f(x-\Delta x)\over (\Delta x)^2} + \mathcal{O}(\Delta x)^2.$$
 
 Note that these are both second order accurate. In this case, the first derivative is using a *centered difference*.
+
+[[Solution]](https://andrewcumming.github.io/phys512/derivatives_solutions.html#second-order-finite-differences)
+
 ```
+
 
 ## Optimal step size
 
@@ -45,6 +50,9 @@ Choose a function $f(x)$ that has a derivative that you can calculate analytical
 Next try using a second order derivative (centered difference). Add this to your plot and compare with your previous results. How does the error scale with $\Delta x$ now? Can you explain what you see?
 
 Do your results depend on where you calculate the derivative (which value of $x$)? For the first order derivative, do you see the dependence on $f^{\prime\prime}$ predicted by our estimate above?
+
+[[Solution]](https://andrewcumming.github.io/phys512/derivatives_solutions.html#optimal-step-size)
+
 ```
 
 SciPy has a routine to calculate derivatives based on centered differences to a specified order -- see [`scipy.misc.derivative`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.misc.derivative.html) (Note that this routine is deprecated and will be removed at some point, the documentation for this function has some suggested replacements). You could try using this routine with different orders in your code from the exercise above and see how it compares. 
@@ -120,6 +128,10 @@ Try running this code. You should find that the results agree with the analytic 
 $$f(x) = \exp\left(\sin(x)\right)$$
 
 for different values of $x$. Compare your answer with the analytic expression and with the finite difference gradient.
+
+[[Solution]](https://andrewcumming.github.io/phys512/derivatives_solutions.html#automatic-derivatives)
+
+
 ```
 
 **Further reading**

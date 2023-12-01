@@ -90,6 +90,9 @@ Again note how this method allows us to access the range $x=0$ to $\infty$, sinc
 
 ```{admonition} Exercise 1
 Implement these three methods for the exponential distribution and check that they work by comparing a histogram of your $x$ values with the analytic function.
+
+[[Solution]](https://andrewcumming.github.io/phys512/prob_distributions_solutions.html#probability-distributions-exercise-1)
+
 ```
 
 
@@ -104,5 +107,8 @@ Try implementing one of the following:
 - The distribution $f(x) = \exp(-|x^3|)$ ($-\infty<x<\infty$) using the rejection method sampling from a Gaussian in $x$
 
 Again compare your answer with the analytic distribution, and in the last two examples, compare the acceptance fraction.
+
+[[Solution]](https://andrewcumming.github.io/phys512/prob_distributions_solutions_part2.html)
+
 
 ```
