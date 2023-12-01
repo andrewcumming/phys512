@@ -4,7 +4,7 @@ Due on Friday Oct 13 by midnight.
 
 In this homework, we will look at some applications of Monte Carlo methods.
 
-1. **Diffusion-limited aggregation** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW3_solutions.html#diffusion-limited-aggregation)
+## 1. Diffusion-limited aggregation &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW3_solutions.html#diffusion-limited-aggregation)
 
 In this question we want to model the growth of a crystal starting with a small solid "seed" that grows as particles from the liquid randomly encounter the seed and stick to it. Once the particle sticks, it becomes part of the solid and can in turn cause liquid particles to stick to it. In this way, the liquid particles freeze onto the growing solid. Because the rate of growth is set by how quickly the liquid particles diffuse and encounter the growing crystal, this process is known as diffusion-limited aggregation.
 
@@ -22,7 +22,7 @@ Plot the 2D distribution of liquid and solid particles at different times during
 (It may also help to plot the number density of liquid particles as a function of radial distance from the centre of the grid and look at how it evolves with time).
 
 
-2. **Ising model** &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW3_solutions.html#ising-model)
+## 2. Ising model &nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW3_solutions.html#ising-model)
 
 The Ising model is a simple model of a ferromagnetic material in which a lattice of spins interact via nearest-neighbour interactions. In 2D, we have a square lattice with $n\times n = N$ lattice sites on which the spins sit. Each spin can be either up ($s=+1$) or down ($s=-1$), and the total energy of the system is
 
