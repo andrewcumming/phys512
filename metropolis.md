@@ -39,6 +39,9 @@ How do your results change when you take different values for the width of the p
 Also, investigate what happens when you change your starting value of $x$. How long does it take for the chain to reach equilibrium?
 
 Compare your results with the same plots for $10^4$ values from $f(x)$ chosen by the rejection method.
+
+[[Solution]](https://andrewcumming.github.io/phys512/montecarlo_solutions.html)
+
 ```
 
 
@@ -128,6 +131,9 @@ Plot the chain of each of the 5 parameters and identify the burn-in phase.
 Plot the radial velocity curve $v(t)$ corresponding to the last set of parameters in your chain and make sure it goes through the data points.
 
 Plot histograms of the 5 parameters. Also look at 2D histograms for different pairs of parameters: do you see any correlations between parameters?
+
+[[Solution]](https://andrewcumming.github.io/phys512/metropolis_solutions.html#exoplanet-orbit)
+
 ```
 
 Some hints for this exercise:

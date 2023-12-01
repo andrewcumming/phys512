@@ -104,6 +104,8 @@ y = y + 0.03 * np.random.normal(size = ndata)
 
 - Next, modify the `lorentz` function so that it calculates the $\mathbf{A}$ matrix using finite differences rather than analytic derivatives. Check that you get the same answer as before.
 
+[[Solution]](https://andrewcumming.github.io/phys512/nonlinear_fit.html#lorentzian-fit)
+
 ````
 
 ## Levenberg-Marquardt
@@ -125,6 +127,8 @@ The way this works is that if things are going well ($\chi^2$ is decreasing) the
 Update your Lorentzian fitting routine to use Levenberg-Marquardt. Try it out and see whether it fixes the convergence issues you were seeing with Newton's method.
 
 Finally, try doing the fit using [`scipy.optimize.least_squares`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) instead. 
+
+[[Solution]](https://andrewcumming.github.io/phys512/nonlinear_fit.html#lorentzian-fit)
 
 ``` 
 

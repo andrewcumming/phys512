@@ -71,6 +71,9 @@ Next, use your code to check the result that the average value of $\sin^2(x)$ is
 $${1\over \pi} \int_{0}^{\pi} \sin^2(x) dx = {1\over 2}.$$
 
 Does the result surprise you? What happened?
+
+[[Solution]](https://andrewcumming.github.io/phys512/integration_solutions.html#newton-cotes)
+
 ```
 
 ```{admonition} Follow up exercise:
@@ -119,6 +122,9 @@ Hints:
 - to get the correct value of the integral to compare with to see how accurate your approximation is, you could use the general purpose integrator [`scipy.integrate.quad`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.quad.html)
 - to generate a polynomial with degree `N` and random coefficients between -10 and +10 (for example) you can use
 `np.polynomial.Polynomial(np.random.randint(-10,high=10,size=N+1))`
+
+[[Solution]](https://andrewcumming.github.io/phys512/integration_solutions.html#gaussian-quadrature)
+
 ```
 
 Gaussian quadratures can be applied more generally to integrals of the form
@@ -143,6 +149,9 @@ In this case, the weights and locations are given by [`numpy.polynomial.hermite.
 Modify your code to use the Gauss-Hermite coefficients and check that you can get an exact answer for the integral of $e^{-x^2}$.
 
 Hint: If you want to use `scipy.integrate.quad` again to get the value of the integral as a comparison, note that you can give it limits of $-\infty$ to $+\infty$ using `-np.inf` and `np.inf`.
+
+[[Solution]](https://andrewcumming.github.io/phys512/integration_solutions.html#gaussian-quadrature)
+
 ```
 
 Other examples are
@@ -163,6 +172,9 @@ For each method, check the numerical error comparing to the analytic result. How
 For Simpson's rule you can use your own implementation from above or you could try [`scipy.integrate.simpson`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.simpson.html).
 
 For Gaussian quadrature, try both Gauss-Hermite and Gauss-Laguerre. Which one is best?
+
+[[Solution]](https://andrewcumming.github.io/phys512/integration_solutions.html#maxwell-boltzmann-distribution)
+
 ```
 
 ## Further reading

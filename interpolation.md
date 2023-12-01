@@ -14,6 +14,8 @@ This is equivalent to drawing a straight line between the two points.
 
 ```{admonition} Exercise: linear interpolation
 Choose a function (e.g. $\sin(x)$ between $0$ and $2\pi$ or a Gaussian) and investigate how the error made in linear-interpolation depends on the number of points. You can use [`numpy.interp`](https://numpy.org/doc/stable/reference/generated/numpy.interp.html) to carry out the linear interpolation. Plot your function, the sampled points, and the interpolated function on the same plot. How quickly does the error decrease with the number of sampled points? How do you explain the scaling that you see?
+
+[[Solution]](https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises)
 ```
 
 
@@ -49,6 +51,9 @@ f_cubic = f2[ind]
 Add this to your code from the previous exercise and compare with the results for linear interpolation. Do you see a different scaling with the number of points?
 
 Use the [`deriv()`](https://numpy.org/doc/stable/reference/generated/numpy.polynomial.polynomial.Polynomial.deriv.html#numpy.polynomial.polynomial.Polynomial.deriv) method associated with the polynomial to plot the first and second derivatives of the interpolating function (as a function of $x$). Does the behavior of the derivatives make sense? What happens at the boundary between each interval $x_i<x<x_{i+1}$?
+
+[[Solution]](https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises)
+
 ```
 
 You should find in the previous exercise that the cubic polynomial gives a much more accurate interpolation compare to linear. **Cubic splines** (usually referred to just as "**splines**", although splines can be constructed for higher orders than cubic) extend this by 
@@ -70,6 +75,9 @@ where `xp` and `fp` are the sample points and function values at those points. T
 Add a spline fit to your code and compare with the linear and cubic polynomial fits. In particular, how does the spline fit differ from the cubic polynomial fit in terms of accuracy and the first and second derivatives?
 
 Look at the documentation and try changing what happens at the boundaries by setting different `bc_type` values. Natural splines are not the default behavior for `scipy.interpolate.CubicSpline` -- what is it?
+
+[[Solution]](https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises)
+
 ```
 
 ```{admonition} Exercise: higher order fits, oscillations, and noise
@@ -84,6 +92,9 @@ Next you can try two different changes to test how well the different methods pe
 - Add some Gaussian noise to the data points (you can use [`np.random.normal`](https://numpy.org/doc/stable/reference/random/generated/numpy.random.normal.html) to do this).
 
 You should see that the higher order fits, and even the spline/cubic fits, are susceptible to oscillations. Even a small amount of noise can lead to bad behavior of the Lagrange polynomial compared to the splines/linear fits.
+
+[[Solution]](https://andrewcumming.github.io/phys512/interpolation_solutions.html#interpolation-exercises)
+
 ```
 
 
