@@ -81,6 +81,7 @@ parts:
             - file: fft_1d_solutions
             - file: adv_diff_fourier
             - file: adv_diff_finite_difference
+            - file: LIGO
     - caption: Performance
       chapters:
         - file: performance
