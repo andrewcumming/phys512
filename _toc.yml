@@ -81,6 +81,9 @@ parts:
             - file: fft_1d_solutions
             - file: adv_diff_fourier
             - file: adv_diff_finite_difference
+    - caption: Performance
+      chapters:
+        - file: performance
     - caption: Homework
       chapters:
         - file: hw1
