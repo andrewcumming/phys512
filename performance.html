@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -138,13 +148,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
@@ -439,10 +450,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -450,7 +461,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -523,8 +534,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.022679805755615234
-GFLOPS =  88.18417677606543
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.023205995559692383
+GFLOPS =  86.18462391994493
 </pre></div>
 </div>
 </div>
@@ -540,7 +551,7 @@ GFLOPS =  88.18417677606543
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.9 ms ± 969 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.4 ms ± 906 µs per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -578,7 +589,7 @@ GFLOPS =  88.18417677606543
 
     <span class="c1"># Compute the random numbers to use for accepting the jump in advance</span>
     <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">ntrials</span><span class="p">)</span>
-    
+
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ntrials</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
         
         <span class="c1"># Choose spin at random</span>
@@ -590,7 +601,7 @@ GFLOPS =  88.18417677606543
         <span class="c1"># Attempt flip</span>
         <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">delta_E</span><span class="p">):</span>
             <span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
-        
+ 
         <span class="c1"># Store magnetization</span>
         <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spins</span><span class="p">)</span><span class="o">/</span><span class="n">Nspins</span>
         
@@ -602,7 +613,55 @@ GFLOPS =  88.18417677606543
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_ising_optimized</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">Nspins</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">N</span>
+    <span class="n">ntrials</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+
+    <span class="c1"># Populate the array with random spins (+1 or -1)</span>
+    <span class="c1">#spins = -1 + rng.integers(2, size = Nspins) * 2</span>
+    <span class="n">spins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Nspins</span><span class="p">)</span>
+
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ntrials</span><span class="p">)</span>
+    <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spins</span><span class="p">)</span><span class="o">/</span><span class="n">Nspins</span>  <span class="c1"># starting point</span>
+
+    <span class="c1"># Compute the random numbers to use for accepting the jump in advance</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">ntrials</span><span class="p">)</span>
+    <span class="n">jvals</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">Nspins</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">ntrials</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ntrials</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1"># Choose spin at random</span>
+        <span class="c1">#j = rng.integers(Nspins)</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">jvals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="c1"># Compute energy change if this spin were to flip</span>
+        <span class="n">delta_E</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">Nspins</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">N</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[(</span><span class="n">j</span><span class="o">+</span><span class="n">N</span><span class="p">)</span> <span class="o">%</span> <span class="n">Nspins</span><span class="p">])</span>
+    
+        <span class="c1"># Attempt flip</span>
+        <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">delta_E</span><span class="p">):</span>
+            <span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="n">Nspins</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        
+        <span class="c1"># Store magnetization</span>
+        <span class="c1">#M[i+1] = np.sum(spins)/Nspins</span>
+        
+    <span class="c1"># remove the first 20% (burn in)</span>
+    <span class="k">return</span> <span class="n">M</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ntrials</span><span class="o">/</span><span class="mi">5</span><span class="p">):]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%prun</span> -q
+<span class="c1"># remove the -q above to generate output</span>
+<span class="c1"># in class we used the profiling output to optimize--</span>
+<span class="c1"># compare run_ising with run_ising_optimized </span>
+<span class="c1"># with a factor of 3 speed up</span>
 
 <span class="n">T_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
 
@@ -659,9 +718,9 @@ GFLOPS =  88.18417677606543
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  4.000000000000003
 </pre></div>
 </div>
-<img alt="_images/f9161d3217e444920e33138818cfdaeea48fbb82bd6b0a60daa0a7e33c385a8c.png" src="_images/f9161d3217e444920e33138818cfdaeea48fbb82bd6b0a60daa0a7e33c385a8c.png" />
-<img alt="_images/945a3ecc618ea5f13a9f756723826591c98611edae5610f913f2e2d977d3e2ef.png" src="_images/945a3ecc618ea5f13a9f756723826591c98611edae5610f913f2e2d977d3e2ef.png" />
-<img alt="_images/e52b9c8f58071812d9a3d15e5ca3507859b4842e0383c6f4b6153610bba3e94e.png" src="_images/e52b9c8f58071812d9a3d15e5ca3507859b4842e0383c6f4b6153610bba3e94e.png" />
+<img alt="_images/11385d39d1a59bc0e22db05539bd0b8a70303736c8b56a41ca99ba5847390c4d.png" src="_images/11385d39d1a59bc0e22db05539bd0b8a70303736c8b56a41ca99ba5847390c4d.png" />
+<img alt="_images/3318b80c8111f84df5565f953b4aebf0cfa9d4e7bdcc4c7b2c155ffc5bc786a6.png" src="_images/3318b80c8111f84df5565f953b4aebf0cfa9d4e7bdcc4c7b2c155ffc5bc786a6.png" />
+<img alt="_images/df684936b82f3a35871b04b92332cbac71c87796c49573d4d0867bd076964c04.png" src="_images/df684936b82f3a35871b04b92332cbac71c87796c49573d4d0867bd076964c04.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
@@ -671,6 +730,19 @@ GFLOPS =  88.18417677606543
 <section id="keeping-track-of-memory">
 <h2>Keeping track of memory<a class="headerlink" href="#keeping-track-of-memory" title="Permalink to this heading">#</a></h2>
 <p>As an example, here is the code we used for <a class="reference external" href="https://andrewcumming.github.io/phys512/adi.html#alternating-direction-implicit">2D diffusion</a>. We can use <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code> to look at the memory usage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># MBs needed for 128x128 array of doubles</span>
+<span class="mi">128</span><span class="o">*</span><span class="mi">128</span><span class="o">*</span><span class="mi">8</span><span class="o">/</span><span class="mf">1e6</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.131072
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tracemalloc</span>
@@ -715,7 +787,7 @@ GFLOPS =  88.18417677606543
 <span class="n">AL</span><span class="p">,</span> <span class="n">AR</span> <span class="o">=</span> <span class="n">construct_matrices</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
 <span class="o">%</span><span class="k">matplotlib</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">: t=</span><span class="si">%lg</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">t0</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
@@ -739,12 +811,18 @@ GFLOPS =  88.18417677606543
     
     <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> == 1:
         <span class="n">ti</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">: t=</span><span class="si">%lg</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span><span class="n">ti</span><span class="p">))</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="c1">#plt.clf()</span>
+        <span class="c1">#plt.imshow(T)</span>
+        <span class="c1">#plt.title(&quot;%d: t=%lg&quot; % (1 + i//2,ti))</span>
+        <span class="c1">#plt.colorbar()</span>
+        <span class="c1">#plt.show()</span>
+        <span class="c1">#plt.pause(1e-3)</span>
+
+        <span class="c1"># in class we changed the plotting to the following:        </span>
+        <span class="n">image</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">)</span>
+        <span class="c1"># rather than make a new plot each step, we modify the plot data</span>
 
     <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">10</span> == 0:
         <span class="n">current</span><span class="p">,</span> <span class="n">peak</span> <span class="o">=</span> <span class="n">tracemalloc</span><span class="o">.</span><span class="n">get_traced_memory</span><span class="p">()</span>
@@ -775,66 +853,63 @@ GFLOPS =  88.18417677606543
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x1075e71b0&gt;
-Step  0 : current/peak memory usage is 1.57255   1.739772 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x10510b0f0&gt;
+Step  0 : current/peak memory usage is 1.556524   1.713979 MB
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-05 12:34:47.622 Python[18268:1669090] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  10 : current/peak memory usage is 2.166598   24.622644 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  10 : current/peak memory usage is 5.421537   10.480878 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  20 : current/peak memory usage is 2.20905   24.665745 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  20 : current/peak memory usage is 5.670781   10.650649 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  30 : current/peak memory usage is 2.246776   24.704446 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  30 : current/peak memory usage is 9.868857   14.902367 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  40 : current/peak memory usage is 2.266589   24.725831 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  40 : current/peak memory usage is 4.749865   15.745478 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  50 : current/peak memory usage is 2.313076   24.776642 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  50 : current/peak memory usage is 9.087086   15.745478 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  60 : current/peak memory usage is 2.313193   24.785474 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  60 : current/peak memory usage is 4.895918   15.79719 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  70 : current/peak memory usage is 2.32349   24.787303 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  70 : current/peak memory usage is 9.204213   15.79719 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  80 : current/peak memory usage is 2.33493   24.798376 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  80 : current/peak memory usage is 4.001138   15.911428 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  90 : current/peak memory usage is 2.345628   24.808862 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  90 : current/peak memory usage is 8.331911   15.911428 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  100 : current/peak memory usage is 2.355679   24.819266 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  100 : current/peak memory usage is 3.131928   16.786496 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  110 : current/peak memory usage is 2.349612   24.819266 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  110 : current/peak memory usage is 7.434706   16.786496 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  120 : current/peak memory usage is 2.359335   24.82286 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  120 : current/peak memory usage is 2.246182   16.80548 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  130 : current/peak memory usage is 2.370408   24.834074 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  130 : current/peak memory usage is 6.648489   16.80548 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  140 : current/peak memory usage is 2.380486   24.844066 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  140 : current/peak memory usage is 10.965156   16.80548 MB
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  150 : current/peak memory usage is 5.724795   16.80548 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  150 : current/peak memory usage is 2.373417   24.847135 MB
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T range =  7.374417235632719e-06 7.286560064543426
 delta range =  -0.0022616334982004526 0.0006078416564473385
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1280x960 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f23016f9dbed07fef44645d38c8440d13163aa730377ce5d7c68ad9293052151.png" src="_images/f23016f9dbed07fef44645d38c8440d13163aa730377ce5d7c68ad9293052151.png" />
+<img alt="_images/6fdc709b57d711d068fa718722280f53b64fad6b2a7d4d8b8498e79120f40159.png" src="_images/6fdc709b57d711d068fa718722280f53b64fad6b2a7d4d8b8498e79120f40159.png" />
 </div>
 </div>
 </section>
@@ -865,8 +940,8 @@ delta range =  -0.0022616334982004526 0.0006078416564473385
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  2.07804799079895
-GFLOPS =  0.007699533442366967
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  2.264821767807007
+GFLOPS =  0.007064573569289102
 </pre></div>
 </div>
 </div>
@@ -882,11 +957,25 @@ GFLOPS =  0.007699533442366967
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+# Add the flag &quot;-a&quot; to the line above to turn on the output
+
+# in class we went through the modifications below
+# - using cdef to declare variable types
+# - using the decorators to turn off bounds checking etc.
+# Basically try to turn the yellow lines in the output to white and you 
+# should get a significant speed up
+
 import numpy as np
 
-def matrix_multiply_cython(A):
-    n = np.shape(A)[0]
-    B = np.zeros((n,n))
+cimport cython
+@cython.boundscheck(False)
+@cython.cdivision(True)
+@cython.wraparound(False)
+@cython.initializedcheck(False)
+
+def matrix_multiply_cython(double[:,:] A, double[:,:] B):
+    cdef int i,j,k
+    cdef int n = A.shape[0]
     for i in range(n):
         for j in range(n):
             for k in range(n):
@@ -898,12 +987,12 @@ def matrix_multiply_cython(A):
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
-<span class="c1">#B = np.zeros_like(A)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
 <span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">matrix_multiply_cython</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">matrix_multiply_cython</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
 <span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
@@ -912,8 +1001,8 @@ def matrix_multiply_cython(A):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.2515559196472168
-GFLOPS =  0.007950518528066481
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.2372570037841797
+GFLOPS =  1.6164790289187718
 </pre></div>
 </div>
 </div>
@@ -923,7 +1012,7 @@ GFLOPS =  0.007950518528066481
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span> <span class="k">as</span> <span class="nn">nb</span>
 
-<span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
@@ -954,15 +1043,10 @@ GFLOPS =  0.007950518528066481
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numba</span> <span class="k">as</span> <span class="nn">nb</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numba&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.5180819034576416
+GFLOPS =  3.8603934757267973
+Time taken =  0.040576934814453125
+GFLOPS =  49.28908526840275
 </pre></div>
 </div>
 </div>
@@ -995,8 +1079,10 @@ GFLOPS =  0.007950518528066481
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.04958796501159668
-Time taken =  0.2537379264831543
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.04406595230102539
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.24811792373657227
 </pre></div>
 </div>
 </div>
@@ -1025,9 +1111,39 @@ Time taken =  0.2537379264831543
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.6917638778686523
-Time taken =  0.5808892250061035
-Time taken =  0.28162288665771484
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.2109549045562744
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.758342981338501
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.40457797050476074
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Demonstration of memory leak because we took a slice:</span>
+<span class="kn">from</span>  <span class="nn">psutil</span> <span class="kn">import</span> <span class="n">Process</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;memory before=&quot;</span><span class="p">,</span><span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">memory_info</span><span class="p">()</span><span class="o">.</span><span class="n">rss</span><span class="p">)</span>
+<span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100_000_000</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;memory after declaring arr=&quot;</span><span class="p">,</span> <span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">memory_info</span><span class="p">()</span><span class="o">.</span><span class="n">rss</span><span class="p">)</span>
+<span class="c1"># without the np.copy on the next line we will get a memory leak!!</span>
+<span class="n">small_slice</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">arr</span><span class="p">[:</span><span class="mi">10</span><span class="p">])</span>
+<span class="c1"># try instead: </span>
+<span class="c1">#small_slice = arr[:10]</span>
+<span class="k">del</span> <span class="n">arr</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;memory after deleting arr=&quot;</span><span class="p">,</span><span class="n">Process</span><span class="p">()</span><span class="o">.</span><span class="n">memory_info</span><span class="p">()</span><span class="o">.</span><span class="n">rss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>memory before= 2512420864
+memory after declaring arr= 3312762880
+memory after deleting arr= 2512945152
 </pre></div>
 </div>
 </div>
@@ -1080,11 +1196,10 @@ Time taken =  0.28162288665771484
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="LIGO.html"
@@ -1104,10 +1219,7 @@ Time taken =  0.28162288665771484
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1175,8 +1287,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
