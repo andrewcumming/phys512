@@ -7,17 +7,17 @@
 - [Interpolation](https://andrewcumming.github.io/phys512/interpolation.html): how to do simple linear interpolation; the difference between cubic interpolation and a cubic spline; how to do interpolation in >1D
 - [Integration](https://andrewcumming.github.io/phys512/integration.html): Newton-Cotes methods; Gaussian quadrature and how to implement it; [how to estimate the error](https://andrewcumming.github.io/phys512/hw2.html#integration-errors-solution) in a numerical integration; [Monte-Carlo integration](https://andrewcumming.github.io/phys512/monte_carlo_integration.html) and its error
 - Random numbers: [how to generate samples from a distribution](https://andrewcumming.github.io/phys512/generating_random.html), including built-in NumPy/SciPy functions, rejection/transformation/ratio of uniforms methods, or using [Metropolis-Hastings](https://andrewcumming.github.io/phys512/metropolis.html).
-- [Matrix operations and decompositions](https://andrewcumming.github.io/phys512/matrices.html) in Numpy, especially SVD. The idea of condition number and how to calculate it.
+- [Matrix operations and decompositions](https://andrewcumming.github.io/phys512/matrices.html) in Numpy, especially [SVD](https://andrewcumming.github.io/phys512/hw4.html#more-on-svd-solution). The idea of condition number and how to calculate it.
 - Newton's method for [minimizing a function](https://andrewcumming.github.io/phys512/nonlinear.html#newton-s-method) or [finding roots](https://andrewcumming.github.io/phys512/boundary_value_problems.html#relaxation-method)
 - Integrating differential equations: the difference between [explicit and implicit methods](https://andrewcumming.github.io/phys512/runge_kutta.html). Advantages and disadvantages of both methods. What is meant by the term stiff equation. 
 - Different types of errors: numerical instability, amplitude errors, phase errors, von Neumann stability analysis
 - How to implement an adaptive step-size. The difference between absolute and relative errors.
-- What makes an integrator [symplectic](https://andrewcumming.github.io/phys512/symplectic.html#symplectic-integrators). 
+- What makes an integrator [symplectic](https://andrewcumming.github.io/phys512/symplectic.html#symplectic-integrators). The idea of a [pseudo-Hamiltonian](https://andrewcumming.github.io/phys512/hw6.html#pseudo-hamiltonian-for-the-simple-harmonic-oscillator-solution). The leapfrog method.
 - Differences between initial value and boundary value problems. Basic idea of relaxation methods.
 - Methods for solving the linear system $\mathbf{Ax} = \mathbf{b}$: [inversion including with SVD](https://andrewcumming.github.io/phys512/polynomial_fit.html#polynomial-fitting), [conjugate gradient](https://andrewcumming.github.io/phys512/conjugate_gradient.html#conjugate-gradient-method) for sparse matrices.
 - How to implement boundary conditions in finite difference schemes
 - The discrete Fourier transform: frequency spacing, maximum spacing, aliasing, leakage
-- The difference between convolution and cross-correlation and how to implement them in Fourier space. Zero-padding and why/when it is needed. 
+- The difference between convolution and cross-correlation and how to implement them in Fourier space. [Zero-padding](https://andrewcumming.github.io/phys512/hw7.html) and why/when it is needed. 
 
 
 
@@ -54,6 +54,7 @@ and with [different boundary conditions](https://andrewcumming.github.io/phys512
 - [Constructing an equation of state table](https://andrewcumming.github.io/phys512/hw1.html#interpolation-and-thermodynamics-solution)
 - [Evaluating Fermi integrals](https://andrewcumming.github.io/phys512/hw2.html#chemical-potential-of-a-fermi-gas-solution)
 - [Sampling a Maxwell-Boltzmann distribution](https://andrewcumming.github.io/phys512/hw2.html#sampling-the-maxwell-boltzmann-distribution-solution)
+- Sampling microstates in the [Ising model](https://andrewcumming.github.io/phys512/hw3.html#ising-model-solution)
 
 **Orbits**
 
