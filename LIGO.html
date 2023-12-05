@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -77,15 +76,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -146,14 +136,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -254,6 +243,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Timing, profiling and compiling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -444,10 +437,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -455,7 +448,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -549,8 +542,8 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Template&#39;)
 </pre></div>
 </div>
-<img alt="_images/2a6667fb2e9eb6c09230b9e39a66c53bcd71adcb6268180a9f2ff033027b2f3e.png" src="_images/2a6667fb2e9eb6c09230b9e39a66c53bcd71adcb6268180a9f2ff033027b2f3e.png" />
-<img alt="_images/cc72cd4326bf0e4d17404cea31211b8cafcb5794e3a77cf18ed089922e4ef354.png" src="_images/cc72cd4326bf0e4d17404cea31211b8cafcb5794e3a77cf18ed089922e4ef354.png" />
+<img alt="_images/714fd94d0689794df440945291b63bb663ded19193c1ddd6fd1f4ef32a4cca78.png" src="_images/714fd94d0689794df440945291b63bb663ded19193c1ddd6fd1f4ef32a4cca78.png" />
+<img alt="_images/23b6c98261264fc81aee30c858db281d611cdcf2cd3b1317916c7e331bfe3e66.png" src="_images/23b6c98261264fc81aee30c858db281d611cdcf2cd3b1317916c7e331bfe3e66.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -587,16 +580,14 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/matplotlib/cbook.py:1699: ComplexWarning: Casting complex values to real discards the imaginary part
-  return math.isfinite(val)
-/opt/homebrew/lib/python3.11/site-packages/matplotlib/cbook.py:1345: ComplexWarning: Casting complex values to real discards the imaginary part
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/homebrew/lib/python3.11/site-packages/matplotlib/cbook/__init__.py:1335: ComplexWarning: Casting complex values to real discards the imaginary part
   return np.asarray(x, float)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x14fe41210&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x1392cf850&gt;
 </pre></div>
 </div>
-<img alt="_images/df8a7191203c2eeb80df431368e08117e3455fc1ca49195992e4c6b3c63670bf.png" src="_images/df8a7191203c2eeb80df431368e08117e3455fc1ca49195992e4c6b3c63670bf.png" />
+<img alt="_images/74eff8e714f8b6b39f6c38d8f2ad86edc1ddbf28a00be1ffec13a0179e6afa23.png" src="_images/74eff8e714f8b6b39f6c38d8f2ad86edc1ddbf28a00be1ffec13a0179e6afa23.png" />
 </div>
 </div>
 </section>
@@ -656,9 +647,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f2ee48d4af37ea952050c8354ea7b013285ca8ca3253d7248b93ffda1e089336.png" src="_images/f2ee48d4af37ea952050c8354ea7b013285ca8ca3253d7248b93ffda1e089336.png" />
-<img alt="_images/94adc7dc97d5b15ff37a8eb5559a0c38e60ec322880962738babdc0395961c14.png" src="_images/94adc7dc97d5b15ff37a8eb5559a0c38e60ec322880962738babdc0395961c14.png" />
-<img alt="_images/c904523620be02928e646c6f839527d8d52726af454a858f99fe2101681819c2.png" src="_images/c904523620be02928e646c6f839527d8d52726af454a858f99fe2101681819c2.png" />
+<img alt="_images/d10653caf33f41be21a8592402ca92f3215f48167ae98b81e4d19d82cd3f3bd2.png" src="_images/d10653caf33f41be21a8592402ca92f3215f48167ae98b81e4d19d82cd3f3bd2.png" />
+<img alt="_images/b01f472ef01f612cfabba1fe2ed6c7e6e7a64ab71253c2101e54a8dac9720a17.png" src="_images/b01f472ef01f612cfabba1fe2ed6c7e6e7a64ab71253c2101e54a8dac9720a17.png" />
+<img alt="_images/0b667c0aa8df802952150084f38ec5087035c42eb0870400a44a4e4a811a675b.png" src="_images/0b667c0aa8df802952150084f38ec5087035c42eb0870400a44a4e4a811a675b.png" />
 </div>
 </div>
 </section>
@@ -677,7 +668,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b2256415c533ed0f5741107800e881ad9e9c66341b20a53f2da95e529a589bc.png" src="_images/6b2256415c533ed0f5741107800e881ad9e9c66341b20a53f2da95e529a589bc.png" />
+<img alt="_images/1e927730b74295883634f3c51351413b14a6ebd24cee54e5d502eb19071a1380.png" src="_images/1e927730b74295883634f3c51351413b14a6ebd24cee54e5d502eb19071a1380.png" />
 </div>
 </div>
 </section>
@@ -728,13 +719,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8d7be8a8c2bb8cfe517d203e0789745218fbbf03f124e4f1a523a3869182ed82.png" src="_images/8d7be8a8c2bb8cfe517d203e0789745218fbbf03f124e4f1a523a3869182ed82.png" />
+<img alt="_images/bec7c1651722f0e5e8124d6a8e3ae932f0302c8399c59f6db9db82fe25a42342.png" src="_images/bec7c1651722f0e5e8124d6a8e3ae932f0302c8399c59f6db9db82fe25a42342.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2048.     -2047.9375 -2047.875  ...  2047.8125  2047.875   2047.9375]
 [0.000e+00 1.000e+00 2.000e+00 ... 2.046e+03 2.047e+03 2.048e+03]
 [0.00023865 0.00035458 0.00047051 ... 0.00023865 0.00023865 0.00023865]
 </pre></div>
 </div>
-<img alt="_images/f7856a43203af9b4f69382713dfd905c8122f5dbbb1b8030cde4540699c8a089.png" src="_images/f7856a43203af9b4f69382713dfd905c8122f5dbbb1b8030cde4540699c8a089.png" />
+<img alt="_images/4fdfa3fc3f4c77c841d21d39f740376d781e92a86c565931dda63d77279d168c.png" src="_images/4fdfa3fc3f4c77c841d21d39f740376d781e92a86c565931dda63d77279d168c.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -768,7 +759,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/93aff8454aacb862bd6c2e1c9e008c4f7842702a7c4bf419a8fe71c26a9be0c1.png" src="_images/93aff8454aacb862bd6c2e1c9e008c4f7842702a7c4bf419a8fe71c26a9be0c1.png" />
+<img alt="_images/018925a2c049ac0bc723d45daf82553b65c26177e8af770bbaa6e84347ed7fd0.png" src="_images/018925a2c049ac0bc723d45daf82553b65c26177e8af770bbaa6e84347ed7fd0.png" />
 </div>
 </div>
 </section>
@@ -799,10 +790,11 @@ document.write(`
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="adv_diff_finite_difference.html"
@@ -822,7 +814,10 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -888,8 +883,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

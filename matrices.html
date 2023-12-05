@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -79,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -148,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -256,6 +245,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="performance.html">Timing, profiling and compiling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="nav bd-sidenav">
@@ -446,10 +439,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -457,7 +450,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -527,13 +520,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.27641205 0.44129442 0.94937789]
- [0.75950644 0.28561593 0.25216694]
- [0.58419501 0.86831908 0.82557519]
- [0.58014008 0.40300945 0.11332014]]
-[0.75950644 0.28561593 0.25216694]
-0.252166940569011
-0.252166940569011
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.40819625 0.29475892 0.15926225]
+ [0.15780819 0.88502996 0.74117164]
+ [0.29087106 0.311371   0.8050249 ]
+ [0.4194079  0.7317027  0.07672706]]
+[0.15780819 0.88502996 0.74117164]
+0.7411716408084696
+0.7411716408084696
 </pre></div>
 </div>
 </div>
@@ -546,9 +539,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.27641205, 0.75950644, 0.58419501, 0.58014008],
-       [0.44129442, 0.28561593, 0.86831908, 0.40300945],
-       [0.94937789, 0.25216694, 0.82557519, 0.11332014]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.40819625, 0.15780819, 0.29087106, 0.4194079 ],
+       [0.29475892, 0.88502996, 0.311371  , 0.7317027 ],
+       [0.15926225, 0.74117164, 0.8050249 , 0.07672706]])
 </pre></div>
 </div>
 </div>
@@ -562,7 +555,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.00713453, 2.08723912, 4.79755876, 1.7261194 ])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1.47550085, 4.15138304, 3.32868777, 2.11299447])
 </pre></div>
 </div>
 </div>
@@ -608,8 +601,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1.00000000e+00, 4.04924814e-17],
-       [5.55687124e-18, 1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00, -1.21663225e-16],
+       [-2.07630361e-16,  1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -623,8 +616,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.7411832140498896
--0.7411832140498895
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.10985017410307804
+-0.10985017410307807
 </pre></div>
 </div>
 </div>
@@ -690,11 +683,11 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f4109a963ef32c73458999100aa7b66417d3d11bd7ec3dbd5b357b6ad83a4d89.png" src="_images/f4109a963ef32c73458999100aa7b66417d3d11bd7ec3dbd5b357b6ad83a4d89.png" />
+<img alt="_images/9679345e62f243535c11d2eb3e74223c4998b1448afc365ec5940e1687959e93.png" src="_images/9679345e62f243535c11d2eb3e74223c4998b1448afc365ec5940e1687959e93.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/a59d70ea8ce4deb9004aaa17a4f7885de47f6562f0a80b1950abc3b6b948d50b.png" src="_images/a59d70ea8ce4deb9004aaa17a4f7885de47f6562f0a80b1950abc3b6b948d50b.png" />
+<img alt="_images/c44c09b1fcd0a23ceb90d4befad5d082359f22bc73e087f6ca70112b332b3c61.png" src="_images/c44c09b1fcd0a23ceb90d4befad5d082359f22bc73e087f6ca70112b332b3c61.png" />
 </div>
 </div>
 </section>
@@ -738,19 +731,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [11.47221837  0.03668971  1.47991667  1.87075647  8.56561745  7.74888503
-  6.88185474  5.48311821  3.61816152  4.34675376]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [11.07589442  0.21475062  8.72930369  7.54706585  1.61222714  2.01206558
+  3.04867793  4.26423786  5.56332674  6.03367291]
 Eigenvector check:
-0 3.1086244689504383e-15
-1 1.470178145890344e-15
-2 3.594347042223944e-15
-3 2.3869795029440866e-15
-4 1.0658141036401503e-14
-5 3.6637359812630166e-15
-6 6.050715484207103e-15
-7 7.993605777301127e-15
-8 1.6566609195578508e-15
-9 1.6653345369377348e-15
+0 5.329070518200751e-15
+1 6.331740687315346e-16
+2 2.7478019859472624e-15
+3 8.881784197001252e-15
+4 2.886579864025407e-15
+5 3.1086244689504383e-15
+6 2.1718737919229625e-15
+7 2.220446049250313e-15
+8 4.440892098500626e-15
+9 8.881784197001252e-16
 </pre></div>
 </div>
 </div>
@@ -769,11 +762,11 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/ba75289fed3773f30cb819477684633b2a6285cef49af24938b4a8592dc1415a.png" src="_images/ba75289fed3773f30cb819477684633b2a6285cef49af24938b4a8592dc1415a.png" />
+<img alt="_images/816af9ae5f4a90625f7d652c9a1e2e47eaec15069eb4f6b674f1b210322270f3.png" src="_images/816af9ae5f4a90625f7d652c9a1e2e47eaec15069eb4f6b674f1b210322270f3.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/6ba0c2d27a1366627fdfc95152f1f7546418093e81bb1f0475a044d7ccce392a.png" src="_images/6ba0c2d27a1366627fdfc95152f1f7546418093e81bb1f0475a044d7ccce392a.png" />
+<img alt="_images/f1c9891b9a4a9c8d308615d033e6d6b57b07e0070a3b88ca86cb8751b09faa5a.png" src="_images/f1c9891b9a4a9c8d308615d033e6d6b57b07e0070a3b88ca86cb8751b09faa5a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -786,7 +779,7 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/4b268c8dfad47d94c9fa690f00f7a41c3f8b43f54bd31b0222f569a03a54838d.png" src="_images/4b268c8dfad47d94c9fa690f00f7a41c3f8b43f54bd31b0222f569a03a54838d.png" />
+<img alt="_images/4227d98ea4b41cfc4666558e57a122c83b5ecd086b90ad0a0cda7f572e1de701.png" src="_images/4227d98ea4b41cfc4666558e57a122c83b5ecd086b90ad0a0cda7f572e1de701.png" />
 </div>
 </div>
 </section>
@@ -826,25 +819,25 @@ Eigenvector check:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [1.70183374 0.77381952 0.29560422]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [1.9044694  0.47908667 0.06047157]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f9baf96fdcca83b8e75dc867be5a5333c988be09cad119f40d338393234559fa.png" src="_images/f9baf96fdcca83b8e75dc867be5a5333c988be09cad119f40d338393234559fa.png" />
+<img alt="_images/bd83e8f11c8b9fd499c159e9b8742e7f9b4c61b932f4f2796e5adddae7e84db1.png" src="_images/bd83e8f11c8b9fd499c159e9b8742e7f9b4c61b932f4f2796e5adddae7e84db1.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1d1c97fdd8bd72803185adfe40556ec445b3fb103ce99ff77f3f3fe58b7b3e9c.png" src="_images/1d1c97fdd8bd72803185adfe40556ec445b3fb103ce99ff77f3f3fe58b7b3e9c.png" />
+<img alt="_images/15c2e62b38632ac37499f0c5116b1dad4be01c3897febc71a17fd65718dcc3e0.png" src="_images/15c2e62b38632ac37499f0c5116b1dad4be01c3897febc71a17fd65718dcc3e0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/180441f57c0f851ace9e8da1c8049ed517bc21fd8d96eb19ef74cd667a3d815c.png" src="_images/180441f57c0f851ace9e8da1c8049ed517bc21fd8d96eb19ef74cd667a3d815c.png" />
+<img alt="_images/df2a6435efca07e5308548fcd89c2cf21bcbec8f0f9c7da0feeb60d75f42bf69.png" src="_images/df2a6435efca07e5308548fcd89c2cf21bcbec8f0f9c7da0feeb60d75f42bf69.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1ba2f28d39ee1de597e3a28809993cb434d3b3db2abc5d313408533cfc5f563a.png" src="_images/1ba2f28d39ee1de597e3a28809993cb434d3b3db2abc5d313408533cfc5f563a.png" />
+<img alt="_images/18d059e21d827538e8a7d55e41bf852f0236ece333cb2a23d6cc5553124463ff.png" src="_images/18d059e21d827538e8a7d55e41bf852f0236ece333cb2a23d6cc5553124463ff.png" />
 </div>
 </div>
 </section>
@@ -875,10 +868,11 @@ Eigenvector check:
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="metropolis_solutions.html"
@@ -898,7 +892,10 @@ Eigenvector check:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -968,8 +965,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
