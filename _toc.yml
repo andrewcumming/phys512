@@ -85,6 +85,9 @@ parts:
     - caption: Performance
       chapters:
         - file: performance
+    - caption: Summary
+      chapters:
+        - file: summary
     - caption: Homework
       chapters:
         - file: hw1
