@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -78,6 +79,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -138,13 +148,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
@@ -238,8 +249,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LIGO.html">LIGO tutorial: find an inspiral</a></li>
 </ul>
 </li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Timing, profiling and compiling</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
 <ul class="current nav bd-sidenav">
@@ -430,10 +446,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -441,7 +457,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -573,22 +589,22 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/dea640e6544c09318a06678cc3d60b40bb8a13e402215679c1820986f9994f35.png" src="_images/dea640e6544c09318a06678cc3d60b40bb8a13e402215679c1820986f9994f35.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [3.75591517 1.16546492 0.79445618 0.69303853 0.65224999 0.45108151]
+<img alt="_images/cca29f03dfa03c6acd5874b1b2709c8faf3fdacf3ceb1834c9210c4b51f3b016.png" src="_images/cca29f03dfa03c6acd5874b1b2709c8faf3fdacf3ceb1834c9210c4b51f3b016.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [3.58271413 1.24049336 1.02353553 1.01880468 0.79756902 0.56085585]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/30373a9d713111461881cbee8fc1d05607dbd50974ca634dd5855bd3849e0994.png" src="_images/30373a9d713111461881cbee8fc1d05607dbd50974ca634dd5855bd3849e0994.png" />
+<img alt="_images/d08023c348a38bdd70acd1b44d85f9fd4a825119da96a15994a2032a97efa08f.png" src="_images/d08023c348a38bdd70acd1b44d85f9fd4a825119da96a15994a2032a97efa08f.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/6f53ee98b72b9d2b69d7b1c93de7411e83e522f0b3a70b79e5c8279191a3fae0.png" src="_images/6f53ee98b72b9d2b69d7b1c93de7411e83e522f0b3a70b79e5c8279191a3fae0.png" />
+<img alt="_images/089f9b734fc20495c4169b5104fd70c7a4324ec7c28c1d1aa62fc4c9a1b816dd.png" src="_images/089f9b734fc20495c4169b5104fd70c7a4324ec7c28c1d1aa62fc4c9a1b816dd.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f103bf21d396138b1d69460ed2d1850ad23b50f43cba5ab0c7ef551d1fa860af.png" src="_images/f103bf21d396138b1d69460ed2d1850ad23b50f43cba5ab0c7ef551d1fa860af.png" />
+<img alt="_images/a9a1804526fd29984d226eb36c7b1e5fc7037c5a9a137a96089e677969e8e750.png" src="_images/a9a1804526fd29984d226eb36c7b1e5fc7037c5a9a137a96089e677969e8e750.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -624,23 +640,23 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/0304e8b1196d4bb93b522ba3a9da6c39858d75942c2dee145a0f08167b4f28ac.png" src="_images/0304e8b1196d4bb93b522ba3a9da6c39858d75942c2dee145a0f08167b4f28ac.png" />
+<img alt="_images/a34ed42db91ff9ef2da09c32aeb921e9a26c5b157ea8658478ed17b9c811a214.png" src="_images/a34ed42db91ff9ef2da09c32aeb921e9a26c5b157ea8658478ed17b9c811a214.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape =  260 262
 </pre></div>
 </div>
-<img alt="_images/f293808696aa68a0efc38fa1715864bb5ec3ccb6025927dd09429549633e0747.png" src="_images/f293808696aa68a0efc38fa1715864bb5ec3ccb6025927dd09429549633e0747.png" />
+<img alt="_images/e41dfb1fd19e9e552eee82fc950f86b962e035f4f420febf3d730c3e3faab484.png" src="_images/e41dfb1fd19e9e552eee82fc950f86b962e035f4f420febf3d730c3e3faab484.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/57db23cf1998e828ae38a8495a4bbd4ee91358d5b16d019dfe07211b477ea1d2.png" src="_images/57db23cf1998e828ae38a8495a4bbd4ee91358d5b16d019dfe07211b477ea1d2.png" />
+<img alt="_images/9c9a6056435fd7d575c8cb536ad4c9301fd08f6bee07c7d7a1329fb76c2e0961.png" src="_images/9c9a6056435fd7d575c8cb536ad4c9301fd08f6bee07c7d7a1329fb76c2e0961.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/21e535f4927f1f088db9d5c1056f939e0ab31f17747d3fe30ba9d8ce0e4c5e78.png" src="_images/21e535f4927f1f088db9d5c1056f939e0ab31f17747d3fe30ba9d8ce0e4c5e78.png" />
+<img alt="_images/8ec7928ffcf97ae31546ee373ccd5c9884469a8f9db7bbe7a4003b59ff94c83d.png" src="_images/8ec7928ffcf97ae31546ee373ccd5c9884469a8f9db7bbe7a4003b59ff94c83d.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/8715763893776079498b07627c1aa737ca678507efb9878c54fdfdff2ab68356.png" src="_images/8715763893776079498b07627c1aa737ca678507efb9878c54fdfdff2ab68356.png" />
+<img alt="_images/8339baac4060d06e3acaca151bd385a2d32db9f51653464c32ec390e7ae18815.png" src="_images/8339baac4060d06e3acaca151bd385a2d32db9f51653464c32ec390e7ae18815.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
@@ -664,51 +680,51 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/d1bdf617649e6b15baf1e786d45fa3399357df2e43169ae734693663b4a05367.png" src="_images/d1bdf617649e6b15baf1e786d45fa3399357df2e43169ae734693663b4a05367.png" />
+<img alt="_images/6cd94ca91d55a59b108a72c5e72a80101957ed10a885b0d6ac2da5f056e4454a.png" src="_images/6cd94ca91d55a59b108a72c5e72a80101957ed10a885b0d6ac2da5f056e4454a.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/e28a7938343bffb9ca50720c302de70349c73338951ffa334d91f33838dd0ef5.png" src="_images/e28a7938343bffb9ca50720c302de70349c73338951ffa334d91f33838dd0ef5.png" />
+<img alt="_images/c4dc296a913175b1d720d6da4177faa28501b44d367ca584bb5f5ae94e73aed5.png" src="_images/c4dc296a913175b1d720d6da4177faa28501b44d367ca584bb5f5ae94e73aed5.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/4cbc5b923afc40d84920d019f9a1f05603150c266b596d49ad5f7673ffeced85.png" src="_images/4cbc5b923afc40d84920d019f9a1f05603150c266b596d49ad5f7673ffeced85.png" />
+<img alt="_images/9ef340447031b39fc021225a3ace4ee735701508e84c657a2df2dc89b08b04cb.png" src="_images/9ef340447031b39fc021225a3ace4ee735701508e84c657a2df2dc89b08b04cb.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/88f783dc6b6a6cd0325123b33e22d29b46ef5cbc463d613b8b71dd927b9f8f6d.png" src="_images/88f783dc6b6a6cd0325123b33e22d29b46ef5cbc463d613b8b71dd927b9f8f6d.png" />
+<img alt="_images/c2eab6f734f6c49fb966a215f5fd15e82fb24931936e408350fb7710d54c2d07.png" src="_images/c2eab6f734f6c49fb966a215f5fd15e82fb24931936e408350fb7710d54c2d07.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/bdc0fcf9775c4c2625e8c853ded5c9d7cfa28a3c10151f6b4d37e476005325c3.png" src="_images/bdc0fcf9775c4c2625e8c853ded5c9d7cfa28a3c10151f6b4d37e476005325c3.png" />
+<img alt="_images/d24aac394bce6470eb8b0eab92f957b1d92d2a04651a91c51be38b7de9d9b77b.png" src="_images/d24aac394bce6470eb8b0eab92f957b1d92d2a04651a91c51be38b7de9d9b77b.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c91947d379d2a658e0a27bc4c351f8ae45a0693b6ee91593608900e10932433e.png" src="_images/c91947d379d2a658e0a27bc4c351f8ae45a0693b6ee91593608900e10932433e.png" />
+<img alt="_images/a64894d360ba4025b9b9e1329396655a3aa24ed743892afb0c8da1020d787cba.png" src="_images/a64894d360ba4025b9b9e1329396655a3aa24ed743892afb0c8da1020d787cba.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/8260448ec91f67df45ca04b3f17ac65da8eca970e7c865d71a93efbd1cd690f3.png" src="_images/8260448ec91f67df45ca04b3f17ac65da8eca970e7c865d71a93efbd1cd690f3.png" />
+<img alt="_images/5a72720ddf97b75b39256e172b4d6cee5a6fadc57ee7931d5aaa3634957950e9.png" src="_images/5a72720ddf97b75b39256e172b4d6cee5a6fadc57ee7931d5aaa3634957950e9.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/cdb313db4e49b4665f4576998ee040762a49c5341cdb83c87c159f34b8b0d526.png" src="_images/cdb313db4e49b4665f4576998ee040762a49c5341cdb83c87c159f34b8b0d526.png" />
+<img alt="_images/e01d5aa2ed405f58e4e236c11b810bc24a32bb399c8ce12a1066b0cd8505a1c2.png" src="_images/e01d5aa2ed405f58e4e236c11b810bc24a32bb399c8ce12a1066b0cd8505a1c2.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/fc1a134ecfd0ff7cfabf21b8a81d4b2fec49aa7481d26b26eff41145935c49cb.png" src="_images/fc1a134ecfd0ff7cfabf21b8a81d4b2fec49aa7481d26b26eff41145935c49cb.png" />
+<img alt="_images/d4c59ccb593ae36362abf8ee9541dd4a7cfc4ea3d83c1c21f6b97966498873e7.png" src="_images/d4c59ccb593ae36362abf8ee9541dd4a7cfc4ea3d83c1c21f6b97966498873e7.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/ad98740f9eee9bb7dd2a27e20f7cc6db01451583869e97589c58de59673070f5.png" src="_images/ad98740f9eee9bb7dd2a27e20f7cc6db01451583869e97589c58de59673070f5.png" />
+<img alt="_images/a8fe3f43c0a088b53a45c69eca1f0559958464865a221d56a58739b9dcf81ef2.png" src="_images/a8fe3f43c0a088b53a45c69eca1f0559958464865a221d56a58739b9dcf81ef2.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/193c3a0080586a59a0545d61d772ffc312800d829a43283f8dc5f8c1a9b9ce27.png" src="_images/193c3a0080586a59a0545d61d772ffc312800d829a43283f8dc5f8c1a9b9ce27.png" />
+<img alt="_images/7279a0ac9da9b31f82f2367744b04677b715b736b1f5df0704f8584f2b4d01f0.png" src="_images/7279a0ac9da9b31f82f2367744b04677b715b736b1f5df0704f8584f2b4d01f0.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/e79384858e3b7a4011e86125d57594cbd41b06271a91480e900fb394bf981d6b.png" src="_images/e79384858e3b7a4011e86125d57594cbd41b06271a91480e900fb394bf981d6b.png" />
+<img alt="_images/514eb4d43b9cf7d26b71c983ffafb21f094b577193609ba3fe7309f80371242e.png" src="_images/514eb4d43b9cf7d26b71c983ffafb21f094b577193609ba3fe7309f80371242e.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -907,7 +923,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/e4d0f77db3503360e1a805cc4106d490cdae984f4fb60591bc84991f8ebec898.png" src="_images/e4d0f77db3503360e1a805cc4106d490cdae984f4fb60591bc84991f8ebec898.png" />
+<img alt="_images/27ee5af6a63e0f8528308320a25abc51e4abbd156060edb9db552ee4c4554369.png" src="_images/27ee5af6a63e0f8528308320a25abc51e4abbd156060edb9db552ee4c4554369.png" />
 </div>
 </div>
 <p>Note that the eccentricity from the fit comes out negative, this is because of a degeneracy between <span class="math notranslate nohighlight">\(e\)</span> and the angles <span class="math notranslate nohighlight">\(\omega_P\)</span> and <span class="math notranslate nohighlight">\(t_P\)</span>. By adjusting these, we can fix the eccentricity to be positive:</p>
@@ -937,7 +953,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/2e47893bde0c5e7af4b32baa1568844174cc700e9753103bd53456ca4eb04d53.png" src="_images/2e47893bde0c5e7af4b32baa1568844174cc700e9753103bd53456ca4eb04d53.png" />
+<img alt="_images/acb2545a2a0e57701dbcf8de7605480b42b9d8714834ee0ef87d5470dd9e54d6.png" src="_images/acb2545a2a0e57701dbcf8de7605480b42b9d8714834ee0ef87d5470dd9e54d6.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1013,7 +1029,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39874
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Acceptance fraction = 0.39699
 </pre></div>
 </div>
 </div>
@@ -1033,7 +1049,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/1d857e41676a11044a5cf5d4a4883dd463214369b4866a225e683c319e86c8cf.png" src="_images/1d857e41676a11044a5cf5d4a4883dd463214369b4866a225e683c319e86c8cf.png" />
+<img alt="_images/e4e9901cf53dc01a5975a10ed18b7d34ac32e4ce49c05718cdb53b19eb6e5766.png" src="_images/e4e9901cf53dc01a5975a10ed18b7d34ac32e4ce49c05718cdb53b19eb6e5766.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1049,11 +1065,11 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   parameter         MCMC           LS     MCMC var       LS var    frac diff
-      $M/MJ$      4.85581      4.84971  0.000834335  0.000848462  -0.00839445
-         $e$     0.365967     0.365386  2.89354e-05  2.87864e-05   0.00258289
-    $\omega$     0.258815     0.256843  0.000317582  0.000377849   -0.0866607
-       $t_P$      1353.77      1353.37      13.9456      16.2268    -0.075606
-       $v_0$     -28.4408     -28.4066     0.184633     0.183562   0.00290835
+      $M/MJ$      4.85633      4.84971  0.000854292  0.000848462   0.00342401
+         $e$     0.365673     0.365386  2.93545e-05  2.87864e-05   0.00977231
+    $\omega$     0.258709     0.256843  0.000378239  0.000377849  0.000516056
+       $t_P$      1353.76      1353.37      16.3647      16.2268   0.00423238
+       $v_0$     -28.4265     -28.4066     0.186661     0.183562   0.00836887
 </pre></div>
 </div>
 </div>
@@ -1077,17 +1093,17 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
  [-1.316e-02 -2.972e-03  7.299e-02  1.623e+01  6.866e-02]
  [-4.161e-03 -3.427e-04  4.870e-04  6.866e-02  1.836e-01]] 
 
- [[ 8.343e-04 -6.201e-05 -3.552e-05 -9.382e-03 -3.889e-03]
- [-6.201e-05  2.894e-05 -5.840e-06 -2.508e-03 -3.450e-04]
- [-3.552e-05 -5.840e-06  3.176e-04  6.133e-02  2.798e-04]
- [-9.382e-03 -2.508e-03  6.133e-02  1.395e+01  1.490e-02]
- [-3.889e-03 -3.450e-04  2.798e-04  1.490e-02  1.846e-01]]
+ [[ 8.543e-04 -5.892e-05 -5.492e-05 -1.380e-02 -4.165e-03]
+ [-5.892e-05  2.935e-05 -1.236e-05 -3.910e-03 -3.699e-04]
+ [-5.492e-05 -1.236e-05  3.782e-04  7.328e-02  5.863e-04]
+ [-1.380e-02 -3.910e-03  7.328e-02  1.636e+01  9.197e-02]
+ [-4.165e-03 -3.699e-04  5.863e-04  9.197e-02  1.867e-01]]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c69cc510648abdb23347223e767cd5531bd62df5e9314475f1c9206d03c7c0fd.png" src="_images/c69cc510648abdb23347223e767cd5531bd62df5e9314475f1c9206d03c7c0fd.png" />
+<img alt="_images/5c0bcf4af4d214720ef1fd8327b4c78c74040c4750155f3ccb3faa766b4dfe43.png" src="_images/5c0bcf4af4d214720ef1fd8327b4c78c74040c4750155f3ccb3faa766b4dfe43.png" />
 </div>
 </div>
 </section>
@@ -1118,11 +1134,10 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="HW3_solutions.html"
@@ -1142,10 +1157,7 @@ Best-fit parameters: M = 4.84971, e = -0.365386, omega = 0.256843, tP = 491.372,
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1209,8 +1221,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>

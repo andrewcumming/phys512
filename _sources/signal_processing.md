@@ -18,4 +18,5 @@ Here are some questions to answer as you work through it:
 
 - what is happening in the two lines below the comment ``# -- Calculate the matched filter output`` that calculate `optimal` and `optimal_time`?
 
-``` 
+[[Solution]](https://andrewcumming.github.io/phys512/LIGO.html)
+```

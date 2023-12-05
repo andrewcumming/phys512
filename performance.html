@@ -1,0 +1,1185 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Timing, profiling and compiling &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'performance';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Homework 1" href="hw1.html" />
+    <link rel="prev" title="LIGO tutorial: find an inspiral" href="LIGO.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mltensorflow.html">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="runge_kutta.html">Initial value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Boundary conditions and numerical stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffusion.html">Diffusion in multi-dimensions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conjugate_gradient_solutions.html">Conjugate gradient solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_instability_solutions.html">Boundary conditions and numerical stability solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LIGO.html">LIGO tutorial: find an inspiral</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Timing, profiling and compiling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw6.html">Homework 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw7.html">Homework 7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW6_solutions.html">Homework 6 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fperformance.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/performance.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Timing, profiling and compiling</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling">Profiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-track-of-memory">Keeping track of memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-python">Compiling python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-examples">Other examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="timing-profiling-and-compiling">
+<h1>Timing, profiling and compiling<a class="headerlink" href="#timing-profiling-and-compiling" title="Permalink to this heading">#</a></h1>
+<section id="timing">
+<h2>Timing<a class="headerlink" href="#timing" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">3945</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>A straightforward way to time code is to read the current time with <code class="docutils literal notranslate"><span class="pre">time.time()</span></code>. For example, consider the following matrix multiplication:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@A</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GFLOPS = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.02182292938232422
+GFLOPS =  91.6467246427479
+</pre></div>
+</div>
+</div>
+</div>
+<p>As well as the time taken, this also outputs the number of floating point operations per second (in units of <span class="math notranslate nohighlight">\(10^9\)</span> FLOPS or GFLOPS). I’ve used the fact that for each element of the new matrix we have to do <span class="math notranslate nohighlight">\(n\)</span> multiplications and <span class="math notranslate nohighlight">\(\approx n\)</span> additions, so we expect the total number of operations to be <span class="math notranslate nohighlight">\(2n^3\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>it -n 3 -r 10
+<span class="c1"># -n gives the number of times to run for each time measurement</span>
+<span class="c1"># -r is the number of times to repeat the time measurement</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="nd">@A</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.1 ms ± 1.35 ms per loop (mean ± std. dev. of 10 runs, 3 loops each)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-question admonition">
+<p class="admonition-title">Question</p>
+<p>Does the number of GFLOPS we obtain here make sense? What should it be? How does it depend on <span class="math notranslate nohighlight">\(N\)</span>?</p>
+</div>
+</section>
+<section id="profiling">
+<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.integrate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also look in more detail at which parts of the code take the most time. This is known as <em>profiling</em>. As an example, let’s take a look at the code from the homework solutions that solves the Ising model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">run_ising</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>
+    
+    <span class="n">N</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="n">Nspins</span> <span class="o">=</span> <span class="n">N</span><span class="o">*</span><span class="n">N</span>
+    <span class="n">ntrials</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span>
+
+    <span class="c1"># Populate the array with random spins (+1 or -1)</span>
+    <span class="c1">#spins = -1 + rng.integers(2, size = Nspins) * 2</span>
+    <span class="n">spins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">Nspins</span><span class="p">)</span>
+
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ntrials</span><span class="p">)</span>
+    <span class="n">M</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spins</span><span class="p">)</span><span class="o">/</span><span class="n">Nspins</span>  <span class="c1"># starting point</span>
+
+    <span class="c1"># Compute the random numbers to use for accepting the jump in advance</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="n">ntrials</span><span class="p">)</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ntrials</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        
+        <span class="c1"># Choose spin at random</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">integers</span><span class="p">(</span><span class="n">Nspins</span><span class="p">)</span>
+        
+        <span class="c1"># Compute energy change if this spin were to flip</span>
+        <span class="n">delta_E</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">Nspins</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">N</span><span class="p">]</span> <span class="o">+</span> <span class="n">spins</span><span class="p">[(</span><span class="n">j</span><span class="o">+</span><span class="n">N</span><span class="p">)</span> <span class="o">%</span> <span class="n">Nspins</span><span class="p">])</span>
+    
+        <span class="c1"># Attempt flip</span>
+        <span class="k">if</span> <span class="n">u</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">beta</span><span class="o">*</span><span class="n">delta_E</span><span class="p">):</span>
+            <span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">spins</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+        
+        <span class="c1"># Store magnetization</span>
+        <span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">spins</span><span class="p">)</span><span class="o">/</span><span class="n">Nspins</span>
+        
+    <span class="c1"># remove the first 20% (burn in)</span>
+    <span class="k">return</span> <span class="n">M</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ntrials</span><span class="o">/</span><span class="mi">5</span><span class="p">):]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%prun</span> -q
+
+<span class="n">T_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">4.05</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">M_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T_vals</span><span class="p">)</span>
+<span class="n">chi_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T_vals</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">T</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">T_vals</span><span class="p">):</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">run_ising</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">M_vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+    <span class="n">chi_vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="mi">2</span><span class="p">))</span><span class="o">&lt;</span><span class="mf">1e-5</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T = &quot;</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">M</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;T=</span><span class="si">%g</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">T</span><span class="p">,))</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">((</span><span class="o">-</span><span class="mf">1.05</span><span class="p">,</span><span class="mf">1.05</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">errorbar</span><span class="p">(</span><span class="n">T_vals</span><span class="p">,</span> <span class="n">M_vals</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">chi_vals</span><span class="p">),</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$M$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">T_vals</span><span class="p">,</span> <span class="n">chi_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\sigma_M^2$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  1.0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  1.5000000000000004
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  2.000000000000001
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  2.5000000000000013
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  3.0000000000000018
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  3.500000000000002
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  4.000000000000003
+</pre></div>
+</div>
+<img alt="_images/11385d39d1a59bc0e22db05539bd0b8a70303736c8b56a41ca99ba5847390c4d.png" src="_images/11385d39d1a59bc0e22db05539bd0b8a70303736c8b56a41ca99ba5847390c4d.png" />
+<img alt="_images/3318b80c8111f84df5565f953b4aebf0cfa9d4e7bdcc4c7b2c155ffc5bc786a6.png" src="_images/3318b80c8111f84df5565f953b4aebf0cfa9d4e7bdcc4c7b2c155ffc5bc786a6.png" />
+<img alt="_images/df684936b82f3a35871b04b92332cbac71c87796c49573d4d0867bd076964c04.png" src="_images/df684936b82f3a35871b04b92332cbac71c87796c49573d4d0867bd076964c04.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="keeping-track-of-memory">
+<h2>Keeping track of memory<a class="headerlink" href="#keeping-track-of-memory" title="Permalink to this heading">#</a></h2>
+<p>As an example, here is the code we used for <a class="reference external" href="https://andrewcumming.github.io/phys512/adi.html#alternating-direction-implicit">2D diffusion</a>. We can use <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code> to look at the memory usage.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">tracemalloc</span>
+
+<span class="n">tracemalloc</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">construct_matrices</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+    <span class="c1"># This is the matrix for the explicit update on the RHS</span>
+    <span class="n">AR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">((</span><span class="mi">1</span><span class="o">-</span><span class="n">alpha</span><span class="p">)</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># and for the implicit update on the LHS</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">alpha</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">c</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">AL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">AL</span><span class="p">,</span> <span class="n">AR</span>
+
+<span class="k">def</span> <span class="nf">gaussian</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="c1"># Green&#39;s function for the diffusion equation</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="n">y</span><span class="o">-</span><span class="n">x0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">dy</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">t</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c1"># set up the grid and initial condition</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">xx</span><span class="p">,</span> <span class="n">yy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>   <span class="c1"># location of the gaussian</span>
+<span class="n">t0</span> <span class="o">=</span> <span class="mf">0.001</span>   <span class="c1"># initial time</span>
+<span class="n">T</span> <span class="o">=</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">t0</span><span class="p">)</span>
+
+<span class="c1"># timesteps</span>
+<span class="n">alpha</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">nsteps</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">dx</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">AL</span><span class="p">,</span> <span class="n">AR</span> <span class="o">=</span> <span class="n">construct_matrices</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+
+<span class="o">%</span><span class="k">matplotlib</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">: t=</span><span class="si">%lg</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">t0</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">Tnew</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+<span class="c1"># We take twice as many steps here because we are doing half-timesteps</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">nsteps</span><span class="p">):</span>
+
+    <span class="c1"># Compute the right-hand side matrix row by row</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">B</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">AR</span> <span class="o">@</span> <span class="n">T</span><span class="p">[</span><span class="n">j</span><span class="p">,:]</span>
+
+    <span class="c1"># and now solve column by column for the new T</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="n">Tnew</span><span class="p">[:,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AL</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span><span class="n">j</span><span class="p">])</span>
+
+    <span class="c1"># take the transpose to swap directions for the next half-step</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">Tnew</span><span class="o">.</span><span class="n">T</span>
+    
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">2</span> == 1:
+        <span class="n">ti</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">: t=</span><span class="si">%lg</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">,</span><span class="n">ti</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">pause</span><span class="p">(</span><span class="mf">1e-3</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="k">10</span> == 0:
+        <span class="n">current</span><span class="p">,</span> <span class="n">peak</span> <span class="o">=</span> <span class="n">tracemalloc</span><span class="o">.</span><span class="n">get_traced_memory</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step &quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="s2">&quot;: current/peak memory usage is&quot;</span><span class="p">,</span> <span class="n">current</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">peak</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="p">,</span> <span class="s2">&quot;MB&quot;</span><span class="p">)</span>
+
+<span class="c1"># compare the result with the analytic one</span>
+<span class="n">ti</span> <span class="o">=</span> <span class="n">t0</span> <span class="o">+</span> <span class="n">dt</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">i</span><span class="o">//</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">delta</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">-</span> <span class="n">gaussian</span><span class="p">(</span><span class="n">xx</span><span class="p">,</span> <span class="n">yy</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">ti</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T range = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">T</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;delta range = &quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">delta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">122</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">delta</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta T/T$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">shrink</span><span class="o">=</span><span class="mf">0.7</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">tracemalloc</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x1055730f0&gt;
+Step  0 : current/peak memory usage is 1.566681   1.733854 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  10 : current/peak memory usage is 4.829958   26.989476 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  20 : current/peak memory usage is 2.952211   28.42943 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  30 : current/peak memory usage is 6.420657   28.57345 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  40 : current/peak memory usage is 8.521255   30.705275 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  50 : current/peak memory usage is 3.689939   31.370323 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  60 : current/peak memory usage is 7.257898   31.370323 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  70 : current/peak memory usage is 2.269815   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  80 : current/peak memory usage is 5.071025   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  90 : current/peak memory usage is 7.916739   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  100 : current/peak memory usage is 2.943764   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  110 : current/peak memory usage is 5.76368   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  120 : current/peak memory usage is 8.579034   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  130 : current/peak memory usage is 3.046727   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  140 : current/peak memory usage is 6.564712   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  150 : current/peak memory usage is 9.335144   32.126782 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T range =  7.374417235632719e-06 7.286560064543426
+delta range =  -0.0022616334982004526 0.0006078416564473385
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1280x960 with 0 Axes&gt;
+</pre></div>
+</div>
+<img alt="_images/6fdc709b57d711d068fa718722280f53b64fad6b2a7d4d8b8498e79120f40159.png" src="_images/6fdc709b57d711d068fa718722280f53b64fad6b2a7d4d8b8498e79120f40159.png" />
+</div>
+</div>
+</section>
+<section id="compiling-python">
+<h2>Compiling python<a class="headerlink" href="#compiling-python" title="Permalink to this heading">#</a></h2>
+<p>Python can be slow because it is an interpreted rather than compiled language. As an example, let’s write our own implementation of matrix multiplication:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GFLOPS = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  2.1808810234069824
+GFLOPS =  0.007336484580440214
+</pre></div>
+</div>
+</div>
+</div>
+<p>One way to pre-compile python code is to use Cython. Let’s give it a try:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> Cython
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%</span><span class="k">cython</span>
+import numpy as np
+
+def matrix_multiply_cython(A):
+    n = np.shape(A)[0]
+    B = np.zeros((n,n))
+    for i in range(n):
+        for j in range(n):
+            for k in range(n):
+                B[i,j] += A[i,k] * A[k,j]
+    return B
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="c1">#B = np.zeros_like(A)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">matrix_multiply_cython</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GFLOPS = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.25324106216430664
+GFLOPS =  0.007897613376389844
+</pre></div>
+</div>
+</div>
+</div>
+<p><em>Just in time</em> (JIT) compilation using Numba:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numba</span> <span class="k">as</span> <span class="nn">nb</span>
+
+<span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+    <span class="c1"># note the use of prange in the next line for parallel loops</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">nb</span><span class="o">.</span><span class="n">prange</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+                <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">k</span><span class="p">,</span><span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">B</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GFLOPS = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;GFLOPS = &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">n</span><span class="o">**</span><span class="mi">3</span> <span class="o">/</span> <span class="p">(</span><span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span> <span class="o">/</span> <span class="mf">1e9</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.5457170009613037
+GFLOPS =  3.664903230936392
+Time taken =  0.16647982597351074
+GFLOPS =  12.013467627712608
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setting <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">=</span> <span class="pre">True</span></code> will use multiple cores with a significant speed up. It is also possible to use parallelism in Cython with OpenMP.</p>
+</section>
+<section id="other-examples">
+<h2>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Illustration of memory ordering</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">n</span><span class="p">)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">A</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.1413569450378418
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.24553537368774414
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Using built-in parallelization in scipy fft instead of numpy fft</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="mi">4</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+
+<span class="n">t_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">t_end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Time taken = &#39;</span><span class="p">,</span> <span class="n">t_end</span><span class="o">-</span><span class="n">t_start</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.5295419692993164
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.508798360824585
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.8693740367889404
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/timeit.html">timeit()</a> documentation which has details of how to call it directly from within your code or the command line.</p></li>
+<li><p><a class="reference external" href="https://en.wikichip.org/wiki/flops">Floating-Point Operations Per Second (FLOPS)</a> for different architectures.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/profile.html">cProfile documentation</a></p></li>
+<li><p><a class="reference external" href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-prun">%prun</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/tracemalloc.html">tracemalloc</a> to profile memory usage</p></li>
+<li><p>An interesting article on <a class="reference external" href="https://pythonspeed.com/articles/numpy-memory-views/">memory usage associated with NumPy slices and views</a></p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/index.html#">Cython</a></p></li>
+<li><p><a class="reference external" href="http://docs.cython.org/en/latest/src/userguide/numpy_tutorial.html#numpy-tutorial">Cython for NumPy users</a></p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/source_files_and_compilation.html#compiler-directives">Cython compiler directives</a></p></li>
+<li><p><a class="reference external" href="https://cython.readthedocs.io/en/latest/src/userguide/parallelism.html">Parallelism in cython</a></p></li>
+<li><p><a class="reference external" href="https://numba.pydata.org">Numba</a></p></li>
+<li><p><a class="reference external" href="https://www.pypy.org">PyPy</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/ctypes.html">ctypes</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/f2py/">f2py</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/multiprocessing.html">multiprocessing</a></p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="LIGO.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">LIGO tutorial: find an inspiral</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="hw1.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 1</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing">Timing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#profiling">Profiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#keeping-track-of-memory">Keeping track of memory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-python">Compiling python</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-examples">Other examples</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
