@@ -107,4 +107,5 @@ parts:
             - file: HW4_solutions
             - file: HW5_solutions
             - file: HW6_solutions
+            - file: HW7_solutions
 
