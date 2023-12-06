@@ -2,8 +2,7 @@
 
 Due on Tuesday Dec 5 by midnight.
 
-1. **Zero-padding the cross-correlation function**
-
+## 1. Zero-padding the cross-correlation function&nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW7_solutions.html#cross-correlation-function)
 
 The cross-correlation of two functions $f(x)$ and $g(x)$ is defined as
 
@@ -21,7 +20,7 @@ where FT indicates Fourier transform and the overbar indicates the complex conju
 
 (c) Try part (b) without zero-padding the DFTs. What difference does it make? What part of the cross-correlation function is computed in this case?
 
-2. **Diffusion again(!) but this time with Chebyshev polynomials**
+## 2. Diffusion again(!) but this time with Chebyshev polynomials&nbsp;&nbsp;[[Solution]](https://andrewcumming.github.io/phys512/HW7_solutions.html#chebyshev-polynomials)
 
 Write a code that solves the diffusion equation
 

@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,8 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -67,6 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'HW6_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Homework 7 solutions" href="HW7_solutions.html" />
     <link rel="prev" title="Homework 5 solutions" href="HW5_solutions.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -78,15 +78,6 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
-  
-  <div id="pst-scroll-pixel-helper"></div>
-
-  
-  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
-
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -147,14 +138,13 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
-  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -292,6 +282,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Homework 6 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW7_solutions.html">Homework 7 solutions</a></li>
 </ul>
 </li>
 </ul>
@@ -449,10 +440,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
 `);
 </script>
@@ -460,7 +451,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
 `);
 </script>
@@ -653,7 +644,7 @@ Delta Htilde =
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100 0.0009879354273425456 0.0009879354933575168
 </pre></div>
 </div>
-<img alt="_images/8deec0170dc1fdd7990103007a17b5e64ed94e4d56190c22c4ae383b54ae52bd.png" src="_images/8deec0170dc1fdd7990103007a17b5e64ed94e4d56190c22c4ae383b54ae52bd.png" />
+<img alt="_images/8d8899a5fa5b393f58424faeb0a7cf834c778945d4f388083ea5ce6e4f23f7d6.png" src="_images/8d8899a5fa5b393f58424faeb0a7cf834c778945d4f388083ea5ce6e4f23f7d6.png" />
 </div>
 </div>
 <p>The plot on the right shows that whereas the energy oscillates up and down over a cycle, the pseudo-Hamiltonian remains constant as expected.</p>
@@ -688,7 +679,7 @@ Delta Htilde =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/32b6e2d68eb5ed8618e04c6a9024e5e595e1586a8ef8b1e66318e0b617cc8c01.png" src="_images/32b6e2d68eb5ed8618e04c6a9024e5e595e1586a8ef8b1e66318e0b617cc8c01.png" />
+<img alt="_images/9d571476b251197510589ebbc8c3df2ad399889dba0cfc899cce2e74ad3a888c.png" src="_images/9d571476b251197510589ebbc8c3df2ad399889dba0cfc899cce2e74ad3a888c.png" />
 </div>
 </div>
 <p>For 1/2 a cycle, the energy error is <span class="math notranslate nohighlight">\(\propto 1/N^6\)</span>, whereas for 1/4 of a cycle we find <span class="math notranslate nohighlight">\(\propto 1/N^2\)</span>. In our expression for <span class="math notranslate nohighlight">\(\Delta H\)</span> above, averaging over an orbit will leave only the <span class="math notranslate nohighlight">\(h^6\)</span> term, so the <span class="math notranslate nohighlight">\(N^6\)</span> scaling makes sense. Over 1/4 of an orbit, we don’t get the averaging effect. The largest error term is <span class="math notranslate nohighlight">\(\propto h^3\)</span> (local error), which then accumulates over the integration (global error) to give an <span class="math notranslate nohighlight">\(N^2\)</span> scaling.</p>
@@ -735,11 +726,11 @@ Delta Htilde =
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/de4e4e0260aa4445c917b519734c3835c29891a97101bdcdcf6fce0eb08d8fe6.png" src="_images/de4e4e0260aa4445c917b519734c3835c29891a97101bdcdcf6fce0eb08d8fe6.png" />
+<img alt="_images/a195a254e09fc25fc420e40f2e9739ddac7c872bc31c865f99174aaa4853eb21.png" src="_images/a195a254e09fc25fc420e40f2e9739ddac7c872bc31c865f99174aaa4853eb21.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/6b6b0ee75d4c26014e646e449a815d5e8ccd73eddb318b44a13c654b6ca66df7.png" src="_images/6b6b0ee75d4c26014e646e449a815d5e8ccd73eddb318b44a13c654b6ca66df7.png" />
+<img alt="_images/70bfbbdd2c54c9aef5dcb876d15e57b9d84f48112574e003c4a321896718c051.png" src="_images/70bfbbdd2c54c9aef5dcb876d15e57b9d84f48112574e003c4a321896718c051.png" />
 </div>
 </div>
 </section>
@@ -835,10 +826,13 @@ Delta Htilde =
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x104033100&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x107c8f190&gt;
 </pre></div>
 </div>
-<img alt="_images/7ce73e1e3aa1fcb11c4713c8bd038c178decdec5aa96efbcd8a554f0e7585568.png" src="_images/7ce73e1e3aa1fcb11c4713c8bd038c178decdec5aa96efbcd8a554f0e7585568.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-06 10:54:28.702 Python[41942:2459247] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+</pre></div>
+</div>
+<img alt="_images/33b6cce85d705f9349d33ff251da61c001d76cc260d58acb8ef7bcf6575dc31c.png" src="_images/33b6cce85d705f9349d33ff251da61c001d76cc260d58acb8ef7bcf6575dc31c.png" />
 </div>
 </div>
 <p>The dot-dashed and dashed lines show the expected amplitudes of the reflected and transmitted waves.</p>
@@ -870,10 +864,11 @@ Delta Htilde =
 
               
               
-              
-              
-                <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="HW5_solutions.html"
@@ -884,7 +879,19 @@ Delta Htilde =
         <p class="prev-next-title">Homework 5 solutions</p>
       </div>
     </a>
+    <a class="right-next"
+       href="HW7_solutions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Homework 7 solutions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -949,8 +956,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
