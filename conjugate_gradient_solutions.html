@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,8 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -76,6 +77,15 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -136,13 +146,14 @@ const thebe_selector_output = ".output, .cell_output"
   
   
   
+  
     
     
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
@@ -438,10 +449,10 @@ const thebe_selector_output = ".output, .cell_output"
 
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -449,7 +460,7 @@ document.write(`
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -556,28 +567,28 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 250.96752966692054
-Iteration 0: pAp = 1.07056e+06, residual=3.63036
-Iteration 1: pAp = 1.88048e+06, residual=3.14968
-Iteration 2: pAp = 20186.3, residual=0.169308
-Iteration 3: pAp = 33.2314, residual=0.011746
-Iteration 4: pAp = 0.159819, residual=0.00083982
-Iteration 5: pAp = 0.00082013, residual=6.20606e-05
-Iteration 6: pAp = 6.20788e-06, residual=0.000410285
-Iteration 7: pAp = 0.0303088, residual=4.37376e-06
-Iteration 8: pAp = 2.22341e-08, residual=3.04645e-07
-Iteration 9: pAp = 1.07197e-10, residual=2.15841e-08
-Iteration 10: pAp = 5.41316e-13, residual=1.57092e-09
-Iteration 11: pAp = 2.868e-15, residual=1.32345e-10
-Iteration 12: pAp = 9.99831e-16, residual=2.41397e-10
-Iteration 13: pAp = 2.99368e-16, residual=8.44091e-12
-Iteration 14: pAp = 8.22245e-20, residual=5.65794e-13
-Iteration 15: pAp = 3.70797e-22, residual=4.26522e-14
-Iteration 16: pAp = 2.11284e-24, residual=2.96759e-15
-Iteration 17: pAp = 1.02045e-26, residual=1.61791e-15
-Iteration 18: pAp = 6.45199e-25, residual=2.09325e-16
-Iteration 19: pAp = 5.15977e-29, residual=1.50407e-17
-Max error =  1.1546319456101628e-14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 250.8915003425017
+Iteration 0: pAp = 1.13936e+06, residual=6.56868
+Iteration 1: pAp = 9.27902e+06, residual=2.67286
+Iteration 2: pAp = 9649.99, residual=0.176845
+Iteration 3: pAp = 36.1772, residual=0.0125515
+Iteration 4: pAp = 0.182107, residual=0.000855519
+Iteration 5: pAp = 0.000844406, residual=5.78143e-05
+Iteration 6: pAp = 4.10886e-06, residual=0.000207367
+Iteration 7: pAp = 0.0101015, residual=4.09726e-06
+Iteration 8: pAp = 1.95869e-08, residual=2.87338e-07
+Iteration 9: pAp = 9.54558e-11, residual=2.11149e-08
+Iteration 10: pAp = 5.17739e-13, residual=1.49611e-09
+Iteration 11: pAp = 2.58519e-15, residual=4.11621e-10
+Iteration 12: pAp = 3.98268e-14, residual=1.06282e-10
+Iteration 13: pAp = 1.39103e-17, residual=6.96533e-12
+Iteration 14: pAp = 5.60639e-20, residual=4.98856e-13
+Iteration 15: pAp = 2.88509e-22, residual=3.60069e-14
+Iteration 16: pAp = 1.50349e-24, residual=2.74102e-15
+Iteration 17: pAp = 2.53536e-25, residual=6.83273e-15
+Iteration 18: pAp = 4.02046e-25, residual=1.81249e-16
+Iteration 19: pAp = 3.82e-29, residual=1.27527e-17
+Max error =  1.3322676295501878e-14
 </pre></div>
 </div>
 </div>
@@ -720,7 +731,7 @@ Max error =  1.1546319456101628e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f3d5d12a72c9b3c8a3c0309555cf61fb8dcc4d12f7ff1d5d989a0fec8095b1d6.png" src="_images/f3d5d12a72c9b3c8a3c0309555cf61fb8dcc4d12f7ff1d5d989a0fec8095b1d6.png" />
+<img alt="_images/9f23beaa1f86cb2a446a8fb69856e936ca8076efa1027f0b5658ae8d337b1e66.png" src="_images/9f23beaa1f86cb2a446a8fb69856e936ca8076efa1027f0b5658ae8d337b1e66.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: pAp = 96, residual=6.92695
 </pre></div>
 </div>
@@ -755,8 +766,8 @@ Max error =  1.1546319456101628e-14
 Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
 </pre></div>
 </div>
-<img alt="_images/6f90f7315820ec74b50bb8488b7dc69d7f8d83e3177422f919e5762b6168a267.png" src="_images/6f90f7315820ec74b50bb8488b7dc69d7f8d83e3177422f919e5762b6168a267.png" />
-<img alt="_images/41c7fbc18e0ba3267cad792ab8815c003c5e05a0482ca0fa6022cb0e1ef9d0ae.png" src="_images/41c7fbc18e0ba3267cad792ab8815c003c5e05a0482ca0fa6022cb0e1ef9d0ae.png" />
+<img alt="_images/89d0a05a5f8e7677c6d7473a1bb577fb2e2f2b0250d92c2b09a97b279adf8a27.png" src="_images/89d0a05a5f8e7677c6d7473a1bb577fb2e2f2b0250d92c2b09a97b279adf8a27.png" />
+<img alt="_images/da8a882a2351ca6e8125f9568c42c078436d87cad94b851614ef9d5b0425b0c0.png" src="_images/da8a882a2351ca6e8125f9568c42c078436d87cad94b851614ef9d5b0425b0c0.png" />
 </div>
 </div>
 <p>The convergence is exponential.</p>
@@ -788,11 +799,10 @@ Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
 
               
               
-                <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="symplectic_solutions.html"
@@ -812,10 +822,7 @@ Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -879,8 +886,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
 
   <footer class="bd-footer">
   </footer>
