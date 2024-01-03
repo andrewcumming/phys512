@@ -97,6 +97,7 @@ parts:
         - file: hw5
         - file: hw6 
         - file: hw7
+        - file: exam
         - file: project_instructions
         - file: homework_solutions
           sections:
