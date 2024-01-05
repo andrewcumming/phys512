@@ -1,0 +1,1119 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Exam questions and solutions &#8212; PHYS 512 Computational Physics with Applications</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exam';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Instructions" href="project_instructions.html" />
+    <link rel="prev" title="Homework 7" href="hw7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="outline.html">Course outline</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="basics.html">Getting set up</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programming.html">Programming best practices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="floats.html">Floating point arithmetic</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Manipulating functions</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="derivatives.html">Derivatives</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolation.html">Interpolation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="function_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="derivatives_solutions.html">Derivatives exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="interpolation_solutions.html">Interpolation exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration_solutions.html">Integration exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Random numbers</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="random.html">Random numbers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lcg.html">Linear Congruential Generators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="generating_random.html">Probability distributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="monte_carlo_integration.html">Monte Carlo integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metropolis.html">Metropolis-Hastings algorithm</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="random_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions.html">Probability distributions Exercise 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="prob_distributions_solutions_part2.html">Probability distributions Part 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="montecarlo_solutions.html">Monte Carlo Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="metropolis_solutions.html">Metropolis-Hastings</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Solving systems of equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="matrices.html">Matrices in numpy</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="linear_least_squares.html">Linear least squares</a></li>
+<li class="toctree-l1"><a class="reference internal" href="polynomial_fit.html">Polynomial fitting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nonlinear.html">Non-linear least squares</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="solving_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="polynomial_fit_solutions.html">Orthogonal polynomials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonlinear_fit.html">Lorentzian fit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Machine Learning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mllecture.html">Machine Learning</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="chatgpt.html">ChatGPT ‘Real-Life Example’</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mltensorflow.html">Example : Higgs Boson</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Differential equations</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="runge_kutta.html">Initial value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="boundary_value_problems.html">Boundary value problems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symplectic.html">Symplectic integrators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="laplace.html">Poisson’s equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conjugate_gradient.html">Sparse matrices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_instability.html">Boundary conditions and numerical stability</a></li>
+<li class="toctree-l1"><a class="reference internal" href="diffusion.html">Diffusion in multi-dimensions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ode_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="runge_kutta_solutions.html">Initial value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bvps.html">Boundary value problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symplectic_solutions.html">Symplectic integrators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conjugate_gradient_solutions.html">Conjugate gradient solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_instability_solutions.html">Boundary conditions and numerical stability solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adi.html">Alternating-direction implicit</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Spectral methods</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="fft.html">Discrete Fourier transform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advect_diffuse.html">Advection-diffusion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numerical_diffusion.html">Amplitude and phase errors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="burgers.html">Burgers’ equation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="signal_processing.html">Signal processing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="spectral_solutions.html">Solutions to exercises</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="fft_solutions.html">Discrete Fourier Transform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fft_1d_solutions.html">More on the 1D DFT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_fourier.html">Advection-diffusion with Fourier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="adv_diff_finite_difference.html">Advection-diffusion with finite differences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LIGO.html">LIGO tutorial: find an inspiral</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Performance</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Timing, profiling and compiling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Summary</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="summary.html">Summary</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Homework</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="hw1.html">Homework 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw2.html">Homework 2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw3.html">Homework 3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw4.html">Homework 4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw5.html">Homework 5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw6.html">Homework 6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="hw7.html">Homework 7</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Exam questions and solutions</a></li>
+
+<li class="toctree-l1"><a class="reference internal" href="project_instructions.html">Project Instructions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="homework_solutions.html">Homework solutions</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="HW1_solutions.html">Homework 1 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW2_solutions.html">Homework 2 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="homework_notes/hw2_common_issues.html">Homework 2: Common Issues</a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="HW3_solutions.html">Homework 3 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW4_solutions.html">Homework 4 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW5_solutions.html">Homework 5 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW6_solutions.html">Homework 6 solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="HW7_solutions.html">Homework 7 solutions</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/andrewcumming/phys512/issues/new?title=Issue%20on%20page%20%2Fexam.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/exam.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Exam questions and solutions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exam questions and solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-derivatives-with-complex-numbers">1. Numerical derivatives with complex numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-the-schrodinger-equation">2. Solution of the Schrödinger equation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-diffusion-equation">3. Thermal diffusion equation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-power-law-from-radioactive-decays">4. A power law from radioactive decays</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="exam-questions-and-solutions">
+<h1>Exam questions and solutions<a class="headerlink" href="#exam-questions-and-solutions" title="Permalink to this heading">#</a></h1>
+<section id="numerical-derivatives-with-complex-numbers">
+<h2>1. Numerical derivatives with complex numbers<a class="headerlink" href="#numerical-derivatives-with-complex-numbers" title="Permalink to this heading">#</a></h2>
+<p><strong>Question:</strong> In class we derived finite difference approximations to the derivative of a function using Taylor expansions. An alternative way to do this is to take an <em>imaginary</em> step <span class="math notranslate nohighlight">\(x\rightarrow x+ih\)</span> away from the point <span class="math notranslate nohighlight">\(x\)</span> (assumed real), where <span class="math notranslate nohighlight">\(h\ll 1\)</span> is the step size. Then the Taylor expansion is</p>
+<div class="math notranslate nohighlight">
+\[f(x + ih) \approx f(x) + ih \left.{df\over dx}\right|_x +\cdots,\]</div>
+<p>and taking the imaginary part of the equation gives the derivative as</p>
+<div class="math notranslate nohighlight">
+\[\Rightarrow {df\over dx} \approx {\mathrm{Im} \left[f(x + ih)\right]\over h}.\]</div>
+<p>(a) Write a Python function that uses the complex variables available in Python to implement this approximation for <span class="math notranslate nohighlight">\(df/dx\)</span>. Your Python function should be defined as</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where the parameters are <code class="docutils literal notranslate"><span class="pre">func</span></code>, the function <span class="math notranslate nohighlight">\(f(x)\)</span> to be differentiated, <code class="docutils literal notranslate"><span class="pre">x</span></code>, the <span class="math notranslate nohighlight">\(x\)</span> value where the derivative will be calculated, and <code class="docutils literal notranslate"><span class="pre">h</span></code>, the step-size. You should return the numerical value of the derivative. For example, if you wanted the derivative of <span class="math notranslate nohighlight">\(\sin(x)\)</span> at <span class="math notranslate nohighlight">\(x=1\)</span> with step-size <span class="math notranslate nohighlight">\(10^{-4}\)</span> you could use</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dfdx</span> <span class="o">=</span> <span class="n">deriv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(b) Use your function to evaluate the derivative of <span class="math notranslate nohighlight">\(\sin^3 x\)</span> at <span class="math notranslate nohighlight">\(x=1.5\)</span> as a function of <span class="math notranslate nohighlight">\(h\)</span>. Do the same using a centered finite difference derivative. Plot the fractional error (compared to the analytic answer) as a function of step size <span class="math notranslate nohighlight">\(h\)</span> for both methods on the same plot. Discuss your results and explain the behaviour you see. How do you explain the differences between the two curves?</p>
+<p><strong>Solution:</strong></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+<span class="kn">from</span> <span class="nn">scipy.integrate</span> <span class="kn">import</span> <span class="n">solve_ivp</span><span class="p">,</span> <span class="n">simpson</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>(a) We need to implement</p>
+<div class="math notranslate nohighlight">
+\[{df\over dx} = {\mathrm{Im} \left[f(x + ih)\right]\over h}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">1</span><span class="n">J</span><span class="o">*</span><span class="n">h</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">imag</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">y</span><span class="p">))</span><span class="o">/</span><span class="n">h</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># try the example given in the question</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">deriv</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5403023067686435
+0.5403023058681398
+</pre></div>
+</div>
+</div>
+</div>
+<p>(b) Now we need to compute the derivative given in the question for different step sizes <span class="math notranslate nohighlight">\(h\)</span> and also compare to the centered difference derivative.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">deriv_centered</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+    <span class="c1"># second order finite difference</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">hvals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">12</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">21</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">3</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">func</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.5</span>
+<span class="n">true_value</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">err1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hvals</span><span class="p">:</span>
+    <span class="n">err1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err1</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">true_value</span><span class="p">)</span><span class="o">/</span><span class="n">true_value</span><span class="p">)</span>
+    <span class="n">err2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">err2</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">deriv_centered</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">true_value</span><span class="p">)</span><span class="o">/</span><span class="n">true_value</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="nb">abs</span><span class="p">(</span><span class="n">deriv</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">true_value</span><span class="p">)</span><span class="o">/</span><span class="n">true_value</span><span class="p">,</span> <span class="n">deriv_centered</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> 
+          <span class="nb">abs</span><span class="p">(</span><span class="n">deriv_centered</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span><span class="o">-</span><span class="n">true_value</span><span class="p">)</span><span class="o">/</span><span class="n">true_value</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hvals</span><span class="p">,</span> <span class="n">err1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hvals</span><span class="p">,</span> <span class="n">err2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hvals</span><span class="p">,</span> <span class="n">err1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">hvals</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">hvals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;--&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hvals</span><span class="p">,</span> <span class="n">err2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">hvals</span><span class="o">**-</span><span class="mi">1</span><span class="o">/</span><span class="n">hvals</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">**-</span><span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;-.&quot;</span><span class="p">)</span>
+<span class="c1"># Plot the roundoff error</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="nb">min</span><span class="p">(</span><span class="n">hvals</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">hvals</span><span class="p">)],</span> <span class="p">[</span><span class="mf">2.2e-16</span><span class="p">]</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Fractional error&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1e-12 0.21114975082386198 1.3144971996098735e-16 0.21110890813247352 0.00019342997673012772
+3.1622776601683794e-12 0.21114975082386198 1.3144971996098735e-16 0.21115907896754568 4.417785788208612e-05
+1e-11 0.21114975082386195 0.0 0.21115331705345852 1.6889575207452053e-05
+3.1622776601683794e-11 0.21114975082386198 1.3144971996098735e-16 0.21114679105040565 1.4017413919492775e-05
+1e-10 0.21114975082386195 0.0 0.21114998638438465 1.115608812133569e-06
+3.1622776601683795e-10 0.21114975082386195 0.0 0.2111495997171805 7.156375077671606e-07
+1e-09 0.21114975082386198 1.3144971996098735e-16 0.2111497088286285 1.9888838747630465e-07
+3.1622776601683795e-09 0.21114975082386192 1.3144971996098735e-16 0.2111497577046866 3.258741548688466e-08
+1e-08 0.211149750823862 2.628994399219747e-16 0.21114974213531923 4.1148723523119814e-08
+3.162277660168379e-08 0.2111497508238622 1.1830474796488863e-15 0.21114974892760294 8.980635797703979e-09
+1e-07 0.21114975082386445 1.1830474796488862e-14 0.21114975046199191 1.7138075348236033e-09
+3.162277660168379e-07 0.21114975082388657 1.165959016053958e-13 0.21114975085856136 1.6433554800138725e-10
+1e-06 0.21114975082410797 1.165170317734192e-12 0.21114975096159228 6.522874244741692e-10
+3.162277660168379e-06 0.2111497508263218 1.1649862881262466e-11 0.21114975084100718 8.119938391374103e-11
+1e-05 0.21114975084846072 1.1649915461150451e-10 0.21114975078950768 1.627009707336724e-10
+3.1622776601683795e-05 0.21114975106984937 1.1649903630675655e-09 0.21114975057945007 1.1575286197139799e-09
+0.0001 0.21114975328373617 1.1649903499225933e-08 0.21114974836478062 1.1646148375075809e-08
+0.00031622776601683794 0.21114977542260543 1.1649904103894646e-07 0.21114972622532494 1.1649806318447967e-07
+0.001 0.21114999681139365 1.1649908690175375e-06 0.211149504836472 1.1649901977038177e-06
+0.0031622776601683794 0.21115221070882342 1.1649954365929718e-05 0.21114729096031795 1.164985293327911e-05
+0.01 0.21117435063791654 0.00011650411122250665 0.21112515315295788 0.00011649396131463415
+</pre></div>
+</div>
+<img alt="_images/869053e9f4a2600e9a753d3e2922f0b55ce493a5a3814be2a00b2cf228c51330.png" src="_images/869053e9f4a2600e9a753d3e2922f0b55ce493a5a3814be2a00b2cf228c51330.png" />
+</div>
+</div>
+<p>Discussion of results:</p>
+<ul class="simple">
+<li><p>For the larger step sizes, both methods scale like <span class="math notranslate nohighlight">\(h^2\)</span> and follow the same curve (green dashed line). We expect from the class notes that the centered finite difference derivative should be 2nd order. In the complex derivative, the first term that is dropped is actually first order (because it is <span class="math notranslate nohighlight">\(\propto h^2 d^2f/dx^2\)</span> and then we divide by <span class="math notranslate nohighlight">\(h\)</span>), but that term is real so it drops out when we take the imaginary part. The first correction term to the imaginary part is the <span class="math notranslate nohighlight">\(d^3f/dx^3\)</span> term which is <span class="math notranslate nohighlight">\(\propto h^2\)</span>.</p></li>
+<li><p>The behavior at small <span class="math notranslate nohighlight">\(h\)</span> is different for the two methods:</p>
+<ul>
+<li><p>In the case of the finite-difference derivative, we see that there is a minimum error at <span class="math notranslate nohighlight">\(h\sim 10^{-5}\)</span>. The error increases <span class="math notranslate nohighlight">\(\propto 1/h\)</span> for smaller step sizes which agrees with our estimate for the round-off error term from class. Because we have a second order derivative, the optimum step size is <span class="math notranslate nohighlight">\(\sim (10^{-16})^{1/3}\sim 10^{-5}\)</span> rather than <span class="math notranslate nohighlight">\((10^{-16})^{1/2}\)</span> which we had for the first order derivative in class.</p></li>
+<li><p>The complex derivative behaves differently. It follows the <span class="math notranslate nohighlight">\(h^2\)</span> scaling all the way to the round-off limit. This difference arises because we don’t have to do a subtraction in the complex method; the accuracy is determined only by how well we can evaluate the function which is limited only by the machine precision.</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="solution-of-the-schrodinger-equation">
+<h2>2. Solution of the Schrödinger equation<a class="headerlink" href="#solution-of-the-schrodinger-equation" title="Permalink to this heading">#</a></h2>
+<p><strong>Question:</strong> Solve the time-independent Schrödinger equation</p>
+<div class="math notranslate nohighlight">
+\[-{\hbar^2\over 2m} {d^2\Psi\over dx^2} + V(x)\Psi = E\Psi,\]</div>
+<p>for a particle moving in the 1D potential</p>
+<div class="math notranslate nohighlight">
+\[V(x) = - \exp\left(-\sqrt{|x|}\right)\]</div>
+<p>(<span class="math notranslate nohighlight">\(-\infty&lt;x&lt;\infty\)</span>). Plot the ground state wavefunction <span class="math notranslate nohighlight">\(\Psi_0(x)\)</span> and obtain a numerical value for the energy of the ground state that is accurate to at least 1 part in 1000. (You should demonstrate this by obtaining a numerical estimate of the energy error.)</p>
+<p><strong>Solution:</strong> We can solve this as an eigenvalue problem similar to the wave on a string from homework 6.</p>
+<p>Finite-difference the time-independent Schrodinger equation, setting <span class="math notranslate nohighlight">\(\hbar^2/2m=1\)</span> for simplicity (which means when we get a value for energy it is actually <span class="math notranslate nohighlight">\(2mE/\hbar^2\)</span>):</p>
+<div class="math notranslate nohighlight">
+\[-{\hbar^2\over 2m} {d^2f\over dx^2} + V(x)f = Ef\]</div>
+<div class="math notranslate nohighlight">
+\[{d^2f\over dx^2} + (E-V)f = 0\]</div>
+<div class="math notranslate nohighlight">
+\[{f_{i+1}-2f_i+f_{i-1}\over h^2} = -(E-V_i)f_i\]</div>
+<div class="math notranslate nohighlight">
+\[-f_{i+1}+(2+h^2V_i)f_i-f_{i-1} = h^2Ef_i\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n</span> <span class="o">=</span> <span class="mi">1001</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">V</span> <span class="o">=</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+
+<span class="c1"># Construct the matrix and solve for the first 4 eigenvalues and eigenvectors</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">V</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">E</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">subset_by_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+
+<span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+<span class="k">for</span> <span class="n">EE</span> <span class="ow">in</span> <span class="n">E</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">EE</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Bound state energy = &quot;</span><span class="p">,</span> <span class="n">EE</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">E</span><span class="p">)):</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">integrate</span><span class="o">.</span><span class="n">simpson</span><span class="p">(</span><span class="n">f</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">norm</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Psi(x)$&#39;</span><span class="p">)</span>
+<span class="c1">#plt.plot(x, np.exp(-np.abs(x)*np.sqrt(-2*E[0])),&quot;--&quot;)</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">V</span><span class="p">,</span> <span class="s2">&quot;C2--&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$V(x)$&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Bound state energy =  -0.30208132150693195
+Bound state energy =  -0.057976526335251806
+Bound state energy =  -0.021032517563107693
+</pre></div>
+</div>
+<img alt="_images/7e81eed87a60c9b53aed42f7cc5b21dbe8b469df08eb654be6cff7f71d97966f.png" src="_images/7e81eed87a60c9b53aed42f7cc5b21dbe8b469df08eb654be6cff7f71d97966f.png" />
+</div>
+</div>
+<p>We see that there are three bound states, the lowest energy is approximately -0.3.</p>
+<p>(Note that a different choice of units would give a different value, e.g. setting <span class="math notranslate nohighlight">\(\hbar^2/m=1\)</span> above and keeping the factor of 2 gives <span class="math notranslate nohighlight">\(E\approx -0.357\)</span>).</p>
+<p>To assess the error, we can check how the energy depends on increasing the number of grid points used and also the +- endpoints for x.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nvals</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">,</span><span class="mi">4000</span><span class="p">)</span>
+<span class="n">xvals</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+
+<span class="n">Earr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">nvals</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">xvals</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">n1</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">nvals</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">x0</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xvals</span><span class="p">):</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n1</span> <span class="o">*</span> <span class="n">x0</span><span class="o">/</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">x0</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">V</span> <span class="o">=</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">+</span> <span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">V</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eigh</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">subset_by_index</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">eigvals_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>   <span class="c1"># we only need the first eigenvalue</span>
+        <span class="n">E</span> <span class="o">=</span> <span class="n">E</span><span class="o">/</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">n1</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot;E=&quot;</span><span class="p">,</span> <span class="n">E</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000 10 501 E= -0.3012749968924646
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000 20 1001 E= -0.3013895769195456
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40 2001 E= -0.3013895799235332
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10 1001 E= -0.3007330266811587
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 20 2001 E= -0.3008510003502323
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 40 4001 E= -0.300851003477853
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4000
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 10 2001 E= -0.3005391726696906
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4000 20 4001 E= -0.300658728177554
+</pre></div>
+</div>
+</div>
+</div>
+<p>We see that we converge to 1 part in 1000. The energy is <span class="math notranslate nohighlight">\(E\approx -0.3007\)</span>.</p>
+<p>There were also some nice solutions to this problem using a shooting method. Since the potential is symmetric, you can start at <span class="math notranslate nohighlight">\(x=0\)</span> and integrate outwards to some <span class="math notranslate nohighlight">\(x=L\)</span>, choosing <span class="math notranslate nohighlight">\(E\)</span> so that <span class="math notranslate nohighlight">\(\Psi\)</span> vanishes there. Changing <span class="math notranslate nohighlight">\(L\)</span> and checking the convergence of <span class="math notranslate nohighlight">\(E\)</span> then gives an error estimate.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="thermal-diffusion-equation">
+<h1>3. Thermal diffusion equation<a class="headerlink" href="#thermal-diffusion-equation" title="Permalink to this heading">#</a></h1>
+<p><strong>Question:</strong> A thin slab of material cools from its surface. The horizontal dimensions of the slab are much larger than its thickness, so we can follow the cooling using the 1D thermal diffusion equation</p>
+<div class="math notranslate nohighlight">
+\[{\partial T\over \partial t} = \kappa{\partial^2 T\over \partial x^2},\]</div>
+<p>where <span class="math notranslate nohighlight">\(\kappa\)</span> is the thermal diffusivity. In this particular sample of material, the thermal diffusivity is non-uniform. The data file at <a class="github reference external" href="https://github.com/andrewcumming/phys512/blob/main/final_data.txt">andrewcumming/phys512</a> gives some measurements of the thermal diffusivity in units of <span class="math notranslate nohighlight">\(\mathrm{cm^2/s}\)</span> as a function of height <span class="math notranslate nohighlight">\(x\)</span> in the slab, from <span class="math notranslate nohighlight">\(x=0\)</span> (base of the slab) to <span class="math notranslate nohighlight">\(x=1\)</span> cm (top of the slab). (In the file, column 1 is the <span class="math notranslate nohighlight">\(x\)</span> position and column 2 is the measured value of <span class="math notranslate nohighlight">\(\kappa\)</span>.)</p>
+<p>The slab is initially at <span class="math notranslate nohighlight">\(T=100\)</span>K everywhere, and at <span class="math notranslate nohighlight">\(t=0\)</span> the surface of the slab at <span class="math notranslate nohighlight">\(x=1\)</span> is suddenly cooled to <span class="math notranslate nohighlight">\(T=0\)</span>K and held at that temperature. The base of the slab at <span class="math notranslate nohighlight">\(x=0\)</span> is insulating.</p>
+<p>Calculate the temperature at the base of the slab at <span class="math notranslate nohighlight">\(t=1\)</span> second.</p>
+<p><strong>Solution:</strong> The differenced equation is</p>
+<div class="math notranslate nohighlight">
+\[{dT_i\over dt} = {K_i\over h^2} \left(T_{i+1}-2T_i+T_{i-1}\right)\]</div>
+<p>Implicit time-differencing gives</p>
+<div class="math notranslate nohighlight">
+\[T_i^{n+1} - T_i^n = {K_i\Delta t\over h^2} \left(T^{n+1}_{i+1}-2T^{n+1}_i+T^{n+1}_{i-1}\right)\]</div>
+<p>Defining <span class="math notranslate nohighlight">\(\alpha_i = K_i\Delta t/h^2\)</span>, this gives</p>
+<div class="math notranslate nohighlight">
+\[- \alpha_i T^{n+1}_{i-1}+ T_i^{n+1}(1 + 2\alpha_i) - \alpha_i T^{n+1}_{i+1}  = T_i^n \]</div>
+<p>very similar to before, we just need to make sure we put the correct values of <span class="math notranslate nohighlight">\(\alpha\)</span> in each position of the matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># This is how I generated the data for K(x): </span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+<span class="n">func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">0.38</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span><span class="o">**</span><span class="mf">1.3</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="s2">&quot;.&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">((</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">)))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/7b3b3a5c4189e6f46e5b4da45910984c4f9d783dc8f294d9653c2f5fa37c692b.png" src="_images/7b3b3a5c4189e6f46e5b4da45910984c4f9d783dc8f294d9653c2f5fa37c692b.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">scipy.linalg</span>
+
+<span class="k">def</span> <span class="nf">do_int</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">show_plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;Spline&#39;</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
+
+    <span class="c1"># Initial profile has T=1 everywhere except T=0 at the outer boundary</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="c1">#T = 100 * np.cos(np.pi/2 * x)</span>
+    <span class="n">T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">if</span> <span class="n">show_plots</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$x$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T$&#39;</span><span class="p">)</span>
+
+    <span class="c1"># read in K from the file</span>
+    <span class="n">xp</span><span class="p">,</span> <span class="n">Kp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;data.txt&#39;</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">interp</span> <span class="o">==</span> <span class="s1">&#39;Spline&#39;</span><span class="p">:</span>
+        <span class="n">Kinterp</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">interpolate</span><span class="o">.</span><span class="n">CubicSpline</span><span class="p">(</span><span class="n">xp</span><span class="p">,</span><span class="n">Kp</span><span class="p">)</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">Kinterp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">xp</span><span class="p">,</span><span class="n">Kp</span><span class="p">)</span>  <span class="c1"># linear interpolation</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="n">dt</span><span class="o">/</span><span class="n">dx</span><span class="o">**</span><span class="mi">2</span>     <span class="c1"># alpha here depends on position</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;n=&quot;</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="s2">&quot; dt=&quot;</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="s2">&quot; max alpha=&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">alpha</span><span class="p">))</span>
+    <span class="n">nsteps</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="n">dt</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the matrix A in banded form</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="o">*</span><span class="n">alpha</span><span class="p">)</span>
+    <span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">alpha</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># insulating boundary at x=0</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+    <span class="n">c</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>    <span class="c1"># upper and lower diagonals need the right values of alpha</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="o">-</span><span class="n">alpha</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>    <span class="c1"># a is on the upper diagonal so needs to start with alpha_0, whereas c</span>
+                         <span class="c1"># on the lower diagonal should start with alpha_1</span>
+    <span class="n">AA</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">row_stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">))</span>
+
+    <span class="n">Tb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span>
+    <span class="n">Tb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nsteps</span><span class="p">):</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve_banded</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">AA</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+        <span class="n">Tb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">show_plots</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">%</span> <span class="p">(</span><span class="n">nsteps</span><span class="o">//</span><span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">):</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">T</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">show_plots</span><span class="p">:</span>   
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nsteps</span><span class="p">)</span><span class="o">*</span><span class="n">dt</span><span class="p">,</span> <span class="n">Tb</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$t$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$T_</span><span class="si">{base}</span><span class="s1">$&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="k">return</span> <span class="n">Tb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">Tb</span> <span class="o">=</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="n">show_plots</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">Tb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n= 1000  dt= 0.01  max alpha= 9980.051923381965
+</pre></div>
+</div>
+<img alt="_images/c9186c2ad10f2a303ae30405b4a08f0e174e8de0f5b0724d1ea77c89d8a50692.png" src="_images/c9186c2ad10f2a303ae30405b4a08f0e174e8de0f5b0724d1ea77c89d8a50692.png" />
+<img alt="_images/61a9caa0687029ad4cd8363bfb1e4e8a7fa22b4397bf12f9df328f10fa37e6a9.png" src="_images/61a9caa0687029ad4cd8363bfb1e4e8a7fa22b4397bf12f9df328f10fa37e6a9.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T base at 1 second =  17.192220533238743
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check the convergence of the value with resolution and time-step:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">1e-4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">))</span>
+
+<span class="c1"># with linear interpolation instead of spline:</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;T base at 1 second = &quot;</span><span class="p">,</span> <span class="n">do_int</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">,</span> <span class="n">interp</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>n= 300  dt= 0.01  max alpha= 894.012366848957
+T base at 1 second =  17.465150668266027
+n= 300  dt= 0.001  max alpha= 89.4012366848957
+T base at 1 second =  16.811908935338252
+n= 300  dt= 0.0001  max alpha= 8.94012366848957
+T base at 1 second =  16.747169685064893
+n= 300  dt= 1e-05  max alpha= 0.8940123668489569
+T base at 1 second =  16.74105253062163
+n= 1000  dt= 1e-05  max alpha= 9.980051923381966
+T base at 1 second =  16.4715221217201
+n= 1000  dt= 1e-05  max alpha= 9.980010000000002
+T base at 1 second =  16.59755790949586
+</pre></div>
+</div>
+</div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>It is important to get the <span class="math notranslate nohighlight">\(\alpha\)</span>-values correct in the matrix. A common error was to be off by one in the off-diagonals, which led to an inwards heat flux near the lower boundary (i.e. the maximum in temperature should be at <span class="math notranslate nohighlight">\(x=0\)</span>, not somewhere inside the grid!)</p></li>
+<li><p>The form of the thermal diffusion equation given in this problem is simplified. For a position-dependent <span class="math notranslate nohighlight">\(K\)</span> it should actually be</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[{\partial T\over \partial t} = {\partial\over\partial x}\left(K{\partial T\over \partial x}\right)\]</div>
+<p>(try solving this form if you want an extra challenge…)</p>
+<section id="a-power-law-from-radioactive-decays">
+<h2>4. A power law from radioactive decays<a class="headerlink" href="#a-power-law-from-radioactive-decays" title="Permalink to this heading">#</a></h2>
+<p><strong>Question:</strong> When two neutron stars merge, a mixture of many different radioactive elements is produced. The amount of each element decays with time according to</p>
+<div class="math notranslate nohighlight">
+\[{dN\over dt} = -{N\over \tau}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of atoms of that element, and the decay timescale <span class="math notranslate nohighlight">\(\tau\)</span> is different for each element. Assume that the decay timescales <span class="math notranslate nohighlight">\(\tau\)</span> for these elements are randomly distributed between <span class="math notranslate nohighlight">\(10^3\)</span> and <span class="math notranslate nohighlight">\(10^7\)</span> seconds with a uniform distribution in <span class="math notranslate nohighlight">\(\log_{10}(\tau)\)</span>, and that 100 different elements are produced (with equal numbers of atoms of each initially). The total energy per second released by the radioactive decays is proportional to</p>
+<div class="math notranslate nohighlight">
+\[\sum_i {dN_i\over dt},\]</div>
+<p>where the sum is over each element. Generate a random sample of 100 values of <span class="math notranslate nohighlight">\(\tau\)</span> and integrate the decay of the 100 elements over time. Plot the total energy per second from radioactive decays over the first <span class="math notranslate nohighlight">\(10^6\ {\rm s}\)</span>. Do you agree with the prediction of Li &amp; Paczynski that the total energy per second is a power law, decaying <span class="math notranslate nohighlight">\(\propto 1/t\)</span>?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">seed</span> <span class="o">=</span> <span class="mi">5885</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">derivs</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">tau_vals</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="n">y</span> <span class="o">/</span> <span class="n">tau_vals</span>
+
+<span class="n">tau_vals</span> <span class="o">=</span> <span class="mf">3.0</span> <span class="o">+</span> <span class="mf">4.0</span> <span class="o">*</span> <span class="n">rng</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>  <span class="c1"># uniform in log between 1e3 and 1e7s</span>
+<span class="n">tau_vals</span> <span class="o">=</span> <span class="mi">10</span><span class="o">**</span><span class="n">tau_vals</span>
+<span class="n">y_init</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">tau_vals</span><span class="p">)</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1e8</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Integrate the equations using solve_ivp but you could also use the analytic solution if you wanted!</span>
+<span class="n">sol</span> <span class="o">=</span> <span class="n">solve_ivp</span><span class="p">(</span><span class="n">derivs</span><span class="p">,</span> <span class="p">[</span><span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">y_init</span><span class="p">,</span> <span class="n">t_eval</span> <span class="o">=</span> <span class="n">t</span><span class="p">,</span> <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">tau_vals</span><span class="p">,),</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;LSODA&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">tau_vals</span><span class="p">)):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">t</span><span class="p">,</span> <span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">flux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t</span><span class="p">)):</span>
+    <span class="n">flux</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">y</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span><span class="o">/</span><span class="n">tau_vals</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">flux</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">flux</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+<span class="c1">#plt.yscale(&#39;log&#39;)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Flux x Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ea7e675e74db73bb6c447c17eb7e5460cad919a5ae80acc335500e6929c6df6b.png" src="_images/ea7e675e74db73bb6c447c17eb7e5460cad919a5ae80acc335500e6929c6df6b.png" />
+<img alt="_images/28a34f0d13aacb48a58f20f0c82ef79083cdad0ae7f6bb7dd232a8f5ce78a4b0.png" src="_images/28a34f0d13aacb48a58f20f0c82ef79083cdad0ae7f6bb7dd232a8f5ce78a4b0.png" />
+<img alt="_images/f84284bfd1a6d4f6df964ddbc3c5f116c49a9f298090941e04579d5d1636d22d.png" src="_images/f84284bfd1a6d4f6df964ddbc3c5f116c49a9f298090941e04579d5d1636d22d.png" />
+</div>
+</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>the flux <span class="math notranslate nohighlight">\(\times\)</span> time curve is approximately flat after we wait enough time (more than about a few times <span class="math notranslate nohighlight">\(10^3\)</span> seconds) for multiple elements to start decaying. Before that nothing has decayed yet and the flux is constant at its initial value. The power law decay will end if we wait longer than the longest decay time (i.e.~longer than <span class="math notranslate nohighlight">\(10^7\)</span> seconds).</p></li>
+<li><p>the intention in this question was to integrate the decay numerically for each species, but of course each one has a trivial analytic solution since the equations are not coupled, it was okay to use the analytic solution for <span class="math notranslate nohighlight">\(N(t)\)</span> in your answer! Also there was a missing minus sign, the energy production rate is <span class="math notranslate nohighlight">\(\propto \sum (-dN/dt)\)</span> since <span class="math notranslate nohighlight">\(dN/dt\)</span> is negative.</p></li>
+</ul>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="hw7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Homework 7</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="project_instructions.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Project Instructions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Exam questions and solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-derivatives-with-complex-numbers">1. Numerical derivatives with complex numbers</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#solution-of-the-schrodinger-equation">2. Solution of the Schrödinger equation</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#thermal-diffusion-equation">3. Thermal diffusion equation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-power-law-from-radioactive-decays">4. A power law from radioactive decays</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2023, CC BY SA 4.0.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
