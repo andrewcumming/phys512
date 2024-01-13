@@ -32,7 +32,7 @@ to
 We focused here on double precision numbers, which are standard in 64 bit machines. Single precision floats are 32 bits, with 8 bits for exponent and 23 for mantissa.
 
 **Further reading:** [What every computer scientist should know about floating-point arithmetic](https://dl.acm.org/doi/10.1145/103162.103163) by David Goldberg.
-
+- [bfloat16](https://en.wikipedia.org/wiki/Bfloat16_floating-point_format) is a recently-introduced format developed for machine learning applications. It has the same dynamic range as traditional single-precision floating point, but much smaller precision, with a total size of 16 bits rather than 32. See also [Right-sizing precision to save energy, power, and storage](https://www.youtube.com/watch?v=Kg7fu-CllnA&t=770s)
  
 ## Roundoff error
 
@@ -75,7 +75,6 @@ One of these involves a subtraction, and one doesn't. Try evaluating and plottin
 - [Examples of floating point problems](https://jvns.ca/blog/2023/01/13/examples-of-floating-point-problems/)
 - [The Perils of Floating Point](http://www.indowsway.com/floatingpoint.htm)
 
-
 ## NumPy data types
 
 NumPy has many different data types, which you can read about here:
@@ -100,7 +99,6 @@ Here are some things to try to investigate NumPy data types:
 The last example is one of several functions that NumPy has for dealing with floats --- see https://numpy.org/doc/stable/reference/routines.math.html
 
 Note that numpy integers do not behave like Python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.
-
 
 
 
