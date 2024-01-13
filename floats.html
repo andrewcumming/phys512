@@ -483,6 +483,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
             </nav>
         </div>
@@ -523,9 +524,6 @@ document.write(`
 </div>
 <p>We focused here on double precision numbers, which are standard in 64 bit machines. Single precision floats are 32 bits, with 8 bits for exponent and 23 for mantissa.</p>
 <p><strong>Further reading:</strong> <a class="reference external" href="https://dl.acm.org/doi/10.1145/103162.103163">What every computer scientist should know about floating-point arithmetic</a> by David Goldberg.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">bfloat16</a> is a recently-introduced format developed for machine learning applications. It has the same dynamic range as traditional single-precision floating point, but much smaller precision, with a total size of 16 bits rather than 32. See also <a class="reference external" href="https://www.youtube.com/watch?v=Kg7fu-CllnA&amp;t=770s">Right-sizing precision to save energy, power, and storage</a></p></li>
-</ul>
 </section>
 <section id="roundoff-error">
 <h2>Roundoff error<a class="headerlink" href="#roundoff-error" title="Permalink to this heading">#</a></h2>
@@ -586,6 +584,12 @@ document.write(`
 </div>
 <p>The last example is one of several functions that NumPy has for dealing with floats — see <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.math.html">https://numpy.org/doc/stable/reference/routines.math.html</a></p>
 <p>Note that numpy integers do not behave like Python integers! They have a fixed size in bytes (and therefore maximum and minimum values), whereas Python integers are objects that adapt their size to the precision needed.</p>
+</section>
+<section id="further-reading">
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bfloat16_floating-point_format">bfloat16</a> is a recently-introduced format developed for machine learning applications. It has the same dynamic range as traditional single-precision floating point, but much smaller precision, with a total size of 16 bits rather than 32. See also <a class="reference external" href="https://www.youtube.com/watch?v=Kg7fu-CllnA&amp;t=770s">Right-sizing precision to save energy, power, and storage</a></p></li>
+</ul>
 </section>
 </section>
 
@@ -659,6 +663,7 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-floating-point-numbers-are-represented">How floating point numbers are represented</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#roundoff-error">Roundoff error</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numpy-data-types">NumPy data types</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-reading">Further reading</a></li>
 </ul>
   </nav></div>
 
