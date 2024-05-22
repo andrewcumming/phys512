@@ -59,10 +59,11 @@ These topics will be illustrated with a range of different physics applications,
 
 There is no required textbook for the course, but an excellent Python-based book available through the McGill library is 
 
-- [Numerical Methods in Physics with Python](https://mcgill.on.worldcat.org/search/detail/1162187759?queryString=ti%3A%28numerical%20methods%20physics%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129) by Alex Gezerlis (the link is to the McGill library ebook)
+- [Numerical Methods in Physics with Python](https://mcgill.on.worldcat.org/search/detail/1376341855?queryString=ti%3A%28numerical%20methods%20physics%29&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Alex Gezerlis (the link is to the McGill library ebook)
 
 Other books you could look at are:
 
+- [A Student's Guide to Numerical Methods](https://mcgill.on.worldcat.org/search/detail/908633254?queryString=kw%3A%28students%20guide%20to%20numerical%20methods%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129) by Ian Hutchinson. An excellent book that includes some advanced topics at the end. If you prefer a more concise presentation, look at this one.
 - [Computational Physics](http://www-personal.umich.edu/~mejn/cp/) by Mark Newman. Also an excellent Python-based book. It is only available in paper format from the library, but I've linked to the book website which has some sample chapters that you can look at.
 - [An Introduction to Computational Physics](https://mcgill.on.worldcat.org/search/detail/63814390?queryString=tao%20pang%20computational&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Tao Pang (the link is to the McGill library ebook). Excellent coverage of the topics in this course, with code samples in Fortran/Java.
 - [Computational Physics](https://www.physics.purdue.edu/~hisao/book/) by Giordano and Nakanishi. An interesting book that is organized by physics topic rather than numerical method.
