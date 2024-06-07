@@ -50,4 +50,22 @@ To give you a sense of an appropriate scope for the project, here are a few spec
 
 - (This one is from last year's course) Write an N-body code that calculates the forces by computing the gradient of the potential. The potential should be found by gridding the particle positions into a density, and convolving that density with the (softened) potential from a single particle. The acceleration is then found by taking the gradient of the potential. You will probably wish to use a leapfrog solver with ﬁxed timestep. Use it to investigate a situation with at least hundreds of thousands of particles.
 
+Here is a list of project topics from the Fall 2023 course:
 
+- N-body problems in our Solar System: various numerical computing approaches
+- Calculating transit timing variation curves for exoplanets using N-body simulations
+- Spinodal decomposition: solving the Cahn-Hilliard equation
+- Numerical solutions for the swinging Atwood’s machine
+- Semiclassical simulation of muon pair production
+- Classical molecular dynamics of a two-dimensional electron gas
+- Simulating the dynamics of gas molecules
+- How many particles does it take to make a plasma? A Particle-in-Cell plasma simulation project
+- Numerical solutions to the Schrödinger equation
+- A 2D numerical simulation of Rayleigh-Bénard convection at varying Rayleigh Numbers with the Dedalus project
+- Fitting Fermi-LAT pulsar lightcurves using a two-pole caustic emission model
+- Finding a missing planet from its gravitational effect on surrounding bodies
+- Characterizing exoplanetary systems using radial velocity curves: MCMCs and dynamic stability
+- Swarm modelling using dynamic mode decomposition
+- Solving the Gross–Pitaevskii equation in a spherically-symmetric harmonic trap
+- Make it pop: the physics of popping popcorn
+- Predictive modelling for hockey
