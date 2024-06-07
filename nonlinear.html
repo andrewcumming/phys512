@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Non-linear least squares &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'nonlinear';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -492,16 +514,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="non-linear-least-squares">
-<h1>Non-linear least squares<a class="headerlink" href="#non-linear-least-squares" title="Permalink to this heading">#</a></h1>
+<h1>Non-linear least squares<a class="headerlink" href="#non-linear-least-squares" title="Link to this heading">#</a></h1>
 <p>Now let’s discuss what happens if we have a non-linear model <span class="math notranslate nohighlight">\(m(x,\vec{a})\)</span> that we want to fit to a set of measurements <span class="math notranslate nohighlight">\(y_i(x_i)\)</span>. We want to minimize</p>
 <div class="math notranslate nohighlight">
 \[\chi^2 = \sum_{i=1}^N \left[{y_i - m(x_i, \vec{a})\over \sigma_i}  \right]^2.\]</div>
 <p>We’ll first discuss Newton’s method and its application to least-squares, and then a generalization of this method, Levenberg-Marquardt.</p>
 <section id="newton-s-method">
-<h2>Newton’s method<a class="headerlink" href="#newton-s-method" title="Permalink to this heading">#</a></h2>
+<h2>Newton’s method<a class="headerlink" href="#newton-s-method" title="Link to this heading">#</a></h2>
 <p>The simplest way to see how Newton’s method works is to consider a one-dimensional function <span class="math notranslate nohighlight">\(f(x)\)</span>. We would like to find the value of <span class="math notranslate nohighlight">\(x\)</span> that minimises <span class="math notranslate nohighlight">\(f(x)\)</span>. Given a current guess for the location of the minimum, <span class="math notranslate nohighlight">\(x_n\)</span>, we first write down a quadratic expansion around <span class="math notranslate nohighlight">\(x_n\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[f(x) = f(x_n) + (x-x_n) \left.{df\over dx}\right|_{x_n} + {(x-x_n)^2\over 2} \left.{d^2f\over dx^2}\right|_{x_n}.\]</div>
@@ -509,7 +531,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[{df\over dx}=0 \Rightarrow \left.{df\over dx}\right|_{x_n} + (x_{n+1} -x_n) \left.{d^2f\over dx^2}\right|_{x_n}=0\]</div>
 <div class="math notranslate nohighlight" id="equation-newton">
-<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation">#</a></span>\[\Rightarrow x_{n+1} = x_n - \left(\left.{d^2f\over dx^2}\right|_{x_n}\right)^{-1} \left.{df\over dx}\right|_{x_n}.\]</div>
+<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Link to this equation">#</a></span>\[\Rightarrow x_{n+1} = x_n - \left(\left.{d^2f\over dx^2}\right|_{x_n}\right)^{-1} \left.{df\over dx}\right|_{x_n}.\]</div>
 <p>To the extent the function is locally well-approximated by a quadratic, this update should take us closer to the minimum. Newton’s method is to iteratively apply equation <a class="reference internal" href="#equation-newton">(1)</a> until it converges, for example when the fractional change in <span class="math notranslate nohighlight">\(x\)</span> is smaller than a threshold.</p>
 <p>Following through the same argument in multi-dimensions, the quadratic expansion becomes</p>
 <div class="math notranslate nohighlight">
@@ -519,10 +541,10 @@ document.write(`
 \[(\mathbf{H})_{ij} = {\partial^2 f\over \partial x_i\partial x_j}.\]</div>
 <p>The update becomes</p>
 <div class="math notranslate nohighlight" id="equation-newtonmultid">
-<span class="eqno">(2)<a class="headerlink" href="#equation-newtonmultid" title="Permalink to this equation">#</a></span>\[\vec{x_{n+1}} = \vec{x_n} - \mathbf{H}^{-1}\cdot\vec{\nabla} f(\vec{x_n}).\]</div>
+<span class="eqno">(2)<a class="headerlink" href="#equation-newtonmultid" title="Link to this equation">#</a></span>\[\vec{x_{n+1}} = \vec{x_n} - \mathbf{H}^{-1}\cdot\vec{\nabla} f(\vec{x_n}).\]</div>
 </section>
 <section id="application-to-least-squares-fitting">
-<h2>Application to least-squares fitting<a class="headerlink" href="#application-to-least-squares-fitting" title="Permalink to this heading">#</a></h2>
+<h2>Application to least-squares fitting<a class="headerlink" href="#application-to-least-squares-fitting" title="Link to this heading">#</a></h2>
 <p>To apply this to least-squares, we first need the gradient of <span class="math notranslate nohighlight">\(\chi^2\)</span> with respect to the parameters, <span class="math notranslate nohighlight">\(\vec{\nabla} \chi^2\)</span>, whose <span class="math notranslate nohighlight">\(k\)</span>-th component is given by</p>
 <div class="math notranslate nohighlight">
 \[{\partial \chi^2\over\partial a_k} = -2 \sum_i \left[{y_i - m(x_i, \vec{a})\over \sigma_i}  \right] {1\over \sigma_i} {\partial m(x_i, \vec{a})\over\partial a_k}.\]</div>
@@ -534,19 +556,19 @@ document.write(`
 \[r_i = {y_i - m(x_i, \vec{a})\over \sigma_i}\]</div>
 <p>then we have</p>
 <div class="math notranslate nohighlight" id="equation-gradchi2">
-<span class="eqno">(3)<a class="headerlink" href="#equation-gradchi2" title="Permalink to this equation">#</a></span>\[{1\over 2} {\partial \chi^2\over\partial a_k} = - \sum_i A_{ik} r_i\]</div>
+<span class="eqno">(3)<a class="headerlink" href="#equation-gradchi2" title="Link to this equation">#</a></span>\[{1\over 2} {\partial \chi^2\over\partial a_k} = - \sum_i A_{ik} r_i\]</div>
 <p>or in matrix form</p>
 <div class="math notranslate nohighlight" id="equation-gradchi2vec">
-<span class="eqno">(4)<a class="headerlink" href="#equation-gradchi2vec" title="Permalink to this equation">#</a></span>\[{1\over 2} \vec{\nabla} \chi^2 = - \mathbf{A^T}\mathbf{r}.\]</div>
+<span class="eqno">(4)<a class="headerlink" href="#equation-gradchi2vec" title="Link to this equation">#</a></span>\[{1\over 2} \vec{\nabla} \chi^2 = - \mathbf{A^T}\mathbf{r}.\]</div>
 <p>We can find the Hessian matrix by taking another derivative of equation <a class="reference internal" href="#equation-gradchi2">(3)</a>, giving</p>
 <div class="math notranslate nohighlight">
 \[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = \sum_i A_{ik}A_{i\ell} + \sum_i r_i {\partial^2 m(x_i)\over \partial a_k \partial a_\ell}.\]</div>
 <p>The second term involving the second derivative of the model is usually dropped with the argument that near the best-fitting solution, <span class="math notranslate nohighlight">\(r_i\)</span> should be small, especially when summed over <span class="math notranslate nohighlight">\(i\)</span> and positive and negative values cancel. Neglecting this term, we get</p>
 <div class="math notranslate nohighlight" id="equation-hessian">
-<span class="eqno">(5)<a class="headerlink" href="#equation-hessian" title="Permalink to this equation">#</a></span>\[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = (\mathbf{A^T}\mathbf{A})_{k\ell}.\]</div>
+<span class="eqno">(5)<a class="headerlink" href="#equation-hessian" title="Link to this equation">#</a></span>\[{1\over 2} {\partial^2 \chi^2\over\partial a_k \partial a_\ell} = (\mathbf{A^T}\mathbf{A})_{k\ell}.\]</div>
 <p>Now plugging equations <a class="reference internal" href="#equation-gradchi2vec">(4)</a> and <a class="reference internal" href="#equation-hessian">(5)</a> into the Newton’s method update (eq. <a class="reference internal" href="#equation-newtonmultid">(2)</a>), we find</p>
 <div class="math notranslate nohighlight" id="equation-newtonupdate">
-<span class="eqno">(6)<a class="headerlink" href="#equation-newtonupdate" title="Permalink to this equation">#</a></span>\[\vec{a}_{n+1} = \vec{a}_n + (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.\]</div>
+<span class="eqno">(6)<a class="headerlink" href="#equation-newtonupdate" title="Link to this equation">#</a></span>\[\vec{a}_{n+1} = \vec{a}_n + (\mathbf{A^T}\mathbf{A})^{-1} \mathbf{A^T} \mathbf{r}.\]</div>
 <p>Starting with an initial guess for the parameters, we can apply this rule iteratively until (hopefully) we converge on the best fit (ie. the set of parameters that minimizes <span class="math notranslate nohighlight">\(\chi^2\)</span>).</p>
 <div class="admonition-exercise-lorentzian-fit admonition">
 <p class="admonition-title">Exercise: Lorentzian fit</p>
@@ -582,7 +604,7 @@ document.write(`
 </div>
 </section>
 <section id="levenberg-marquardt">
-<h2>Levenberg-Marquardt<a class="headerlink" href="#levenberg-marquardt" title="Permalink to this heading">#</a></h2>
+<h2>Levenberg-Marquardt<a class="headerlink" href="#levenberg-marquardt" title="Link to this heading">#</a></h2>
 <p>You might have noticed in the exercise that Newton’s method doesn’t always converge. For the parameters given above, if you start at <span class="math notranslate nohighlight">\((a_0,a_1,a_2)=(1,1,1)\)</span> then you should converge on the correct solution pretty quickly, but choosing <span class="math notranslate nohighlight">\((1,1,4)\)</span> as a starting point instead leads to a diverging solution. Levenberg-Marquardt is a modification of Newton’s method that often leads to a more robust solution. The algorithm is:</p>
 <ul class="simple">
 <li><p>Define a parameter <span class="math notranslate nohighlight">\(\lambda\)</span> with a small starting value, e.g. <span class="math notranslate nohighlight">\(\lambda=10^{-3}\)</span>.</p></li>
@@ -625,11 +647,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="polynomial_fit.html"
@@ -649,10 +670,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -660,6 +678,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -691,6 +710,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -717,8 +737,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>ChatGPT ‘Real-Life Example’ &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'chatgpt';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -517,17 +539,17 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="chatgpt-real-life-example">
-<h1>ChatGPT ‘Real-Life Example’<a class="headerlink" href="#chatgpt-real-life-example" title="Permalink to this heading">#</a></h1>
+<h1>ChatGPT ‘Real-Life Example’<a class="headerlink" href="#chatgpt-real-life-example" title="Link to this heading">#</a></h1>
 <p>By <a class="reference external" href="https://github.com/matthew-w-lundy">Matthew Lundy</a></p>
 <section id="you">
-<h2>You:<a class="headerlink" href="#you" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#you" title="Link to this heading">#</a></h2>
 <p>I have a list of links to files I need to download in a text file where each link is seperated by a new line. I want to download all of these files in python and then create a numpy array containing a list of these files.</p>
 </section>
 <section id="chatgpt">
-<h2>ChatGPT:<a class="headerlink" href="#chatgpt" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#chatgpt" title="Link to this heading">#</a></h2>
 <p>To download files from a list of links and create a NumPy array in Python, you can use the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library to download the files and then use NumPy to work with the data. First, you need to install the <code class="docutils literal notranslate"><span class="pre">requests</span></code> library if you haven’t already. You can install it using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>requests
 </pre></div>
@@ -562,11 +584,11 @@ document.write(`
 <p>This code reads the list of links from the text file ‘list_of_links.txt’, downloads the files, and stores their content in a list. Then, it converts this list into a NumPy array, where each element of the array contains the data of one downloaded file. Make sure to replace ‘list_of_links.txt’ with the actual path to your text file containing the links.</p>
 </section>
 <section id="id1">
-<h2>You:<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
 <p>can you download them into a subfolder called data</p>
 </section>
 <section id="id2">
-<h2>ChatGPT:<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>Sure, you can download the files into a subfolder called ‘data’ by modifying the code as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -608,11 +630,11 @@ document.write(`
 <p>In this code, we create the ‘data’ subfolder if it doesn’t already exist using <code class="docutils literal notranslate"><span class="pre">os.mkdir</span></code>. Then, the downloaded files are saved into this subfolder with their original filenames using <code class="docutils literal notranslate"><span class="pre">os.path.basename(link)</span></code> to extract the filename from the URL. The rest of the code remains the same, and you will have a NumPy array containing the data of the downloaded files in the ‘data’ subfolder.</p>
 </section>
 <section id="id3">
-<h2>You:<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id3" title="Link to this heading">#</a></h2>
 <p>ok can you do this in a function and clean up the style</p>
 </section>
 <section id="id4">
-<h2>ChatGPT:<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id4" title="Link to this heading">#</a></h2>
 <p>Certainly, here’s a cleaner and more organized version of the code encapsulated within a function:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -655,11 +677,11 @@ document.write(`
 <p>This code defines a function <code class="docutils literal notranslate"><span class="pre">download_files_from_links</span></code> that takes the path to the file containing the links and an optional subfolder name as arguments. The function encapsulates the logic for downloading files and organizing them into the specified subfolder. The cleaned-up code makes it easier to reuse and maintain.</p>
 </section>
 <section id="id5">
-<h2>You:<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id5" title="Link to this heading">#</a></h2>
 <p>ok all of these files are fits files with tabular data, after they are download  can you import them with astropy and then plot the light curve data</p>
 </section>
 <section id="id6">
-<h2>ChatGPT:<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id6" title="Link to this heading">#</a></h2>
 <p>Certainly, you can use the Astropy library to import FITS files containing tabular data and then plot the light curve data. Here’s how you can modify the code to achieve this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -715,11 +737,11 @@ document.write(`
 <p>Make sure to adapt the code by replacing ‘TIME’ and ‘FLUX’ with the actual column names from your FITS files. This code will create individual plots for each FITS file in the subfolder ‘data’.</p>
 </section>
 <section id="id7">
-<h2>You:<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id7" title="Link to this heading">#</a></h2>
 <p>can you split the download and plot into two seperate functions where the light curve list is returned to the main function</p>
 </section>
 <section id="id8">
-<h2>ChatGPT:<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id8" title="Link to this heading">#</a></h2>
 <p>Sure, we can split the download and plotting into two separate functions and have the light curve list returned to the main function. Here’s the modified code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -786,11 +808,11 @@ document.write(`
 <p>In this code, the <code class="docutils literal notranslate"><span class="pre">download_files</span></code> function downloads the files and returns a list of the downloaded file paths, and the <code class="docutils literal notranslate"><span class="pre">plot_light_curves</span></code> function takes this list of file paths to plot the light curves. This separation of functionality allows for better code organization and reusability.</p>
 </section>
 <section id="id9">
-<h2>You:<a class="headerlink" href="#id9" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id9" title="Link to this heading">#</a></h2>
 <p>i have an apache host that I’m trying to post the plots to a website, can you write another function that runs after the plots have all been produced and saved as PNGs and then hosts these plots online</p>
 </section>
 <section id="id10">
-<h2>ChatGPT:<a class="headerlink" href="#id10" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id10" title="Link to this heading">#</a></h2>
 <p>Certainly, you can use the <code class="docutils literal notranslate"><span class="pre">http.server</span></code> module in Python to serve the PNG plots through a local HTTP server. To do this, you can create a new function that runs after the plots have been produced and saved as PNGs. Here’s a simple example of how you can achieve this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -879,11 +901,11 @@ document.write(`
 <p>Make sure to adapt the code to your specific needs, including configuring the port number and setting the appropriate output folder for saving the plots.</p>
 </section>
 <section id="id11">
-<h2>You:<a class="headerlink" href="#id11" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id11" title="Link to this heading">#</a></h2>
 <p>can you instead save them as embeded in  an html file</p>
 </section>
 <section id="id12">
-<h2>ChatGPT:<a class="headerlink" href="#id12" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id12" title="Link to this heading">#</a></h2>
 <p>Certainly, you can save the plots as embedded images in an HTML file. Here’s how you can modify the code to achieve this:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -971,12 +993,12 @@ document.write(`
 <p>In this modified code, the <code class="docutils literal notranslate"><span class="pre">plot_light_curves</span></code> function converts each plot to a base64-encoded image and stores them in a list. The <code class="docutils literal notranslate"><span class="pre">create_html_with_plots</span></code> function creates an HTML file with embedded images using the base64-encoded data. You can specify the output file name in the <code class="docutils literal notranslate"><span class="pre">output_file</span></code> argument. When you run this code, it will create an HTML file with embedded plots.</p>
 </section>
 <section id="id13">
-<h2>You:<a class="headerlink" href="#id13" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id13" title="Link to this heading">#</a></h2>
 <p>great can you create a header on the HTML file with the following information (you can reword it: LMXB Trigger for VERITAS, this website shows the Swift-BAT daily lightcurves for the LMXBs visible to veritas. If a source is triggered then we will observe the source with the ECM.</p>
 <p>then organize the plots so that they are aesthetically well organized.</p>
 </section>
 <section id="id14">
-<h2>ChatGPT:<a class="headerlink" href="#id14" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id14" title="Link to this heading">#</a></h2>
 <p>Certainly, you can add a header to the HTML file and organize the embedded plots for a more aesthetically pleasing presentation. Here’s the updated code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1072,12 +1094,12 @@ document.write(`
 <p>In this updated code, the HTML file is generated with a title, header, and a more aesthetically organized layout for the embedded plots. The plots are organized in rows with a maximum of two plots per row. You can further customize the HTML layout as needed to achieve the desired appearance.</p>
 </section>
 <section id="id15">
-<h2>You:<a class="headerlink" href="#id15" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id15" title="Link to this heading">#</a></h2>
 <p>Ok a couple of details, make the default link file path “download.txt” Change the x-axis label to “Time (MJD)”, label the files in the HTML file and in the file themselves with the file name (excluding the .fits at the end). Change the ylabel to be r”Swift-BAT (15-50 keV) [Counts/cm<span class="math notranslate nohighlight">\(^2\)</span>/s]”. Also change the scatter to an errorbar plot with no connecting line and a small alpha (0.8). If you could also make each plot a different color.</p>
 <p>For the fits column import if you could change “FLUX” to “RATE” and also import “ERROR” that would be great</p>
 </section>
 <section id="id16">
-<h2>ChatGPT:<a class="headerlink" href="#id16" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id16" title="Link to this heading">#</a></h2>
 <p>Certainly, here’s the modified code with your requested changes:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1181,11 +1203,11 @@ document.write(`
 </ul>
 </section>
 <section id="id17">
-<h2>You:<a class="headerlink" href="#id17" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id17" title="Link to this heading">#</a></h2>
 <p>Great! Can you add a horizontal line in every plot at 0.2 and then if any of the last 7 points are above the line can you change the HTML title (the h2) of the image to be red. Can you also return to the main function a list of all files where the last flux point is above 0.2?</p>
 </section>
 <section id="id18">
-<h2>ChatGPT:<a class="headerlink" href="#id18" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id18" title="Link to this heading">#</a></h2>
 <p>To add a horizontal line at 0.2 to each plot and change the HTML title to red if any of the last 7 points are above the line, you can modify the code as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1302,11 +1324,11 @@ document.write(`
 </ul>
 </section>
 <section id="id19">
-<h2>You:<a class="headerlink" href="#id19" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id19" title="Link to this heading">#</a></h2>
 <p>ok all the plots have red labels, I only want a check to see if the object is in the files above threshold list and give the HTML a red title if that condition is met</p>
 </section>
 <section id="id20">
-<h2>ChatGPT:<a class="headerlink" href="#id20" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id20" title="Link to this heading">#</a></h2>
 <p>I see the requirement now. You want to give the HTML title a red color only if the object is in the <code class="docutils literal notranslate"><span class="pre">files_above_threshold</span></code> list. Here’s the updated code to achieve that:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1421,7 +1443,7 @@ document.write(`
 <p>In this code, the HTML title is given a red color only if the object is in the <code class="docutils literal notranslate"><span class="pre">files_above_threshold</span></code> list. The <code class="docutils literal notranslate"><span class="pre">object_name</span></code> argument is used to determine if the title should be red or not.</p>
 </section>
 <section id="id21">
-<h2>You:<a class="headerlink" href="#id21" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id21" title="Link to this heading">#</a></h2>
 <p>Great,</p>
 <p>Now if there are any sources where the last flux is above threshold then can you send out an email using something like the following function</p>
 <p>def email(now,c,time,v,dist):
@@ -1449,7 +1471,7 @@ with smtplib.SMTP_SSL(smtp_server,port,context=context) as server:
 <p>except adding in a section in the text that include which sources are above threshold</p>
 </section>
 <section id="id22">
-<h2>ChatGPT:<a class="headerlink" href="#id22" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id22" title="Link to this heading">#</a></h2>
 <p>To send an email with information about the sources that are above the threshold, you can modify your code as follows:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">requests</span>
@@ -1596,11 +1618,11 @@ with smtplib.SMTP_SSL(smtp_server,port,context=context) as server:
 <p>In this code, an <code class="docutils literal notranslate"><span class="pre">send_alert_email</span></code> function is added to send an email with a list of sources above the threshold. The email is sent if there are sources in the <code class="docutils literal notranslate"><span class="pre">files_above_threshold</span></code> list. The email includes a list of sources that are above the threshold.</p>
 </section>
 <section id="id23">
-<h2>You:<a class="headerlink" href="#id23" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id23" title="Link to this heading">#</a></h2>
 <p>Ok great, now I need to setup a seperate script that can execute this script every day. I’m going to run it as a cronjob so make it a .sh script. The only thing this script needs to do is run this python script and then take the plot.html output and scp it onto a host</p>
 </section>
 <section id="id24">
-<h2>ChatGPT:<a class="headerlink" href="#id24" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id24" title="Link to this heading">#</a></h2>
 <p>To create a shell script that runs the Python script and then uses <code class="docutils literal notranslate"><span class="pre">scp</span></code> to copy the <code class="docutils literal notranslate"><span class="pre">plots.html</span></code> file to a remote host, you can create a file with a <code class="docutils literal notranslate"><span class="pre">.sh</span></code> extension (e.g., <code class="docutils literal notranslate"><span class="pre">daily_script.sh</span></code>) and add the following content:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 
@@ -1632,11 +1654,11 @@ python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$p
 <p>This line schedules the script to run at midnight every day. Don’t forget to replace <code class="docutils literal notranslate"><span class="pre">/path/to/daily_script.sh</span></code> with the actual path to your shell script. Save and exit your crontab editor to activate the cron job.</p>
 </section>
 <section id="id25">
-<h2>You:<a class="headerlink" href="#id25" title="Permalink to this heading">#</a></h2>
+<h2>You:<a class="headerlink" href="#id25" title="Link to this heading">#</a></h2>
 <p>ok crontab is not running the script properly the script is located in /home/matthew/LMXB/cron.sh and I’ve changed the /bin/bash to source and added a line to cd into the directory but it still doesn’t work</p>
 </section>
 <section id="id26">
-<h2>ChatGPT:<a class="headerlink" href="#id26" title="Permalink to this heading">#</a></h2>
+<h2>ChatGPT:<a class="headerlink" href="#id26" title="Link to this heading">#</a></h2>
 <p>If you’re encountering issues with your cron job not running the script properly, it’s important to ensure that the environment is set up correctly and that you have specified the full paths to your script and any required files. Here are some steps you can take to troubleshoot and potentially fix the issue:</p>
 <ol class="arabic">
 <li><p><strong>Specify Full Paths</strong>: In your cron job entry, specify the full paths for both the shell script and the Python script to avoid any relative path issues. For example:</p>
@@ -1685,11 +1707,10 @@ python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$p
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="mllecture.html"
@@ -1709,10 +1730,7 @@ python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$p
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1720,6 +1738,7 @@ python3<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$p
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1776,6 +1795,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -1802,8 +1822,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

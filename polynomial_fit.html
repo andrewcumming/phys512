@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Polynomial fitting &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'polynomial_fit';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -494,10 +516,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="polynomial-fitting">
-<h1>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Permalink to this heading">#</a></h1>
+<h1>Polynomial fitting<a class="headerlink" href="#polynomial-fitting" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -555,36 +577,36 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    0.0662253       2822.62       42620.4
-    -0.410915        34.696      -85.4359
-    -0.632573      -1463.17       2312.04
-    -0.993745      -21.9264       21.0644
-     0.432128        377.93       873.581
-    -0.328487       8.67862        -27.42
-     0.125609      -194.813      -1551.95
-     0.532862      -3.91406      -8.34536
-   -0.0332163       87.7785      -2643.63
-     0.100249        1.5077       14.0395
-    -0.975496      -20.7219       20.2424
-    -0.827637      -1.00094      0.209396
-     0.261301       2.47558       8.47406
-    -0.742428      -0.76094     0.0249343
-     0.364459      0.260605     -0.284954
-     0.475398      0.484891     0.0199679
-     0.427686      0.426797   -0.00207807
-     0.296418      0.295071   -0.00454506
-    -0.910054      -0.91018   0.000138353
-     0.167003      0.167072   0.000413106
-    -0.607085     -0.607055  -4.90441e-05
-rms deviation / max(y) = 0.00184481
+     -0.96775       1647.69       -1703.6
+     0.542287      -113.767      -210.792
+      0.85276      -853.757      -1002.17
+    0.0967043       68.1566       703.794
+     0.842487        221.74       262.197
+     0.637623      -28.9621      -46.4219
+     -0.82743      -114.691       137.611
+     0.424265        15.404       35.3075
+    -0.802969       50.2446      -63.5736
+     0.910581      -4.13127      -5.53696
+     0.924924      -10.3297      -12.1682
+     0.640554       1.46682       1.28992
+     -0.50631      0.628652      -2.24164
+     0.609591      0.574248    -0.0579789
+    0.0211072    0.00666731     -0.684121
+     -0.35979     -0.368268     0.0235626
+     0.424995      0.413736    -0.0264921
+     0.240582      0.242067    0.00617299
+     0.135369      0.136831     0.0108019
+    -0.911123       -0.9112   8.50062e-05
+    -0.535428     -0.535476    8.9198e-05
+rms deviation / max(y) = 0.00110679
 </pre></div>
 </div>
-<img alt="_images/0fdad79a4e4d88d3d966cb2b46e4a09e370d6aeb8aac10f288308e9947a359bd.png" src="_images/0fdad79a4e4d88d3d966cb2b46e4a09e370d6aeb8aac10f288308e9947a359bd.png" />
+<img alt="_images/cf4498f646ff16a1c7c3ca71087fb183dea0b645b6ada17149d1434824b1fbb5.png" src="_images/cf4498f646ff16a1c7c3ca71087fb183dea0b645b6ada17149d1434824b1fbb5.png" />
 </div>
 </div>
 <p>If you run this with no noise (<code class="docutils literal notranslate"><span class="pre">scale=0</span></code> on line 10), you should see that for low polynomial order the coefficients are fit to machine precision, but the errors become large pretty quickly as you increase the polynomial order. Something is going horribly wrong with the matrix inversion as the polynomial order increases!</p>
 <section id="using-singular-value-decomposition-svd">
-<h2>Using Singular Value Decomposition (SVD)<a class="headerlink" href="#using-singular-value-decomposition-svd" title="Permalink to this heading">#</a></h2>
+<h2>Using Singular Value Decomposition (SVD)<a class="headerlink" href="#using-singular-value-decomposition-svd" title="Link to this heading">#</a></h2>
 <p>Singular value decomposition (SVD) is extremely useful in these situations where you are dealing with a close-to-singular matrix. The ratio of the largest to smallest singular values is known as the <strong>condition number</strong> of the matrix, and measures how close to singular it is.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -604,7 +626,7 @@ rms deviation / max(y) = 0.00184481
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" src="_images/6b9c7d2cd33e423df85a54fd73965d084ac1fdc710a13b4cf2756f6c6bf56833.png" />
+<img alt="_images/9aa69617f796919108c579056d6c0854547f877d8427fb7ddc7a2fbf016b38e4.png" src="_images/9aa69617f796919108c579056d6c0854547f877d8427fb7ddc7a2fbf016b38e4.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Range of singular values = 1.02088e+09
 np.linalg.cond gives 1.02088e+09
 </pre></div>
@@ -652,36 +674,36 @@ np.linalg.cond gives 1.02088e+09
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Polynomial coeffs, Fitted coeffs, Fractional error
-    0.0662253,     0.0662253  -3.48765e-11
-    -0.410915,     -0.410915  -8.93117e-11
-    -0.632573,     -0.632573  -3.76041e-10
-    -0.993745,     -0.993745  -5.87458e-10
-     0.432128,      0.432128  -9.65232e-09
-    -0.328487,     -0.328487   2.36377e-09
-     0.125609,       0.12561   7.06532e-08
-     0.532862,      0.532862  -1.53963e-08
-   -0.0332163,    -0.0332163   7.30216e-07
-     0.100249,      0.100249   1.10539e-07
-    -0.975496,     -0.975496   -2.2683e-08
-    -0.827637,     -0.827637   3.44339e-09
-     0.261301,      0.261301  -5.55702e-08
-    -0.742428,     -0.742428  -2.33274e-10
-     0.364459,      0.364459   1.38855e-08
-     0.475398,      0.475398  -6.68592e-10
-     0.427686,      0.427686  -2.37952e-09
-     0.296418,      0.296418   1.98676e-10
-    -0.910054,     -0.910054  -3.55936e-11
-     0.167003,      0.167003  -1.99557e-11
-    -0.607085,     -0.607085   3.29473e-12
-rms deviation / max(y) = 4.21707e-12
+     -0.96775,      -0.96775   1.91324e-11
+     0.542287,      0.542287   4.34068e-11
+      0.85276,       0.85276   2.97942e-10
+    0.0967043,     0.0967043  -9.67429e-09
+     0.842487,      0.842487  -2.27761e-09
+     0.637623,      0.637623   7.23563e-09
+     -0.82743,      -0.82743  -1.33468e-08
+     0.424265,      0.424265  -1.82184e-08
+    -0.802969,     -0.802969   2.02189e-08
+     0.910581,      0.910581   1.05173e-08
+     0.924924,      0.924924    2.3907e-08
+     0.640554,      0.640554  -1.01385e-08
+     -0.50631,      -0.50631   2.63536e-08
+     0.609591,      0.609591   2.80481e-09
+    0.0211072,     0.0211072   2.28063e-07
+     -0.35979,      -0.35979   1.53938e-09
+     0.424995,      0.424995   -2.3327e-09
+     0.240582,      0.240582    4.0083e-10
+     0.135369,      0.135369   9.88322e-10
+    -0.911123,     -0.911123   3.99992e-12
+    -0.535428,     -0.535428   1.62548e-11
+rms deviation / max(y) = 1.23244e-12
 </pre></div>
 </div>
-<img alt="_images/c2e9e9f33c062d53ae18d768cab2f50675057cc04aa9ca38d8c7ebb78fab6042.png" src="_images/c2e9e9f33c062d53ae18d768cab2f50675057cc04aa9ca38d8c7ebb78fab6042.png" />
+<img alt="_images/a41503d53d7b6efdd1869e50351cb2ba265ff3f38253b77153c19fc2edf3affb.png" src="_images/a41503d53d7b6efdd1869e50351cb2ba265ff3f38253b77153c19fc2edf3affb.png" />
 </div>
 </div>
 </section>
 <section id="orthogonal-polynomials">
-<h2>Orthogonal polynomials<a class="headerlink" href="#orthogonal-polynomials" title="Permalink to this heading">#</a></h2>
+<h2>Orthogonal polynomials<a class="headerlink" href="#orthogonal-polynomials" title="Link to this heading">#</a></h2>
 <p>SVD does a lot better than straight inversion of the normal equations, but still fails for large enough polynomial order. One way that we can do better is to choose a set of basis functions that are orthogonal in the domain that we are interested in. For example, both the Legendre polynomials and the Chebyshev polynomials are orthogonal on the domain <span class="math notranslate nohighlight">\(x=(-1,1)\)</span> (which you can rescale to by rescaling your <span class="math notranslate nohighlight">\(x\)</span> variable).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -705,8 +727,8 @@ rms deviation / max(y) = 4.21707e-12
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" src="_images/8a0aa6187e3ad01e123c2d3a00848aaf0fd8ce50edf5683ca1154874c72b574b.png" />
-<img alt="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" src="_images/f9eb8560d0332f0f4df06c74ddd6d9c6e7b254548966abbcda882c1d108bf477.png" />
+<img alt="_images/358546a85805289d99654be74d76925bea9d2504cc23bdccc761082164a277d1.png" src="_images/358546a85805289d99654be74d76925bea9d2504cc23bdccc761082164a277d1.png" />
+<img alt="_images/9697490eec8046a14c1c2fa4324cb54807a0ef19e9f077c90a42453fa571daaa.png" src="_images/9697490eec8046a14c1c2fa4324cb54807a0ef19e9f077c90a42453fa571daaa.png" />
 </div>
 </div>
 <blockquote>
@@ -721,7 +743,7 @@ rms deviation / max(y) = 4.21707e-12
 </div></blockquote>
 <p><a class="reference external" href="https://andrewcumming.github.io/phys512/polynomial_fit_solutions.html#orthogonal-polynomials">[Solution]</a></p>
 <section id="notes-and-further-reading">
-<h3>Notes and further reading<a class="headerlink" href="#notes-and-further-reading" title="Permalink to this heading">#</a></h3>
+<h3>Notes and further reading<a class="headerlink" href="#notes-and-further-reading" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>If you try fitting a large order polynomial with and without SVD, i.e. a case with very large condition number, you should see that the coefficients returned by SVD are much better behaved. With the straight inversion, successive coefficients often take on large positive and then negative values, to cancel out the contributions from successive basis functions. With SVD on the other hand, these coefficients tend to small values. For more on this, a good place to look is Numerical Recipes, sections 2.6 (on SVD) and 15.4 (for its use in linear least squares).</p></li>
 <li><p>The Chebyshev polynomials have the interesting property that they have maximum or minimum values of <span class="math notranslate nohighlight">\(\pm 1\)</span>, which makes it easy to assess the errors when approximating functions with a finite number of terms in the Chebyshev expansion. For more on this, look at section 5.8 of Numerical Recipes.</p></li>
@@ -755,11 +777,10 @@ rms deviation / max(y) = 4.21707e-12
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="linear_least_squares.html"
@@ -779,10 +800,7 @@ rms deviation / max(y) = 4.21707e-12
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -790,6 +808,7 @@ rms deviation / max(y) = 4.21707e-12
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -823,6 +842,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -849,8 +869,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

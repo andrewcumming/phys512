@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Conjugate gradient solutions &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'conjugate_gradient_solutions';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -75,7 +71,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -110,11 +114,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -129,9 +136,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -141,12 +150,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -438,20 +458,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -489,10 +511,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="conjugate-gradient-solutions">
-<h1>Conjugate gradient solutions<a class="headerlink" href="#conjugate-gradient-solutions" title="Permalink to this heading">#</a></h1>
+<h1>Conjugate gradient solutions<a class="headerlink" href="#conjugate-gradient-solutions" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -502,7 +524,7 @@ document.write(`
 </div>
 </div>
 <section id="try-out-the-conjugate-gradient-method">
-<h2>Try out the conjugate gradient method<a class="headerlink" href="#try-out-the-conjugate-gradient-method" title="Permalink to this heading">#</a></h2>
+<h2>Try out the conjugate gradient method<a class="headerlink" href="#try-out-the-conjugate-gradient-method" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conjgrad</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">x</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">niter</span> <span class="o">=</span> <span class="mi">20</span><span class="p">):</span>
@@ -558,35 +580,35 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 250.34981414566258
-Iteration 0: pAp = 1.66166e+06, residual=226.606
-Iteration 1: pAp = 8.64641e+09, residual=2.46199
-Iteration 2: pAp = 7003.96, residual=0.178216
-Iteration 3: pAp = 36.8137, residual=0.0126478
-Iteration 4: pAp = 0.185202, residual=0.000913026
-Iteration 5: pAp = 0.000973318, residual=0.000253836
-Iteration 6: pAp = 0.0150347, residual=6.81942e-05
-Iteration 7: pAp = 5.79646e-06, residual=4.79663e-06
-Iteration 8: pAp = 2.67073e-08, residual=3.38852e-07
-Iteration 9: pAp = 1.32929e-10, residual=2.43131e-08
-Iteration 10: pAp = 6.84443e-13, residual=1.67786e-09
-Iteration 11: pAp = 8.71529e-15, residual=1.18528e-08
-Iteration 12: pAp = 1.31951e-11, residual=1.24172e-10
-Iteration 13: pAp = 1.79549e-17, residual=8.85455e-12
-Iteration 14: pAp = 9.06279e-20, residual=6.29192e-13
-Iteration 15: pAp = 4.56813e-22, residual=4.20074e-14
-Iteration 16: pAp = 2.05137e-24, residual=3.85282e-14
-Iteration 17: pAp = 3.67803e-22, residual=3.08694e-15
-Iteration 18: pAp = 1.11195e-26, residual=2.18547e-16
-Iteration 19: pAp = 5.52264e-29, residual=1.5267e-17
-Max error =  1.5779044737485037e-14
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Matrix condition number = 251.40583627173717
+Iteration 0: pAp = 1.13201e+06, residual=106.109
+Iteration 1: pAp = 2.68304e+09, residual=2.36361
+Iteration 2: pAp = 6446.52, residual=0.171269
+Iteration 3: pAp = 34.2315, residual=0.0117273
+Iteration 4: pAp = 0.157702, residual=0.000809329
+Iteration 5: pAp = 0.000759103, residual=0.000151828
+Iteration 6: pAp = 0.00498624, residual=6.09651e-05
+Iteration 7: pAp = 5.0026e-06, residual=4.10697e-06
+Iteration 8: pAp = 1.96176e-08, residual=3.07264e-07
+Iteration 9: pAp = 1.10443e-10, residual=2.132e-08
+Iteration 10: pAp = 5.26143e-13, residual=1.55138e-09
+Iteration 11: pAp = 3.309e-15, residual=8.3324e-09
+Iteration 12: pAp = 1.46841e-11, residual=1.05671e-10
+Iteration 13: pAp = 1.29658e-17, residual=7.95868e-12
+Iteration 14: pAp = 7.4104e-20, residual=5.75301e-13
+Iteration 15: pAp = 3.81794e-22, residual=4.05114e-14
+Iteration 16: pAp = 1.89795e-24, residual=1.4136e-14
+Iteration 17: pAp = 4.8356e-23, residual=2.76164e-15
+Iteration 18: pAp = 9.14286e-27, residual=2.0014e-16
+Iteration 19: pAp = 4.65141e-29, residual=1.39821e-17
+Max error =  1.7319479184152442e-14
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="application-to-laplace-s-equation">
-<h2>Application to Laplace’s equation<a class="headerlink" href="#application-to-laplace-s-equation" title="Permalink to this heading">#</a></h2>
+<h2>Application to Laplace’s equation<a class="headerlink" href="#application-to-laplace-s-equation" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">set_bcs</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -722,7 +744,7 @@ Max error =  1.5779044737485037e-14
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f3d5d12a72c9b3c8a3c0309555cf61fb8dcc4d12f7ff1d5d989a0fec8095b1d6.png" src="_images/f3d5d12a72c9b3c8a3c0309555cf61fb8dcc4d12f7ff1d5d989a0fec8095b1d6.png" />
+<img alt="_images/9625c0c655e6d53c50e6157983b79cf8e0dc7cae9968cfa93306024bb2631fe0.png" src="_images/9625c0c655e6d53c50e6157983b79cf8e0dc7cae9968cfa93306024bb2631fe0.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 1: pAp = 96, residual=6.92695
 </pre></div>
 </div>
@@ -757,8 +779,8 @@ Max error =  1.5779044737485037e-14
 Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
 </pre></div>
 </div>
-<img alt="_images/6f90f7315820ec74b50bb8488b7dc69d7f8d83e3177422f919e5762b6168a267.png" src="_images/6f90f7315820ec74b50bb8488b7dc69d7f8d83e3177422f919e5762b6168a267.png" />
-<img alt="_images/41c7fbc18e0ba3267cad792ab8815c003c5e05a0482ca0fa6022cb0e1ef9d0ae.png" src="_images/41c7fbc18e0ba3267cad792ab8815c003c5e05a0482ca0fa6022cb0e1ef9d0ae.png" />
+<img alt="_images/74d6eca897d43bc952ce51d342136f654457ff41794ccca6698fcf70e0912a1f.png" src="_images/74d6eca897d43bc952ce51d342136f654457ff41794ccca6698fcf70e0912a1f.png" />
+<img alt="_images/f7873635b3d71e96e610afcec6c23b6c897dd7a02c0d3d4d33efa814d1c1e708.png" src="_images/f7873635b3d71e96e610afcec6c23b6c897dd7a02c0d3d4d33efa814d1c1e708.png" />
 </div>
 </div>
 <p>The convergence is exponential.</p>
@@ -790,11 +812,10 @@ Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="symplectic_solutions.html"
@@ -814,10 +835,7 @@ Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -825,6 +843,7 @@ Iteration 1024: pAp = 1.46728e-14, residual=1.57431e-07
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -855,6 +874,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -881,8 +901,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

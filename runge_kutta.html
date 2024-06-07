@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Initial value problems &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'runge_kutta';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -500,19 +522,19 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="initial-value-problems">
-<h1>Initial value problems<a class="headerlink" href="#initial-value-problems" title="Permalink to this heading">#</a></h1>
+<h1>Initial value problems<a class="headerlink" href="#initial-value-problems" title="Link to this heading">#</a></h1>
 <p>In an initial value problem, we want to solve a set of ordinary differential equations</p>
 <div class="math notranslate nohighlight">
 \[{d\vec{y}\over dx} = f(x,\vec{y})\]</div>
 <p>for the functions <span class="math notranslate nohighlight">\(\vec{y}\)</span> given a set of boundary conditions at the starting point <span class="math notranslate nohighlight">\(x=x_0\)</span>. We then use the information we have about the derivatives <span class="math notranslate nohighlight">\(f(x,\vec{y})\)</span> to step away from <span class="math notranslate nohighlight">\(x_0\)</span> and evaluate <span class="math notranslate nohighlight">\(\vec{y}\)</span> at a location <span class="math notranslate nohighlight">\(x=x_0+h\)</span>, where <span class="math notranslate nohighlight">\(h\)</span> is the step size (we could also write this as <span class="math notranslate nohighlight">\(\Delta x\)</span>, but we’ll use <span class="math notranslate nohighlight">\(h\)</span> here in common with many treatments of ODEs). Note that the derivative <span class="math notranslate nohighlight">\(f\)</span> can depend on the position <span class="math notranslate nohighlight">\(x\)</span> but also any of the <span class="math notranslate nohighlight">\(y\)</span>’s, ie. we could have a set of <em>coupled ODEs</em>.</p>
 <section id="explicit-methods">
-<h2>Explicit methods<a class="headerlink" href="#explicit-methods" title="Permalink to this heading">#</a></h2>
+<h2>Explicit methods<a class="headerlink" href="#explicit-methods" title="Link to this heading">#</a></h2>
 <p>Explicit methods involve using the value of the function <span class="math notranslate nohighlight">\(y(x)\)</span> and the derivative <span class="math notranslate nohighlight">\(f(x,y)\)</span> at the current <span class="math notranslate nohighlight">\(x\)</span> location to evaluate <span class="math notranslate nohighlight">\(y(x+h)\)</span>. There are various approximations that can be used with increasing accuracy:</p>
 <section id="euler-method">
-<h3>Euler method<a class="headerlink" href="#euler-method" title="Permalink to this heading">#</a></h3>
+<h3>Euler method<a class="headerlink" href="#euler-method" title="Link to this heading">#</a></h3>
 <p>The simplest approach is to write</p>
 <div class="math notranslate nohighlight">
 \[y(x+h) = y(x) + hf(x,y),\]</div>
@@ -520,7 +542,7 @@ document.write(`
 <p>Note that this scheme has a <strong>local error</strong> which is <em>second order</em> in <span class="math notranslate nohighlight">\(h\)</span>, since the next term in the Taylor expansion that has been dropped is <span class="math notranslate nohighlight">\(\propto h^2\)</span>. However, in integrating between two points <span class="math notranslate nohighlight">\(x=a\)</span> and <span class="math notranslate nohighlight">\(x=b\)</span>, the number of steps that we have to take grows as <span class="math notranslate nohighlight">\(h\)</span> decreases, so that the <strong>global error</strong> is one power of <span class="math notranslate nohighlight">\(h\)</span> larger. For this reason, the Euler method is a <strong>first order</strong> method: doubling the number of points decreases the error by a factor of 2.</p>
 </section>
 <section id="midpoint-method">
-<h3>Midpoint method<a class="headerlink" href="#midpoint-method" title="Permalink to this heading">#</a></h3>
+<h3>Midpoint method<a class="headerlink" href="#midpoint-method" title="Link to this heading">#</a></h3>
 <p>In the midpoint method, instead of using the derivative at <span class="math notranslate nohighlight">\(x\)</span> to step across the interval, we use the derivative from half-way across, at <span class="math notranslate nohighlight">\(x+h/2\)</span>. This gives a <strong>second order</strong> method. The procedure is</p>
 <ol class="arabic simple">
 <li><p>Evaluate</p></li>
@@ -539,7 +561,7 @@ document.write(`
 \[y(x+h) = y(x) + h f_1.\]</div>
 </section>
 <section id="runge-kutta">
-<h3>Runge-Kutta<a class="headerlink" href="#runge-kutta" title="Permalink to this heading">#</a></h3>
+<h3>Runge-Kutta<a class="headerlink" href="#runge-kutta" title="Link to this heading">#</a></h3>
 <p>The midpoint method is an example of a broader class of methods known as <strong>Runge Kutta</strong> methods. The idea is to use combinations of derivatives evaluated across the interval <span class="math notranslate nohighlight">\(h\)</span> to cancel out the higher order terms. The most used of these is the <strong>4th order Runge Kutta</strong> method (RK4). Together with a routine to take adaptive steps (i.e. vary the stepsize <span class="math notranslate nohighlight">\(h\)</span> to achieve a desired accuracy), this might be the only method you need for integrating ODEs (unless you are dealing with a stiff system, see implicit methods below). It is common enough that you should certainly know about RK4 and how it works.</p>
 <p>The procedure is similar to the midpoint method, but with an extra step:</p>
 <ol class="arabic simple">
@@ -608,7 +630,7 @@ document.write(`
 </section>
 </section>
 <section id="implicit-methods-and-stiff-equations">
-<h2>Implicit methods and stiff equations<a class="headerlink" href="#implicit-methods-and-stiff-equations" title="Permalink to this heading">#</a></h2>
+<h2>Implicit methods and stiff equations<a class="headerlink" href="#implicit-methods-and-stiff-equations" title="Link to this heading">#</a></h2>
 <p>Explicit methods often have a maximum step size <span class="math notranslate nohighlight">\(h\)</span> beyond which the method becomes unstable. A simple example is the equation</p>
 <div class="math notranslate nohighlight">
 \[{dy\over dx} = -cy\]</div>
@@ -623,13 +645,13 @@ document.write(`
 <p><strong>Implicit methods</strong> allow us to get around this constraint: we can take large steps in a stable way and focus on the large scales that we are interested in.
 In an implicit method, we write the update in terms of the gradient evaluated with the future values of the variables rather than the current values, ie. we use <span class="math notranslate nohighlight">\(f(x+h, y(x+h))\)</span> rather than <span class="math notranslate nohighlight">\(f(x, y(x))\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-backeuler">
-<span class="eqno">(7)<a class="headerlink" href="#equation-backeuler" title="Permalink to this equation">#</a></span>\[y(x+h) = y(x) + h \left.{dy\over dx}\right|_{x+h} \]</div>
+<span class="eqno">(7)<a class="headerlink" href="#equation-backeuler" title="Link to this equation">#</a></span>\[y(x+h) = y(x) + h \left.{dy\over dx}\right|_{x+h} \]</div>
 <p>which gives</p>
 <div class="math notranslate nohighlight">
 \[y(x+h) = y(x) - chy(x+h) \Rightarrow y(x+h) = {y(x) \over 1+ ch}\]</div>
 <p>This behaves well in the limit of large <span class="math notranslate nohighlight">\(h\)</span> since then <span class="math notranslate nohighlight">\(y(x+h)\rightarrow 0\)</span>, which is the correct solution for large <span class="math notranslate nohighlight">\(x\)</span>. Implicit methods usually have this behavior: for large steps we lose accuracy, but evolve to the correct equilibrium solution.</p>
 <section id="backward-euler">
-<h3>Backward Euler<a class="headerlink" href="#backward-euler" title="Permalink to this heading">#</a></h3>
+<h3>Backward Euler<a class="headerlink" href="#backward-euler" title="Link to this heading">#</a></h3>
 <p>Equation <a class="reference internal" href="#equation-backeuler">(7)</a> is known as the <strong>backward Euler</strong> method (as opposed to the explicit <em>forward Euler</em> method that we saw earlier). This can be generalized to sets of linear and non-linear equations:</p>
 <p><strong>Linear equations</strong>: For a general set of linear equations with constant coefficients,</p>
 <div class="math notranslate nohighlight">
@@ -645,12 +667,12 @@ In an implicit method, we write the update in terms of the gradient evaluated wi
 \[\mathbf{y}^\prime =  \mathbf{f}(\mathbf{y}),\]</div>
 <p>where we must now solve the implicit equation</p>
 <div class="math notranslate nohighlight" id="equation-nonlineareuler">
-<span class="eqno">(8)<a class="headerlink" href="#equation-nonlineareuler" title="Permalink to this equation">#</a></span>\[\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).\]</div>
+<span class="eqno">(8)<a class="headerlink" href="#equation-nonlineareuler" title="Link to this equation">#</a></span>\[\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).\]</div>
 <p>One way to approach this is to linearize the equations</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{y}_{n+1} = \mathbf{y}_n + h\left[ \mathbf{f} (\mathbf{y}_n) + \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}(\mathbf{y}_{n+1}-\mathbf{y}_n)\right]\]</div>
 <div class="math notranslate nohighlight" id="equation-newtoneuler">
-<span class="eqno">(9)<a class="headerlink" href="#equation-newtoneuler" title="Permalink to this equation">#</a></span>\[\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[\mathbf{1} - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).\]</div>
+<span class="eqno">(9)<a class="headerlink" href="#equation-newtoneuler" title="Link to this equation">#</a></span>\[\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[\mathbf{1} - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).\]</div>
 <p>This is another example of <strong>Newton’s method</strong> that we saw earlier. The matrix <span class="math notranslate nohighlight">\(\partial \mathbf{f}/\partial\mathbf{y}\)</span> is the <strong>Jacobian matrix</strong></p>
 <div class="math notranslate nohighlight">
 \[(\mathbf{J})_{ij} = \left( {\partial \mathbf{f}\over\partial\mathbf{y}}\right)_{ij} = {\partial\over \partial y_j}{\partial f_i\over \partial x}.\]</div>
@@ -669,7 +691,7 @@ In an implicit method, we write the update in terms of the gradient evaluated wi
 </section>
 </section>
 <section id="integrating-odes-using-scipy">
-<h2>Integrating ODEs using Scipy<a class="headerlink" href="#integrating-odes-using-scipy" title="Permalink to this heading">#</a></h2>
+<h2>Integrating ODEs using Scipy<a class="headerlink" href="#integrating-odes-using-scipy" title="Link to this heading">#</a></h2>
 <p>You can use <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">scipy.integrate.solve_ivp</a> to solve initial value problems. It has a choice of different  explicit and implicit methods that you can use, and has an adaptive step size that you can control by specifying the absolute or relative tolerance (error) for the integration.</p>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise</p>
@@ -703,11 +725,10 @@ In an implicit method, we write the update in terms of the gradient evaluated wi
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="mltensorflow.html"
@@ -727,10 +748,7 @@ In an implicit method, we write the update in terms of the gradient evaluated wi
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -738,6 +756,7 @@ In an implicit method, we write the update in terms of the gradient evaluated wi
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -777,6 +796,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -803,8 +823,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

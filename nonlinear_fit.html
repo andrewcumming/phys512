@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Lorentzian fit &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'nonlinear_fit';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -480,10 +502,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="lorentzian-fit">
-<h1>Lorentzian fit<a class="headerlink" href="#lorentzian-fit" title="Permalink to this heading">#</a></h1>
+<h1>Lorentzian fit<a class="headerlink" href="#lorentzian-fit" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -567,12 +589,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 1.75671, a=(1, 1, 1)
-chisq = 0.374345, a=(1.27479, 1.82718, 0.71483)
-chisq = 0.112766, a=(1.3897, 2.3638, 0.380151)
-chisq = 0.102578, a=(1.27736, 2.14209, 0.288395)
-chisq = 0.10255, a=(1.2714, 2.12567, 0.291423)
-a-a0 = [ 0.07139645  0.12567343 -0.00857708]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 1.65559, a=(1, 1, 1)
+chisq = 0.32839, a=(1.29776, 1.84728, 0.726216)
+chisq = 0.075168, a=(1.42112, 2.40337, 0.405825)
+chisq = 0.0660827, a=(1.32004, 2.21729, 0.31795)
+chisq = 0.0660395, a=(1.31153, 2.19465, 0.321288)
+a-a0 = [0.11153324 0.19465219 0.02128819]
 </pre></div>
 </div>
 </div>
@@ -590,7 +612,7 @@ a-a0 = [ 0.07139645  0.12567343 -0.00857708]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c81482a0f2c4c8e9c9668fe394c09f9fe90ac2e40425e36b8bd875323d00b9b9.png" src="_images/c81482a0f2c4c8e9c9668fe394c09f9fe90ac2e40425e36b8bd875323d00b9b9.png" />
+<img alt="_images/5efe607ed191b64aa4f55c1ff86b63e89b1330dbe0afffb032b76229b789a6f0.png" src="_images/5efe607ed191b64aa4f55c1ff86b63e89b1330dbe0afffb032b76229b789a6f0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -618,10 +640,10 @@ a-a0 = [ 0.07139645  0.12567343 -0.00857708]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best-fit parameters are:  [1.27145157 2.12582151 0.29132578]  chisq =  0.1025501826678993
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Best-fit parameters are:  [1.31126399 2.19409529 0.32111827]  chisq =  0.0660395047924557
 </pre></div>
 </div>
-<img alt="_images/1e08ce01f910e7ae87f5980b54af9fdae352fa29eb0152bc4e566801b6061299.png" src="_images/1e08ce01f910e7ae87f5980b54af9fdae352fa29eb0152bc4e566801b6061299.png" />
+<img alt="_images/761321bb1d669a0c4136e0e1554de19d31220b20b1b87035255d2d93a145eef1.png" src="_images/761321bb1d669a0c4136e0e1554de19d31220b20b1b87035255d2d93a145eef1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -678,32 +700,32 @@ a-a0 = [ 0.07139645  0.12567343 -0.00857708]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 4.18776, a=(1.08859, 2.1438, 3.84151), lam = 0.001
-chisq = 2.48243, a=(2.40424, 7.0324, 3.18592), lam = 0.0001
-chisq = 1.17332, a=(5.80337, 21.5756, 0.647856), lam = 1e-05
-chisq = 96.9117, a=(-4.6041, -31.0277, -0.0830355), lam = 1e-06
-chisq = 96.8787, a=(-4.60401, -31.0272, -0.0830289), lam = 1e-05
-chisq = 96.5551, a=(-4.60307, -31.0224, -0.0829631), lam = 0.0001
-chisq = 93.9348, a=(-4.59372, -30.9752, -0.082306), lam = 0.001
-chisq = 144.48, a=(-4.50107, -30.5069, -0.0757997), lam = 0.01
-chisq = 987.616, a=(-3.65798, -26.2456, -0.0165915), lam = 0.1
-chisq = 36.8382, a=(0.599629, -4.72605, 0.28241), lam = 1
-chisq = 1.00808, a=(4.85724, 16.7935, 0.581411), lam = 10
-chisq = 278.56, a=(1.04031, -1.5686, 0.299061), lam = 1
-chisq = 0.86376, a=(4.16325, 13.4549, 0.530075), lam = 10
-chisq = 74.2785, a=(1.28241, 0.243794, 0.308759), lam = 1
-chisq = 0.739211, a=(3.63946, 11.0529, 0.489835), lam = 10
-chisq = 1.66128, a=(1.41666, 1.31127, 0.314415), lam = 1
-chisq = 0.632875, a=(3.23532, 9.2817, 0.457941), lam = 10
-chisq = 0.362789, a=(1.48913, 1.94543, 0.317498), lam = 1
-chisq = 0.107361, a=(1.2891, 2.07189, 0.298719), lam = 0.1
-chisq = 0.102554, a=(1.27146, 2.12309, 0.291479), lam = 0.01
-chisq = 0.10255, a=(1.27145, 2.1258, 0.291314), lam = 0.001
-a-a0 = [ 0.0714461   0.12580368 -0.00868619]
-Best-fit parameters are:  [1.2714461  2.12580368 0.29131381]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>chisq = 4.23453, a=(1.11797, 2.189, 3.83747), lam = 0.001
+chisq = 2.41447, a=(2.53107, 7.3536, 3.1448), lam = 0.0001
+chisq = 1.10396, a=(5.93413, 21.8277, 0.471758), lam = 1e-05
+chisq = 122.956, a=(-4.50563, -30.4796, 0.115764), lam = 1e-06
+chisq = 123.079, a=(-4.50553, -30.4792, 0.115767), lam = 1e-05
+chisq = 124.325, a=(-4.50459, -30.4745, 0.115799), lam = 0.0001
+chisq = 138.926, a=(-4.49521, -30.4274, 0.116119), lam = 0.001
+chisq = 193704, a=(-4.40227, -29.9618, 0.119288), lam = 0.01
+chisq = 236.824, a=(-3.55657, -25.7245, 0.148127), lam = 0.1
+chisq = 32.3345, a=(0.714247, -4.32601, 0.293761), lam = 1
+chisq = 0.944342, a=(4.98506, 17.0725, 0.439395), lam = 10
+chisq = 140.465, a=(1.14057, -1.26448, 0.308887), lam = 1
+chisq = 0.80515, a=(4.28606, 13.7385, 0.415666), lam = 10
+chisq = 22.1005, a=(1.37351, 0.489965, 0.318172), lam = 1
+chisq = 0.685102, a=(3.75651, 11.3297, 0.39794), lam = 10
+chisq = 1.17374, a=(1.50147, 1.52107, 0.323952), lam = 1
+chisq = 0.582597, a=(3.3465, 9.54628, 0.384488), lam = 10
+chisq = 0.27085, a=(1.56933, 2.13148, 0.3275), lam = 1
+chisq = 0.0683134, a=(1.33364, 2.17595, 0.322551), lam = 0.1
+chisq = 0.0660401, a=(1.31119, 2.19285, 0.321076), lam = 0.01
+chisq = 0.0660395, a=(1.31124, 2.19404, 0.321114), lam = 0.001
+a-a0 = [0.11124078 0.194042   0.02111426]
+Best-fit parameters are:  [1.31124078 2.194042   0.32111426]
 </pre></div>
 </div>
-<img alt="_images/5d6ee804e6619b717f6dc7d38bdab9f60419a2cc3ee96c72f6985fb4961e304a.png" src="_images/5d6ee804e6619b717f6dc7d38bdab9f60419a2cc3ee96c72f6985fb4961e304a.png" />
+<img alt="_images/8cfa238dbe2ac35d51b884968958ee9b522aa3dbde0d38be8dddef6c51af8c83.png" src="_images/8cfa238dbe2ac35d51b884968958ee9b522aa3dbde0d38be8dddef6c51af8c83.png" />
 </div>
 </div>
 </section>
@@ -733,11 +755,10 @@ Best-fit parameters are:  [1.2714461  2.12580368 0.29131381]
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="polynomial_fit_solutions.html"
@@ -757,15 +778,14 @@ Best-fit parameters are:  [1.2714461  2.12580368 0.29131381]
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -783,6 +803,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -809,8 +830,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

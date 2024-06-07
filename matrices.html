@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Matrices in numpy &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'matrices';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -497,10 +519,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="matrices-in-numpy">
-<h1>Matrices in numpy<a class="headerlink" href="#matrices-in-numpy" title="Permalink to this heading">#</a></h1>
+<h1>Matrices in numpy<a class="headerlink" href="#matrices-in-numpy" title="Link to this heading">#</a></h1>
 <p>We’re going to be dealing with matrices quite a bit in this section, so let’s have a review of how numpy handles matrices.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -523,13 +545,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.25463339 0.71722521 0.7918306 ]
- [0.64156486 0.28325052 0.44915947]
- [0.31451871 0.87668619 0.02534189]
- [0.41656954 0.82395519 0.67847302]]
-[0.64156486 0.28325052 0.44915947]
-0.44915947378681
-0.44915947378681
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[0.7796093  0.72652726 0.10548407]
+ [0.71820389 0.96557002 0.97970296]
+ [0.38199328 0.98025159 0.60079733]
+ [0.89532667 0.44701858 0.48563011]]
+[0.71820389 0.96557002 0.97970296]
+0.9797029646146124
+0.9797029646146124
 </pre></div>
 </div>
 </div>
@@ -542,9 +564,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.25463339, 0.64156486, 0.31451871, 0.41656954],
-       [0.71722521, 0.28325052, 0.87668619, 0.82395519],
-       [0.7918306 , 0.44915947, 0.02534189, 0.67847302]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.7796093 , 0.71820389, 0.38199328, 0.89532667],
+       [0.72652726, 0.96557002, 0.98025159, 0.44701858],
+       [0.10548407, 0.97970296, 0.60079733, 0.48563011]])
 </pre></div>
 </div>
 </div>
@@ -558,7 +580,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([4.06457562, 2.55554431, 2.14391678, 4.09989899])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([2.54911601, 5.58845282, 4.14488846, 3.24625415])
 </pre></div>
 </div>
 </div>
@@ -604,8 +626,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00, -1.77018857e-17],
-       [ 1.03288401e-16,  1.00000000e+00]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.00000000e+00, -1.32633359e-17],
+       [ 4.99998068e-17,  1.00000000e+00]])
 </pre></div>
 </div>
 </div>
@@ -619,8 +641,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.4335675864287795
-0.4335675864287796
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.42773786313112394
+-0.42773786313112394
 </pre></div>
 </div>
 </div>
@@ -640,7 +662,7 @@ document.write(`
 </div>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="matrix-decompositions">
-<h1>Matrix decompositions<a class="headerlink" href="#matrix-decompositions" title="Permalink to this heading">#</a></h1>
+<h1>Matrix decompositions<a class="headerlink" href="#matrix-decompositions" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need scipy.linalg for eigenvalues</span>
@@ -672,7 +694,7 @@ document.write(`
 </div>
 </div>
 <section id="lu-decomposition">
-<h2>LU decomposition<a class="headerlink" href="#lu-decomposition" title="Permalink to this heading">#</a></h2>
+<h2>LU decomposition<a class="headerlink" href="#lu-decomposition" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
@@ -686,16 +708,16 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c0a25f5967bac4ffe6dfa3fbd065e0b1f9a888294dd5443500d697cd8d11d6cd.png" src="_images/c0a25f5967bac4ffe6dfa3fbd065e0b1f9a888294dd5443500d697cd8d11d6cd.png" />
+<img alt="_images/7ed30a823fdeac1d1fb51416be8fc19597220a426e3c365b224e555aa5f1ba5a.png" src="_images/7ed30a823fdeac1d1fb51416be8fc19597220a426e3c365b224e555aa5f1ba5a.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/a12a094dc12bce6d4b6836066d4434898d73ffc49fc0604ceab29c96c196d060.png" src="_images/a12a094dc12bce6d4b6836066d4434898d73ffc49fc0604ceab29c96c196d060.png" />
+<img alt="_images/f904a08cf5af60c8be253ace24827c3009626caacb46a66ef81222d56cc17ae5.png" src="_images/f904a08cf5af60c8be253ace24827c3009626caacb46a66ef81222d56cc17ae5.png" />
 </div>
 </div>
 </section>
 <section id="eigen-decomposition">
-<h2>Eigen-decomposition<a class="headerlink" href="#eigen-decomposition" title="Permalink to this heading">#</a></h2>
+<h2>Eigen-decomposition<a class="headerlink" href="#eigen-decomposition" title="Link to this heading">#</a></h2>
 <p>The eigenvectors of an <span class="math notranslate nohighlight">\(n\times n\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> satisfy</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{A}\mathbf{v_i} = \lambda_i \mathbf{v_i}\]</div>
@@ -734,19 +756,19 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [11.0273973   0.16121151  1.47477545  8.31583895  7.32400253  2.47633986
-  6.4671221   5.49810175  3.60871026  4.1870591 ]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Eigenvalues= [11.28458032  0.0868573   9.12730965  7.7116523   1.36434437  6.28607079
+  5.71343268  2.4509571   3.64049758  3.93367003]
 Eigenvector check:
-0 1.509903313490213e-14
-1 1.8041124150158794e-15
-2 1.6792123247455493e-15
-3 1.687538997430238e-14
-4 9.103828801926284e-15
-5 2.0747292772682613e-15
-6 2.275957200481571e-15
-7 2.7755575615628914e-15
-8 1.6653345369377348e-15
-9 1.5543122344752192e-15
+0 5.329070518200751e-15
+1 2.1649348980190553e-15
+2 8.548717289613705e-15
+3 4.107825191113079e-15
+4 3.073929999430902e-15
+5 2.9976021664879227e-15
+6 2.6645352591003757e-15
+7 2.5673907444456745e-15
+8 8.881784197001252e-16
+9 1.4849232954361469e-15
 </pre></div>
 </div>
 </div>
@@ -765,11 +787,11 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/c27c46aec7dbcd7161171a881a28691747b70680b7b23a52ec9e34dc6fd9ad5e.png" src="_images/c27c46aec7dbcd7161171a881a28691747b70680b7b23a52ec9e34dc6fd9ad5e.png" />
+<img alt="_images/f9a8ff7d54a47bde65bd72565c7339d64143988a4cd8f8492bfc1439e3c70145.png" src="_images/f9a8ff7d54a47bde65bd72565c7339d64143988a4cd8f8492bfc1439e3c70145.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/a4e050e404d82d1ce7418b4d3ab57494425be03de4552c887673e5504575b384.png" src="_images/a4e050e404d82d1ce7418b4d3ab57494425be03de4552c887673e5504575b384.png" />
+<img alt="_images/568a3146c1ad45b0d644067b4747438bf7cb1927600e622a03d807225ca5b4e3.png" src="_images/568a3146c1ad45b0d644067b4747438bf7cb1927600e622a03d807225ca5b4e3.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -782,12 +804,12 @@ Eigenvector check:
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/d9a8b8ef4cfae8f6996d5fa382d1ed30a6a912129d1cba3ed10b5167f0a65106.png" src="_images/d9a8b8ef4cfae8f6996d5fa382d1ed30a6a912129d1cba3ed10b5167f0a65106.png" />
+<img alt="_images/af4cc37b0f729aaa3f314095870864caaa338f9748e7354b50a4baba1673f75c.png" src="_images/af4cc37b0f729aaa3f314095870864caaa338f9748e7354b50a4baba1673f75c.png" />
 </div>
 </div>
 </section>
 <section id="singular-value-decomposition-svd">
-<h2>Singular value decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Permalink to this heading">#</a></h2>
+<h2>Singular value decomposition (SVD)<a class="headerlink" href="#singular-value-decomposition-svd" title="Link to this heading">#</a></h2>
 <p>The singular value decomposition (SVD) of a <span class="math notranslate nohighlight">\(m\times n\)</span> matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{A} = \mathbf{U}\ \mathbf{S}\ \mathbf{V^T},\]</div>
@@ -822,25 +844,25 @@ Eigenvector check:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [2.43147055 0.68882077 0.18577146]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Singular values are:  [2.0219815  0.58925587 0.17027338]
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/1a36e22ca254f37f29b65d3710a9e41a72020918107556d368d5f318fcb8db16.png" src="_images/1a36e22ca254f37f29b65d3710a9e41a72020918107556d368d5f318fcb8db16.png" />
+<img alt="_images/c1a865efb77d8323411e15f489ca7763c48741f2b7d4ea0e925dc3d7a3517aae.png" src="_images/c1a865efb77d8323411e15f489ca7763c48741f2b7d4ea0e925dc3d7a3517aae.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/7d9cf5cb081fbee097c6e20be9111bdb28d614b2ef58c3b7b3137561ba798405.png" src="_images/7d9cf5cb081fbee097c6e20be9111bdb28d614b2ef58c3b7b3137561ba798405.png" />
+<img alt="_images/9163f97e756ba542c7405b486345d852b5e5a3179248a3a2c23ca8e2a0372d02.png" src="_images/9163f97e756ba542c7405b486345d852b5e5a3179248a3a2c23ca8e2a0372d02.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/3c169adb88ccff5eb82b4a23d998a75dc7e72522a122211c90311a7475a0c17e.png" src="_images/3c169adb88ccff5eb82b4a23d998a75dc7e72522a122211c90311a7475a0c17e.png" />
+<img alt="_images/ee8d3088b7bc999dcd0149f5a0d9245d6edc087a76361fa370d6f31e1a9f8242.png" src="_images/ee8d3088b7bc999dcd0149f5a0d9245d6edc087a76361fa370d6f31e1a9f8242.png" />
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/cf3ab721ad32504c7f68004b25b07c8d0c72ab357dcf5f015ff437f10698e448.png" src="_images/cf3ab721ad32504c7f68004b25b07c8d0c72ab357dcf5f015ff437f10698e448.png" />
+<img alt="_images/de0fddacd6cc757bc11a3f8039ce4beb808d784e3d6ccd9bd1434f6993b478d8.png" src="_images/de0fddacd6cc757bc11a3f8039ce4beb808d784e3d6ccd9bd1434f6993b478d8.png" />
 </div>
 </div>
 </section>
@@ -871,11 +893,10 @@ Eigenvector check:
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="metropolis_solutions.html"
@@ -895,10 +916,7 @@ Eigenvector check:
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -906,6 +924,7 @@ Eigenvector check:
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -942,6 +961,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -968,8 +988,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

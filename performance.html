@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="./" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Timing, profiling and compiling &#8212; PHYS 512 Computational Physics with Applications</title>
   
@@ -19,48 +18,45 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
-    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="_static/togglebutton.js"></script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script src="_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'performance';</script>
@@ -77,7 +73,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -112,11 +116,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -131,9 +138,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
+  
   
   
   
@@ -143,12 +152,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/plasma.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/plasma.png" class="logo__image only-light" alt="PHYS 512 Computational Physics with Applications - Home"/>
+    <script>document.write(`<img src="_static/plasma.png" class="logo__image only-dark" alt="PHYS 512 Computational Physics with Applications - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">About the course</span></p>
 <ul class="nav bd-sidenav">
@@ -440,20 +460,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -495,12 +517,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="timing-profiling-and-compiling">
-<h1>Timing, profiling and compiling<a class="headerlink" href="#timing-profiling-and-compiling" title="Permalink to this heading">#</a></h1>
+<h1>Timing, profiling and compiling<a class="headerlink" href="#timing-profiling-and-compiling" title="Link to this heading">#</a></h1>
 <section id="timing">
-<h2>Timing<a class="headerlink" href="#timing" title="Permalink to this heading">#</a></h2>
+<h2>Timing<a class="headerlink" href="#timing" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -526,8 +548,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.01920318603515625
-GFLOPS =  104.14938418752483
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.01887202262878418
+GFLOPS =  105.97698187101257
 </pre></div>
 </div>
 </div>
@@ -543,7 +565,7 @@ GFLOPS =  104.14938418752483
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>20.8 ms ± 5.2 ms per loop (mean ± std. dev. of 10 runs, 3 loops each)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>21.9 ms ± 3.36 ms per loop (mean ± std. dev. of 10 runs, 3 loops each)
 </pre></div>
 </div>
 </div>
@@ -554,7 +576,7 @@ GFLOPS =  104.14938418752483
 </div>
 </section>
 <section id="profiling">
-<h2>Profiling<a class="headerlink" href="#profiling" title="Permalink to this heading">#</a></h2>
+<h2>Profiling<a class="headerlink" href="#profiling" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -710,9 +732,9 @@ GFLOPS =  104.14938418752483
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T =  4.000000000000003
 </pre></div>
 </div>
-<img alt="_images/f9161d3217e444920e33138818cfdaeea48fbb82bd6b0a60daa0a7e33c385a8c.png" src="_images/f9161d3217e444920e33138818cfdaeea48fbb82bd6b0a60daa0a7e33c385a8c.png" />
-<img alt="_images/945a3ecc618ea5f13a9f756723826591c98611edae5610f913f2e2d977d3e2ef.png" src="_images/945a3ecc618ea5f13a9f756723826591c98611edae5610f913f2e2d977d3e2ef.png" />
-<img alt="_images/e52b9c8f58071812d9a3d15e5ca3507859b4842e0383c6f4b6153610bba3e94e.png" src="_images/e52b9c8f58071812d9a3d15e5ca3507859b4842e0383c6f4b6153610bba3e94e.png" />
+<img alt="_images/9228d0c434d77ef892ec7460e1af9e9d523caa8243088a6d5e833df9a873c38f.png" src="_images/9228d0c434d77ef892ec7460e1af9e9d523caa8243088a6d5e833df9a873c38f.png" />
+<img alt="_images/d5562212eafade86afbee9bd6fdefb5b02ce8b69234dab76f0ec9a76cb78692e.png" src="_images/d5562212eafade86afbee9bd6fdefb5b02ce8b69234dab76f0ec9a76cb78692e.png" />
+<img alt="_images/28f78ae80515c81e2c28abb4c4016b4e5dfcb0a70212a186550fbbcec2db98ed.png" src="_images/28f78ae80515c81e2c28abb4c4016b4e5dfcb0a70212a186550fbbcec2db98ed.png" />
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> 
 </pre></div>
 </div>
@@ -720,7 +742,7 @@ GFLOPS =  104.14938418752483
 </div>
 </section>
 <section id="keeping-track-of-memory">
-<h2>Keeping track of memory<a class="headerlink" href="#keeping-track-of-memory" title="Permalink to this heading">#</a></h2>
+<h2>Keeping track of memory<a class="headerlink" href="#keeping-track-of-memory" title="Link to this heading">#</a></h2>
 <p>As an example, here is the code we used for <a class="reference external" href="https://andrewcumming.github.io/phys512/adi.html#alternating-direction-implicit">2D diffusion</a>. We can use <code class="docutils literal notranslate"><span class="pre">tracemalloc</span></code> to look at the memory usage.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -845,67 +867,68 @@ GFLOPS =  104.14938418752483
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x105ce31b0&gt;
-Step  0 : current/peak memory usage is 1.571639   1.729028 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using matplotlib backend: &lt;object object at 0x1057ab3b0&gt;
+Step  0 : current/peak memory usage is 1.571314   1.746036 MB
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2024-05-22 11:04:42.803 Python[1582:22751] WARNING: Secure coding is not enabled for restorable state! Enable secure coding by implementing NSApplicationDelegate.applicationSupportsSecureRestorableState: and returning YES.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  10 : current/peak memory usage is 2.171768   24.627224 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  10 : current/peak memory usage is 2.207574   7.547252 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  20 : current/peak memory usage is 2.211372   24.670008 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  20 : current/peak memory usage is 2.248146   7.593451 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  30 : current/peak memory usage is 2.240212   24.701018 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  30 : current/peak memory usage is 2.275155   7.622579 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  40 : current/peak memory usage is 2.274824   24.731646 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  40 : current/peak memory usage is 2.308347   7.655813 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  50 : current/peak memory usage is 2.315045   24.781835 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  50 : current/peak memory usage is 2.353355   7.703941 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  60 : current/peak memory usage is 2.325933   24.791328 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  60 : current/peak memory usage is 2.352485   7.714978 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  70 : current/peak memory usage is 2.337578   24.801968 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  70 : current/peak memory usage is 2.364281   7.714978 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  80 : current/peak memory usage is 2.349743   24.813838 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  80 : current/peak memory usage is 2.374535   7.726871 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  90 : current/peak memory usage is 2.342981   24.822751 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  90 : current/peak memory usage is 2.386563   7.737376 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  100 : current/peak memory usage is 2.355003   24.822751 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  100 : current/peak memory usage is 2.400012   7.750378 MB
-Step  110 : current/peak memory usage is 2.392386   7.750378 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  110 : current/peak memory usage is 2.365809   24.829827 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  120 : current/peak memory usage is 2.40305   7.753677 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  120 : current/peak memory usage is 2.375148   24.840051 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  130 : current/peak memory usage is 2.410803   7.761969 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  130 : current/peak memory usage is 2.385793   24.850638 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  140 : current/peak memory usage is 2.421793   7.772317 MB
-Step  150 : current/peak memory usage is 2.416552   7.777709 MB
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  140 : current/peak memory usage is 2.378651   24.850638 MB
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Step  150 : current/peak memory usage is 2.389469   24.854347 MB
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>T range =  7.374417235632719e-06 7.286560064543426
 delta range =  -0.0022616334982004526 0.0006078416564473385
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 640x480 with 0 Axes&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 1280x960 with 0 Axes&gt;
 </pre></div>
 </div>
-<img alt="_images/f23016f9dbed07fef44645d38c8440d13163aa730377ce5d7c68ad9293052151.png" src="_images/f23016f9dbed07fef44645d38c8440d13163aa730377ce5d7c68ad9293052151.png" />
+<img alt="_images/573fcc9ef9886554cafd06281a566e648412ecfcdc84aa6801516d9245dde629.png" src="_images/573fcc9ef9886554cafd06281a566e648412ecfcdc84aa6801516d9245dde629.png" />
 </div>
 </div>
 </section>
 <section id="compiling-python">
-<h2>Compiling python<a class="headerlink" href="#compiling-python" title="Permalink to this heading">#</a></h2>
+<h2>Compiling python<a class="headerlink" href="#compiling-python" title="Link to this heading">#</a></h2>
 <p>Python can be slow because it is an interpreted rather than compiled language. As an example, let’s write our own implementation of matrix multiplication:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -931,8 +954,8 @@ delta range =  -0.0022616334982004526 0.0006078416564473385
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  2.127603769302368
-GFLOPS =  0.007520197242951082
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  2.569782018661499
+GFLOPS =  0.006226209026216856
 </pre></div>
 </div>
 </div>
@@ -941,6 +964,62 @@ GFLOPS =  0.007520197242951082
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> Cython
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;load_ext&#39;</span><span class="p">,</span> <span class="s1">&#39;Cython&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/IPython/core/interactiveshell.py:2480,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2478</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2479</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">2480</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2482</span> <span class="c1"># The code below prevents the output from being displayed</span>
+<span class="g g-Whitespace">   </span><span class="mi">2483</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
+<span class="g g-Whitespace">   </span><span class="mi">2484</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
+<span class="g g-Whitespace">   </span><span class="mi">2485</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/IPython/core/magics/extension.py:33,</span> in <span class="ni">ExtensionMagics.load_ext</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">31</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">module_str</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="k">raise</span> <span class="n">UsageError</span><span class="p">(</span><span class="s1">&#39;Missing module name.&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">33</span> <span class="n">res</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">extension_manager</span><span class="o">.</span><span class="n">load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">35</span> <span class="k">if</span> <span class="n">res</span> <span class="o">==</span> <span class="s1">&#39;already loaded&#39;</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The </span><span class="si">%s</span><span class="s2"> extension is already loaded. To reload it, use:&quot;</span> <span class="o">%</span> <span class="n">module_str</span><span class="p">)</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/IPython/core/extensions.py:62,</span> in <span class="ni">ExtensionManager.load_extension</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Load an IPython extension by its module name.</span>
+<span class="g g-Whitespace">     </span><span class="mi">56</span><span class="sd"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span><span class="sd"> Returns the string &quot;already loaded&quot; if the extension is already loaded,</span>
+<span class="g g-Whitespace">     </span><span class="mi">58</span><span class="sd"> &quot;no load function&quot; if the module doesn&#39;t have a load_ipython_extension</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="sd"> function, or None if it succeeded.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">61</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">62</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_extension</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span> <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">64</span>     <span class="k">if</span> <span class="n">module_str</span> <span class="ow">in</span> <span class="n">BUILTINS_EXTS</span><span class="p">:</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/site-packages/IPython/core/extensions.py:77,</span> in <span class="ni">ExtensionManager._load_extension</span><span class="nt">(self, module_str)</span>
+<span class="g g-Whitespace">     </span><span class="mi">75</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span>     <span class="k">if</span> <span class="n">module_str</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">77</span>         <span class="n">mod</span> <span class="o">=</span> <span class="n">import_module</span><span class="p">(</span><span class="n">module_str</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">78</span>     <span class="n">mod</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_str</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_call_load_ipython_extension</span><span class="p">(</span><span class="n">mod</span><span class="p">):</span>
+
+<span class="nn">File /opt/homebrew/Caskroom/miniconda/base/lib/python3.12/importlib/__init__.py:90,</span> in <span class="ni">import_module</span><span class="nt">(name, package)</span>
+<span class="g g-Whitespace">     </span><span class="mi">88</span>             <span class="k">break</span>
+<span class="g g-Whitespace">     </span><span class="mi">89</span>         <span class="n">level</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="ne">---&gt; </span><span class="mi">90</span> <span class="k">return</span> <span class="n">_bootstrap</span><span class="o">.</span><span class="n">_gcd_import</span><span class="p">(</span><span class="n">name</span><span class="p">[</span><span class="n">level</span><span class="p">:],</span> <span class="n">package</span><span class="p">,</span> <span class="n">level</span><span class="p">)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1387,</span> in <span class="ni">_gcd_import</span><span class="nt">(name, package, level)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1360,</span> in <span class="ni">_find_and_load</span><span class="nt">(name, import_)</span>
+
+<span class="nn">File &lt;frozen importlib._bootstrap&gt;:1324,</span> in <span class="ni">_find_and_load_unlocked</span><span class="nt">(name, import_)</span>
+
+<span class="ne">ModuleNotFoundError</span>: No module named &#39;Cython&#39;
 </pre></div>
 </div>
 </div>
@@ -975,25 +1054,6 @@ def matrix_multiply_cython(double[:,:] A, double[:,:] B):
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/cumming/.cache/ipython/cython/_cython_magic_7ddab25aa84765a0549dd284adb79505.c:18743:21: warning: fallthrough annotation in unreachable code [-Wunreachable-code-fallthrough]
-                    CYTHON_FALLTHROUGH;
-                    ^
-/Users/cumming/.cache/ipython/cython/_cython_magic_7ddab25aa84765a0549dd284adb79505.c:357:34: note: expanded from macro &#39;CYTHON_FALLTHROUGH&#39;
-      #define CYTHON_FALLTHROUGH __attribute__((fallthrough))
-                                 ^
-/Users/cumming/.cache/ipython/cython/_cython_magic_7ddab25aa84765a0549dd284adb79505.c:18754:21: warning: fallthrough annotation in unreachable code [-Wunreachable-code-fallthrough]
-                    CYTHON_FALLTHROUGH;
-                    ^
-/Users/cumming/.cache/ipython/cython/_cython_magic_7ddab25aa84765a0549dd284adb79505.c:357:34: note: expanded from macro &#39;CYTHON_FALLTHROUGH&#39;
-      #define CYTHON_FALLTHROUGH __attribute__((fallthrough))
-                                 ^
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2 warnings generated.
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1011,8 +1071,8 @@ def matrix_multiply_cython(double[:,:] A, double[:,:] B):
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.242427110671997
-GFLOPS =  1.6097523813032792
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  1.2505810260772705
+GFLOPS =  1.5992566321539767
 </pre></div>
 </div>
 </div>
@@ -1053,15 +1113,10 @@ GFLOPS =  1.6097523813032792
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ModuleNotFoundError</span><span class="g g-Whitespace">                       </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">numba</span> <span class="k">as</span> <span class="nn">nb</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="nd">@nb</span><span class="o">.</span><span class="n">njit</span><span class="p">(</span><span class="n">parallel</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">matrix_multiply</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">n</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">A</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">ModuleNotFoundError</span>: No module named &#39;numba&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time taken =  0.6430690288543701
+GFLOPS =  3.110086025388297
+Time taken =  0.03811812400817871
+GFLOPS =  52.46847928746114
 </pre></div>
 </div>
 </div>
@@ -1069,7 +1124,7 @@ GFLOPS =  1.6097523813032792
 <p>Setting <code class="docutils literal notranslate"><span class="pre">parallel</span> <span class="pre">=</span> <span class="pre">True</span></code> will use multiple cores with a significant speed up. It is also possible to use parallelism in Cython with OpenMP.</p>
 </section>
 <section id="other-examples">
-<h2>Other examples<a class="headerlink" href="#other-examples" title="Permalink to this heading">#</a></h2>
+<h2>Other examples<a class="headerlink" href="#other-examples" title="Link to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Illustration of memory ordering</span>
@@ -1159,7 +1214,7 @@ memory after deleting arr= 138919936
 </div>
 </section>
 <section id="further-reading">
-<h2>Further reading<a class="headerlink" href="#further-reading" title="Permalink to this heading">#</a></h2>
+<h2>Further reading<a class="headerlink" href="#further-reading" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.python.org/3/library/timeit.html">timeit()</a> documentation which has details of how to call it directly from within your code or the command line.</p></li>
 <li><p><a class="reference external" href="https://en.wikichip.org/wiki/flops">Floating-Point Operations Per Second (FLOPS)</a> for different architectures.</p></li>
@@ -1205,11 +1260,10 @@ memory after deleting arr= 138919936
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="LIGO.html"
@@ -1229,10 +1283,7 @@ memory after deleting arr= 138919936
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1240,6 +1291,7 @@ memory after deleting arr= 138919936
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1274,6 +1326,7 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2023, CC BY SA 4.0.
@@ -1300,8 +1353,8 @@ By <a href="https://www.physics.mcgill.ca/~cumming/">Andrew Cumming</a>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
