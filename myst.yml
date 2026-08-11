@@ -1,0 +1,25 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  title: PHYS 512 Computational Physics with Applications
+  # description:
+  keywords: []
+  authors: []
+  # github:
+  # bibliography: []
+  toc:
+    - file: index.md
+    - title: 'Course outline'
+      file: outline.md
+    - file: project_instructions.md
+site:
+  template: book-theme
+  # title:
+  # options:
+  #   logo: my_logo.png
+  nav: []
+  actions:
+    - title: Learn More
+      url: https://mystmd.org/guide
+  domains: []
+ 

@@ -1,0 +1,6 @@
+# MyST build outputs
+_build
+
+# emacs
+*~
+
