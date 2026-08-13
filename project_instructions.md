@@ -1,6 +1,6 @@
 # Project Instructions
 
-The project component of the course will make up 30% of your grade. The **due date** will be the **last day of class (Dec 1)**. 
+The project component of the course will make up 25% of your grade. The **due date** will be the **last day of class (Dec 1)**. 
 
 Working in a group of 2, you should solve a physics problem of interest to you using computational methods. You can write your own code, use existing code and libraries, or a combination of the two. The project can involve a theory calculation or modelling data or both. 
 
@@ -12,7 +12,7 @@ Each group should submit one Github repository containing the code and a write u
 
 The write up should be a PDF file of no more than 10 pages. A suggested structure for the write up is
 - Introduction, including overall context and description of the problem
-- Problem setup
+- Setup of the problem
 - Description of the numerical approach and code, including how the code works and how the code was tested
 - Results and analysis
 - Discussion, including what next steps/improvements would you make if you had more time

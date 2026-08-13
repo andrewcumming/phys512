@@ -85,9 +85,9 @@ Your grade will be based on
 
 - Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
  
-- Project (30%). In teams of 2 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by early October, and the project will be due at the end of term. For more information and suggestions for topics, see the [Project instructions](project_instructions).
+- Project (25%). In teams of 2 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by early October, and the project will be due at the end of term. For more information and suggestions for topics, see the [Project instructions](project_instructions).
 
-- Take-home final exam (40%). A mixture of analytic and computational problems. The take-home exam will be available for a 72 hour period and designed to be completed in 3 hours.
+- Written midterm and final exams (20% and 25% respectively, or if it helps your grade, 0% and 45%). **The midterm will be held in class on October 15**. The final exam will be centrally-administered during the final exam period.
 
 We will use the following distribution and communication tools:
 - Lecture notes and assignments will be made available through this website
