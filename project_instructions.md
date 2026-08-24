@@ -13,7 +13,7 @@ Each group should submit one Github repository containing the code and a write u
 The write up should be a PDF file of no more than 10 pages. A suggested structure for the write up is
 - Introduction, including overall context and description of the problem
 - Setup of the problem
-- Description of the numerical approach and code, including how the code works and how the code was tested
+- Description of the numerical approach and code, including how the code works, justification of the choices that were made, and how the code was tested
 - Results and analysis
 - Discussion, including what next steps/improvements would you make if you had more time
 - Conclusion
@@ -35,7 +35,7 @@ The grade for the project will be based on how well you
 
 - explain what you have done and how the code works so that another student in the course could understand what you did and reproduce your work,
 
-- demonstrate critical thinking while carrying out the project. For example, by checking whether your code was producing the right answer by comparing with analytic solutions in appropriate limits or comparing with previous published results, or by discussing whether the results make sense physically.
+- demonstrate critical thinking while carrying out the project. For example, in the choice of numerical approach and specific library routines that you are using, by checking whether your code was producing the right answer by comparing with analytic solutions in appropriate limits or comparing with previous published results, or by discussing whether the results make sense physically.
 
 
 
