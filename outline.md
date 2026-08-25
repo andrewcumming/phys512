@@ -16,7 +16,7 @@ There are no prerequisites, but some previous experience in Python writing basic
 
 Prof. [Andrew Cumming](https://www.physics.mcgill.ca/~cumming/), andrew.cumming@mcgill.ca, Rutherford 310.
 
-The TAs are Max Fine, Naman Jain, and Shu Zhang.
+The TAs are Max Fine, Naman Jain, Yifan Wang, and Shu Zhang.
 
 ## Time and place
 
