@@ -46,7 +46,7 @@ A preliminary list of topics is given below [The ordering of topics may change, 
 
 - *Partial differential equations.* Examples of PDEs: Poisson's equation by FFT, wave equation, advection and fluid flow. Finite difference and finite volume, stability, numerical dissipation, Lax method, implicit and flux-conservative schemes.
 
-- *A brief introduction to machine learning.* Example application to high energy physics data.
+- *A brief introduction to machine learning.*
 
 - *Performance considerations*. What factors influence performance. Options for compiled Python and linking to C and Fortran.
 
@@ -61,7 +61,7 @@ There is no required textbook for the course, but there are several useful books
 - [Computational Physics](http://www-personal.umich.edu/~mejn/cp/) by Mark Newman. Also an excellent Python-based book. It is only available in paper format from the library, but I've linked to the book website which has some sample chapters that you can look at.
 - [An Introduction to Computational Physics](https://mcgill.on.worldcat.org/search/detail/63814390?queryString=tao%20pang%20computational&expandSearch=true&translateSearch=false&databaseList=283%2C638&clusterResults=true&groupVariantRecords=false) by Tao Pang (the link is to the McGill library ebook). Excellent coverage of the topics in this course, with code samples in Fortran/Java.
 - [Computational Physics](https://www.physics.purdue.edu/~hisao/book/) by Giordano and Nakanishi. An interesting book that is organized by physics topic rather than numerical method.
-- [Numerical Recipes: The Art of Scientific Computing](http://numerical.recipes/book.html) by Press, Teukolsky, Vetterling and Flannery. The classic book on numerical methods with really good explanations. The downside is that the C/Fortran code comes with a very restrictive license. Available to read online (although with annoying popups unless you purchase a license).
+- [Numerical Recipes: The Art of Scientific Computing](http://numerical.recipes/book.html) by Press, Teukolsky, Vetterling and Flannery. The classic book on numerical methods with really good explanations, I highly recommend you take a look at this. The downside is that the C/Fortran code comes with a very restrictive license. Available to read online (although with annoying popups unless you purchase a license).
 - [Introductory Computational Physics](https://mcgill.on.worldcat.org/search/detail/569384322?queryString=au%3A%28klein%20godunov%29&databaseList=283%2C638&origPageViewName=pages%2Fadvanced-search-page&clusterResults=&groupVariantRecords=&expandSearch=true&translateSearch=false&queryTranslationLanguage=&lang=en&scope=wz%3A12129) by Klein and Godunov has a nice concise treatment of different topics. 
 
 For course materials for previous versions of this course by Jon Sievers, you can look at github, for example here is the [2025 version](https://github.com/sievers/phys512-2025). I previously taught this course in 2023: here is the [course website](https://andrewcumming.github.io/phys512-2023/).
@@ -73,8 +73,6 @@ There are also other courses on computational physics that have materials online
 
 - [Course materials for PHY407 at UofT](https://github.com/PHY407-UofT)
 
-
-
 ## Assessment and Course Format
 
 This will be an interactive class, with a mixture of lecture and problem solving during class time. **There will be coding exercises in class — you should bring your laptop to class with you.**
@@ -83,21 +81,21 @@ There will also be a weekly "*Debug den*", which will be an informal hackspace w
 
 Your grade will be based on 
 
-- Homeworks (30%), given out every 1-2 weeks during the term. The lowest homework score will be dropped when calculating the final grade. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
+- Homeworks (30%), given out roughly every 10 days during the term. The lowest homework score will be dropped when calculating the final grade. Note that you can discuss homework questions with other students in the course, but you should write your own homework solutions and any code you hand in should be your own.
  
-- Project (25%). In teams of 2 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by early October, and the project will be due at the end of term. For more information and suggestions for topics, see the [Project instructions](project_instructions).
+- Project (25%). In teams of 2 students, the project component will involve developing a code to investigate a physics problem of interest to the student. The topic must be decided on and approved by the instructor by early October, and the project will be due at the end of term. For more information, including the deadline dates and suggestions for topics, see the [Project instructions](project_instructions).
 
 - Written midterm and final exams (20% and 25% respectively, or if it helps your grade, 0% and 45%). **The midterm will be held in class on October 15**. The final exam will be centrally-administered during the final exam period.
 
 We will use the following distribution and communication tools:
 - Lecture notes and assignments will be made available through this website
-- Homework and project submissions will be through each students private Github repository
+- Homework and project submissions will be through student's private Github repositories
 - Grades will be distributed in myCourses
 - A Slack workspace is available for the class for students to collaborate on projects and to ask questions or discuss the homework. Note that discussions and questions about homework **must** be posted to the `#homework` channel (we will make a tool available to post questions anonymously if you prefer to do that). *Note that the TAs will not answer questions about homework via direct message in Slack, you must use the homework channel.*
 
 The homework will be graded according to the following rubric:
 
-0. No meaningful attempt made at a solution (no code, unrelated code, non-functional code, or code whose function is hard to determine).
+0. No meaningful attempt made at a solution (for example, no explanation or invalid explanations, no code or unrelated or non-functional code, or code whose function is hard to determine).
 1. Part of an answer provided / a plan or idea for a solution is discernible. Partly functional code that can be understood and forms the beginnings of a solution. 
 2. An understanding of the problem and a concrete idea for an answer / code implementation is present. Code is almost functional and understandable, but does not fully solve the problem. Alternatively, there is a complete working code but the code is hard to understand (poor style or commenting).
 3. Demonstrates a clear understanding of the problem and its solution. Working *clear* code, or non-working code with a clear explanation of what the problem with it may be.
@@ -105,11 +103,11 @@ The homework will be graded according to the following rubric:
 
 ## McGill policy statements
 
-McGill University values academic integrity. Therefore all students must understand the meaning and consequences of cheating, plagiarism and other academic oﬀences under the [Code of Student Conduct and Disciplinary Procedures](https://www.mcgill.ca/secretariat/files/secretariat/code_of_student_conduct_and_disciplinary_procedures.pdf) (See McGill's guide to academic honesty](https://www.mcgill.ca/students/srr/honest) for more information).
+McGill University values academic integrity. Therefore all students must understand the meaning and consequences of cheating, plagiarism and other academic oﬀences under the [Code of Student Conduct and Disciplinary Procedures](https://www.mcgill.ca/deanofstudents/student-rights-and-conduct/code-student-conduct-and-disciplinary-procedures) (See McGill's guide to [academic integrity](https://www.mcgill.ca/deanofstudents/student-rights-and-conduct/academic-integrity) for more information).
 
-In accord with McGill University's [Charter of Students' Rights](https://www.mcgill.ca/secretariat/files/secretariat/charter_of_student_rights_last_approved_october_262017.pdf), students in this course have the right to submit in English or in French written work that is to be graded. This does not apply to courses in which acquiring proficiency in a language is one of the objectives.
+In accord with McGill University's [Charter of Students' Rights](https://www.mcgill.ca/deanofstudents/student-rights-and-conduct/student-rights), students in this course have the right to submit in English or in French written work that is to be graded. This does not apply to courses in which acquiring proficiency in a language is one of the objectives.
 
 In the event of extraordinary circumstances beyond the University's control, the content and/or evaluation scheme in this course is subject to change. 
 
-Additional policies governing academic issues which aﬀect students can be found in the [McGill Charter of Students' Rights](https://www.mcgill.ca/secretariat/files/secretariat/charter_of_student_rights_last_approved_october_262017.pdf).
+Additional policies governing academic issues which aﬀect students can be found in the [McGill Charter of Students' Rights](https://www.mcgill.ca/deanofstudents/student-rights-and-conduct/student-rights).
 

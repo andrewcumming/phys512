@@ -8,9 +8,9 @@ The topic must be approved by the instructor **by Friday Oct 9**. Before this da
 
 **What you should submit**
 
-Each group should submit one Github repository containing the code and a write up of the project which explains the physics problem you are looking at, the methods you used to tackle it, your results and conclusions. 
+Each group should submit one Github repository which contains both the code and a report that explains the physics problem you are looking at, the methods you used to tackle it, your results and conclusions. 
 
-The write up should be a PDF file of no more than 10 pages. A suggested structure for the write up is
+The report should be a PDF file of no more than 10 pages. A suggested structure for this is:
 - Introduction, including overall context and description of the problem
 - Setup of the problem
 - Description of the numerical approach and code, including how the code works, justification of the choices that were made, and how the code was tested
@@ -23,7 +23,7 @@ The write up should be a PDF file of no more than 10 pages. A suggested structur
 
 Your report should be prepared in LaTeX and for any code snippets that you include you should use code formatting as described here: https://www.overleaf.com/learn/latex/Code_listing
 
-The code you submit in your repository should be clearly commented and in a state where it is ready to run to reproduce the results you show in your write up. Note however that the write up should include all your key results (e.g. important plots that you make) — we should be able to understand and see your results without having to run the code.
+The code you submit in your repository should be clearly commented and in a state where it is ready to run to reproduce the results you show in your report. Note however that the report should include all your key results (e.g. important plots that you make) — we should be able to understand and see your results without having to run the code.
 
 **Grading**
 
