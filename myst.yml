@@ -11,7 +11,14 @@ project:
     - file: index.md
     - title: 'Course outline'
       file: outline.md
-    - file: project_instructions.md
+    - title: 'Getting started'
+      children:
+        - file: basics.md
+        - file: programming.md
+    - title: 'Homework'
+      children:
+        - title: 'Project instructions'  
+          file: project_instructions.md
 site:
   template: book-theme
   # title:

@@ -77,7 +77,7 @@ There are also other courses on computational physics that have materials online
 
 This will be an interactive class, with a mixture of lecture and problem solving during class time. **There will be coding exercises in class — you should bring your laptop to class with you.**
 
-There will also be a weekly "*Debug den*", which will be an informal hackspace where you can work together and get help from the TAs. If there are topics you would like covered in a tutorial in these sessions, you can let the TAs know. 
+There will also be a weekly "*Debug den*", which will be an informal hackspace where you can work together and get help from the TAs on homeworks, your project, or other aspects of the course. If there are topics you would like covered in a tutorial in these sessions, you can let the TAs know. 
 
 Your grade will be based on 
 
@@ -91,14 +91,16 @@ We will use the following distribution and communication tools:
 - Lecture notes and assignments will be made available through this website
 - Homework and project submissions will be through student's private Github repositories
 - Grades will be distributed in myCourses
-- A Slack workspace is available for the class for students to collaborate on projects and to ask questions or discuss the homework. Note that discussions and questions about homework **must** be posted to the `#homework` channel (we will make a tool available to post questions anonymously if you prefer to do that). *Note that the TAs will not answer questions about homework via direct message in Slack, you must use the homework channel.*
+- A Slack workspace is available for the class for students to collaborate on projects and to ask questions or discuss the homework. Note that discussions and questions about homework **must** be posted to the `#homework` channel (we will make a tool available to post questions anonymously if you prefer to do that). *Note that the TAs will not answer questions about homework via direct message in Slack, you must use the homework channel.* If you need to contact the TAs with a question about homework grading, you can send a slack direct message or email them. If you email, please make sure to include "PHYS 512" somewhere in the subject line.
 
 The homework will be graded according to the following rubric:
 
 0. No meaningful attempt made at a solution (for example, no explanation or invalid explanations, no code or unrelated or non-functional code, or code whose function is hard to determine).
 1. Part of an answer provided / a plan or idea for a solution is discernible. Partly functional code that can be understood and forms the beginnings of a solution. 
-2. An understanding of the problem and a concrete idea for an answer / code implementation is present. Code is almost functional and understandable, but does not fully solve the problem. Alternatively, there is a complete working code but the code is hard to understand (poor style or commenting).
-3. Demonstrates a clear understanding of the problem and its solution. Working *clear* code, or non-working code with a clear explanation of what the problem with it may be.
+2. An understanding of the problem and a concrete idea for an answer / code implementation is present. Code is almost functional and well-explained, but does not fully solve the problem. Alternatively, there is a complete working code but the code is hard to understand (poor style or commenting).
+3. Demonstrates a clear understanding of the problem and its solution. Working code that is clearly explained or non-working code with a clear explanation of what the problem with it may be.
+
+Your homework should be submitted as a jupyter notebook in your github repository. You should make sure that before submitting you clear all cells and re-run your entire notebook to make sure it runs with no problems. You should carefully explain what is going on in your code, for example by including commented pseudo-code. You should make sure to justify your choice of library routines (e.g. scipy functions wherever you use them) and your choices of parameters and arguments. If these explanations are missing, you will not be able to receive full marks for the homework, even if your code gives the correct answer.
 
 
 ## McGill policy statements
