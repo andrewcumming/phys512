@@ -15,6 +15,8 @@ project:
       children:
         - file: basics.md
         - file: programming.md
+        - file: floats.md
+        - file: derivatives.md
     - title: 'Homework'
       children:
         - title: 'Project instructions'  
