@@ -2,11 +2,12 @@
 
 ## Finite differences
 
-We can derive expressions for derivatives using Taylor expansions. For example
+Imagine that you have a function $f(x)$ that you are able to evaluate for any given location $x$. How can we calculate the value of the derivative $df/dx$ at that location?
 
+The technique of finite differences involves calculating the derivative by changing $x$ by a small amount $\Delta x$ and seeing how much $f$ changes. For example, if we write the Taylor expansion
 $$f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2} {d^2f\over dx^2} + \mathcal{O}(\Delta x)^3$$
 
-(where the derivatives are evaluated at $x$) gives
+(where the derivatives are evaluated at $x$), then rearranging gives
 
 $${df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} + \mathcal{O}(\Delta x).$$
 
