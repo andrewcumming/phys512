@@ -11,7 +11,8 @@ $$f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2} {d^
 
 $${df\over dx} \approx {f(x+\Delta x) - f(x)\over \Delta x} + \mathcal{O}(\Delta x).$$
 
-This is a *first order* derivative since the error in this approximation scales $\propto \Delta x$.  Because we use the value of the function at $x+\Delta x$ it is known as a *forward difference*. We could also write a similar expression but using the value of the function at $x-\Delta x$; this would be a *backward difference*.
+Here, we are using the [big-O notation](https://en.wikipedia.org/wiki/Big_O_notation) to show how the first term that is being dropped in the expansion scales with $\Delta x$. 
+In this case, the term that has been dropped — and therefore the error in the approximation — scales linearly with $\Delta x$; we say that this is a *first order* derivative.  Because we use the value of the function at $x+\Delta x$ it is known as a *forward difference*. We could also write a similar expression but using the value of the function at $x-\Delta x$; this would be a *backward difference*.
 
 :::{admonition} Exercise: second order finite differences
 :class: tip
