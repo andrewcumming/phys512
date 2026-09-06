@@ -5,7 +5,7 @@
 Imagine that you have a function $f(x)$ that you are able to evaluate for any given location $x$. How can we calculate the value of the derivative $df/dx$ at that location?
 
 The technique of finite differences involves calculating the derivative by changing $x$ by a small amount $\Delta x$ and seeing how much $f$ changes. For example, if we write the Taylor expansion
-$$f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2} {d^2f\over dx^2} + \mathcal{O}(\Delta x)^3$$
+$$f(x+\Delta x) \approx f(x) + \Delta x {df\over dx} + {(\Delta x)^2\over 2} {d^2f\over dx^2} + \mathcal{O}((\Delta x)^3)$$
 
 (where the derivatives are evaluated at $x$), then rearranging gives
 
@@ -19,11 +19,11 @@ In this case, the term that has been dropped — and therefore the error in the 
 
 By also considering the Taylor expansion of $f(x-\Delta x)$ show that (hint: add and subtract the two expressions)
 
-$${df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} + \mathcal{O}(\Delta x)^2$$
+$${df\over dx} \approx {f(x+\Delta x) - f(x-\Delta x)\over 2\Delta x} + \mathcal{O}((\Delta x)^2)$$
 
 and
 
-$${d^2f\over dx^2} \approx {f(x+\Delta x) -2 f(x) + f(x-\Delta x)\over (\Delta x)^2} + \mathcal{O}(\Delta x)^2.$$
+$${d^2f\over dx^2} \approx {f(x+\Delta x) -2 f(x) + f(x-\Delta x)\over (\Delta x)^2} + \mathcal{O}((\Delta x)^2).$$
 
 Note that these are both second order accurate. In this case, the first derivative is using a *centered difference*.
 
