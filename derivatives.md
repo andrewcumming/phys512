@@ -51,7 +51,7 @@ Choose a function $f(x)$ that has a derivative that you can calculate analytical
 
 Next try using a second order derivative (centered difference). Add this to your plot and compare with your previous results. How does the error scale with $\Delta x$ now? Can you explain what you see?
 
-Do your results depend on where you calculate the derivative (which value of $x$)? For the first order derivative, do you see the dependence on $f^{\prime\prime}$ predicted by our estimate above?
+Do your results depend on where you calculate the derivative (which value of $x$)?
 
 :::
 
