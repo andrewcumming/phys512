@@ -24,7 +24,7 @@ Class will be held on Tuesdays and Thursdays from 8.35-9.55am in Rutherford 115.
 
 The first class is Tuesday September 1st and the final class is on Tuesday Dec 1st. There is no class on Tuesday October 13 (Reading break).
 
-The **debug den** will be held on \<weekday\> at \<times\> in \<room\>. This will be an informal session where you can ask the TAs questions and work together on class exercises and homeworks.
+The **debug dens** will be held on Mondays 10-11am and Tuesdays 11am-noon in the Bell room. These will be informal sessions where you can ask the TAs questions and work together on class exercises and homeworks.
 
 ## List of topics
 
