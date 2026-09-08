@@ -4,7 +4,7 @@ Due on Thursday September 17 by 11:59pm.
 
 ## 1. Roundoff error in long-term integrations of a harmonic oscillator
 
-Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. If the roundoff error in each operation is approximately random, the accumulated error behaves like a random walk. This leads to *Brouwer's law*, according to which the accumulated error after $N$ steps typically grows approximately as $\sqrt{N}\epsilon,$ where $\epsilon\sim10^{-16}$ for double-precision floating-point numbers.
+Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. If the roundoff error in each operation is approximately random, the accumulated error behaves like a random walk. This leads to *Brouwer's law*, according to which the accumulated error after $N$ steps typically grows approximately as $\sqrt{N}\epsilon,$ where $\epsilon\sim10^{-16}$ for double-precision floating-point numbers or $\epsilon\sim 10^{-7}$ for single-precision.
 
 A simple example in which to investigate this is the harmonic oscillator,
 $$\frac{d^2x}{dt^2}=-\omega^2x.$$
