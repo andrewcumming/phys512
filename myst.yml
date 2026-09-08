@@ -17,6 +17,9 @@ project:
         - file: programming.md
         - file: floats.md
         - file: derivatives.md
+    - title: 'Initial value problems'
+      children:
+        - file: explicit_ode.md
     - title: 'Homework'
       children:
         - title: 'Project instructions'  
