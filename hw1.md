@@ -2,7 +2,7 @@
 
 Due on Thursday September 17 by 11:59pm.
 
-## 1. Roundoff error in long-term integrations of a harmonic oscillator
+## 1. Roundoff error in the harmonic oscillator
 
 Roundoff errors can accumulate in situations where you have to carry out a sequence of many operations. As an example, if the roundoff error in each operation is approximately random, the accumulated error behaves like a random walk. This leads to *Brouwer's law*, according to which the accumulated error after $N$ steps typically grows approximately as $\sqrt{N}\epsilon,$ where $\epsilon\sim10^{-16}$ for double-precision floating-point numbers or $\epsilon\sim 10^{-7}$ for single-precision.
 
@@ -27,7 +27,7 @@ Plot these quantities against the timestep $\Delta t$ and against the number of 
 
 Discuss the behaviour that you find. How does the error depend on timestep $\Delta t$?
 
-(c) Repeat part (b) using single-precision floating-point numbers instead of double-precision numbers (Be careful to make sure every float and array you declare has the `np.float32` data-type, otherwise you may "contaminate" the answer). How does your answer change? Do you see the effects of roundoff at small step sizes?
+(c) Repeat part (b) using single-precision floating-point numbers instead of double-precision numbers (Be careful to make sure every float and array you declare has the `np.float32` data-type, otherwise you may "contaminate" the answer with double-precision variables). How do your results change? Do you see the effects of roundoff at small step sizes?
 
 
 ## 2. An adaptive Runge-Kutta integrator
