@@ -23,7 +23,7 @@ Try using different timesteps $\Delta t$ for your integration, and investigate h
 
 For each integration, keep track of the maximum fractional energy error over the course of the integration,
 $$\left|\frac{\Delta E}{E}\right|_{\max}=\max_t\left|\frac{E(t)-E(0)}{E(0)}\right|,$$ as well as the absolute value of the fractional difference between your final value of $x$ and the analytic prediction. 
-Plot these quantity against the timestep $\Delta t$ and against the number of integration steps $N$ (use log-log plots so you can see the scalings).
+Plot these quantities against the timestep $\Delta t$ and against the number of integration steps $N$ (use log-log plots so you can see the scalings).
 
 Discuss the behaviour that you find. How does the error depend on timestep $\Delta t$?
 
