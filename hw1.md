@@ -19,7 +19,7 @@ For simplicity, use units in which $\omega=1$, and take the initial conditions $
 
 (b) The total energy of the oscillator is
 $$E=\frac12v^2+\frac12\omega^2x^2.$$
-Try using different timesteps $\Delta t$ for your integration, and investigate how well the numerical method conserves energy. Start with a relatively large timestep, for example $\Delta t=0.1$, and progressively decrease it. Continue to as small a timestep as is practical.
+Try using different timesteps $\Delta t$ for your integration, and investigate how well the numerical method conserves energy. Start with a relatively large timestep, for example $\Delta t=0.1$, and progressively decrease it. Continue to as small a timestep as is practical (you can probably get to about a billion steps which will take several minutes to integrate).
 
 For each integration, keep track of the maximum fractional energy error over the course of the integration,
 $$\left|\frac{\Delta E}{E}\right|_{\max}=\max_t\left|\frac{E(t)-E(0)}{E(0)}\right|.$$
