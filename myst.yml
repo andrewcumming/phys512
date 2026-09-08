@@ -22,6 +22,7 @@ project:
         - file: explicit_ode.md
     - title: 'Homework'
       children:
+        - file: 'hw1.md'
         - title: 'Project instructions'  
           file: project_instructions.md
 site:
