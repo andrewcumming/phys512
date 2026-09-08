@@ -27,7 +27,7 @@ Then plot this quantity against the timestep $\Delta t$ and against the number o
 
 Discuss the behaviour that you find. How does the error depend on timestep $\Delta t$?
 
-(c) Repeat part (b) using single-precision floating-point numbers instead of double-precision numbers (Be careful to make sure every float and array you declare has the `np.float32` data-type, otherwise you may "contaminate" the answer). How does your answer change? Explain the differences that you see. In particular, what happens when the timestep becomes very small? At sufficiently small $\Delta t$, does decreasing the timestep continue to improve the answer? Is the behaviour at very large $N$ consistent with an accumulated roundoff error proportional to $\sqrt{N}\epsilon$?
+(c) Repeat part (b) using single-precision floating-point numbers instead of double-precision numbers (Be careful to make sure every float and array you declare has the `np.float32` data-type, otherwise you may "contaminate" the answer). How does your answer change? Explain the differences that you see. In particular, what happens when the timestep becomes very small? At sufficiently small $\Delta t$, does decreasing the timestep continue to improve the answer? Is the behaviour at very large $N$ consistent with an accumulated roundoff error proportional to $\sqrt{N}\epsilon$, and if not, why not?
 
 
 ## 2. An adaptive Runge-Kutta integrator
