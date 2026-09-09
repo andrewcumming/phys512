@@ -17,6 +17,7 @@ project:
         - file: programming.md
         - file: floats.md
         - file: derivatives.md
+        - file: solutions_getting_started.ipynb
     - title: 'Initial value problems'
       children:
         - file: explicit_ode.md
