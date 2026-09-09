@@ -34,7 +34,7 @@ https://docs.google.com/spreadsheets/d/1nDgjUhGySHeA5bnI_73m4KB_fJnwJF5tyykO4cy8
 
 **Hint**:
 To time your code, you can use 
-```
+```python
 import time
 
 t0 = time.time()
