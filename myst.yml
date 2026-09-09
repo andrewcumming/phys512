@@ -21,6 +21,7 @@ project:
     - title: 'Initial value problems'
       children:
         - file: explicit_ode.md
+        - file: implicit_ode.md
     - title: 'Homework'
       children:
         - file: 'hw1.md'
