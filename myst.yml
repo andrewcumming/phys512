@@ -22,6 +22,7 @@ project:
       children:
         - file: explicit_ode.md
         - file: implicit_ode.md
+        - file: solutions_ivp.ipynb
     - title: 'Homework'
       children:
         - file: 'hw1.md'

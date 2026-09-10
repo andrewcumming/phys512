@@ -100,9 +100,11 @@ $${dv\over dt} = -{y\over (x^2+y^2)^{3/2}}$$
 Hint: try to write your integrator in as general a way as possible and take advantage of the vector expressions in numpy. For example, here is a function that does an Euler integration, given the parameters `nsteps` (number of integration steps to take), `dt` (step-size), `x0` (vector of initial values of the 4 variables), and `derivs` (the name of a function that calculates a vector of derivatives).
 ```python
     def integrate_euler(nsteps, dt, x0, derivs):
-       x = np.zeros((nsteps, len(x0)))
+       # we'll store the initial condition in x[0] so
+       # we need an array length of nsteps+1
+       x = np.zeros((nsteps+1, len(x0)))
        x[0] = x0
-       for i in range(1,nsteps):    
+       for i in range(1,nsteps+1):    
           f = derivs((i-1)*dt, x[i-1])
           x[i] = x[i-1] + f*dt
        return x
