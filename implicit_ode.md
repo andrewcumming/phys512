@@ -65,7 +65,7 @@ This approach is known as **Newton's method**. The matrix $\partial \mathbf{f}/\
 
 $$(\mathbf{J})_{ij} = \left( {\partial \mathbf{f}\over\partial\mathbf{y}}\right)_{ij} = {\partial f_i\over \partial y_j}.$$
 
-Sometimes the Newton iteration {eq}`newtoneuler` will converge in one step, but more than one iteration may be required to get an accurate answer, i.e. you can apply equation {eq}`newtoneuler` multiple times. You can check after the Newton step to see whether equation {eq}`nonlineareuler` is satisfied.
+Sometimes the Newton iteration {eq}`newtoneuler` will converge in one step, but more than one iteration may be required to get an accurate answer, i.e. you can apply equation {eq}`newtoneuler` multiple times, each time taking the values $y_{n+1}$ that come out on the left hand side as the new values $y_n$ to put in on the right hand side. You can check after the Newton step to see whether equation {eq}`nonlineareuler` is satisfied.
 
 :::{admonition} Exercise: implicit methods
 :class: tip
