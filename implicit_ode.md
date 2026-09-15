@@ -47,27 +47,9 @@ $$\Rightarrow \mathbf{y}_{n+1} = (\mathbf{1} + \mathbf{C} h)^{-1} \mathbf{y}_{n}
 
 which is stable for all step sizes $h$. Note that $\mathbf{1}$ here is the identity matrix. The price for being able to take larger steps is a more complex computation: we have to invert a matrix.
 
-**Non-linear equations**: A more complicated situation is when the derivatives are non-linear, 
 
-$$\dot{\mathbf{y}} =  \mathbf{f}(\mathbf{y}),$$ 
 
-where we must now solve the implicit equation
-
-$$\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).$$(nonlineareuler)
-
-One way to approach this is to linearize the equations
-
-$$\mathbf{y}_{n+1} = \mathbf{y}_n + h\left[ \mathbf{f} (\mathbf{y}_n) + \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}(\mathbf{y}_{n+1}-\mathbf{y}_n)\right]$$
-
-$$\Rightarrow \mathbf{y}_{n+1} = \mathbf{y}_n + h \left[\mathbf{1} - h  \left.{\partial \mathbf{f}\over\partial\mathbf{y}}\right|_{\mathbf{y_n}}\right]^{-1}\mathbf{f}(\mathbf{y}_n).$$(newtoneuler)
-
-This approach is known as **Newton's method**. The matrix $\partial \mathbf{f}/\partial\mathbf{y}$ is the **Jacobian matrix** 
-
-$$(\mathbf{J})_{ij} = \left( {\partial \mathbf{f}\over\partial\mathbf{y}}\right)_{ij} = {\partial f_i\over \partial y_j}.$$
-
-Sometimes the Newton iteration {eq}`newtoneuler` will converge in one step, but more than one iteration may be required to get an accurate answer, i.e. you can apply equation {eq}`newtoneuler` multiple times, each time taking the values $y_{n+1}$ that come out on the left hand side as the new values $y_n$ to put in on the right hand side. You can check after the Newton step to see whether equation {eq}`nonlineareuler` is satisfied.
-
-:::{admonition} Exercise: implicit methods
+:::{admonition} Exercise: implicit method, linear case
 :class: tip
 
 Write a code to integrate the set of equations
@@ -90,3 +72,72 @@ C = np.array( [[-998,-1998],[999,1999]] )
 - You can use `np.linalg.inv()` to invert the matrix
 
 :::
+
+
+
+**Non-linear equations**: A more complicated situation is when the derivatives are non-linear, 
+
+$$\dot{\mathbf{y}} =  \mathbf{f}(\mathbf{y}),$$ 
+
+so that each timestep we must solve the implicit equation
+
+$$\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).$$(nonlineareuler)
+
+to find $\mathbf{y}_{n+1}$. 
+
+One way to do this is **Newton's method**. We want to find the solution $\mathbf{y}$ to the equation
+
+$$\mathbf{F}(\mathbf{y}) = \mathbf{y} - \mathbf{y}_n - h \mathbf{f}(\mathbf{y}) = 0.$$(eq:Fy)
+
+We can write this in a different way if we have an initial guess for the solution, $\mathbf{y}^{(0)}$. Then we could calculate a correction $\Delta\mathbf{y}$ that would satisfy
+$$\mathbf{F}(\mathbf{y}^{(0)}+ \Delta\mathbf{y}) =0.$$ 
+In Newton's method, we find an approximate $\Delta\mathbf{y}$ by writing a linear expansion
+$$\mathbf{F}(\mathbf{y}^{(0)}+ \Delta\mathbf{y}) \approx \mathbf{F}(\mathbf{y}^{(0)})+\Delta\mathbf{y}\left.{\partial\mathbf{F}\over \partial\mathbf{y}}\right|_{\mathbf{y}^{(0)}} =0.$$
+It is useful to define the Jacobian matrix $$\mathbf{J} = {\partial\mathbf{F}\over \partial\mathbf{y}},$$
+which for our particular form for $\mathbf{F}(\mathbf{y})$ (given by {eq}`eq:Fy`) is
+$$\mathbf{J} = \mathbf{1} - h{\partial \mathbf{f}\over \partial \mathbf{y}}.$$
+
+The correction $\Delta \mathbf{y}$ is therefore given by solving
+$$\mathbf{J}(\mathbf{y}^{(0)}) \Delta \mathbf{y} = -\mathbf{F}(\mathbf{y}^{(0)}).$$
+The updated guess is then 
+$$\mathbf{y}^{(1)} = \mathbf{y}^{(0)} + \Delta\mathbf{y}.$$
+We can check how well this satisfies the equation by evaluating $\mathbf{F}(\mathbf{y}^{(1)})$ which would be zero if we had the correct solution. If the value of $\mathbf{F}(\mathbf{y}^{(1)})$ is close enough to zero, we can stop here. If not, we iterate again, solving
+$$\mathbf{J}(\mathbf{y}^{(1)}) \Delta \mathbf{y} = -\mathbf{F}(\mathbf{y}^{(1)})$$
+and updating 
+$$\mathbf{y}^{(2)} = \mathbf{y}^{(1)} + \Delta\mathbf{y}.$$
+We now check $\mathbf{F}(\mathbf{y}^{(2)})$ to see whether it is close enough to zero to stop. If not, we keep iterating. And so on.
+
+
+:::{admonition} Exercise: implicit method, non-linear case
+:class: tip
+
+Solve the equations for a non-linear pendulum 
+
+$$\dot{\theta} = \omega$$
+$$\dot{\omega} = -\sin\theta$$
+
+using the backward Euler method with Newton iterations at each timestep.
+
+Plot $\theta(t)$ and plot $\theta$ against $\omega$. Explore the behavior for different timesteps and initial conditions. How many Newton iterations do you need to take at each time step?
+
+Compare the results with forward Euler. What are the differences between the two methods?
+
+
+Hints:
+
+- It's useful to first show that
+
+$$\mathbf{F}(\mathbf{y}) = \begin{pmatrix} \theta - \theta_n -h\omega \\ \omega - \omega_n + h \sin\theta \end{pmatrix}$$
+where $\mathbf{y} = (\theta,\omega)$, and
+$$\mathbf{J}(\mathbf{y}) = \begin{pmatrix} 1 & -h \\ h\cos\theta & 1  \end{pmatrix}.$$
+
+- For your first guess at each timestep, you could just take $\mathbf{y}^{(0)} = \mathbf{y}_n$.
+
+- To do the Newton iteration, you need to solve $\mathbf{J}\Delta\mathbf{y}=\mathbf{F}$. Rather than inverting the matrix, you could get the solution directly with [`np.linalg.solve`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html)
+
+
+
+:::
+
+
+
