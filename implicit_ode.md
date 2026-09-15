@@ -85,27 +85,26 @@ $$\mathbf{y}_{n+1} = \mathbf{y}_n + h \mathbf{f} (\mathbf{y}_{n+1}).$$(nonlinear
 
 to find $\mathbf{y}_{n+1}$. 
 
-One way to do this is **Newton's method**. We want to find the solution $\mathbf{y}$ to the equation
+To do this we can use **Newton's method**. Each timestep we need to find the solution $\mathbf{y}$ to the equation
 
 $$\mathbf{F}(\mathbf{y}) = \mathbf{y} - \mathbf{y}_n - h \mathbf{f}(\mathbf{y}) = 0.$$(eq:Fy)
 
-We can write this in a different way if we have an initial guess for the solution, $\mathbf{y}^{(0)}$. Then we could calculate a correction $\Delta\mathbf{y}$ that would satisfy
+The idea is to start with a guess for the solution, $\mathbf{y}^{(0)}$, and then compute a correction $\Delta\mathbf{y}$ such that
 $$\mathbf{F}(\mathbf{y}^{(0)}+ \Delta\mathbf{y}) =0.$$ 
 In Newton's method, we find an approximate $\Delta\mathbf{y}$ by writing a linear expansion
 $$\mathbf{F}(\mathbf{y}^{(0)}+ \Delta\mathbf{y}) \approx \mathbf{F}(\mathbf{y}^{(0)})+\Delta\mathbf{y}\left.{\partial\mathbf{F}\over \partial\mathbf{y}}\right|_{\mathbf{y}^{(0)}} =0.$$
-It is useful to define the Jacobian matrix $$\mathbf{J} = {\partial\mathbf{F}\over \partial\mathbf{y}},$$
+With the Jacobian matrix $$\mathbf{J} = {\partial\mathbf{F}\over \partial\mathbf{y}},$$
 which for our particular form for $\mathbf{F}(\mathbf{y})$ (given by {eq}`eq:Fy`) is
-$$\mathbf{J} = \mathbf{1} - h{\partial \mathbf{f}\over \partial \mathbf{y}}.$$
-
-The correction $\Delta \mathbf{y}$ is therefore given by solving
+$$\mathbf{J} = \mathbf{1} - h{\partial \mathbf{f}\over \partial \mathbf{y}},$$
+we can write this as
 $$\mathbf{J}(\mathbf{y}^{(0)}) \Delta \mathbf{y} = -\mathbf{F}(\mathbf{y}^{(0)}).$$
 The updated guess is then 
 $$\mathbf{y}^{(1)} = \mathbf{y}^{(0)} + \Delta\mathbf{y}.$$
-We can check how well this satisfies the equation by evaluating $\mathbf{F}(\mathbf{y}^{(1)})$ which would be zero if we had the correct solution. If the value of $\mathbf{F}(\mathbf{y}^{(1)})$ is close enough to zero, we can stop here. If not, we iterate again, solving
+We can check how well this satisfies the equation by evaluating $\left|\mathbf{F}(\mathbf{y}^{(1)})\right|$ which would be zero if we had the correct solution. If the value of $\left|\mathbf{F}(\mathbf{y}^{(1)})\right|$ is close enough to zero, we can stop here. If not, we iterate again, solving
 $$\mathbf{J}(\mathbf{y}^{(1)}) \Delta \mathbf{y} = -\mathbf{F}(\mathbf{y}^{(1)})$$
 and updating 
 $$\mathbf{y}^{(2)} = \mathbf{y}^{(1)} + \Delta\mathbf{y}.$$
-We now check $\mathbf{F}(\mathbf{y}^{(2)})$ to see whether it is close enough to zero to stop. If not, we keep iterating. And so on.
+We now check $\left|\mathbf{F}(\mathbf{y}^{(2)})\right|$ to see whether it is close enough to zero to stop. If not, we keep iterating. And so on.
 
 
 :::{admonition} Exercise: implicit method, non-linear case
@@ -133,9 +132,7 @@ $$\mathbf{J}(\mathbf{y}) = \begin{pmatrix} 1 & -h \\ h\cos\theta & 1  \end{pmatr
 
 - For your first guess at each timestep, you could just take $\mathbf{y}^{(0)} = \mathbf{y}_n$.
 
-- To do the Newton iteration, you need to solve $\mathbf{J}\Delta\mathbf{y}=\mathbf{F}$. Rather than inverting the matrix, you could get the solution directly with [`np.linalg.solve`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html)
-
-
+- To do the Newton iteration, you need to solve $\mathbf{J}\Delta\mathbf{y}=\mathbf{F}$. You could do this by inverting $\mathbf{J}$ directly or you could also call [`np.linalg.solve`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html) to solve the equation for you.
 
 :::
 
