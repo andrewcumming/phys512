@@ -132,7 +132,7 @@ $$\mathbf{J}(\mathbf{y}) = \begin{pmatrix} 1 & -h \\ h\cos\theta & 1  \end{pmatr
 
 - For your first guess at each timestep, you could just take $\mathbf{y}^{(0)} = \mathbf{y}_n$.
 
-- To do the Newton iteration, you need to solve $\mathbf{J}\Delta\mathbf{y}=\mathbf{F}$. You could do this by inverting $\mathbf{J}$ directly or you could also call [`np.linalg.solve`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html) to solve the equation for you.
+- To do the Newton iteration, you need to solve $\mathbf{J}\Delta\mathbf{y}=-\mathbf{F}$. You could do this by inverting $\mathbf{J}$ directly or you could also call [`np.linalg.solve`](https://numpy.org/doc/stable/reference/generated/numpy.linalg.solve.html) to solve the equation for you.
 
 :::
 
