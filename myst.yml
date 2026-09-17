@@ -22,10 +22,12 @@ project:
       children:
         - file: explicit_ode.md
         - file: implicit_ode.md
+        - file: symplectic.ipynb
         - file: solutions_ivp.ipynb
     - title: 'Homework'
       children:
         - file: 'hw1.md'
+        - file: 'hw2.md'
         - title: 'Project instructions'  
           file: project_instructions.md
 site:
