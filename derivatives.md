@@ -1,4 +1,4 @@
-# Example: Optimal Derivatives
+# Example: optimal derivatives
 
 ## Finite differences
 
