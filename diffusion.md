@@ -23,7 +23,7 @@ Hints:
 Once you have your code working:
 - you should see that the explicit method has a maximum timestep you can take for it to be stable. What is the corresponding value of $\alpha$?
 - implement an insulating boundary ($dT/dx=0$) at one or both ends. How does the evolution change?
-- there are fast algorithms for inverting tridiagonal (or more generally, banded) matrices. Try using `scipy.linalg.solve_banded` for this problem instead of doing the full matrix inversion. How much faster does your code run?
+- there are fast algorithms for inverting tridiagonal (or more generally, banded) matrices. Try using [`scipy.linalg.solve_banded`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_banded.html) for this problem instead of doing the full matrix inversion. How much faster does your code run?
 
 
 :::
