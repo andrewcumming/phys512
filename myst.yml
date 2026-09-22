@@ -23,6 +23,7 @@ project:
         - file: explicit_ode.md
         - file: implicit_ode.md
         - file: symplectic.ipynb
+        - file: diffusion.md
         - file: solutions_ivp.ipynb
     - title: 'Homework'
       children:
