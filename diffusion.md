@@ -4,8 +4,8 @@ The *method of lines* is a way to do time-evolution of partial differential equa
 $${\partial T\over \partial t} = D {\partial^2 T\over\partial x^2},$$
 where $T(x,t)$ is the temperature and $D$ is the thermal diffusivity. For simplicity, we'll assume $D$ is a constant, but it could depend on position or even time in more complicated examples.
 
-The idea is to follow the temperature $T$ on a grid of specific $x$ values. We'll label the grid cell by subscript $i$, so $T_i$ refers to the temperature at $x=x_i$. For simplicity, consider a uniform grid with constant spacing $\Delta x$. Then, we can use [finite differences](derivatives#finite-differences) to rewrite the derivative on the right hand side, giving
-$${\partial T_i\over \partial t} = D {T_{i+1} - 2T_i + T_{i-1}\over (\Delta x)^2}.$$
+The idea is to follow the temperature $T$ on a grid of specific $x$ values. We'll label the grid cell by subscript $i$, so $T_i(t)$ refers to the temperature at $x=x_i$. For simplicity, consider a uniform grid with constant spacing $\Delta x$. Then, we can use [finite differences](derivatives#finite-differences) to rewrite the derivative on the right hand side, giving
+$${dT_i\over dt} = D {T_{i+1} - 2T_i + T_{i-1}\over (\Delta x)^2}.$$
 We now have a set of coupled-ODEs that we can integrate forwards in time to determine $\vec{T}(t)$, where $\vec{T}$ is the vector of $T_i$ values.
 
 :::{tip} Exercise
