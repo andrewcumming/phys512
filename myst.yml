@@ -24,6 +24,7 @@ project:
         - file: implicit_ode.md
         - file: symplectic.ipynb
         - file: diffusion.md
+        - file: numerical_stability.md
         - file: solutions_ivp.ipynb
     - title: 'Homework'
       children:
