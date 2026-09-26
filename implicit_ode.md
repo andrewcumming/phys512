@@ -29,11 +29,13 @@ $$y(t+h) = y(t) - chy(t+h) \Rightarrow y(t+h) = {y(t) \over 1+ ch}.$$
 For small $ch$, this is equivalent to the explicit update. But for large $h$ there is an important difference: the implicit update behaves well in the limit of large $h$ since then $y(t+h)\rightarrow 0$, which is the correct solution for large times. Implicit methods usually have this behavior: for large steps we lose accuracy, but evolve to the correct equilibrium solution. 
 
 
-### Backward Euler
+## Backward Euler
 
 Equation {eq}`backeuler` is known as the **backward Euler** method (as opposed to the explicit *forward Euler* method that we saw earlier). This can be generalized to sets of linear and non-linear equations:
 
-**Linear equations**: For a general set of linear equations with constant coefficients,
+### Linear equations
+
+For a general set of linear equations with constant coefficients,
 
 $${d\mathbf{y}\over dt} = \dot{\mathbf{y}} =  - \mathbf{C} \mathbf{y},$$
 
@@ -75,7 +77,9 @@ C = np.array( [[-998,-1998],[999,1999]] )
 
 
 
-**Non-linear equations**: A more complicated situation is when the derivatives are non-linear, 
+### Non-linear equations
+
+A more complicated situation is when the derivatives are non-linear, 
 
 $$\dot{\mathbf{y}} =  \mathbf{f}(\mathbf{y}),$$ 
 
