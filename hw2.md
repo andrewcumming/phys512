@@ -13,7 +13,7 @@ $$y(t_n+h) \approx y(t_n) + hf_n + {h^2\over 2}\left(\left.{\partial f\over\part
 where we write $f(t_n, y(t_n))$ as $f_n$ and the partial derivatives are evaluated at $t=t_n$ and $y=y(t_n)$.
 
 (b) Use your result from part (a) to show that the explicit midpoint method has a local truncation error of $\mathcal{O}(h^3)$. Hint: do a 2-dimensional Taylor expansion of
-$$f\left(t+{h\over 2}, y(t_n) + {h\over 2}f_n\right)$$
+$$f\left(t_n+{h\over 2}, y(t_n) + {h\over 2}f_n\right)$$
 about the point $(t_n, y(t_n))$.
 
 (c) Explain why the midpoint method is described as a second order integrator even though the local truncation error is $\mathcal{O}(h^3)$. 
