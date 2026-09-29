@@ -26,12 +26,19 @@ project:
         - file: diffusion.md
         - file: numerical_stability.md
         - file: solutions_ivp.ipynb
+    - title: 'Boundary value problems'
+      children:
+        - file: wavesonastring.md
     - title: 'Homework'
       children:
         - file: 'hw1.md'
         - file: 'hw2.md'
+        - file: 'hw3.md'
         - title: 'Project instructions'  
           file: project_instructions.md
+        - title: 'Solutions'
+          children:
+            - file: solutions_hw1.ipynb
 site:
   template: book-theme
   # title:
