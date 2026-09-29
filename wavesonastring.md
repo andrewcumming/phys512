@@ -91,7 +91,7 @@ $$F^{n+1}_i = F^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0$$
 
 or going to vector notation, we can solve for an update to $\mathbf{f}$ by solving
 
-$$\mathbf{J}\mathbf{\Delta f} = \mathbf{F},$$
+$$\mathbf{J}\mathbf{\Delta f} = -\mathbf{F},$$
 
 exactly [as we did](implicit-ode#non-linear-equations) for the non-linear backwards Euler updates for the non-linear pendulum. If the initial guess is good enough, this procedure should converge on the correct solution.
 
