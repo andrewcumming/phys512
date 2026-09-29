@@ -30,8 +30,8 @@ project:
       children:
         - file: wavesonastring.md
         - title: 'Solutions'
-	  children:
-	    - file: solutions_bvp.ipynb
+          children:
+            - file: solutions_bvp.ipynb
     - title: 'Homework'
       children:
         - file: 'hw1.md'
