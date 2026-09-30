@@ -29,6 +29,7 @@ project:
     - title: 'Boundary value problems'
       children:
         - file: wavesonastring.md
+        - file: laplace.ipynb
         - file: solutions_bvp.ipynb
     - title: 'Homework'
       children:
