@@ -81,7 +81,7 @@ $$F_1 = f_1 = 0 \hspace{1cm} F_N = f_N=0,$$
 
 and $F_i$ is given by {eq}`Fdefrelax` for $i=2$ to $N-1$.
 
-Just as with the non-linear pendulum, we can find the root using Newton's method. Given a current guess $f^n_i$ and the corresponding $F^n_i$'s ($n$ labels the iteration), we make a first order Taylor expansion and set it to zero to estimate the values $f^{n+1}_i$ that will zero the $F_i$'s:
+Just as with the non-linear pendulum, let's try to find the root using Newton's method. Given a current guess $f^n_i$ and the corresponding $F^n_i$'s ($n$ labels the iteration), we make a first order Taylor expansion and set it to zero to estimate the values $f^{n+1}_i$ that will zero the $F_i$'s:
 
 $$F^{n+1}_i = F^n_i + {\partial F^n_i\over \partial f_j}(f_j^{n+1}-f_j^n) = 0.$$
 
@@ -91,9 +91,9 @@ $$F^{n+1}_i = F^n_i + J_{ij}(f_j^{n+1}-f_j^n) = 0$$
 
 or going to vector notation, we can solve for an update to $\mathbf{f}$ by solving
 
-$$\mathbf{J}\mathbf{\Delta f} = -\mathbf{F},$$
+$$\mathbf{J}\mathbf{\Delta f} = \mathbf{F},$$
 
-exactly [as we did](implicit-ode#non-linear-equations) for the non-linear backwards Euler updates for the non-linear pendulum. If the initial guess is good enough, this procedure should converge on the correct solution.
+exactly [as we did](implicit-ode#non-linear-equations) for the non-linear backwards Euler updates for the non-linear pendulum.
 
 :::{tip} Exercise: waves on a string with relaxation
 
@@ -101,5 +101,5 @@ Take one of the eigenfrequencies that you found in the previous exercise, and us
 
 Do you get good agreement with the eigenfunctions from the shooting method? How many grid points do you need to get a good solution? Does the starting guess make a difference?
 
-You can calculate the Jacobian analytically (you will see that the matrix is of tridiagonal form so fairly easy to calculate) or alternatively use finite differences. It is a good idea to take advantage of the tridiagonal form of the matrix, e.g. use [`scipy.linalg.solve_banded`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_banded.html) when doing the Newton iterations.
+You can calculate the Jacobian analytically (you will see that the matrix is of tridiagonal form so fairly easy to calculate) or alternatively use finite differences. It is a good idea to take advantage of the tridiagonal form of the matrix, e.g. use [`scipy.linalg.solve_banded`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_banded.html) to take the Newton step.
 :::
