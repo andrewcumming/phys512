@@ -114,7 +114,7 @@ i.e. in the form
 
 $$\mathbf{A}\cdot\mathbf{f} = \omega^2 \mathbf{b}\cdot\mathbf{f},$$
 
-we can use [`scipy.linalg.eigh`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh) to solve for the eigenvalues and eigenvectors directly.
+we can use [`scipy.linalg.eigh`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh) to solve for the eigenvalues and eigenvectors directly. (Here, $\mathbf(b)$ is a diagonal matrix with the vector $\rho_i$ on the diagonal).
 
 :::{tip} Exercise
 Try this. Check the results for a constant density string first and then try $\rho=1+10(x/L)^2$. Compare the mode frequencies and eigenfunctions you get to the other methods.
