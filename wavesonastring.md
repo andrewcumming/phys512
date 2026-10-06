@@ -103,3 +103,19 @@ Do you get good agreement with the eigenfunctions from the shooting method? How 
 
 You can calculate the Jacobian analytically (you will see that the matrix is of tridiagonal form so fairly easy to calculate) or alternatively use finite differences. It is a good idea to take advantage of the tridiagonal form of the matrix, e.g. use [`scipy.linalg.solve_banded`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.solve_banded.html) to take the Newton step.
 :::
+
+## Solving the eigenvalue problem
+
+If we write the difference equation as
+
+$$f_{i-1} -2f_i + f_{i+1} = - (\Delta x)^2 \omega^2 \rho_i f_i,$$
+
+i.e. in the form
+
+$$\mathbf{A}\cdot\mathbf{f} = \omega^2 \mathbf{b}\cdot\mathbf{f},$$
+
+we can use [`scipy.linalg.eigh`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.linalg.eigh.html#scipy.linalg.eigh) to solve for the eigenvalues and eigenvectors directly.
+
+:::{tip} Exercise
+Try this. Check the results for a constant density string first and then try $\rho=1+10(x/L)^2$. Compare the mode frequencies and eigenfunctions you get to the other methods.
+:::
