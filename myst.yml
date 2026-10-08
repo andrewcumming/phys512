@@ -30,6 +30,7 @@ project:
       children:
         - file: wavesonastring.md
         - file: laplace.ipynb
+        - file: sparse.ipynb
         - file: solutions_bvp.ipynb
     - title: 'Homework'
       children:
