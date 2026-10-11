@@ -43,6 +43,7 @@ project:
           children:
             - file: solutions_hw1.ipynb
             - file: solutions_hw2.ipynb
+            - file: solutions_hw3.ipynb
 site:
   template: book-theme
   # title:
