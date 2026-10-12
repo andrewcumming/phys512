@@ -32,7 +32,7 @@ Note that these are both second order accurate. In this case, the first derivati
 
 ## Optimal step size
 
-What is the optimal step size $\Delta x$ to choose when evaluating the numerical derivative? Clearly, a smaller $\Delta x$ will improve the accuracy of our approximate expressions. However, we must also consider round off error. Each function evaluation has an associated roundoff error of typical size $\epsilon$ (positive or negative). In general, we can expect the difference $f(x+\Delta x) - f(x)$ to have a roundoff error $\sim \epsilon$. The total error from the first order derivative is therefore 
+What is the optimal step size $\Delta x$ to choose when evaluating the numerical derivative? Clearly, a smaller $\Delta x$ will improve the accuracy of our approximate expressions. However, we must also consider round off error. Each function evaluation has an associated roundoff error of typical size $\epsilon$ (positive or negative). In general, we can expect the difference $f(x+\Delta x) - f(x)$ to have a roundoff error $\sim \epsilon f(x)$. The total error from the first order derivative is therefore 
 
 $$\mathrm{total\ error}\approx {\epsilon f(x)\over \Delta x} + {\Delta x f^{\prime\prime}\over 2},$$
 
