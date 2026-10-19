@@ -44,6 +44,7 @@ project:
             - file: solutions_hw1.ipynb
             - file: solutions_hw2.ipynb
             - file: solutions_hw3.ipynb
+            - file: solutions_midterm.md
 site:
   template: book-theme
   # title:
