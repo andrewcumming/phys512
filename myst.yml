@@ -37,6 +37,7 @@ project:
         - file: 'hw1.md'
         - file: 'hw2.md'
         - file: 'hw3.md'
+        - file: 'hw4.md'
         - title: 'Project instructions'  
           file: project_instructions.md
         - title: 'Solutions'
