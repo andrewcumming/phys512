@@ -36,6 +36,7 @@ project:
       children:
         - file: polynomials1.ipynb
         - file: polynomials2.ipynb	
+        - file: solutions_fitting_data.ipynb
     - title: 'Homework'
       children:
         - file: 'hw1.md'
