@@ -32,6 +32,10 @@ project:
         - file: laplace.ipynb
         - file: sparse.ipynb
         - file: solutions_bvp.ipynb
+    - title: 'Fitting data'
+      children:
+        - file: polynomials1.ipynb
+        - file: polynomials2.ipynb	
     - title: 'Homework'
       children:
         - file: 'hw1.md'
