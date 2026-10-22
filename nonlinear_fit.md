@@ -88,7 +88,7 @@ The following function takes a vector of parameters for the Lorentzian $\mathbf{
         return f, A
 ```
 
-In this function, we populate the matrix $\mathbf{A}$ with the derivatives of the Lorentzian with respect to each of the parameters. As usual, for simplicity we assume constant errors $\sigma_i$ so that they cancel out of the equations.
+In this function, we populate the matrix $\mathbf{A}$ with the derivatives of the Lorentzian with respect to each of the parameters. For simplicity we assume constant errors $\sigma_i$ so that they cancel out of the equations.
 
 Now generate a set of measurements including some Gaussian noise:
 ``` python
