@@ -11,9 +11,9 @@ We'll first discuss Newton's method and its application to least-squares, and th
 
 Previously we used Newton's method to step towards the root of a function. We can apply a similar idea to step towards the minimum of a function instead. To illustrate how this works, consider a one-dimensional function $f(x)$. We would like to find the value of $x$ that minimises $f(x)$. Given a current guess for the location of the minimum, $x_n$, we first write down a quadratic expansion around $x_n$:
 
-$$f(x) = f(x_n) + (x-x_n) \left.{df\over dx}\right|_{x_n} + {(x-x_n)^2\over 2} \left.{d^2f\over dx^2}\right|_{x_n}.$$
+$$f(x) = f(x_n) + (x-x_n) \left.{df\over dx}\right|_{x_n} + {(x-x_n)^2\over 2} \left.{d^2f\over dx^2}\right|_{x_n}.\label{eq:expand1}$$
 
-We find an updated value for the location of the minimum $x_{n+1}$ by minimizing this quadratic expansion: 
+We find an updated value for the location of the minimum $x_{n+1}$ by minimizing this quadratic expansion. Differentiate equation {eq}`eq:expand1` with respect to $x$ and set to zero:
 
 $${df\over dx}=0 \Rightarrow \left.{df\over dx}\right|_{x_n} + (x_{n+1} -x_n) \left.{d^2f\over dx^2}\right|_{x_n}=0$$
 
@@ -88,7 +88,7 @@ The following function takes a vector of parameters for the Lorentzian $\mathbf{
         return f, A
 ```
 
-In this function, we populate the matrix $\mathbf{A}$ with the derivatives of the Lorentzian with respect to each of the parameters. For simplicity we assume constant errors $\sigma_i$ so that they cancel out of the equations.
+In this function, we populate the matrix $\mathbf{A}$ with the derivatives of the Lorentzian with respect to each of the parameters. As usual, for simplicity we assume constant errors $\sigma_i$ so that they cancel out of the equations.
 
 Now generate a set of measurements including some Gaussian noise:
 ``` python
@@ -113,7 +113,7 @@ You might have noticed in the exercise that Newton's method doesn't always conve
 
 - Define a parameter $\lambda$ with a small starting value, e.g. $\lambda=10^{-3}$.
 
-- Solve as with Newton's method, but multiply the diagonal elements of $\mathbf{A^T}\mathbf{A}$ by $(1+\lambda)$. For example you could write `A.T@A@(np.identity(len(a))*(1+lambda))`.
+- Solve as with Newton's method, but multiply the diagonal elements of $\mathbf{A^T}\mathbf{A}$ by $(1+\lambda)$. For example you could write `A.T@A*(1+np.identity(len(a))*lambda)`.
 
 - If $\chi^2$ with the new parameters $\mathbf{a}_{n+1}$ is greater than with the current set of parameters $\mathbf{a}_n$, then increase $\lambda$ by a factor of 10, go back to $\mathbf{a}_n$ and try again.
 
