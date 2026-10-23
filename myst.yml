@@ -38,7 +38,7 @@ project:
         - file: polynomials2.ipynb	
         - file: nonlinear_fit.md	
         - file: solutions_fitting_data.ipynb
-    - title: 'Homework'
+    - title: 'Assignments'
       children:
         - file: 'hw1.md'
         - file: 'hw2.md'
@@ -46,12 +46,12 @@ project:
         - file: 'hw4.md'
         - title: 'Project instructions'  
           file: project_instructions.md
-        - title: 'Solutions'
+        - title: 'Homework solutions'
           children:
             - file: solutions_hw1.ipynb
             - file: solutions_hw2.ipynb
             - file: solutions_hw3.ipynb
-            - file: solutions_midterm.md
+        - file: solutions_midterm.md
 site:
   template: book-theme
   # title:
