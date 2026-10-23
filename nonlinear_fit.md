@@ -7,6 +7,8 @@ $$\chi^2 = \sum_{i=1}^N \left[{y_i - m(x_i, \mathbf{a})\over \sigma_i}  \right]^
 with respect to variations in the parameters $\mathbf{a}$.
 We'll first discuss Newton's method and its application to least-squares, and then a generalization of this method, Levenberg-Marquardt.
 
+## Newton's method
+
 :::{seealso} Newton's method
 
 Previously we used Newton's method to step towards the root of a function. We can apply a similar idea to step towards the minimum of a function instead. To illustrate how this works, consider a one-dimensional function $f(x)$. We would like to find the value of $x$ that minimises $f(x)$. Given a current guess for the location of the minimum, $x_n$, we first write down a quadratic expansion around $x_n$:
