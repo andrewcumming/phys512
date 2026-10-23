@@ -125,5 +125,7 @@ The way this works is that if things are going well ($\chi^2$ is decreasing) the
 
 Update your Lorentzian fitting routine to use Levenberg-Marquardt. Try it out and see whether it fixes the convergence issues you were seeing with Newton's method.
 
+Try adding the option to the `lorentz` function to compute the design matrix elements using finite differences rather than using analytic derivatives. To do this you can perturb the parameters vector `a` by a small amount `b = a * (1+eps)` and then compute how much the Lorentzian function changes when each parameter changes. This can be useful when you are fitting a complex function whose derivative is difficult to compute analytically.
+
 Finally, try doing the fit using [`scipy.optimize.least_squares`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.least_squares.html) instead. 
 :::
