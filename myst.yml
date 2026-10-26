@@ -38,6 +38,12 @@ project:
         - file: polynomials2.ipynb	
         - file: nonlinear_fit.md	
         - file: solutions_fitting_data.ipynb
+    - title: 'Machine learning in Physics'
+      children:
+        - title: 'Slides'
+          file: ml_lecture1.md
+        - title: 'Exercises'
+          file: ml_exercises.ipynb
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
