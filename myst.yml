@@ -42,8 +42,10 @@ project:
       children:
         - title: 'Slides'
           file: ml_lecture1.md
-        - title: 'Exercises'
+        - title: 'Exercises 1'
           file: ml_exercises.ipynb
+        - title: 'Exercises 2'
+          file: ml_exercises2.ipynb
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
