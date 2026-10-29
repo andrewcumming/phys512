@@ -7,6 +7,8 @@ project:
   authors: []
   # github:
   # bibliography: []
+  resources:
+    - rvs.txt
   toc:
     - file: index.md
     - title: 'Course outline'
