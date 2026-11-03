@@ -48,6 +48,11 @@ project:
           file: ml_exercises.ipynb
         - title: 'Exercises 2'
           file: ml_exercises2.ipynb
+    - title: 'Random numbers'
+      children:
+        - file: random.ipynb
+        - file: prob_distributions.md
+        - file: solutions_random.ipynb
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
