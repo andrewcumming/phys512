@@ -52,6 +52,7 @@ project:
       children:
         - file: random.ipynb
         - file: prob_distributions.md
+        - file: mcmc.md
         - file: solutions_random.ipynb
     - title: 'Assignments'
       children:
