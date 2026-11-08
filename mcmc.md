@@ -1,6 +1,6 @@
 # Markov Chain Monte Carlo
 
-Another way to sample a probability distribution is to use a **Markov Chain Monte Carlo** method. In these methods, we generate a sequence (or chain) of $x$ values that sample a given probability distribution $f(x)$. Each sample $x_i$ is generated from the previous one $x_{i-1}$ in some probabilistic way, so $x_i$ depends only on the state before it $x_{i-1}$ (this is the Markov chain part). By choosing the dependence of $x_i$ on $x_{i-1}$ in an appropriate way, we can generate a sequence $\{x_i\}$ that are random samples from any given probability distribution $f(x)$.
+Another way to sample a probability distribution is to use a **Markov Chain Monte Carlo** method. In these methods, we generate a sequence (or chain) of $x$ values that sample a given probability distribution $f(x)$. Each sample $x_i$ is generated from the previous one $x_{i-1}$ in some probabilistic way, so $x_i$ depends only on the state before it $x_{i-1}$ (this is the Markov chain part). By choosing the dependence of $x_i$ on $x_{i-1}$ in an appropriate way, we can generate a sequence $\{x_i\}$ that samples from any given probability distribution $f(x)$.
 
 ## Metropolis-Hastings algorithm
 
