@@ -67,7 +67,6 @@ def run_chain(N, x0, metropolis=True):
 
 Note that this is written to support multi-dimensional distributions. You pass the initial location as a vector `x0`. So for a 2D distribution $f(x,y)$ for example, if you start the chain at $x=2$, $y=3$, then pass the vector `x0 = (2,3)`.
 
-
 :::{tip} Exercise
 
 Use this code to sample $10^4$ points from a 2D skewed Gaussian distribution defined as follows:
