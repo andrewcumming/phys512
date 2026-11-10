@@ -9,13 +9,13 @@ $$\mathrm{Prob}(x) \propto e^{-U(x)}.$$
 We can make this our target distribution $f(x)$ if we define
 $$U(x) = -\ln f(x).$$
 
-To do this, we can use the Metropolis algorithm. We know that the distribution of $p$ should be Gaussian, so we can just sample that directly. At any starting value of $x$, we choose a momentum $p$ from a Gaussian distribution. Then to propose a step, rather than use a Gaussian proposal distribution as we did for Metropolis last time, instead we can take advantage of the fact that we know how to evolve $x$ and $p$ in a way that conserves $H$. If we identify $H$ as the Hamiltonian of a system (obviously we had this in mind all along which is why we wrote $H(x,p)=U(x)+p^2/2$), then the evolution is given by Hamilton's equations
+To generate the sample from the distribution $e^{-H(x,p)}$, we can use the Metropolis algorithm. We know that the distribution of $p$ should be Gaussian, so we can sample that directly: at each step, we choose a momentum $p$ from a Gaussian distribution. Then to propose a step, rather than use a Gaussian proposal distribution as we did for Metropolis last time, instead we can take advantage of the fact that we know how to evolve $x$ and $p$ in a way that conserves $H$. If we identify $H$ as the Hamiltonian of a system (obviously we had this in mind all along which is why we wrote $H(x,p)=U(x)+p^2/2$), then the evolution is given by Hamilton's equations
 $${dx\over dt} = {\partial H\over \partial p} = p;\hspace{1cm} {dp\over dt} = -{\partial H\over \partial x} = -{\partial U\over \partial x}.$$
 We know how to integrate these numerically in a way that conserves energy: we can use a symplectic integrator such as leapfrog,
 $$p_{n+1/2} = p_n - {\Delta t\over 2} \left.{\partial U\over\partial x}\right|_{x=x_n}$$
 $$x_{n+1} = x_n + \Delta t\, p_{n+1/2}$$
 $$p_{n+1} = p_{n+1/2} - {\Delta t\over 2} \left.{\partial U\over\partial x}\right|_{x=x_{n+1}}.$$
-The idea then is to take a step in parameter space by integrating these equations forward in time (say for a time $n_\mathrm{steps}\Delta t$ to go from a starting location $(x,p)$ to a new location $(x^\prime,p^\prime)$. This is the proposed jump. The key thing is that the integration will conserve energy up to some numerical error, so the value of $e^{-H(x^\prime,p^\prime)}$ will be very close to the starting value $e^{-H(x,p)}$ as long as we take small enough timesteps in the Leapfrog integration. This means that the acceptance probability will be close to 1. This should be a very efficient method!
+The idea then is to take a step in parameter space by integrating these equations forward in time (say for a time $n_\mathrm{steps}\Delta t$ to go from a starting location $(x,p)$ to a new location $(x^\prime,p^\prime)$. This is the proposed jump. The key thing is that the integration will conserve energy up to some numerical error, so the value of $e^{-H(x^\prime,p^\prime)}$ will be very close to the starting value $e^{-H(x,p)}$ as long as we take small enough timesteps in the Leapfrog integration. This means that when we evaluate the Metropolis acceptance probability it will be close to 1. This should be a very efficient method!
 
 Here is some code that implements this as well as the traditional Gaussian proposal step for comparison:
 
@@ -55,9 +55,8 @@ def run_chain(N, x0, metropolis=True):
                 p1 = p1 - 0.5 * dt * gradU(x1)
             
             H1 = U(x1) + 0.5*p1@p1
-            alpha = np.exp(H-H1)
             u = rng.uniform()
-            if u<=alpha:
+            if u <= np.exp(H-H1):
                 x[i+1] = x1
                 count = count + 1
             else:
