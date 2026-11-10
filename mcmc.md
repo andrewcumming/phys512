@@ -95,7 +95,8 @@ figure = corner.corner(x,
 
 ## Further reading
 
+- Metropolis (1953) [Equation of State Calculations by Fast Computing
+Machines](https://pubs.aip.org/aip/jcp/article/21/6/1087/202680/Equation-of-State-Calculations-by-Fast-Computing)
 
 - A book I like on Monte Carlo methods is [Monte Carlo methods in statistical physics](https://mcgill.on.worldcat.org/search/detail/40927360?datasource=library_web&search_field=all_fields&search=true&database=all&scope=wz%3A12129&format=&clusterResults=on&func=find-b&q=&topLod=0&queryString=newman%20barkema&find=Go) by Newman & Barkema, but unfortunately there is no ebook version. A more modern alternative is Binder & Heerman [Monte Carlo simulation in statistical physics : an introduction](https://mcgill.on.worldcat.org/oclc/1101173204).
-
 
