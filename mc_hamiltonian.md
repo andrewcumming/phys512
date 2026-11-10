@@ -21,7 +21,8 @@ Here is some code that implements this as well as the traditional Gaussian propo
 
 ::: python
 def run_chain(N, x0, metropolis=True):
-    x = np.zeros((N,len(x0)))
+    ndim = len(x0)
+    x = np.zeros((N,ndim))
     x[0] = x0  # starting point
     
     count = 0  # count accepted jumps
@@ -34,7 +35,7 @@ def run_chain(N, x0, metropolis=True):
     
         if metropolis:
             # Metropolis
-            x_try = x[i] + rng.normal(size=2, scale=2)
+            x_try = x[i] + rng.normal(size=ndim, scale=2)
             u = rng.uniform()
             if u <= f(x_try) / f(x[i]):
                 x[i+1] = x_try
@@ -44,7 +45,7 @@ def run_chain(N, x0, metropolis=True):
     
         else:
             # Hamiltonian
-            p = rng.normal(size=2, scale=1)
+            p = rng.normal(size=ndim, scale=1)
             H = U(x[i]) + 0.5*p@p
     
             x1 = np.copy(x[i])
