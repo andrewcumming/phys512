@@ -56,6 +56,9 @@ project:
         - file: mc_hamiltonian.md
         - file: mc_integration.md
         - file: solutions_random.ipynb
+    - title: 'Spectral methods'
+      children:
+        - file: dft.md
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
