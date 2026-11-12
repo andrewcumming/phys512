@@ -6,11 +6,13 @@ So for example, the mean $x$-value would be just
 $$\langle x\rangle \approx {1\over N}\sum_i x_i.$$
 
 We can use this idea to do integrals. For example, imagine that we have a function $g(x)$ that we need to integrate and a distribution $f(x)$ that we can draw samples from. Then write
-$$\int g(x) dx = \int f(x) {g(x)\over f(x)} dx \approx {1\over N}\sum_i {g(x_i)\over f(x_i)}.$$
+$$\int g(x) dx = \int f(x) {g(x)\over f(x)} dx \approx {1\over N}\sum_i {g(x_i)\over f(x_i)}.\label{eq:mcintgeneral}$$
 
 A simple case would be to take a uniform distribution for $f(x)$. For integration limits from $x=a$ to $x=b$, the normalized distribution is $f(x) = 1/(b-a)$. Therefore we can write
-$$\int_a^b g(x) dx \approx {b-a\over N} \sum_i g(x_i),$$
+$$\int_a^b g(x) dx \approx {b-a\over N} \sum_i g(x_i),\label{eq:uniformmcint}$$
 where the $\{x_i\}$ are uniformly-distributed between $x=a$ and $x=b$. The most efficient solution is to take $f(x)$ to be as close to $g(x)$ as possible, so that the samples are concentrated in the regions where they contribute most to the integral.
+
+It might be useful to compare this with a finite-difference approximation to the integral where we choose a uniformly-spaced set of $x$ values, with constant spacing $\Delta x$. Then we could write the integral as a sum $\int g(x) dx\approx \sum_i g(x_i) \Delta x$, where this becomes exact in the limit $\Delta x\rightarrow 0$. For integration limits $a$ and $b$ and with $N$ points, then $\Delta x = (b-a)/N$ and we get back to equation {eq}`eq:uniformmcint` just with regularly spaced $x_i$ values. Comparing with equation {eq}`eq:mcintgeneral`, we see that the term $1/(Nf(x_i))$ is playing the role of $\Delta x$. We can think of that factor as the effective $\Delta x$ (on average) at location $x_i$.
 
 We can also get an estimate for the error bar on our answer. Since the value for the integral is the mean value of the $N$ samples of $g(x)/f(x)$, ie. $I=\langle g/f\rangle$, we can estimate the error as the error in the mean $\sigma_I$ given by 
 $$\sigma_I^2 = {1\over N}\mathrm{Var}(g/f) = {1\over N}(\langle \left({g/f}\right)^2\rangle - \langle {g/f}\rangle^2).$$
@@ -20,7 +22,7 @@ $$\sigma_I^2 = {1\over N}\mathrm{Var}(g/f) = {1\over N}(\langle \left({g/f}\righ
 
 Calculate the Monte Carlo estimate for the integral of $\exp(-\left|x\right|^3)$ between $x=0$ and $\infty$. 
 
-Use both uniform sampling of $x$ (in which case you will have to put in an upper limit on the $x$-value), and Gaussian sampling of $x$. 
+Use $x$ values sampled from a uniform distribution (in which case you will have to put in an upper limit on the $x$-value), and from a Gaussian distribution. For the Gaussian distribution, be careful to normalize correctly: since we are doing the integration from $0$ to $\infty$, we need a one-sided Gaussian.
 
 In each case, take the number of samples to be $N=10^4$ and repeat the integration 1000 times. Plot a histogram of the values of the integral that you obtain. Calculate the mean and standard deviation of the values. Compare with the error in the mean $\sigma_I$ from one of your integrations.
 
