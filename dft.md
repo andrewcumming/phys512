@@ -56,4 +56,15 @@ Useful functions:
 - [numpy.fft.fftfreq](https://numpy.org/doc/stable/reference/generated/numpy.fft.fftfreq.html) - an easy way to get a list of the $k_x$ or $k_y$ values
 - [numpy.fft.ifft2](https://numpy.org/doc/stable/reference/generated/numpy.fft.ifft2.html) - compute the inverse transform
 
+Some hints:
+
+
+- the DFT is returned as an array of complex variables (see [numpy datatypes](https://numpy.org/doc/stable/user/basics.types.html)). Useful functions are [numpy.real](https://numpy.org/doc/stable/reference/generated/numpy.real.html), [numpy.imag](https://numpy.org/doc/stable/reference/generated/numpy.imag.html), [numpy.angle](https://numpy.org/doc/stable/reference/generated/numpy.angle.html), and [numpy.abs](https://numpy.org/doc/stable/reference/generated/numpy.absolute.html#numpy.absolute) to get the real and imaginary parts, the argument and absolute value/modulus of the complex number
+- the ordering of the $k$ vectors is $k=0$ first, then the positive $k$ vectors from small to large, followed by the negative $k$ vectors from most negative back up towards $k=0$. (This is why [numpy.fft.fftshift](https://numpy.org/doc/stable/reference/generated/numpy.fft.fftshift.html) is useful to shift the $k=0$ mode into the centre.)
+- you should find that the values of $k$ ordered from most negative to most positive are given by
+
+$${k\over (2\pi/\Delta x)} =  -{1\over 2}, -{1\over 2}+{1\over N}, \dots, 0, {1\over N}, {2\over N}, \dots, {1\over 2}-{1\over N}$$
+
+where $N$ is the number of grid points. The resolution in $k$-space is $2\pi/(N\Delta x)$, i.e. the width of the domain sets the smallest $k$ difference that we can resolve. The largest $k$ value is $\pi/\Delta x$ which corresponds to a wavelength $\lambda = 2\Delta x$ (this corresponds to the Nyquist frequency).
+
 :::
