@@ -59,6 +59,7 @@ project:
     - title: 'Spectral methods'
       children:
         - file: dft.md
+        - file: dft2.md
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
