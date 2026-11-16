@@ -24,7 +24,7 @@ For a function $f(x)$
 
 :::{tip} Exercise: Convolution with DFT
 
-Write a function to calculate the convolution of two functions $f(x)$ and $g(x)$ using the fact that the Fourier transform of the convolution is equal to the product of the Fourier transforms of the two functions ([convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem)). Try it with a Gaussian and a top hat for example.
+Write a function to calculate the convolution of two functions $f(x)$ and $g(x)$ using the fact that the Fourier transform of the convolution is equal to the product of the Fourier transforms of the two functions ([convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem)). Try it with a Gaussian and a top hat for example. You can compare your result with [`scipy.signal.convolve`](https://docs.scipy.org/doc/scipy/reference/generated/scipy.signal.convolve.html).
 :::
 
 :::{tip} Exercise: Red noise generator
