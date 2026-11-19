@@ -38,7 +38,7 @@ represents the delay introduced by scattering (scattered waves travel a longer p
 
 (a) Write a function that calculates the convolution of two discretely-sampled functions directly, using a sum to approximate the convolution integral. If both functions have $n$ grid points, show that the convolution has $2n-1$ values. Use your function to calculate the FRB shape $h(t)$ for different values of $\tau/\sigma$.
 
-(b) Implement the convolution using Fourier transforms. Use zero-padding (call `numpy.fft.fft` with the parameter) so that your convolution has the correct number $2n-1$ of values. Compare your answer with part (a).
+(b) Implement the convolution using Fourier transforms. Use zero-padding (call `numpy.fft.fft` with the parameter `n`) so that your convolution has the correct number $2n-1$ of values. Compare your answer with part (a).
 
 (c) Investigate what happens if you don't zero-pad the Fourier transforms in part (b).
 
