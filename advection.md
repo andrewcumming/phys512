@@ -19,11 +19,10 @@ Solve equation {eq}`eq:adv_fourier` with a constant velocity $v=1$. Your goal sh
 Use a grid from $x=0$ to $x=1$ with periodic boundary conditions. Note that because the boundary conditions are periodic, the point $x=1$ is the same as $x=0$, so you don't need to include $x=1$ on your grid. You can achieve this using `x = np.linspace(0, 1, n, endpoint=False)`.
 
 For the time-update, try explicit, implicit or semi-implicit time updates 
-
 $$g^{n+1} = g^n \left( 1 + {\dot{g}\over g} \Delta t\right)$$
 $$g^{n+1} = g^n \left( 1 - {\dot{g}\over g} \Delta t\right)^{-1}$$
-$$g^{n+1} = g^n \left( 1 - {\dot{g}\over g} {\Delta t\over 2}\right)^{-1}\left( 1 + {\dot{g}\over g} {\Delta t\over 2}\right)$$
-
+$$g^{n+1} = g^n \left( 1 - {\dot{g}\over g} {\Delta t\over 2}\right)^{-1}\left( 1 + {\dot{g}\over g} {\Delta t\over 2}\right),$$
+where $\dot{g}/g = -ikv$.
 It is useful to write the timestep as
 $$\Delta t = \alpha\ {\Delta x\over v}$$
 for some constant $\alpha$.
