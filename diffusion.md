@@ -1,6 +1,6 @@
 # Diffusion equation
 
-The *method of lines* is a way to do time-evolution of partial differential equations in which we turn the PDE into a set of ODEs. To see how this works, consider the thermal diffusion equation 
+The **method of lines** is a way to do time-evolution of partial differential equations in which we turn the PDE into a set of ODEs. To see how this works, consider the thermal diffusion equation 
 $${\partial T\over \partial t} = D {\partial^2 T\over\partial x^2},$$
 where $T(x,t)$ is the temperature and $D$ is the thermal diffusivity. For simplicity, we'll assume $D$ is a constant, but it could depend on position or even time in more complicated examples.
 
