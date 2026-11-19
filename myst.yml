@@ -70,6 +70,7 @@ project:
         - file: 'hw4.md'
         - file: 'hw5.md'
         - file: 'hw6.md'
+        - file: 'hw7.md'
         - title: 'Project instructions'  
           file: project_instructions.md
         - title: 'Homework solutions'
