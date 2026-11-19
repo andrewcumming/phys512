@@ -10,9 +10,9 @@ $$T^{n+1}_j = \alpha T^n_{j-1} + (1-2\alpha) T^n_j +\alpha T^n_{j+1}.$$(explicit
 
 To check the stability of the method, we look for a solution
 
-$$T^n_j = \xi^n e^{ikx} = \xi^n e^{ik(j\Delta x)}.$$
+$$T^n_j = \xi^n e^{ikx} = \xi^n e^{ik(j\Delta x)},$$
 
-The idea is that if $|\xi|>1$ for any wavevector $k$ then the scheme is unstable because $T_j$ will grow exponentially with time.
+where $\xi$ is a complex number. The idea is that if the magnitude of $\xi$ is larger than 1 ($|\xi|>1$) for any wavevector $k$ then the scheme is unstable because $T_j$ will grow exponentially with time.
 
 Substituting this solution into equation {eq}`explicit` gives
 
