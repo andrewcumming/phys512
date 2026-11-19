@@ -60,6 +60,7 @@ project:
       children:
         - file: dft.md
         - file: dft2.md
+        - file: solutions_spectral.ipynb
     - title: 'Assignments'
       children:
         - file: 'hw1.md'
