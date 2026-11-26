@@ -13,7 +13,7 @@ $$f{\partial f\over \partial x} = {1\over (2\pi)^2} \int dk^\prime dk^{\prime\pr
 Now multiply this by 
 $$\int dk\ e^{-ikx}$$
 and use
-$$\delta(k_0-k) = {1\over 2\pi} \int dk\ e^{i(k_0-k)},$$
+$$\delta(k_0-k) = {1\over 2\pi} \int dx\ e^{i(k_0-k)x},$$
 which will extract the $k$-component:
 $$\int f{\partial f\over \partial x} e^{-ikx} dx = 
 {1\over 2\pi} \int dk^\prime dk^{\prime\prime} g(k^\prime) g(k^{\prime\prime}) ik^{\prime\prime} \delta(k^\prime + k^{\prime\prime} - k)$$
