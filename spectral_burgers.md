@@ -11,7 +11,7 @@ $$f(x) = {1\over 2\pi} \int dk\ g(k) e^{ikx}$$
 (where the normalization matches the `numpy.fft` convention), the non-linear term is
 $$f{\partial f\over \partial x} = {1\over (2\pi)^2} \int dk^\prime dk^{\prime\prime} g(k^\prime) g(k^{\prime\prime}) ik^{\prime\prime} e^{i(k^\prime+k^{\prime\prime})x}$$
 Now multiply this by 
-$$\int dk\ e^{-ikx}$$
+$$\int dx\ e^{-ikx}$$
 and use
 $$\delta(k_0-k) = {1\over 2\pi} \int dx\ e^{i(k_0-k)x},$$
 which will extract the $k$-component:
