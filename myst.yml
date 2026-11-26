@@ -62,6 +62,7 @@ project:
         - file: dft2.md
         - file: advection.md
         - file: spectral_chebyshev.md
+        - file: spectral_burgers.md
         - file: solutions_spectral.ipynb
     - title: 'Assignments'
       children:
