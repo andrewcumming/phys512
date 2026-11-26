@@ -15,7 +15,7 @@ $$\int dk\ e^{-ikx}$$
 and use
 $$\delta(k_0-k) = {1\over 2\pi} \int dk\ e^{i(k_0-k)},$$
 which will extract the $k$-component:
-$$\int f{\partial f\over \partial x} e^{ikx} dx = 
+$$\int f{\partial f\over \partial x} e^{-ikx} dx = 
 {1\over 2\pi} \int dk^\prime dk^{\prime\prime} g(k^\prime) g(k^{\prime\prime}) ik^{\prime\prime} \delta(k^\prime + k^{\prime\prime} - k)$$
 $$ = {1\over 2\pi} \int dk^\prime g(k^\prime) g(k-k^\prime) i (k-k^\prime).$$
 
