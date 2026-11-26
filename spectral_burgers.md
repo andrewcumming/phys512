@@ -38,6 +38,8 @@ The last term in equation {eq}`eq:burgerdgdt` can be evaluated as `-convolution(
 
 Evolve for a time $t=0.1$ and see what happens. You can try $D=10^{-6}$ to effectively turn off diffusion or $D=10^{-3}$ to include diffusion. What difference does it make?
 
+What happens if you integrate longer than $t=0.1$ with and without diffusion?
+
 You can also try adding a constant to the sinusoid profile, eg. $f(x,0) = 1 + A\sin(4\pi x)$ where $A$ is the wave amplitude.
 
 :::
