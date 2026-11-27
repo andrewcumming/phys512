@@ -84,7 +84,7 @@ project:
             - file: solutions_hw5.ipynb
             - file: solutions_hw6.ipynb
         - file: solutions_midterm.md
-	- file: q.md
+        - file: q.md
 site:
   template: book-theme
   # title:
